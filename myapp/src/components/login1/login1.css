@@ -20,4 +20,5 @@
     max-width: 100px;
     margin: 5px;
     box-sizing: border-box;
+    cursor: pointer;
 }
