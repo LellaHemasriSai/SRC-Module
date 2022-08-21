@@ -15,7 +15,7 @@ body {
     cursor: pointer;
 }
 
-.container {
+.sec .container {
     box-sizing: border-box;
     width: 360px;
     height: 355px;
