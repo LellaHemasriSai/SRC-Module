@@ -1,40 +1,78 @@
-body{
-    text-align: center;
+.header {
+    background: hsl(216, 62%, 52%);
+    color: white;
+
 }
-.container{
-    display: inline-block;
-}
-p{
-    display: inline-block;
-}
-.search{
-    float: inline-end;
-    margin: 7px;
-}
-.search input[type=text]{
-    border-radius: 15px;
+
+
+input {
+    border-radius: 50px;
+    box-sizing: border-box;
+
+    background: #FFFFFF;
+    border: 3px solid #FFFFFF;
+    height: 30px;
     width: 300px;
-    height: 25px;
+
 }
-.search button {
-    color: #f2f2f2;
-    padding: 5px 10px;
-    margin-right: 16px;
-    font-size: 12px;
-    border: none;
-    cursor: pointer;
+input:focus{
+    border: #FFFFFF;
+    outline: none;
 }
-.tables{
-    width: 100%;
+.space {
+    width: 4px;
+    height: auto;
+    display: inline-block;
 }
-table,
-th {
-    border: 1px solid black;
-    border-collapse: collapse;
+
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: arial, sans-serif;
+    font-style: normal;
+    background-color: #dde1eb;
 }
-th{
+
+.container {
     text-align: center;
 }
-tr:nth-child(even) {
-    background-color: #E0E0E0;
+
+p {
+
+    display: inline-block;
+    text-align: center;
+}
+
+table {
+    background: #FFFFFF;
+    border: 1px solid #FFFFFF;
+    border-collapse: collapse;
+    width: 100%;
+
+    text-align: center;
+
+}
+
+th {
+    font-family: arial, sans-serif;
+    font-style: normal;
+    align-items: center;
+    border: 1px solid #dddddd;
+    border-collapse: collapse;
+    padding: 10px;
+    text-align: center;
+    background-color: #3876D0;
+    color: #FFFFFF;
+
+}
+
+td {
+    font-family: arial, sans-serif;
+    font-style: normal;
+    border: 1px solid #dddddd;
+    border-collapse: collapse;
+    padding: 8px;
+    text-align: center;
+    color: black;
 }
