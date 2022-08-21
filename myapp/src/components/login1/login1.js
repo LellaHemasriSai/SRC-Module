@@ -2,17 +2,17 @@ import React from "react";
 import "../login1/login1.css";
 import logo from './logo.png'
 
-/*function onClickStudent() {
-    window.location.href = "../login2/login2_stu.html";
-}
+// function onClickStudent() {
+//     window.location.href = "../login2/login2_stu.html";
+// }
 
-function onClickStaff() {
-    window.location.href = "../login2/login2_fac.html";
-}
+// function onClickStaff() {
+//     window.location.href = "../login2/login2_fac.html";
+// }
 
-function onClickAdmin() {
-    window.location.href = "../login2/login2_Ad.html";
-}*/
+// function onClickAdmin() {
+//     window.location.href = "../login2/login2_Ad.html";
+// }
 
 const Login1 = () => {
     return (
