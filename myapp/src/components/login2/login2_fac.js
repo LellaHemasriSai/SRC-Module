@@ -1,6 +1,5 @@
 import React from "react";
 import "../login2/login2.css";
-import logo from "./logo.png";
 
 const LoginFac = () => {
     return (
