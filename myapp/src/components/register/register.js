@@ -3,6 +3,23 @@ import "../register/register.css";
 import logo from "../login2/logo.png";
 
 const Register = () => {
+
+    const [user, setUser] = useState(
+        {
+            name: "",
+            email: "",
+            password: "",
+            reEnterPassword: ""
+        }
+    )
+
+    const handleChange = e => {
+        const { name, value } = e.target
+        setUser({
+            ...user,
+            [name]: value
+        })
+    }
     return (
         <section>
             <div class="container">
@@ -10,17 +27,17 @@ const Register = () => {
                 <h3 class="text-center" >Register</h3>
                 <form action="#" class="login-form" >
                     <div class="form-group" >
-                        <input type="text" class="form-control rounded-left" placeholder="Username" required />
+                        <input type="text" name="name" value={user.name} class="form-control rounded-left" placeholder="Username" required onChange={handleChange} />
 
                     </div>
                     <div class="form-group" >
-                        <input type="email" class="form-control rounded-left" placeholder="Email ID" required />
+                        <input type="email" name="email" value={user.email} class="form-control rounded-left" placeholder="Email ID" required onChange={handleChange} />
                     </div>
                     <div class="form-group" >
-                        <input type="password" class="form-control rounded-left" placeholder="Password" required />
+                        <input type="password" name="password" value={user.password} class="form-control rounded-left" placeholder="Password" required onChange={handleChange} />
                     </div>
                     <div class="form-group" >
-                        <input type="password" class="form-control rounded-left" placeholder="Re enter Password" required />
+                        <input type="password" name="reEnterPassword" value={user.reEnterPassword} class="form-control rounded-left" placeholder="Re enter Password" required onChange={handleChange} />
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary rounded submit p-3 px-5">Register</button>
