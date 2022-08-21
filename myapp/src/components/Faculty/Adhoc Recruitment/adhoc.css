@@ -1,7 +1,6 @@
 .header {
-    background: hsl(216, 62%, 52%);
+    background: #3876D0;
     color: white;
-
 }
 
 
@@ -15,16 +14,12 @@ input {
     width: 300px;
 
 }
-input:focus{
-    border: #FFFFFF;
-    outline: none;
-}
+
 .space {
     width: 4px;
     height: auto;
     display: inline-block;
 }
-
 
 body {
     margin: 0;
@@ -49,7 +44,6 @@ table {
     border: 1px solid #FFFFFF;
     border-collapse: collapse;
     width: 100%;
-
     text-align: center;
 
 }

@@ -15,10 +15,7 @@ input {
     width: 300px;
 
 }
-input:focus{
-    border: #FFFFFF;
-    outline: none;
-}
+
 .space {
     width: 4px;
     height: auto;

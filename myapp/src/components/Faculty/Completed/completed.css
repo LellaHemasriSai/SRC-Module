@@ -1,28 +1,23 @@
 .header {
-    background: hsl(216, 62%, 52%);
+    background: #3876D0;
     color: white;
+}
 
+.space {
+    width: 4px;
+    height: auto;
+    display: inline-block;
 }
 
 
 input {
     border-radius: 50px;
     box-sizing: border-box;
-
     background: #FFFFFF;
     border: 3px solid #FFFFFF;
     height: 30px;
     width: 300px;
 
-}
-input:focus{
-    border: #FFFFFF;
-    outline: none;
-}
-.space {
-    width: 4px;
-    height: auto;
-    display: inline-block;
 }
 
 
