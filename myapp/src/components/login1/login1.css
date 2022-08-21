@@ -13,24 +13,29 @@ h3{
     font-style: normal;
     font-weight: 400;
 }
-.btn-group button{
+.btn-group .btn{
     display: block;
     margin-bottom: 20px;
     margin: 20px auto 20px auto;
     padding: 5px;
     box-sizing: border-box;
-    background-color: #3876D0;
-    color: #FFFFFF;
+    background-color: white;
+    color: #3876D0;
     margin-bottom: auto;
     text-align: center;
     align-items: center;
     border-radius: 4px;
     border-color: #3876D0;
+    border-width: thin;
     outline: none;
     width: 70%;
     height: 30px;
 }
-
+.btn-group .btn:hover{
+    cursor: pointer;
+    background-color: #3876D0;
+    color: white;
+}
 .container{
     box-sizing: border-box;
     width: 320px;
