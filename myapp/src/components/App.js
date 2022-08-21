@@ -8,7 +8,7 @@ import Login1 from './login1/login1';
 function App() {
   return (
     <div className="App">
-      <Login1 />
+      <Register />
     </div>
   );
 }
