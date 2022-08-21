@@ -1,11 +1,12 @@
 import React from "react";
 import "../login2/login2.css";
+import logo from './logo.png'
 
 const LoginFac = () => {
     return (
         <section>
             <div class="container">
-                <img src='./components/login2/logo.png' alt="IIT Tirupati Logo" />
+                <img src={logo} alt="IIT Tirupati Logo" />
                 <h3 class="text-center" >Faculty Login</h3>
                 <form action="#" class="login-form" >
                     <div class="form-group" >
