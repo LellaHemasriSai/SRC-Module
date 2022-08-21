@@ -1,5 +1,5 @@
-import React from "react";
-import "../login2/login2.css";
+import React, { useState } from "react";
+import "../register/register.css";
 import logo from "../login2/logo.png";
 
 const Register = () => {
