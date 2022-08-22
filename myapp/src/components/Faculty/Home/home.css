@@ -11,17 +11,17 @@ body {
 }
 .grid-container {
   display: grid;
-  grid-template-columns: auto auto; 
+  grid-template-columns: auto auto auto; 
   padding: 10px;
   text-align: left;
   justify-content: center;
   align-items: center;
-  margin-top:50px ;
+  margin-top:60px ;
   left: 50%;
 }
 
 .grid-container > div {
-  padding: 70px;
+  padding: 30px;
 
 }
 .container-box {
@@ -48,6 +48,7 @@ button {
     outline: none;
     font-size: 17px;
 }
+
 
 h4 {
     font-size: 22px;
