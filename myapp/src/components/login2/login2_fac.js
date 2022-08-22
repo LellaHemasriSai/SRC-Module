@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../login2/login2.css";
 import logo from "./logo.png";
+import { Link } from "react-router-dom"
 
 const LoginFac = () => {
     const [user, setUser] = useState(
@@ -19,7 +20,7 @@ const LoginFac = () => {
     }
 
     return (
-        <section>
+        <div>
             <div class="container">
                 <img src={logo} alt="IIT Tirupati Logo" />
                 <h3 class="text-center" >Faculty Login</h3>
@@ -36,12 +37,16 @@ const LoginFac = () => {
                             <a href="www.google.com">Forgot Password</a>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary rounded submit p-3 px-5">Login</button>
-                    </div>
+
+                    <Link to="/home">
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary rounded submit p-3 px-5">Login</button>
+                        </div>
+                    </Link>
+
                 </form>
             </div>
-        </section>
+        </div>
     )
 }
 
