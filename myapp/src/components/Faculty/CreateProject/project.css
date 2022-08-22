@@ -1,4 +1,8 @@
-h1{
+h1 {
     text-align: center;
     color: black;
+}
+
+* {
+    background-color: #dbe1eb;
 }
