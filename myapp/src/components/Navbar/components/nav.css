@@ -65,6 +65,11 @@ body{
 	color: #3876D0;
 }
 
+.menu_icon img{
+	width: 25px;
+	height: 25px;
+}
+
 .top_navbar .menu_icon:hover{
 	color: #007dc3;
 }
@@ -165,6 +170,11 @@ body{
 	transition: background 0.2s ease;
 }
 
+.sidebar img{
+    width: 25px;
+    height: 25px;
+}
+
 .sidebar ul li a .text{
 	margin-left: 10px;
 	color: #fff;
@@ -179,7 +189,7 @@ body{
 }
 
 .click_collapse .sidebar{
-	transition: all 0.2s ease;
+	transition: all  ease;
 }
 
 .click_collapse .sidebar img{

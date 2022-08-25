@@ -18,17 +18,17 @@ import {Link} from "react-router-dom";
 
 function Login1() {
     return (
-        <div class="container">
+        <div className="login1_container">
             <img src={logo} alt="IIT Tirupati Logo" />
             <hr />
             <h3>Welcome to IIT Tirupati E-Governance</h3>
             <hr />
-            <div class="btn-group">
+            <div className="btn-group_login1">
                 <button type="button" class="btn btn-outline-primary"  onClick="onClickStaff()">Student Login</button>
                 <Link to="./login2" style={{textDecoration: 'none',marginTop: '0px'}}>
-                <button type="button" class="btn btn-outline-primary" >Faculty Login</button>
+                <button type="button" className="btn btn-outline-primary" >Faculty Login</button>
                 </Link>
-                <button type="button" class="btn btn-outline-primary" onClick="onClickStaff()">Admin Login</button>
+                <button type="button" className="btn btn-outline-primary" onClick="onClickStaff()">Admin Login</button>
             </div>
         </div>
     );

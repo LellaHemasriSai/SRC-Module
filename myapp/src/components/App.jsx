@@ -5,28 +5,22 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 //import LoginFac from "./login2/login2_fac";
 // import Navbar from './Navbar/Navbar';
 import Login1 from "./login1/login1.jsx";
-import Home from "./Faculty/Home/Home";
 import CreateProject from "../components/Faculty/CreateProject/CreateProject";
 import Ongoing from "../components/Faculty/ongoing/Ongoing"
 import Recruitment from "../components/Faculty/Staff Recruitment/Staff";
-import WithoutNav from "./Navbar/WithoutNav";
-import WithNav from "./Navbar/WithNav";
 import LoginFac from "./login2/login2_fac";
+import MainNav from "./Navbar/components/MainNav"
 
 const App = () => {
   return (
     <Router>
       <Routes>
-        <Route element={<WithoutNav />}>
         <Route exact path="/" element={<Login1 />} />
         <Route exact path="/login2" element={<LoginFac />} />
-        </Route>
-         <Route element={<WithNav/>}>
-          <Route exact path="/home" element={<Home />} />
+          <Route exact path="/home" element={<MainNav/>} />
           <Route exact path="/create_project" element={<CreateProject />} />
           <Route exact path="/ongoing_project" element={<Ongoing />} />
           <Route exact path="/recruitment" element={<Recruitment />} />
-          </Route>
       </Routes>
     </Router>
   );

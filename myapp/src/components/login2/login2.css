@@ -1,21 +1,25 @@
-body {
-    /* text-align: center; */
-    margin: 0;
-    background-color: #dbe1eb;
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap'); 
+
+*{
+	font-family: 'Poppins', Arial;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	list-style: none;
+	text-decoration: none;
 }
 
-* {
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
-    font-style: normal;
+body{
+    text-align: center;
+	background: #f5f5f5;
     font-weight: 400;
 }
 
-.form-group button {
+.form-group_login2 button {
     cursor: pointer;
 }
 
-.container {
+.container_login2 {
     box-sizing: border-box;
     width: 360px;
     height: 355px;
@@ -30,23 +34,24 @@ body {
     transform: translate(-50%, -50%);
 }
 
-.form-group a,
+.form-group_login2 a,
 label {
     display: inline-block;
 }
 
-.login-form {
+.login2-form {
     text-align: center;
     align-items: center;
     align-self: center;
     margin: auto;
+    margin-top: 10px;
 
 }
 
-input[type="text"],
+.container_login2 .form-group_login2 input[type="text"],
 input[type="password"] {
-    width: 70%;
-    padding: 10px;
+    width: 90%;
+    padding: 20px;
     margin: 5px auto 10px auto;
     display: inline-block;
     border: none;
@@ -56,25 +61,25 @@ input[type="password"] {
     border: #f2f2f2;
 }
 
-input[type='text']:focus,
+.container_login2 .form-group_login2 input[type='text']:focus,
 input[type='password']:focus {
     opacity: 1;
     border: #f2f2f2;
     outline: none;
 }
     
-h3,
+.container_login2 h3,
 a {
     color: #3876D0;
 }
     
-a {
+.container_login2 a {
     text-align: right;
     margin-left: 120px;
     margin-top: 15px;
 }
     
-button {
+.container_login2 button {
     margin-bottom: auto;
     text-align: center;
     align-items: center;
@@ -87,11 +92,12 @@ button {
     border-color: #3876D0;
     outline: none;
     font-size: 17px;
+    float:left;
 }
 
-img {
-    width: 115px;
-    height: 80px;
+.container_login2 img {
+    width: 105px;
+    height: 70px;
     left: 50%;
     top: 50%;
 }

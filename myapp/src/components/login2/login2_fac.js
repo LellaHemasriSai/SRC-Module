@@ -21,26 +21,26 @@ const LoginFac = () => {
 
     return (
         <div>
-            <div class="container">
+            <div className="container_login2">
                 <img src={logo} alt="IIT Tirupati Logo" />
-                <h3 class="text-center" >Faculty Login</h3>
-                <form action="#" class="login-form" >
-                    <div class="form-group" >
-                        <input type="text" name="name" value={user.name} class="form-control rounded-left" placeholder="Username" required onChange={handleChange} />
+                <h3 className="text-center" >Faculty Login</h3>
+                <form action="#" class="login2-form" >
+                    <div className="form-group_login2" >
+                        <input type="text" name="name" value={user.name} className="form-control rounded-left" placeholder="Username" required onChange={handleChange} />
 
                     </div>
-                    <div class="form-group" >
-                        <input type="password" name="password" value={user.password} class="form-control rounded-left" placeholder="Password" required onChange={handleChange} />
+                    <div className="form-group_login2" >
+                        <input type="password" name="password" value={user.password} className="form-control rounded-left" placeholder="Password" required onChange={handleChange} />
                     </div>
-                    <div class="form-group">
-                        <div class="w-50" >
+                    <div className="form-group_login2">
+                        <div className="w-50" >
                             <a href="www.google.com">Forgot Password</a>
                         </div>
                     </div>
 
                     <Link to="/home">
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-primary rounded submit p-3 px-5">Login</button>
+                        <div className="form-group_login2">
+                            <button type="submit" className="btn btn-primary rounded submit p-3 px-5">Login</button>
                         </div>
                     </Link>
 

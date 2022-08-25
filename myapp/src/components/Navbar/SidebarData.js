@@ -5,27 +5,44 @@ import * as BsIcons from "react-icons/bs";
 export const SidebarData = [
 
     {
-        title: 'Home',
+        key:1,
+        title: 'HOME',
         path: '/home',
+        img:"myapp\images\home-solid.svg",
         icon: <AiIcons.AiFillHome />,
         cName: 'nav-text'
     },
     {
-        title: 'Create Project',
+        key:2,
+        title: 'CREATE PROJECT',
         path: '/create_project',
+        img:"myapp\images\diagram-project-solid.svg",
         icon: <AiIcons.AiFillProject/>,
         cName: 'nav-text'
     },
     {
-        title: 'Ongoing Projects',
+        key:3,
+        title: 'ONGOING PROJECTS',
         path: '/ongoing_project',
+        img:"myapp\images\chart-column-solid.svg",
         icon: <FaIcons.FaProjectDiagram/>,
         cName: 'nav-text'
     },
     {
-        title: 'Recruitment',
+        key:4,
+        title: 'RECRUITMENT',
         path: '/recruitment',
+        img:"myapp\src\components\Navbar\SidebarData.js",
+        icon: <BsIcons.BsPeople />,
+        cName: 'nav-text'
+    },
+        {
+        key:5,
+        title: 'ANNOUNCEMENTS',
+        path: '/recruitment',
+        img:"myapp\images\bullhorn-solid.svg",
         icon: <BsIcons.BsPeople />,
         cName: 'nav-text'
     }
 ];
+

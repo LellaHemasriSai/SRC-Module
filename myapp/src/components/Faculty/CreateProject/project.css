@@ -1,14 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap'); 
+
+
 body{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-* {
+
+*{
     background-color: #dbe1eb;
-    font-family: Arial, Helvetica, sans-serif;
+    	font-family: 'Poppins', Arial;
     font-style: normal;
     font-weight: 400;
 }
+
 .first-row{
     display: flex;
     flex-direction: row;
@@ -52,6 +57,7 @@ input:focus{
     outline: none;
     opacity: 1;
 }
+
 #ag-code,#og-type,#ag-name{
     width: 20rem;
     background-color: white;
@@ -60,11 +66,13 @@ input:focus{
     height: 4vh;
     opacity: 0.8;
 }
+
 #ag-code,
 #og-type,
 #ag-name:focus{
     opacity: 1;
 }
+
 @media screen and (max-width:1200px){
     .first-row,.second-row,.third-row{
         flex-direction: column;
