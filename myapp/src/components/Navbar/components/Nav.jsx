@@ -1,12 +1,16 @@
-import React from "react";
+import React, {useState} from "react";
 import user from "./images/user.png"
 import logo from "./images/logo.png"
 import "./nav.css"
 function Nav() {
 	var li_items = document.querySelectorAll(".sidebar ul li");
     var menu_icon = document.querySelector(".menu_icon");
-    var wrapper = document.querySelector(".wrapper");
+    var  wrapper = document.querySelector(".wrapper");
+	const [sidebar, setSidebar] = useState(false);
+
+    // const showSidebar = () => setSidebar(!sidebar);
 	function menu()  {
+    setSidebar(!sidebar);
 	menu_icon.closest(".wrapper").classList.toggle("click_collapse");
 	menu_icon.closest(".wrapper").classList.toggle("hover_collapse");
  }
