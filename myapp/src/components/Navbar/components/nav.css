@@ -199,7 +199,9 @@ body{
 .click_collapse .sidebar ul li{
     border-bottom: 100px;
 }
-
+.click_collapse .sidebar ul li a{
+    text-align: left;
+}
 .click_collapse .sidebar ul :hover{
 	background:#2a74e4;
 	color: #fff;
