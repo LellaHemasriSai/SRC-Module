@@ -11,7 +11,7 @@ import Recruitment from "../components/Faculty/Staff Recruitment/Staff";
 import LoginFac from "./login2/login2_fac";
 import MainNav from "./Navbar/components/MainNav"
 import Create from "../components/Faculty/CreateProject/create"
-
+import Announcements from "./Faculty/Announcements/Announcements.jsx";
 const App = () => {
   return (
     <Router>
@@ -22,6 +22,7 @@ const App = () => {
           <Route exact path="/create_project" element={<Create />} />
           <Route exact path="/ongoing_project" element={<Ongoing />} />
           <Route exact path="/recruitment" element={<Recruitment />} />
+          <Route exact path="/announcements" element={<Announcements />} />
       </Routes>
     </Router>
   );

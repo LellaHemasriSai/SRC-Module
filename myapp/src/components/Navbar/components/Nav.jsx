@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import user from "./images/user.png"
 import logo from "./images/logo.png"
 import "./nav.css"
-function Nav(props) {
+function Nav(props) {            // user name 
 	var li_items = document.querySelectorAll(".sidebar ul li");
     var menu_icon = document.querySelector(".menu_icon");
     var  wrapper = document.querySelector(".wrapper");

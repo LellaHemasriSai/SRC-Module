@@ -56,6 +56,8 @@ body{
 	padding: 0 25px;
 	justify-content: space-between;
 	align-items: center;
+	height: 60px;
+	margin-bottom: 1px;
 }
 
 .top_navbar .menu_icon{
@@ -100,20 +102,21 @@ body{
 }
 .top_navbar .menu .profile .name{
 	margin: 0 15px;
-}
+	}
 
 .dropbtn {
   color: black;
   padding: 16px;
   font-size: 16px;
   border: none;
-      background-color: white;
+	background-color: white;
   cursor: pointer;
 }
 
 .dropdown {
   position: relative;
   display: inline-block;
+  height: 60px;
 }
 
 .dropdown-content {
@@ -217,17 +220,35 @@ body{
 	background: #fff;
 	padding: 25px;
 	margin-bottom: 25px;
-	text-align: justify;
+	text-align:left;
 }
 .click_collapse .main_container .content{
 	background: #fff;
 	padding: 25px;
 	margin-left: 25px;
 	text-align: justify;
+	width: 100%;
 }
 
 .click_collapse .main_container{
 	width: calc(100% - 250px);
 	margin-left: 250px;
 	transition: all 0.2s ease;
+}
+
+@media screen and (max-width:540px){
+.top_navbar .menu .profile .name{
+	margin: 0 2px;
+	font-size: 14px;
+	width: 100%;
+}
+.dropbtn {
+  color: black;
+  padding: 0;
+  margin-top: 12px;
+  font-size: 16px;
+  border: none;
+	background-color: white;
+  cursor: pointer;
+}
 }

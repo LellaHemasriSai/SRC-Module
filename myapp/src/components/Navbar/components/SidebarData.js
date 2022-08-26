@@ -44,7 +44,7 @@ export const SidebarData = [
         {
         key:5,
         title: 'ANNOUNCEMENTS',
-        path: '/recruitment',
+        path: '/announcements',
         img: announcements,
         icon: <BsIcons.BsPeople />,
         cName: 'nav-text'
