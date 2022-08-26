@@ -1,8 +1,16 @@
 import React from 'react'
+import Sidebar from "../../Navbar/components/Sidebar";
+import Nav from "../../Navbar/components/Nav";
 
 function Staff() {
   return (
-    <div className='recruit'>staff Recruitment</div>
+    <>
+    <div className="wrapper hover_collapse" style={{marginTop: "100px"}}>
+    <Nav user="User Name"></Nav>
+    <Sidebar></Sidebar>
+    Staff Recruitment
+    </div>
+    </>
   )
 }
 
