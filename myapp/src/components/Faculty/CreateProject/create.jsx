@@ -1,8 +1,13 @@
 import React from 'react'
+import Sidebar from "../../Navbar/components/Sidebar";
+import Nav from "../../Navbar/components/Nav";
 export default function Create() {
   return (
-    <form class="forms">
-        <div class="container">
+    <div className="wrapper hover_collapse">
+  <Nav user="User Name"></Nav>
+  <Sidebar></Sidebar>
+    <form class="forms" style={{marginTop: '100px'}} >
+        <div class="">
             <div class="first-row">
                 <div class="ag-code">
                     <p>Agency ID</p>
@@ -56,5 +61,6 @@ export default function Create() {
             </div>
         </div>
     </form>
+    </div>
   )
 }

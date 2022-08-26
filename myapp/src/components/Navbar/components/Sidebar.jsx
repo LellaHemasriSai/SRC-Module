@@ -11,7 +11,7 @@ function Sidebar() {
 				key={data.key} 
 				title={data.title} 
 				path={data.path}
-				img={data.icon}/>
+				img={data.img}/>
 			})}  
 		</ul>
 		</div>
