@@ -31,6 +31,7 @@ const projectsSchema = new mongoose.Schema({
 
 const Project = mongoose.model("Item", projectsSchema)
 
+//dummy project
 const project1 = new Project({
     projectCode: "Fa01",
     projectName: "FaName",
@@ -66,7 +67,7 @@ const adminSchema = new mongoose.Schema({
     },
     password: String,
     projects: {
-        approve: [mongoose.Types.ObjectId],
+        approve: [Project],
     }
 })
 
