@@ -50,4 +50,3 @@ export const SidebarData = [
         cName: 'nav-text'
     }
 ];
-
