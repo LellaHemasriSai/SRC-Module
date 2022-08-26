@@ -10,6 +10,7 @@ function Nav() {
 	menu_icon.closest(".wrapper").classList.toggle("click_collapse");
 	menu_icon.closest(".wrapper").classList.toggle("hover_collapse");
  }
+
   return (
     <div className="top_navbar">
     <div className="menu_icon" onClick={menu}><i class="fas fa-bars"></i></div>
