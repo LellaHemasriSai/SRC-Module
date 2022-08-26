@@ -1,46 +1,18 @@
 import React from "react";
-//import SidebarData from "components\Navbar\SidebarData.js"
-import home from "./images/home.svg"
-import ongoing from "./images/ongoing.svg"
-import recruit from "./images/recruit.svg"
-import create from "./images/create.svg"
-import announcements from "./images/announcements.svg"
+import { SidebarData } from "./SidebarData";
+import SideElement from "./SideElement";
 function Sidebar() {
   return (
     <div className="sidebar">
 		<div className="sidebar_inner">
 		<ul>
-            <li>
-				<a href="#">
-					<span className="icon"><img src={home} alt="home" srcset=""/></span>
-					<span className="text">Home</span>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-					<span className="icon"><img src={create} alt="create" srcset=""/></span>
-					<span className="text">Create Project</span>
-				</a>
-			</li>
-            <li>
-				<a href="#">
-					<span className="icon"><img src={ongoing} alt="ongoing" srcset=""/></span>
-					<span className="text">Ongoing projects</span>
-				</a>
-			</li>
-            <li>
-				<a href="#">
-					<span className="icon"><img src={recruit} alt=""/></span>
-					<span className="text">Recruitment</span>
-				</a>
-			</li>
-
-            <li>
-				<a href="#">
-					<span className="icon"><img src={announcements} alt="announcements"/></span>
-					<span className="text">Announcements</span>
-				</a>
-			</li>
+			{SidebarData.map((data)=>{
+				return <SideElement
+				key={data.key} 
+				title={data.title} 
+				path={data.path}
+				img={data.img}/>
+			})}  
 		</ul>
 		</div>
 	</div>
