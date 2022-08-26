@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import user from "./images/user.png"
 import logo from "./images/logo.png"
 import "./nav.css"
-function Nav() {
+function Nav(props) {
 	var li_items = document.querySelectorAll(".sidebar ul li");
     var menu_icon = document.querySelector(".menu_icon");
     var  wrapper = document.querySelector(".wrapper");
@@ -26,7 +26,7 @@ function Nav() {
 				<button className="dropbtn">
 				<div className="profile">
 					<img  src={user} style={{width:"20px", height:"20px" }} alt="profile_pic"/>
-					<span className="name">User Name</span>
+					<span className="name">{props.user}</span>
 					<span className="icon">
 						<i className="fas fa-angle-down"></i>
 					</span>

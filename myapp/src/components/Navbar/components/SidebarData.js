@@ -1,6 +1,11 @@
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
 import * as BsIcons from "react-icons/bs";
+import home from "./images/home.svg"
+import ongoing from "./images/ongoing.svg"
+import recruit from "./images/recruit.svg"
+import create from "./images/create.svg"
+import announcements from "./images/announcements.svg"
 
 export const SidebarData = [
 
@@ -8,7 +13,7 @@ export const SidebarData = [
         key:1,
         title: 'HOME',
         path: '/home',
-        img:"myapp\images\home-solid.svg",
+        img: {home},
         icon: <AiIcons.AiFillHome />,
         cName: 'nav-text'
     },
@@ -16,7 +21,7 @@ export const SidebarData = [
         key:2,
         title: 'CREATE PROJECT',
         path: '/create_project',
-        img:"myapp\images\diagram-project-solid.svg",
+        img: create,
         icon: <AiIcons.AiFillProject/>,
         cName: 'nav-text'
     },
@@ -24,7 +29,7 @@ export const SidebarData = [
         key:3,
         title: 'ONGOING PROJECTS',
         path: '/ongoing_project',
-        img:"myapp\images\chart-column-solid.svg",
+        img: ongoing,
         icon: <FaIcons.FaProjectDiagram/>,
         cName: 'nav-text'
     },
@@ -32,7 +37,7 @@ export const SidebarData = [
         key:4,
         title: 'RECRUITMENT',
         path: '/recruitment',
-        img:"myapp\src\components\Navbar\SidebarData.js",
+        img: recruit,
         icon: <BsIcons.BsPeople />,
         cName: 'nav-text'
     },
@@ -40,7 +45,7 @@ export const SidebarData = [
         key:5,
         title: 'ANNOUNCEMENTS',
         path: '/recruitment',
-        img:"myapp\images\bullhorn-solid.svg",
+        img: announcements,
         icon: <BsIcons.BsPeople />,
         cName: 'nav-text'
     }

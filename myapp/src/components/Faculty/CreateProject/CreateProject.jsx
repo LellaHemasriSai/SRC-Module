@@ -1,11 +1,8 @@
 import React from 'react'
-
+import MainNav from '../../Navbar/components/MainNav';
 function CreateProject() {
   return (
-    <div className='create'>
-        1.Sponsored
-        2.Consultancy
-    </div>
+    <MainNav  content="create">Hi</MainNav>
   )
 }
 

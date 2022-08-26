@@ -10,6 +10,7 @@ import Ongoing from "../components/Faculty/ongoing/Ongoing"
 import Recruitment from "../components/Faculty/Staff Recruitment/Staff";
 import LoginFac from "./login2/login2_fac";
 import MainNav from "./Navbar/components/MainNav"
+import Create from "../components/Faculty/CreateProject/create"
 
 const App = () => {
   return (
@@ -18,7 +19,7 @@ const App = () => {
         <Route exact path="/" element={<Login1 />} />
         <Route exact path="/login2" element={<LoginFac />} />
           <Route exact path="/home" element={<MainNav/>} />
-          <Route exact path="/create_project" element={<CreateProject />} />
+          <Route exact path="/create_project" element={<Create />} />
           <Route exact path="/ongoing_project" element={<Ongoing />} />
           <Route exact path="/recruitment" element={<Recruitment />} />
       </Routes>
