@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import user from "./images/user.png"
 import logo from "./images/logo.png"
+import {Link} from "react-router-dom";
 import "./nav.css"
 function Nav(props) {            // user name 
 	var li_items = document.querySelectorAll(".sidebar ul li");
@@ -33,8 +34,8 @@ function Nav(props) {            // user name
 				</div>
                 </button>
 				<div className="dropdown-content">
-					<a href="#">Settings</a>
-					<a href="#">Log out</a>
+					<Link to="/">Settings</Link>
+					<Link to="/">Log out</Link>
 				</div>
 			</div>
 		</div>
