@@ -11,7 +11,7 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-mongoose.connect("mongodb://localhost:27017/todolistDB", { useNewUrlParser: true });
+mongoose.connect("mongodb://localhost:27017/SRC", { useNewUrlParser: true });
 
 const projectsSchema = new mongoose.Schema({
     projectCode: String,
@@ -67,7 +67,7 @@ const adminSchema = new mongoose.Schema({
     },
     password: String,
     projects: {
-        approve: [Project],
+        approve: [projectsSchema],
     }
 })
 
