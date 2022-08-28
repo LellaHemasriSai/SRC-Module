@@ -7,8 +7,8 @@ import { Grid } from '@mui/material';
 export default function Create() {
     const [agencyCode, setagencyCode] = useState("0");
     const [agencyName, setagencyName] = useState("default");
-    const [projectName, setProjectName] = useState();
-    const [projectID, setProjectID] = useState();
+    const [projectName, setProjectName] = useState("default");
+    const [projectID, setProjectID] = useState("default");
     const [projectType, setprojectType] = useState("default")
     const [organizationType, setorganizationType] = useState("default")
     const [sanctionValue, setsanctionValue] = useState(0)
