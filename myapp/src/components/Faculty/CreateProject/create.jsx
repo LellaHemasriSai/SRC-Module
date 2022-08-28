@@ -64,7 +64,6 @@ export default function Create() {
                     <input type="text" name="projectType" placeholder="Enter your project Type" onChange={(event) => { setprojectType(event.target.value) }} />
                 </label>
 
-
                 <label>
                     Agency Code
                     <input type="text" name="agencyCode" placeholder="Enter your Agency Code" onChange={(event) => { setagencyCode(event.target.value) }} />
