@@ -95,13 +95,13 @@ const Admin = mongoose.model('Admin', adminSchema);
 
 
 app.get("/created", (req, res, err) => {
-    res.send('Bad Preethi Server Online!!!!')
+    res.send('Server Online!!!!')
 })
 
 app.post("/created", (req, res) => {
     console.log("Recieved?");
     console.log("Body:", req.body);
-    res.send("Please Please Die @PreethiVarsha")
+    res.send("request sent")
     //console.log(result)
     // const newProject = await Project.create({
     //     projectCode: req.body.projectCode,

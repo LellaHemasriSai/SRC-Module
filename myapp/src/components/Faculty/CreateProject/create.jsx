@@ -39,7 +39,7 @@ export default function Create() {
                 descriptionBox: descriptionBox
             }),
         }).then((res) => {
-            console.log("Bad Preethi Res:", res);
+            console.log("Res:", res);
         })
     }
 
