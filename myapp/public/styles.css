@@ -224,3 +224,7 @@ body{
 	margin-left: 250px;
 	transition: all 0.2s ease;
 }
+
+.btnCreateProject{
+	background-color: #3876D0;
+}
