@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import user from "./images/user.png"
 import logo from "./images/logo.png"
 import {Link} from "react-router-dom";
@@ -8,6 +8,23 @@ function Nav(props) {            // user name
     var menu_icon = document.querySelector(".menu_icon");
     var  wrapper = document.querySelector(".wrapper");
 	const [sidebar, setSidebar] = useState(false);
+	const [show, setShow] = useState(true);
+	const controlNavbar = () => {
+		if(window.scrollY>50)
+		{
+			setShow(true);
+		}
+		else
+		{
+			setShow(false);
+		}
+	}
+	useEffect(() => {
+		window.addEventListener('scroll',controlNavbar)
+		return () => {
+			window.removeEventListener('scroll',controlNavbar)
+		}
+	},[])
 
     // const showSidebar = () => setSidebar(!sidebar);
 	function menu()  {
@@ -17,7 +34,7 @@ function Nav(props) {            // user name
  }
 
   return (
-    <div className="top_navbar">
+    <div className="top_navbar" >
     <div className="menu_icon" onClick={menu}><i class="fas fa-bars"></i></div>
 		<div className="logo"><img src={logo} style={{width:"60px", height:"40px" }} alt="logo_pic" />
     <span id="year">Acad year</span>

@@ -1,117 +1,115 @@
-import React, {useState} from 'react'
+import Card from './Card';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
+import "bootstrap/dist/css/bootstrap.min.css";
+import Container from  'react-bootstrap/Container';
+import "./ongoing.css";
+import CardHeader from 'react-bootstrap/esm/CardHeader';
 import Sidebar from "../../Navbar/components/Sidebar";
 import Nav from "../../Navbar/components/Nav";
-import Container from '../../Navbar/components/Container';
-import Data from "./data.json"
-import {nanoid} from "nanoid"
-function Ongoing() {
-  const [data, setdata] = useState(Data)
-  const [addformdata, setaddformdata] = useState({
-    ProjectID: '',
-    ProjectName: '',
-    ProjectType: '',
-    Description: '',
-    Status: ''
-  })
-  const handleAddFormChange = (event) => {
-    event.preventDefault();
 
-    const name= event.target.getAttribute('name');
-    const value = event.target.value;
+const Ongoing = () => {
+  const cardinfo = [
+    
+     { id:"1", projectCode: "2345",
+     projectName: "SRC",
+     projectType: "Web",
+     agencyCode: "X2450",
+     agencyName: "TCS",
+     approval: "0",
+     resourceApproval: "1",
+     fundApproval: "0",
+     closed: "0",
+     facultyID: "94350",
+     organizationType: "Global",
+     staff: ["nam","manas","hems"],
+     sanctionFund: "20000",
+     startDate: "01-01-2022",
+     endDate: "10-01-2022",
+     status: "1",
+     description: "This is description regarding project"},
+     { id:"2", projectCode: "2345",
+     projectName: "SRC",
+     projectType: "Web",
+     agencyCode: "X2450",
+     agencyName: "TCS",
+     approval: "0",
+     resourceApproval: "1",
+     fundApproval: "0",
+     closed: "0",
+     facultyID: "94350",
+     organizationType: "Global",
+     staff: ["nam","manas","hems"],
+     sanctionFund: "20000",
+     startDate: "01-01-2022",
+     endDate: "10-01-2022",
+     status: "1",
+     description: "This is description regarding project"},
+     { id:"3", projectCode: "2345",
+     projectName: "SRC",
+     projectType: "Web",
+     agencyCode: "X2450",
+     agencyName: "TCS",
+     approval: "0",
+     resourceApproval: "1",
+     fundApproval: "0",
+     closed: "0",
+     facultyID: "94350",
+     organizationType: "Global",
+     staff: ["nam","manas","hems"],
+     sanctionFund: "20000",
+     startDate: "01-01-2022",
+     endDate: "10-01-2022",
+     status: "1",
+     description: "This is description regarding project"},
+     { id:"4", projectCode: "2345",
+     projectName: "SRC",
+     projectType: "Web",
+     agencyCode: "X2450",
+     agencyName: "TCS",
+     approval: "0",
+     resourceApproval: "1",
+     fundApproval: "0",
+     closed: "0",
+     facultyID: "94350",
+     organizationType: "Global",
+     staff: ["nam","manas","hems"],
+     sanctionFund: "20000",
+     startDate: "01-01-2022",
+     endDate: "10-01-2022",
+     status: "1",
+     description: "This is description regarding project"},
+     { id:"5", projectCode: "2345",
+     projectName: "SRC",
+     projectType: "Web",
+     agencyCode: "X2450",
+     agencyName: "TCS",
+     approval: "0",
+     resourceApproval: "1",
+     fundApproval: "0",
+     closed: "0",
+     facultyID: "94350",
+     organizationType: "Global",
+     staff: ["nam","manas","hems"],
+     sanctionFund: "20000",
+     startDate: "01-01-2022",
+     endDate: "10-01-2022",
+     status: "1",
+     description: "This is description regarding project"},
+  ]
 
-    const newformData = {...addformdata};
-    newformData[name] = value;
-
-    setaddformdata(newformData);
-  }
-
-  const handleAddFormSubmit = (event) =>{
-    event.preventDefault();
-
-    const newdata ={
-      id: nanoid(),
-      ProjectID: addformdata.ProjectID,
-      ProjectName: addformdata.ProjectName,
-      ProjectType: addformdata.ProjectType,
-      Description: addformdata.Description,
-      ProjectStatus: addformdata.ProjectStatus,
-    }
-    const newdatas = [...data,newdata];
-    setaddformdata(newdatas);
-     
-  }
-  return <div className="wrapper hover_collapse">
-  <Nav user="User Name"></Nav>
-  <Sidebar></Sidebar>
-  {/* <Container content="Ongoing Projects"> */}
-  
-   <div className="app-container" style={{marginTop: "100px",marginLeft: "100px",textAlign: "centre"}}>
-    <table>
-      <thead>
-        <tr>
-          <th>Project ID</th>
-          <th>Project Name</th>
-          <th>Project Type</th>
-          <th>Description</th>
-          <th>Project Status</th>
-        </tr>
-      </thead>
-      <tbody>
-      {data.map((data) => (
-        <tr>
-          <td>{data.ProjectID}</td>
-          <td>{data.ProjectName}</td>
-          <td>{data.ProjectType}</td>
-          <td>{data.Description}</td>
-          <td>{data.ProjectStatus}</td>
-        </tr>
-      ))}
-      </tbody>
-    </table>
-
-    <h2>Add Data</h2>
-    <form onSubmit={handleAddFormSubmit}>
-      <input 
-        type="text"
-        name="ProjectID"
-        required="required"
-        placeholder="Enter ProjectID"
-        onChange={handleAddFormChange}
-        />
-       <input 
-        type="text"
-        name="ProjectName"
-        required="required"
-        placeholder="Enter ProjectName"
-        onChange={handleAddFormChange}
-        />
-        <input 
-        type="text"
-        name="ProjectType"
-        required="required"
-        placeholder="Enter ProjectType"
-        onChange={handleAddFormChange}
-        />
-        <input 
-        type="text"
-        name="Description"
-        required="required"
-        placeholder="Enter Description"
-        onChange={handleAddFormChange}
-        />
-        <input 
-        type="text"
-        name="Status"
-        required="required"
-        placeholder="Status"
-        onChange={handleAddFormChange}
-        /> 
-        <button type="submit">Add</button>
-    </form>
+  return (
+    <div className="wrapper hover_collapse">
+   <div className="grid" style={{marginLeft: "300px",marginTop: "50px"}}>
+     <Nav user="User Name"></Nav>
+     <Sidebar></Sidebar>
+    {cardinfo.map((card,index) => (
+      <Card id={index} projectCode={card.projectCode} projectName ={card.agencyName} projectType={card.projectType} agencyCode={card.agencyCode} agencyName={card.agencyName} approval={card.approval} resourceApproval={card.resourceApproval} fundApproval={card.fundApproval} closed={card.closed} facultyID={card.facultyID} organisationType={card.organizationType} staff={card.staff} sanctionFund={card.sanctionFund} startDate={card.startDate} endDate={card.endDate} status={card.status} description={card.description}/>
+    ))}
    </div>
-  {/* </Container> */}
-  </div>
-
+   </div>
+  );
 }
 
 export default Ongoing;
+

@@ -23,6 +23,8 @@ body{
 	box-shadow: 1px 0 2px rgba(0,0,0,0.125);
 	display: flex;
 	align-items: center;
+	/* transition-timing-function: ease-in;
+	transition:0.1s ; */
 }
 
 .top_navbar .logo{
@@ -230,6 +232,17 @@ body{
 	width: calc(100% - 250px);
 	margin-left: 250px;
 	transition: all 0.2s ease;
+}
+.hidden{
+    height: 4rem;
+    width: 100%;
+    z-index: 40;
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+    box-shadow: 0 2px 5px -1px rgba(0, 0, 0, .08);
+    position: fixed;
+    top: -80px;
+    transition: 0.3s linear;
+
 }
 
 @media screen and (max-width:540px){
