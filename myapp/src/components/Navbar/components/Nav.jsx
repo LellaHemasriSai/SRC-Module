@@ -1,9 +1,9 @@
 
 import React, {useEffect, useState} from "react";
-import user from "./images/user.png";
-import logo from "./images/logo.png";
-// import user from "../../../images/user.png"
-// import logo from "../../../images/logo.png"
+// import user from "./images/user.png";
+// import logo from "./images/logo.png";
+import user from "../../../images/user.png"
+import logo from "../../../images/logo.png"
 
 import {Link} from "react-router-dom";
 import "./nav.css"
