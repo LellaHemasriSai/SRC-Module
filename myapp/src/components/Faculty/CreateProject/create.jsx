@@ -1,9 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Sidebar from "../../Navbar/components/Sidebar";
 import Nav from "../../Navbar/components/Nav";
 import { Grid } from '@mui/material';
-import axios from 'axios';
-import Button from 'react-bootstrap/Button'
+
 
 export default function Create() {
     const [agencyCode, setagencyCode] = useState("0");
@@ -16,7 +15,7 @@ export default function Create() {
     const [startDate, setStartDate] = useState("0/0/0")
     const [endDate, setEndDate] = useState("0/0/0")
     const [descriptionBox, setDescriptionBox] = useState("default text")
-    var retrivedData
+
     function onSubmit() { console.log("Submitted") }
     //console.alert("SubmittedValues: ", projectID, " ", projectName, " ", projectType, organizationType, agencyCode, agencyName, sanctionValue, startDate, endDate, descriptionBox)
 
@@ -39,20 +38,9 @@ export default function Create() {
                 endDate: endDate,
                 descriptionBox: descriptionBox
             }),
-        }).then(
-            axios.get('/pending')
-                .then(function (response) {
-                    // handle success
-                    retrivedData = response.data
-                    console.log(retrivedData);
-                })
-                .catch(function (error) {
-                    // handle error
-                    console.log(error);
-                })
-
-
-        )
+        }).then((res) => {
+            console.log("Res:", res);
+        })
     }
 
     return (
@@ -133,3 +121,4 @@ export default function Create() {
         </div >
     )
 }
+// comment
