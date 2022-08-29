@@ -13,6 +13,7 @@ import LoginAdmin from "./login2/login2_Ad";
 import MainNav from "./Navbar/components/MainNav"
 import Create from "../components/Faculty/CreateProject/create"
 import Announcements from "./Faculty/Announcements/Announcements.jsx";
+import Admin from "./Admin/Admin.jsx";
 const App = () => {
   return (
     <Router>
@@ -20,7 +21,8 @@ const App = () => {
         <Route exact path="/" element={<Login1 />} />
         <Route exact path="/login2" element={<LoginFac />} />
         <Route exact path="/login2_Ad" element={<LoginAdmin />} />
-          <Route exact path="/home" element={<MainNav content="Welcome "/>} />
+        <Route exact path="/admin_home" element={<Admin/>} />
+          <Route exact path="/home" element={<MainNav content="Welcome Faculty"/>} />
           <Route exact path="/create_project" element={<Create />} />
           <Route exact path="/ongoing_project" element={<Ongoing />} />
           <Route exact path="/recruitment" element={<Recruitment />} />

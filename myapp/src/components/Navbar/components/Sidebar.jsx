@@ -2,16 +2,19 @@ import React from "react";
 import { SidebarData } from "./SidebarData";
 import SideElement from "./SideElement";
 function Sidebar() {
+	var li = document.querySelector("li");
   return (
     <div className="sidebar">
 		<div className="sidebar_inner">
 		<ul>
 			{SidebarData.map((data)=>{
+				//if(data.key!=6 && data.key!=7){
 				return <SideElement
 				key={data.key} 
 				title={data.title} 
 				path={data.path}
 				img={data.img}/>
+				//}
 			})}  
 		</ul>
 		</div>
