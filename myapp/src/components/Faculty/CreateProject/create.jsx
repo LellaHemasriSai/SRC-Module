@@ -3,6 +3,7 @@ import Sidebar from "../../Navbar/components/Sidebar";
 import Nav from "../../Navbar/components/Nav";
 import { Grid } from '@mui/material';
 import axios from 'axios';
+import Button from 'react-bootstrap/Button'
 
 export default function Create() {
     const [agencyCode, setagencyCode] = useState("0");
@@ -121,7 +122,7 @@ export default function Create() {
                     </Grid>
                     <Grid item xs={12} md={4}>
                         <div className="btnCreateProject">
-                            <button type="button" onClick={postData} >Create</button>
+                            <Button variant="primary" type="button" onClick={postData} >Create</Button>
                             {/* <button type="submit" onClick={getData}>GetData</button> */}
                         </div>
                     </Grid>
