@@ -1,11 +1,8 @@
-import * as FaIcons from "react-icons/fa";
-import * as AiIcons from "react-icons/ai";
-import * as BsIcons from "react-icons/bs";
-import home from "./images/home.svg"
-import ongoing from "./images/ongoing.svg"
-import recruit from "./images/recruit.svg"
-import create from "./images/create.svg"
-import announcements from "./images/announcements.svg"
+import home from "../../../images/home.svg"
+import ongoing from "../../../images/ongoing.svg"
+import recruit from "../../../images/recruit.svg"
+import create from "../../../images/create.svg"
+import announcements from "../../../images/announcements.svg"
 
 export const SidebarData = [
 
@@ -14,7 +11,6 @@ export const SidebarData = [
         title: 'HOME',
         path: '/home',
         img: home,
-        icon: <AiIcons.AiFillHome />,
         cName: 'nav-text'
     },
     {
@@ -22,15 +18,25 @@ export const SidebarData = [
         title: 'CREATE PROJECT',
         path: '/create_project',
         img: create,
-        icon: <AiIcons.AiFillProject/>,
         cName: 'nav-text'
     },
+      /*  {
+            key:6,
+            title: 'Internal',
+            path: '/create_project',
+            img: create,
+        },
+        {
+            key:7,
+            title: 'External',
+            path: '/create_project',
+            img: create,
+        },*/
     {
         key:3,
         title: 'ONGOING PROJECTS',
         path: '/ongoing_project',
         img: ongoing,
-        icon: <FaIcons.FaProjectDiagram/>,
         cName: 'nav-text'
     },
     {
@@ -38,7 +44,6 @@ export const SidebarData = [
         title: 'RECRUITMENT',
         path: '/recruitment',
         img: recruit,
-        icon: <BsIcons.BsPeople />,
         cName: 'nav-text'
     },
         {
@@ -46,7 +51,6 @@ export const SidebarData = [
         title: 'ANNOUNCEMENTS',
         path: '/announcements',
         img: announcements,
-        icon: <BsIcons.BsPeople />,
         cName: 'nav-text'
     }
 ];

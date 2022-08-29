@@ -23,7 +23,7 @@ const LoginFac = () => {
         <div>
             <div className="container_login2">
                 <img src={logo} alt="IIT Tirupati Logo" />
-                <h3 className="text-center" >Admin Login</h3>
+                <h3 className="text-center" >Faculty Login</h3>
                 <form action="#" class="login2-form" >
                     <div className="form-group_login2" >
                         <input type="text" name="name" value={user.name} className="form-control rounded-left" placeholder="Username" required onChange={handleChange} />
@@ -37,8 +37,8 @@ const LoginFac = () => {
                             <a href="www.google.com">Forgot Password</a>
                         </div>
                     </div>
-                    
-                    <Link to="/admin_home">        
+
+                    <Link to="/home">
                         <div className="form-group_login2">
                             <button type="submit" className="btn btn-primary rounded submit p-3 px-5">Login</button>
                         </div>
