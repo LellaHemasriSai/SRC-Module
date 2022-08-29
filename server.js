@@ -94,10 +94,28 @@ const Admin = mongoose.model('Admin', adminSchema);
 
 
 
+//retrieving data from mongodb
+app.get("/pending", async (req, res, next) => {
+    /*var pendingProjects = await Project.findOne({}, (err, data) => {
+        //console.log("Data:\n" + data)
+    })*/
+    var pendingProjects = await Project.findOne({})
+    //res.send(pendingProjects)
+    //console.log(pendingProjects)
+    try {
 
-/*app.get("/created", (req, res, err) => {
-    res.send('Server Online!!!!')
-})*/
+
+        return res.status(200).json({
+            success: true,
+            count: pendingProjects.length,
+            data: pendingProjects,
+        });
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({ error: 'server error' });
+    }
+
+})
 
 app.post("/created", (req, res) => {
     console.log("Recieved?");
@@ -126,7 +144,9 @@ app.post("/created", (req, res) => {
 
     console.log(newProject)
     newProject.save()
-    // res.status(200).json(newProject)
+    //res.status(200).json(newProject)
+    //var pendingProjects = Project.find({})
+    //console.log(pendingProjects)
 
 });
 
