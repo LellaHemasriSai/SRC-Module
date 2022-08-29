@@ -40,13 +40,12 @@ const projectsSchema = new mongoose.Schema({
     endDate: String,
     status: Number,
     description: String
-
 })
 
 const Project = mongoose.model("Project", projectsSchema)
 
 //dummy project
-const project1 = new Project({
+/*const project1 = new Project({
     projectCode: "Fa01",
     projectName: "FaName",
     agencyName: "Agency",
@@ -61,7 +60,7 @@ const project1 = new Project({
     //staff: [],
     sanctionFund: 100000,
     status: 20,
-})
+})*/
 
 const facultySchema = new mongoose.Schema({
     username: {
@@ -71,6 +70,16 @@ const facultySchema = new mongoose.Schema({
     },
     password: String,
     userCode: String,
+    details: {
+        Department: String,
+        Designation: String,
+        Email: String,
+        ContactNumber: String,
+        DateOfJoining: Date,
+        Qualifications: String,
+        DoB: Date,
+
+    },
     projects: [mongoose.Types.ObjectId]
 
 });
@@ -91,6 +100,9 @@ const adminSchema = new mongoose.Schema({
 
 const Admin = mongoose.model('Admin', adminSchema);
 
+const AnnouncementSchema = new mongoose.Schema({
+
+})
 
 
 

@@ -59,7 +59,7 @@ export default function Create() {
         <div className="wrapper hover_collapse">
             <Nav user="User Name"></Nav>
             <Sidebar></Sidebar>
-            <form className="forms" onSubmit={onSubmit} style={{ marginLeft: '100px', marginTop: '105px', marginRight: '50px', alignItems: 'center' }}>
+            <form className="createProjectforms" onSubmit={onSubmit} style={{ marginLeft: '100px', marginTop: '105px', marginRight: '50px', alignItems: 'center' }}>
                 <Grid container spacing={5}>
                     <Grid item xs={12} md={4}>
                         <label>
