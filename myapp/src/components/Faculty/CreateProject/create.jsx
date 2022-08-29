@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Sidebar from "../../Navbar/components/Sidebar";
 import Nav from "../../Navbar/components/Nav";
 import { Grid } from '@mui/material';
-import Button from '@mui/material';
+//import Button from '@mui/material';
 
 
 export default function Create() {
@@ -112,7 +112,7 @@ export default function Create() {
                     </Grid>
                     <Grid item xs={12} md={4}>
                         <div className="btnCreateProject">
-                            <Button variant="primary" type="button" onClick={postData} >Create</Button>
+                            <button type="button" onClick={postData} >Create</button>
                             {/* <button type="submit" onClick={getData}>GetData</button> */}
                         </div>
                     </Grid>
