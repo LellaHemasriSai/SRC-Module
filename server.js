@@ -25,6 +25,7 @@ mongoose.connect("mongodb://localhost:27017/SRC", { useNewUrlParser: true }, () 
 const projectsSchema = new mongoose.Schema({
     projectCode: String,
     projectName: String,
+    projectType: String,
     agencyCode: String,
     agencyName: String,
     approval: Boolean,
@@ -35,8 +36,8 @@ const projectsSchema = new mongoose.Schema({
     organizationType: String,
     staff: [mongoose.Types.ObjectId],
     sanctionFund: Number,
-    startDate: Date,
-    endDate: Date,
+    startDate: String,
+    endDate: String,
     status: Number,
     description: String
 
@@ -93,36 +94,59 @@ const Admin = mongoose.model('Admin', adminSchema);
 
 
 
+//retrieving data from mongodb
+app.get("/pending", async (req, res, next) => {
+    /*var pendingProjects = await Project.findOne({}, (err, data) => {
+        //console.log("Data:\n" + data)
+    })*/
+    var pendingProjects = await Project.findOne({})
+    //res.send(pendingProjects)
+    //console.log(pendingProjects)
+    try {
 
-app.get("/created", (req, res, err) => {
-    res.send('Server Online!!!!')
+
+        return res.status(200).json({
+            success: true,
+            count: pendingProjects.length,
+            data: pendingProjects,
+        });
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({ error: 'server error' });
+    }
+
 })
 
 app.post("/created", (req, res) => {
     console.log("Recieved?");
-    console.log("Body:", req.body);
+    //console.log("Body:", req.body);
     res.send("request sent")
     //console.log(result)
-    // const newProject = await Project.create({
-    //     projectCode: req.body.projectCode,
-    //     projectName: req.body.projectName,
-    //     agencyCode: req.body.agencyCode,
-    //     agencyName: req.body.agencyCode,
-    //     organizationType: req.body.organizationType,
-    //     approval: false,
-    //     resourceApproval: false,
-    //     fundApproval: false,
-    //     closed: false,
-    //     facultyID: req.body.facultyID,
-    //     staff: [],
-    //     sanctionFund: req.body.sanctionFund,
-    //     startDate: req.body.startDate,
-    //     endDate: req.body.endDate,
-    //     status: 0,
-    //     description: req.body.description
-    // })
+    var newProject = new Project({
+        projectCode: req.body.projectID,
+        projectName: req.body.projectName,
+        projectType: req.body.projectType,
+        agencyCode: req.body.agencyCode,
+        agencyName: req.body.agencyName,
+        organizationType: req.body.organizationType,
+        approval: false,
+        resourceApproval: false,
+        fundApproval: false,
+        closed: false,
+        facultyID: "ID",
+        staff: [],
+        sanctionFund: req.body.sanctionValue,
+        startDate: req.body.startDate,
+        endDate: req.body.endDate,
+        status: 0,
+        description: req.body.descriptionBox
+    });
 
-    // res.status(200).json(newProject)
+    console.log(newProject)
+    newProject.save()
+    //res.status(200).json(newProject)
+    //var pendingProjects = Project.find({})
+    //console.log(pendingProjects)
 
 });
 
