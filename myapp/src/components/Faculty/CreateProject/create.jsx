@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Sidebar from "../../Navbar/components/Sidebar";
 import Nav from "../../Navbar/components/Nav";
 import { Grid } from '@mui/material';
@@ -16,7 +16,7 @@ export default function Create() {
     const [startDate, setStartDate] = useState("0/0/0")
     const [endDate, setEndDate] = useState("0/0/0")
     const [descriptionBox, setDescriptionBox] = useState("default text")
-
+    var retrivedData
     function onSubmit() { console.log("Submitted") }
     //console.alert("SubmittedValues: ", projectID, " ", projectName, " ", projectType, organizationType, agencyCode, agencyName, sanctionValue, startDate, endDate, descriptionBox)
 
@@ -43,7 +43,8 @@ export default function Create() {
             axios.get('/pending')
                 .then(function (response) {
                     // handle success
-                    console.log(response.data);
+                    retrivedData = response.data
+                    console.log(retrivedData);
                 })
                 .catch(function (error) {
                     // handle error
@@ -69,7 +70,7 @@ export default function Create() {
                     <Grid item xs={12} md={4}>
                         <label>
                             Project ID{'\n'}
-                            <input type="text" name="projectID" onChange={(event) => { setProjectID(event.target.value) }} />
+                            <input type="text" name="projectID" placeholder="Enter the project ID" onChange={(event) => { setProjectID(event.target.value) }} />
                         </label>
                     </Grid>
                     <Grid item xs={12} md={4}>
@@ -117,7 +118,7 @@ export default function Create() {
                     <Grid item xs={12} md={4}>
                         <label>
                             Description{'\n'}
-                            <input type="text" name="Description" placeholder="Give a brief description of the project" onChange={(event) => { setDescriptionBox(event.target.value) }} />
+                            <input type="text" name="Description" placeholder="Brief description" onChange={(event) => { setDescriptionBox(event.target.value) }} />
                         </label>
                     </Grid>
                     <Grid item xs={12} md={4}>
@@ -128,6 +129,7 @@ export default function Create() {
                     </Grid>
                 </Grid>
             </form>
+
         </div >
     )
 }
