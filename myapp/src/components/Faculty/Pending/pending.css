@@ -1,4 +1,4 @@
-.header {
+/* .header {
     background: #3876D0;
     color: white;
 }
@@ -70,4 +70,10 @@ td {
     padding: 8px;
     text-align: center;
     color: black;
+} */
+.grid
+{
+   display: flex;
+   flex-wrap: wrap;
+
 }
