@@ -83,7 +83,7 @@ export default function Create() {
                     <Grid item xs={12} md={4}>
                         <label>
                             Organization Type{'\n'}
-                            <input type="text" name="organizationType" placeholder="Enter your organization Type" onChange={(event) => { setorganizationType(event.target.value) }} />
+                            <select name="organizationType" placeholder="Enter your organization Type" onChange={(event) => { setorganizationType(event.target.value) }} />
                         </label>
                     </Grid>
                     <Grid item xs={12} md={4}>
@@ -95,13 +95,13 @@ export default function Create() {
                     <Grid item xs={12} md={4}>
                         <label>
                             Start Date{'\n'}
-                            <input type="text" name="startDate" placeholder="Enter start date" onChange={(event) => { setStartDate(event.target.value) }} />
+                            <input type="date" name="startDate"  onChange={(event) => { setStartDate(event.target.value) }} />
                         </label>
                     </Grid>
                     <Grid item xs={12} md={4}>
                         <label>
                             End Date{'\n'}
-                            <input type="text" name="endDate" placeholder="Enter End date" onChange={(event) => { setEndDate(event.target.value) }} />
+                            <input type="date" name="endDate"  onChange={(event) => { setEndDate(event.target.value) }} />
                         </label>
                     </Grid>
                     <Grid item xs={12} md={4}>
