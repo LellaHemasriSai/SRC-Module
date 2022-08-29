@@ -3,7 +3,7 @@ import ongoing from "../../../images/ongoing.svg"
 import recruit from "../../../images/recruit.svg"
 import create from "../../../images/create.svg"
 import announcements from "../../../images/announcements.svg"
-
+import clock from "../../../images/clock.svg"
 export const SidebarData = [
 
     {
@@ -51,6 +51,13 @@ export const SidebarData = [
         title: 'ANNOUNCEMENTS',
         path: '/announcements',
         img: announcements,
+        cName: 'nav-text'
+    },
+    {
+        key:6,
+        title: 'Pending Approvals',
+        path: '/pending_approvals',
+        img: clock,
         cName: 'nav-text'
     }
 ];

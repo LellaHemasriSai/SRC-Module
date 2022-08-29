@@ -14,6 +14,7 @@ import MainNav from "./Navbar/components/MainNav"
 import Create from "../components/Faculty/CreateProject/create"
 import Announcements from "./Faculty/Announcements/Announcements.jsx";
 import Admin from "./Admin/Admin.jsx";
+import Pending from "./Faculty/Pending/Pending.jsx"
 const App = () => {
   return (
     <Router>
@@ -27,6 +28,7 @@ const App = () => {
           <Route exact path="/ongoing_project" element={<Ongoing />} />
           <Route exact path="/recruitment" element={<Recruitment />} />
           <Route exact path="/announcements" element={<Announcements />} />
+          <Route exact path="/pending_approvals" element={<Pending />} />
       </Routes>
     </Router>
   );
