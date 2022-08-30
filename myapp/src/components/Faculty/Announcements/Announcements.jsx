@@ -28,14 +28,12 @@ export default function CreateAnnouncement() {
   return (
     <div className="wrapper hover_collapse">
       <Nav user="User Name"></Nav>
-      <Sidebar></Sidebar>
-      <div class="main_container card_announcements">
-      <div className='container'>
-                <form onSubmit={onSubmit()}>
+      <div class="card">
+        <form onSubmit={onSubmit()}>
           <div class="form-row" style={{ marginTop: '150px' }}>
             <div class="form-group col-md-4">
               <label for="projectName">project Name</label>
-              <input type="text" class="form-control" id="projectName" value={projectName} placeholder="Project Name" onChange={(event) => { setProjectName(event.target.value) }}/>
+              <input type="text" class="form-control" id="projectName" value={projectName} placeholder="Project Name" onChange={(event) => { setProjectName(event.target.value) }} />
             </div>
             <div class="form-group col-md-4">
               <label for="projectID">Project ID</label>
@@ -43,21 +41,21 @@ export default function CreateAnnouncement() {
             </div>
             <div class="form-group col-md-4">
               <label for="projectType">Project Type</label>
-              <input type="text" class="form-control" id="projectType" value={projectType} placeholder="Project Type" onChange={(event) => { setprojectType(event.target.value) }}/>
+              <input type="text" class="form-control" id="projectType" value={projectType} placeholder="Project Type" onChange={(event) => { setprojectType(event.target.value) }} />
             </div>
           </div>
           <div class="form-row">
             <div class="form-group col-md-4">
               <label for="salaryDetails">Salary Details</label>
-              <input type="text" class="form-control" id="salaryDetails" value={salaryDetails} placeholder="Salary Details" onChange={(event) => { setSalaryDetails(event.target.value) }}/>
+              <input type="text" class="form-control" id="salaryDetails" value={salaryDetails} placeholder="Salary Details" onChange={(event) => { setSalaryDetails(event.target.value) }} />
             </div>
             <div class="form-group col-md-4">
               <label for="openPositions">Open Positions</label>
-              <input type="text" class="form-control" id="openPositions" value={openPositions} placeholder="Open Positions" onChange={(event) => { setOpenPositions(event.target.value) }}/>
+              <input type="text" class="form-control" id="openPositions" value={openPositions} placeholder="Open Positions" onChange={(event) => { setOpenPositions(event.target.value) }} />
             </div>
             <div class="form-group col-md-2">
               <label for="startDate">Start Date</label>
-              <input type="date" class="form-control" id="startDate" value={startDate} placeholder="Start Date" onChange={(event) => { setStartDate(event.target.value) }}/>
+              <input type="date" class="form-control" id="startDate" value={startDate} placeholder="Start Date" onChange={(event) => { setStartDate(event.target.value) }} />
             </div>
             <div class="form-group col-md-2">
               <label for="endDate">End date</label>
@@ -67,7 +65,7 @@ export default function CreateAnnouncement() {
           <div class="form-row">
             <div class="form-group col-md-4">
               <label for="requiredQualifications">Required Qualifications</label>
-              <input type="text" class="form-control" id="requiredQualifications" value={requiredQualifications} placeholder="Required Qualifications" onChange={(event) => { setRequiredQualifications(event.target.value) }}/>
+              <input type="text" class="form-control" id="requiredQualifications" value={requiredQualifications} placeholder="Required Qualifications" onChange={(event) => { setRequiredQualifications(event.target.value) }} />
             </div>
             <div class="form-group col-md-4" style={{ marginTop: '25px' }}>
               <button type="submit" class="btn btn-primary mb-2">Announce</button>
