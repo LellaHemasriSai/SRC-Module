@@ -10,22 +10,25 @@ import completed from "../../../images/completed.svg"
 import SideElement from "./SideElement";
 /*
 function Sidebar() {
+	var li = document.querySelector("li");
   return (
     <div className="sidebar">
 		<div className="sidebar_inner">
 		<ul>
 			{SidebarData.map((data)=>{
+				//if(data.key!=6 && data.key!=7){
 				return <SideElement
 				key={data.key} 
 				title={data.title} 
 				path={data.path}
 				img={data.img}/>
+				//}
 			})}  
 		</ul>
 		</div>
 	</div>
 
-  );
+	);
 }
 */
 
@@ -109,9 +112,7 @@ export default Sidebar;
         </div>
     </div>*/
 
-/*		<div className="sidebar multi-level">
-		<div className="sidebar_inner item">
-		<ul>
+/*		<ul>
             <li>
 				<a href="#">
 					<span class="icon"><img src={home} alt="home" /></span>
@@ -124,18 +125,20 @@ export default Sidebar;
 					<span class="text">Create Project</span>
 				</a>
 			</li>
+			<li>
             <li>
 				<a href="#">
 					<span class="icon"><img src={home} alt="ongoing" /></span>
 					<span class="text">Ongoing projects</span>
 				</a>
 			</li>
-            <li>
+			<li>
 				<a href="#">
 					<span class="icon"><img src={home} alt=""/></span>
 					<span class="text">Recruitment</span>
 				</a>
 			</li>
+
             <li>
 				<a href="#">
 					<span class="icon"><img src={home} alt="announcements"/></span>
