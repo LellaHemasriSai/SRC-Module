@@ -95,9 +95,11 @@ const Ongoing = () => {
 
   return (
     <div className="wrapper hover_collapse">
-   <div className="grid" style={{marginLeft: "300px",marginTop: "50px"}}>
-     <Nav user="User Name"></Nav>
-     <Sidebar></Sidebar>
+    <Nav user="User Name"></Nav>
+    <Sidebar></Sidebar>
+   <div className="main_container">
+    <div className="container" style={{textAlign:"center"}}>
+    <div className='grid'>
     {cardinfo.map((card,index) => (
       <Card id={index} 
       projectCode={card.projectCode} 
@@ -117,6 +119,8 @@ const Ongoing = () => {
       status={card.status}
       description={card.description}/>
     ))}
+   </div>
+   </div>
    </div>
    </div>
   );
