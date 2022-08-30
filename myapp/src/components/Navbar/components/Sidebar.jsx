@@ -38,7 +38,7 @@ function Sidebar() {
 				path={data[0].path}
 				img={data[0].img}/>
             <li>
-			<Link to="#">
+			<a href="#">
 			<div className="item">
 					<input type="checkbox" id="A"/>
 					<label for="A">
@@ -49,7 +49,7 @@ function Sidebar() {
 					<li><a href='/create_project'>Consultancy/Sponsored</a></li>
 				</ul>
 			</div>
-			</Link>
+			</a>
 			</li>
  			<SideElement
 				key={data[1].key} 
@@ -67,7 +67,7 @@ function Sidebar() {
 				path={data[3].path}
 				img={data[3].img}/>
 			<li>
-			<Link to="#">
+			<a href="#">
 			<div className="item">
 					<input type="checkbox" id="B"/>
 					<label for="B">
@@ -78,7 +78,7 @@ function Sidebar() {
 					<li><a href='/recruitment'>Adhoc</a></li>
 				</ul>
 			</div>
-			</Link>
+			</a>
 			</li>
 							<SideElement
 				key={data[4].key} 

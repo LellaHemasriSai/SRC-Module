@@ -119,7 +119,7 @@ export default function Create() {
                 </Grid>
             </form>
 
-        </div >
+        </div>
     )
 }
 // comment
