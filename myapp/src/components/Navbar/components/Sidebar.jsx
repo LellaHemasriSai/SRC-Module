@@ -1,12 +1,7 @@
 import React from "react";
 import { data } from "./SidebarData";
-import home from "../../../images/home.svg"
-import ongoing from "../../../images/ongoing.svg"
 import recruit from "../../../images/recruit.svg"
 import create from "../../../images/create.svg"
-import announcements from "../../../images/announcements.svg"
-import clock from "../../../images/clock.svg"
-import completed from "../../../images/completed.svg"
 import SideElement from "./SideElement";
 /*
 function Sidebar() {
