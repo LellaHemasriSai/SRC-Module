@@ -13,6 +13,24 @@ body{
 	background: #f5f5f5;
 }
 
+.item ul, .item input[type="checkbox"] {
+    display: none;
+}
+
+.item input:checked ~ ul {
+    display: block;
+}
+
+.hover_collapse .item input:checked ~ ul, .item input[type="checkbox"] {
+    display: none;
+}
+
+
+
+
+
+
+
 .top_navbar{
 	position: fixed;
 	top: 0;
@@ -23,6 +41,8 @@ body{
 	box-shadow: 1px 0 2px rgba(0,0,0,0.125);
 	display: flex;
 	align-items: center;
+	/* transition-timing-function: ease-in;
+	transition:0.1s ; */
 }
 
 .top_navbar .logo{
@@ -107,7 +127,7 @@ body{
   padding: 16px;
   font-size: 16px;
   border: none;
-      background-color: white;
+	background-color: white;
   cursor: pointer;
 }
 
@@ -142,7 +162,7 @@ body{
 	width: 70px;
 }
 
-.hover_collapse .sidebar ul li a .text{
+.hover_collapse .sidebar ul li a .text, .item ul{
 	display: none;
 }
 
@@ -160,6 +180,7 @@ body{
 	padding: 12px 25px;
 	border-bottom: 1px solid #0e94d4;
 	color: #ecf6fb;
+	text-decoration: none;
 	transition: all 0.2s ease;
 }
 
@@ -175,12 +196,13 @@ body{
     height: 25px;
 }
 
-.sidebar ul li a .text{
+.sidebar ul li a .text, .item ul li a{
 	margin-left: 10px;
 	color: #fff;
 	text-transform: uppercase;
     font-size: 15px;
 	letter-spacing: 1px;
+	cursor: pointer;
 }
 
 .sidebar ul li a:hover{
@@ -230,6 +252,17 @@ body{
 	width: calc(100% - 250px);
 	margin-left: 250px;
 	transition: all 0.2s ease;
+}
+.hidden{
+    height: 4rem;
+    width: 100%;
+    z-index: 40;
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+    box-shadow: 0 2px 5px -1px rgba(0, 0, 0, .08);
+    position: fixed;
+    top: -80px;
+    transition: 0.3s linear;
+
 }
 
 @media screen and (max-width:540px){

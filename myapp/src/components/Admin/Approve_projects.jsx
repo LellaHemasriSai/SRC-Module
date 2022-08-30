@@ -1,15 +1,12 @@
-import Card from './Card';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
+import Card from "./Card";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Container from  'react-bootstrap/Container';
-import "./ongoing.css";
-import CardHeader from 'react-bootstrap/esm/CardHeader';
-import Sidebar from "../../Navbar/components/Sidebar";
-import Nav from "../../Navbar/components/Nav";
+import "../Faculty/ongoing/ongoing.css";
+import Sidebar from "./Sidebar";
+import Nav from "../../components/Navbar/components/Nav";
 
-const Ongoing = () => {
+const Approve_project = () => {
   const cardinfo = [
+    
      { id:"1", projectCode: "2345",
      projectName: "SRC",
      projectType: "Web",
@@ -97,34 +94,28 @@ const Ongoing = () => {
      description: "This is description regarding project"},
   ]
 
+//   {domains.map((user) => {
+//     let keys = Object.keys(user);
+//     return (
+//       <Text style={styles.paragraph}>{keys.map((key) => {
+//         return (
+//           <Text>{`Key ${key}, value ${user[key]} \n`}</Text>
+//         )
+//       })}</Text>
+//     )
+//   })}
+
   return (
     <div className="wrapper hover_collapse">
    <div className="grid" style={{marginLeft: "300px",marginTop: "50px"}}>
      <Nav user="User Name"></Nav>
      <Sidebar></Sidebar>
-    {cardinfo.map((card,index) => (
-      <Card id={index} 
-      projectCode={card.projectCode} 
-      projectName ={card.agencyName}
-      projectType={card.projectType}
-      agencyCode={card.agencyCode} 
-      agencyName={card.agencyName}
-      approval={card.approval}
-      resourceApproval={card.resourceApproval}
-      fundApproval={card.fundApproval}
-      closed={card.closed}
-      facultyID={card.facultyID}
-      organisationType={card.organizationType}
-      staff={card.staff} sanctionFund={card.sanctionFund}
-      startDate={card.startDate}
-      endDate={card.endDate}
-      status={card.status}
-      description={card.description}/>
+     {cardinfo.map((card,index) => (
+      <Card id={index} projectCode={card.projectCode} projectName ={card.agencyName} projectType={card.projectType} agencyCode={card.agencyCode} agencyName={card.agencyName} approval={card.approval} resourceApproval={card.resourceApproval} fundApproval={card.fundApproval} closed={card.closed} facultyID={card.facultyID} organisationType={card.organizationType} staff={card.staff} sanctionFund={card.sanctionFund} startDate={card.startDate} endDate={card.endDate} status={card.status} description={card.description} content="Approve Project"/>
     ))}
    </div>
    </div>
   );
 }
 
-export default Ongoing;
-
+export default Approve_project;

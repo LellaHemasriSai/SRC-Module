@@ -1,52 +1,71 @@
-import * as FaIcons from "react-icons/fa";
-import * as AiIcons from "react-icons/ai";
-import * as BsIcons from "react-icons/bs";
-import home from "./images/home.svg"
-import ongoing from "./images/ongoing.svg"
-import recruit from "./images/recruit.svg"
-import create from "./images/create.svg"
-import announcements from "./images/announcements.svg"
-
-export const SidebarData = [
+import home from "../../../images/home.svg"
+import ongoing from "../../../images/ongoing.svg"
+import recruit from "../../../images/recruit.svg"
+import create from "../../../images/create.svg"
+import announcements from "../../../images/announcements.svg"
+import clock from "../../../images/clock.svg"
+import completed from "../../../images/completed.svg"
+export const data = [
 
     {
-        key:1,
+        key:'a',
         title: 'HOME',
         path: '/home',
         img: home,
-        icon: <AiIcons.AiFillHome />,
         cName: 'nav-text'
     },
-    {
-        key:2,
+  /*  {
+        key:'b',
         title: 'CREATE PROJECT',
         path: '/create_project',
         img: create,
-        icon: <AiIcons.AiFillProject/>,
         cName: 'nav-text'
     },
-    {
-        key:3,
-        title: 'ONGOING PROJECTS',
-        path: '/ongoing_project',
-        img: ongoing,
-        icon: <FaIcons.FaProjectDiagram/>,
-        cName: 'nav-text'
-    },
-    {
-        key:4,
+     {
+            key:6,
+            title: 'Internal',
+            path: '/create_project',
+            img: create,
+        },
+        {
+            key:7,
+            title: 'External',
+            path: '/create_project',
+            img: create,
+        },
+            {
+        key:'f',
         title: 'RECRUITMENT',
         path: '/recruitment',
         img: recruit,
-        icon: <BsIcons.BsPeople />,
+        cName: 'nav-text'
+    },*/
+    {
+        key:'c',
+        title: 'ONGOING PROJECTS',
+        path: '/ongoing_project',
+        img: ongoing,
         cName: 'nav-text'
     },
-        {
-        key:5,
+    {
+        key:'d',
+        title: 'Pending Approvals',
+        path: '/pending_approvals',
+        img: clock,
+        cName: 'nav-text'
+    },
+    {
+        key:'e',
+        title: 'Completed Projects',
+        path: '/completed_projects',
+        img: completed,
+        cName: 'nav-text'
+    },
+    {
+        key:'g',
         title: 'ANNOUNCEMENTS',
         path: '/announcements',
         img: announcements,
-        icon: <BsIcons.BsPeople />,
         cName: 'nav-text'
     }
 ];

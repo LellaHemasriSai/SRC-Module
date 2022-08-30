@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Sidebar from "../../Navbar/components/Sidebar";
 import Nav from "../../Navbar/components/Nav";
 import { Grid } from '@mui/material';
-import axios from 'axios';
-import Button from 'react-bootstrap/Button'
+//import Button from '@mui/material';
+
 
 export default function Create() {
     const [agencyCode, setagencyCode] = useState("0");
@@ -16,7 +16,7 @@ export default function Create() {
     const [startDate, setStartDate] = useState("0/0/0")
     const [endDate, setEndDate] = useState("0/0/0")
     const [descriptionBox, setDescriptionBox] = useState("default text")
-    var retrivedData
+
     function onSubmit() { console.log("Submitted") }
     //console.alert("SubmittedValues: ", projectID, " ", projectName, " ", projectType, organizationType, agencyCode, agencyName, sanctionValue, startDate, endDate, descriptionBox)
 
@@ -39,27 +39,16 @@ export default function Create() {
                 endDate: endDate,
                 descriptionBox: descriptionBox
             }),
-        }).then(
-            axios.get('/pending')
-                .then(function (response) {
-                    // handle success
-                    retrivedData = response.data
-                    console.log(retrivedData);
-                })
-                .catch(function (error) {
-                    // handle error
-                    console.log(error);
-                })
-
-
-        )
+        }).then((res) => {
+            console.log("Res:", res);
+        })
     }
 
     return (
         <div className="wrapper hover_collapse">
             <Nav user="User Name"></Nav>
             <Sidebar></Sidebar>
-            <form className="forms" onSubmit={onSubmit} style={{ marginLeft: '100px', marginTop: '105px', marginRight: '50px', alignItems: 'center' }}>
+            <form className="createProjectforms" onSubmit={onSubmit} style={{ marginLeft: '100px', marginTop: '105px', marginRight: '50px', alignItems: 'center' }}>
                 <Grid container spacing={5}>
                     <Grid item xs={12} md={4}>
                         <label>
@@ -94,7 +83,7 @@ export default function Create() {
                     <Grid item xs={12} md={4}>
                         <label>
                             Organization Type{'\n'}
-                            <input type="text" name="organizationType" placeholder="Enter your organization Type" onChange={(event) => { setorganizationType(event.target.value) }} />
+                            <select name="organizationType" placeholder="Enter your organization Type" onChange={(event) => { setorganizationType(event.target.value) }} />
                         </label>
                     </Grid>
                     <Grid item xs={12} md={4}>
@@ -106,13 +95,13 @@ export default function Create() {
                     <Grid item xs={12} md={4}>
                         <label>
                             Start Date{'\n'}
-                            <input type="text" name="startDate" placeholder="Enter start date" onChange={(event) => { setStartDate(event.target.value) }} />
+                            <input type="date" name="startDate"  onChange={(event) => { setStartDate(event.target.value) }} />
                         </label>
                     </Grid>
                     <Grid item xs={12} md={4}>
                         <label>
                             End Date{'\n'}
-                            <input type="text" name="endDate" placeholder="Enter End date" onChange={(event) => { setEndDate(event.target.value) }} />
+                            <input type="date" name="endDate"  onChange={(event) => { setEndDate(event.target.value) }} />
                         </label>
                     </Grid>
                     <Grid item xs={12} md={4}>
@@ -123,7 +112,7 @@ export default function Create() {
                     </Grid>
                     <Grid item xs={12} md={4}>
                         <div className="btnCreateProject">
-                            <Button variant="primary" type="button" onClick={postData} >Create</Button>
+                            <button type="button" onClick={postData} >Create</button>
                             {/* <button type="submit" onClick={getData}>GetData</button> */}
                         </div>
                     </Grid>
@@ -133,3 +122,4 @@ export default function Create() {
         </div >
     )
 }
+// comment

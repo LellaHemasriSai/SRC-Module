@@ -1,4 +1,4 @@
-.header {
+/* .header {
     background: hsl(216, 62%, 52%);
     color: white;
 
@@ -75,4 +75,10 @@ td {
     padding: 8px;
     text-align: center;
     color: black;
+} */
+.grid
+{
+   display: flex;
+   flex-wrap: wrap;
+
 }

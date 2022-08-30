@@ -1,0 +1,24 @@
+[
+    {   "id": 1,
+        "ProjectID": 12345,
+        "ProjectName": "SRC",
+        "ProjectType": "Web",
+        "Description": "To create sponsored/consultancy projects",
+        "ProjectStatus": "Ongoing"
+      },
+      { "id": 2,
+        "ProjectID": 45678,
+        "ProjectName": "Payment",
+        "ProjectType": "Web",
+        "Description": "Payment system",
+        "ProjectStatus": "Ongoing"
+      },
+      { "id": 3,
+        "ProjectID": 10987,
+        "ProjectName": "Maps",
+        "ProjectType": "App",
+        "Description": "It is an App which shows different places using maps",
+        "ProjectStatus": "Completed"
+      }
+    
+]

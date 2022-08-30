@@ -22,6 +22,8 @@ app.use(
 
 mongoose.connect("mongodb://localhost:27017/SRC", { useNewUrlParser: true }, () => { console.log("connected to database") });
 
+
+//SCHEMAS
 const projectsSchema = new mongoose.Schema({
     projectCode: String,
     projectName: String,
@@ -39,29 +41,13 @@ const projectsSchema = new mongoose.Schema({
     startDate: String,
     endDate: String,
     status: Number,
-    description: String
+    description: String,
+    announcements: [{
 
+    }]
 })
 
 const Project = mongoose.model("Project", projectsSchema)
-
-//dummy project
-const project1 = new Project({
-    projectCode: "Fa01",
-    projectName: "FaName",
-    agencyName: "Agency",
-    agencyCode: "Number",
-    approval: true,
-    resourceApproval: true,
-    fundApproval: true,
-    closed: false,
-    facultyID: "FaID",
-    startDate: 18 - 12 - 2022,
-    endDate: 20 - 12 - 2022,
-    //staff: [],
-    sanctionFund: 100000,
-    status: 20,
-})
 
 const facultySchema = new mongoose.Schema({
     username: {
@@ -71,6 +57,16 @@ const facultySchema = new mongoose.Schema({
     },
     password: String,
     userCode: String,
+    details: {
+        Department: String,
+        Designation: String,
+        Email: String,
+        ContactNumber: String,
+        DateOfJoining: Date,
+        Qualifications: String,
+        DoB: Date,
+        Address: String,
+    },
     projects: [mongoose.Types.ObjectId]
 
 });
@@ -86,20 +82,57 @@ const adminSchema = new mongoose.Schema({
     projects: {
         approve: [projectsSchema],
     },
-    faculty: []
+    faculty: [mongoose.Types.ObjectId],
+    staff: [mongoose.Types.ObjectId],
 })
 
 const Admin = mongoose.model('Admin', adminSchema);
 
+const staffSchema = new mongoose.Schema({
+    username: {
+        type: String,
+        trim: true,
+        required: true,
+    },
+    password: String,
+    staffCode: String,
+    details: {
+        Department: String,
+        Designation: String,
+        Email: String,
+        ContactNumber: String,
+        DateOfJoining: Date,
+        Qualifications: String,
+        DoB: Date,
+        Address: String,
+    },
+    projects: [{
+        projectID: String,
+        Salary: Number,
+        StartDate: Date,
+        EndDate: Date,
+    }]
+})
 
+const announcementSchema = new mongoose.Schema({
+    projectID: String,
+    project: mongoose.Types.ObjectId,
+    qualifications: String,
+    startDate: Date,
+    endDate: Date,
+    salary: Number,
+    FacultyName: String,
+    description: String,
+})
 
+const Announcement = mongoose.model('Announcement', announcementSchema);
 
 //retrieving data from mongodb
 app.get("/pending", async (req, res, next) => {
     /*var pendingProjects = await Project.findOne({}, (err, data) => {
         //console.log("Data:\n" + data)
     })*/
-    var pendingProjects = await Project.findOne({})
+    var pendingProjects = await Project.find({})
     //res.send(pendingProjects)
     //console.log(pendingProjects)
     try {
@@ -144,9 +177,6 @@ app.post("/created", (req, res) => {
 
     console.log(newProject)
     newProject.save()
-    //res.status(200).json(newProject)
-    //var pendingProjects = Project.find({})
-    //console.log(pendingProjects)
 
 });
 

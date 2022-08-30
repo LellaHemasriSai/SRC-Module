@@ -1,16 +1,13 @@
-import Card from './Card';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
+import Card from '../ongoing/Card';
 import "bootstrap/dist/css/bootstrap.min.css";
-import Container from  'react-bootstrap/Container';
-import "./ongoing.css";
-import CardHeader from 'react-bootstrap/esm/CardHeader';
+import "./pending.css";
 import Sidebar from "../../Navbar/components/Sidebar";
 import Nav from "../../Navbar/components/Nav";
 
-const Ongoing = () => {
+const Pending = () => {
   const cardinfo = [
-     { id:"1", projectCode: "2345",
+    
+     { id:"1", projectCode: "12345",
      projectName: "SRC",
      projectType: "Web",
      agencyCode: "X2450",
@@ -103,28 +100,12 @@ const Ongoing = () => {
      <Nav user="User Name"></Nav>
      <Sidebar></Sidebar>
     {cardinfo.map((card,index) => (
-      <Card id={index} 
-      projectCode={card.projectCode} 
-      projectName ={card.agencyName}
-      projectType={card.projectType}
-      agencyCode={card.agencyCode} 
-      agencyName={card.agencyName}
-      approval={card.approval}
-      resourceApproval={card.resourceApproval}
-      fundApproval={card.fundApproval}
-      closed={card.closed}
-      facultyID={card.facultyID}
-      organisationType={card.organizationType}
-      staff={card.staff} sanctionFund={card.sanctionFund}
-      startDate={card.startDate}
-      endDate={card.endDate}
-      status={card.status}
-      description={card.description}/>
+      <Card id={index} projectCode={card.projectCode} projectName ={card.agencyName} projectType={card.projectType} agencyCode={card.agencyCode} agencyName={card.agencyName} approval={card.approval} resourceApproval={card.resourceApproval} fundApproval={card.fundApproval} closed={card.closed} facultyID={card.facultyID} organisationType={card.organizationType} staff={card.staff} sanctionFund={card.sanctionFund} startDate={card.startDate} endDate={card.endDate} status={card.status} description={card.description}/>
     ))}
    </div>
    </div>
   );
 }
 
-export default Ongoing;
+export default Pending;
 
