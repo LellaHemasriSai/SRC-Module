@@ -17,9 +17,7 @@ const App = () => {
         <>
         <Route exact path="/login2_Ad" element={<LoginAdmin />} />
         <Route exact path="/admin_home" element={<Admin/>} />
-        <Route exact path="/Approve_project" element={<ApproveProject />} />
-        <Route exact path="/approve_recruitment" element={<ApproveRecruitment />} />
-        <Route exact path="/duration_extension" element={<DurationExtension />} />
+
         </>
         <>
         <Route exact path="/login2" element={<LoginFac />} />
@@ -29,6 +27,7 @@ const App = () => {
           <Route exact path="/recruitment" element={<Recruitment />} />
           <Route exact path="/announcements" element={<Announcements />} />
           <Route exact path="/pending_approvals" element={<Pending />} />
+          </>
       </Routes>
     </Router>
   );

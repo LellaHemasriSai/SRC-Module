@@ -34,7 +34,6 @@ function Sidebar() {
 
 
 function Sidebar() {
-	var li = document.querySelector("li");
   return (<div className="sidebar">
 		<div className="sidebar_inner">
 		<ul>
@@ -45,11 +44,11 @@ function Sidebar() {
 				img={data[0].img}/>
             <li>
 			<a href="#">
-			<div class="item">
+			<div className="item">
 					<input type="checkbox" id="A"/>
 					<label for="A">
-					<span class="icon"><img src={create} alt="create"/></span>
-					<span class="text">Create Project</span></label>
+					<span className="icon"><img src={create} alt="create"/></span>
+					<span className="text">Create Project</span></label>
 				<ul>
 					<li><a href='/create_project'>Internal</a></li>
 					<li><a href='/create_project'>Consultancy/Sponsored</a></li>
@@ -64,11 +63,11 @@ function Sidebar() {
 				img={data[1].img}/>
             <li>
 			<a href="#">
-			<div class="item">
+			<div className="item">
 					<input type="checkbox" id="B"/>
 					<label for="B">
-					<span class="icon"><img src={create} alt="create"/></span>
-					<span class="text">Recruitment</span></label>
+					<span className="icon"><img src={recruit} alt="recruit"/></span>
+					<span className="text">Recruitment</span></label>
 				<ul >
 					<li><a href='/recruitment'>Staff</a></li>
 					<li><a href='/recruitment'>Adhoc</a></li>
