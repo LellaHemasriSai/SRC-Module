@@ -13,7 +13,7 @@ import ApproveProject from "./Admin/Approve_projects.jsx";
 import ApproveRecruitment from "./Admin/Approve_Recruitmnet.jsx";
 import DurationExtension from "./Admin/Duration_Extension.jsx";
 
-import View from "./Admin/viewProjects/View.jsx";
+// import View from "./Admin/viewProjects/View.jsx";
 
 
 const App = () => {
@@ -27,7 +27,7 @@ const App = () => {
         <Route exact path="/Approve_project" element={<ApproveProject />} />
         <Route exact path="/approve_recruitment" element={<ApproveRecruitment />} />
         <Route exact path="/duration_extension" element={<DurationExtension />} />
-        <Route exact path="/view_project" element={<View />} />
+        {/* <Route exact path="/view_project" element={<View />} /> */}
         </>
         <>
         <Route exact path="/login2" element={<LoginFac />} />
