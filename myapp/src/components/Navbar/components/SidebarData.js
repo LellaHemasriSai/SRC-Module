@@ -4,6 +4,7 @@ import recruit from "../../../images/recruit.svg"
 import create from "../../../images/create.svg"
 import announcements from "../../../images/announcements.svg"
 import clock from "../../../images/clock.svg"
+import completed from "../../../images/completed.svg"
 export const SidebarData = [
 
     {
@@ -41,23 +42,30 @@ export const SidebarData = [
     },
     {
         key:4,
+        title: 'Pending Approvals',
+        path: '/pending_approvals',
+        img: clock,
+        cName: 'nav-text'
+    },
+    {
+        key:5,
+        title: 'Completed Projects',
+        path: '/completed_projects',
+        img: completed,
+        cName: 'nav-text'
+    },
+    {
+        key:6,
         title: 'RECRUITMENT',
         path: '/recruitment',
         img: recruit,
         cName: 'nav-text'
     },
-        {
-        key:5,
+    {
+        key:7,
         title: 'ANNOUNCEMENTS',
         path: '/announcements',
         img: announcements,
-        cName: 'nav-text'
-    },
-    {
-        key:6,
-        title: 'Pending Approvals',
-        path: '/pending_approvals',
-        img: clock,
         cName: 'nav-text'
     }
 ];
