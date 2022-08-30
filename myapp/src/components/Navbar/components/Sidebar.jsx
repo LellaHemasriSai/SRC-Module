@@ -3,24 +3,24 @@ import { SidebarData } from "./SidebarData";
 import SideElement from "./SideElement";
 function Sidebar() {
 	var li = document.querySelector("li");
-  return (
-    <div className="sidebar">
-		<div className="sidebar_inner">
-		<ul>
-			{SidebarData.map((data)=>{
-				//if(data.key!=6 && data.key!=7){
-				return <SideElement
-				key={data.key} 
-				title={data.title} 
-				path={data.path}
-				img={data.img}/>
-				//}
-			})}  
-		</ul>
+	return (
+		<div className="sidebar">
+			<div className="sidebar_inner">
+				<ul className="Sidebar_ul">
+					{SidebarData.map((data) => {
+						//if(data.key!=6 && data.key!=7){
+						return <SideElement
+							key={data.key}
+							title={data.title}
+							path={data.path}
+							img={data.img} />
+						//}
+					})}
+				</ul>
+			</div>
 		</div>
-	</div>
 
-  );
+	);
 }
 
 
@@ -28,7 +28,7 @@ function Sidebar() {
 export default Sidebar;
 
 /*		<ul>
-            <li>
+			<li>
 				<a href="#">
 					<span class="icon"><img src="images\home-solid.svg" alt="home" srcset=""></span>
 					<span class="text">Home</span>
@@ -41,20 +41,20 @@ export default Sidebar;
 				</a>
 			</li>
 			<li>
-            <li>
+			<li>
 				<a href="#">
 					<span class="icon"><img src="images\chart-column-solid.svg" alt="ongoing" srcset=""></span>
 					<span class="text">Ongoing projects</span>
 				</a>
 			</li>
-            <li>
+			<li>
 				<a href="#">
 					<span class="icon"><img src="images\person-circle-plus-solid.svg" alt=""></span>
 					<span class="text">Recruitment</span>
 				</a>
 			</li>
 
-            <li>
+			<li>
 				<a href="#">
 					<span class="icon"><img src="images\bullhorn-solid.svg" alt="announcements"></span>
 					<span class="text">Announcements</span>
