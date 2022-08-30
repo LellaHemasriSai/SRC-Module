@@ -19,8 +19,8 @@ export default function CreateAnnouncement() {
     <div className="wrapper hover_collapse">
       <Nav user="User Name"></Nav>
       <Sidebar></Sidebar>
-      <div className="card_announcement main_container">
-		  <div className="container">
+        <div className="main_container">
+		    <div className="container">
         <form onSubmit={onSubmit()}>
           <div class="form-row" style={{ marginTop: '150px' }}>
             <div class="form-group col-md-4">
