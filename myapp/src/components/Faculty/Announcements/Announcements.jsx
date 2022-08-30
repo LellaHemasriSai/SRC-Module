@@ -2,17 +2,7 @@ import React, { useState } from 'react'
 import Sidebar from "../../Navbar/components/Sidebar";
 import Nav from "../../Navbar/components/Nav";
 import "./announcements.css"
-import { Container } from '@mui/system';
-// import Container from '../../Navbar/components/Container';
-//import { Grid } from '@mui/material';
-// import Button from 'react-bootstrap/Button'
-/*function Announcements() {
-  return <div className="wrapper hover_collapse">
-    <Nav user="User Name"></Nav>
-    <Sidebar></Sidebar>
-    <Container content="Announcements"></Container>
-  </div>
-}*/
+//import { Container } from '@mui/system';
 
 export default function CreateAnnouncement() {
   const [projectName, setProjectName] = useState("default");
