@@ -12,8 +12,8 @@ import Pending from "./Faculty/Pending/Pending.jsx"
 import ApproveProject from "./Admin/Approve_projects.jsx";
 import ApproveRecruitment from "./Admin/Approve_Recruitmnet.jsx";
 import DurationExtension from "./Admin/Duration_Extension.jsx";
-
-// import View from "./Admin/viewProjects/View.jsx";
+import Completed from "./Faculty/Completed/Completed";
+import View from "./Admin/viewProjects/View.jsx";
 
 
 const App = () => {
@@ -27,7 +27,7 @@ const App = () => {
         <Route exact path="/Approve_project" element={<ApproveProject />} />
         <Route exact path="/approve_recruitment" element={<ApproveRecruitment />} />
         <Route exact path="/duration_extension" element={<DurationExtension />} />
-        {/* <Route exact path="/view_project" element={<View />} /> */}
+        <Route exact path="/view_project" element={<View />} />
         </>
         <>
         <Route exact path="/login2" element={<LoginFac />} />
@@ -37,6 +37,7 @@ const App = () => {
           <Route exact path="/recruitment" element={<Recruitment />} />
           <Route exact path="/announcements" element={<Announcements />} />
           <Route exact path="/pending_approvals" element={<Pending />} />
+          <Route exact path="/completed_projects" element={<Completed />} />
         </>
       </Routes>
     </Router>
