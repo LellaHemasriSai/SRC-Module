@@ -1,10 +1,6 @@
 import Card from './Card';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
 import "bootstrap/dist/css/bootstrap.min.css";
-import Container from  'react-bootstrap/Container';
 import "./ongoing.css";
-import CardHeader from 'react-bootstrap/esm/CardHeader';
 import Sidebar from "../../Navbar/components/Sidebar";
 import Nav from "../../Navbar/components/Nav";
 

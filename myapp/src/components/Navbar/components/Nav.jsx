@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 // import user from "./images/user.png";
 // import logo from "./images/logo.png";
 import user from "../../../images/user.png"
@@ -13,21 +13,21 @@ function Nav(props) {            // user name
 	//   var  wrapper = document.querySelector(".wrapper");
 	const [sidebar, setSidebar] = useState(false);
 
-	const [show, setShow] = useState(true);
-	const controlNavbar = () => {
-		if (window.scrollY > 50) {
-			setShow(true);
-		}
-		else {
-			setShow(false);
-		}
-	}
-	useEffect(() => {
-		window.addEventListener('scroll', controlNavbar)
-		return () => {
-			window.removeEventListener('scroll', controlNavbar)
-		}
-	}, [])
+	// const [show, setShow] = useState(true);
+	// const controlNavbar = () => {
+	// 	if (window.scrollY > 50) {
+	// 		setShow(true);
+	// 	}
+	// 	else {
+	// 		setShow(false);
+	// 	}
+	// }
+	// useEffect(() => {
+	// 	window.addEventListener('scroll', controlNavbar)
+	// 	return () => {
+	// 		window.removeEventListener('scroll', controlNavbar)
+	// 	}
+	// }, [])
 
 
 	// const showSidebar = () => setSidebar(!sidebar);
