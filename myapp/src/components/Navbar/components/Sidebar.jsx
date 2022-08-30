@@ -61,7 +61,17 @@ function Sidebar() {
 				title={data[1].title} 
 				path={data[1].path}
 				img={data[1].img}/>
-            <li>
+			<SideElement
+				key={data[2].key} 
+				title={data[2].title} 
+				path={data[2].path}
+				img={data[2].img}/>
+							<SideElement
+				key={data[3].key} 
+				title={data[3].title} 
+				path={data[3].path}
+				img={data[3].img}/>
+			<li>
 			<a href="#">
 			<div className="item">
 					<input type="checkbox" id="B"/>
@@ -75,16 +85,6 @@ function Sidebar() {
 			</div>
 			</a>
 			</li>
-			<SideElement
-				key={data[2].key} 
-				title={data[2].title} 
-				path={data[2].path}
-				img={data[2].img}/>
-							<SideElement
-				key={data[3].key} 
-				title={data[3].title} 
-				path={data[3].path}
-				img={data[3].img}/>
 							<SideElement
 				key={data[4].key} 
 				title={data[4].title} 
