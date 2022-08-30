@@ -265,7 +265,7 @@ body{
 .click_collapse .main_container{
 	width: calc(100% - 250px);
 	margin-left: 250px;
-	transition: all 0.2s ease;
+
 }
 .hidden{
     height: 4rem;
