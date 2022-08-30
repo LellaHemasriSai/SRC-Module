@@ -148,6 +148,7 @@ body{
 	width: 280px;
 	height: 100%;
 	background: #3876D0;
+	z-index: 1;
 }
 
 .sidebar ul li a{
