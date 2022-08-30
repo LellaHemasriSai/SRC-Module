@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
-//import Sidebar from "../../Navbar/components/Sidebar";
+import Sidebar from "../../Navbar/components/Sidebar";
 import Nav from "../../Navbar/components/Nav";
 import "./announcements.css"
+import { Container } from '@mui/system';
 // import Container from '../../Navbar/components/Container';
 //import { Grid } from '@mui/material';
 // import Button from 'react-bootstrap/Button'
@@ -27,8 +28,10 @@ export default function CreateAnnouncement() {
   return (
     <div className="wrapper hover_collapse">
       <Nav user="User Name"></Nav>
-      <div class="card">
-        <form onSubmit={onSubmit()}>
+      <Sidebar></Sidebar>
+      <div class="main_container card_announcements">
+      <div className='container'>
+                <form onSubmit={onSubmit()}>
           <div class="form-row" style={{ marginTop: '150px' }}>
             <div class="form-group col-md-4">
               <label for="projectName">project Name</label>
@@ -71,6 +74,7 @@ export default function CreateAnnouncement() {
             </div>
           </div>
         </form>
+      </div>
       </div>
     </div>
   )
