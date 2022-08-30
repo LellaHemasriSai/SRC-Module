@@ -15,6 +15,7 @@ import Create from "../components/Faculty/CreateProject/create"
 import Announcements from "./Faculty/Announcements/Announcements.jsx";
 import Admin from "./Admin/Admin.jsx";
 import Pending from "./Faculty/Pending/Pending.jsx"
+import View from "./Admin/viewProjects/View.jsx";
 const App = () => {
   return (
     <Router>
@@ -29,6 +30,7 @@ const App = () => {
           <Route exact path="/recruitment" element={<Recruitment />} />
           <Route exact path="/announcements" element={<Announcements />} />
           <Route exact path="/pending_approvals" element={<Pending />} />
+          <Route exact path="/view_project" element={<View />} />
       </Routes>
     </Router>
   );
