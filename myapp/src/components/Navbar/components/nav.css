@@ -26,7 +26,9 @@ body{
 }
 
 
-
+.data{
+	padding: 0;
+}
 
 
 
@@ -196,13 +198,25 @@ body{
     height: 25px;
 }
 
-.sidebar ul li a .text, .item ul li a{
+.sidebar ul li a .text,.item ul li a{
 	margin-left: 10px;
 	color: #fff;
 	text-transform: uppercase;
     font-size: 15px;
 	letter-spacing: 1px;
 	cursor: pointer;
+}
+.item ul li a{
+	margin-left: 10px;
+	color: #fff;
+	text-transform: uppercase;
+    font-size: 12px;
+	cursor: pointer;
+	border: 0;
+}
+
+.sidebar .item .text{
+	font-weight: 400;
 }
 
 .sidebar ul li a:hover{

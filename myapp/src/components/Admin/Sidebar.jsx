@@ -5,7 +5,7 @@ function Sidebar() {
   return (
     <div className="sidebar">
 		<div className="sidebar_inner">
-		<ul>
+		<ul className="data">
 			{SidebarData.map((data)=>{
 				return <SideElement
 				key={data.key} 

@@ -36,7 +36,7 @@ function Sidebar() {
 function Sidebar() {
   return (<div className="sidebar">
 		<div className="sidebar_inner">
-		<ul>
+		<ul className="data">
 			<SideElement
 				key={data[0].key} 
 				title={data[0].title} 
@@ -50,8 +50,8 @@ function Sidebar() {
 					<span className="icon"><img src={create} alt="create"/></span>
 					<span className="text">Create Project</span></label>
 				<ul>
+					<li><a href='/create_project'>Sponsored/Consultancy</a></li>
 					<li><a href='/create_project'>Internal</a></li>
-					<li><a href='/create_project'>Consultancy/Sponsored</a></li>
 				</ul>
 			</div>
 			</a>
@@ -71,7 +71,7 @@ function Sidebar() {
 				title={data[3].title} 
 				path={data[3].path}
 				img={data[3].img}/>
-			<li>
+		<li>
 			<a href="#">
 			<div className="item">
 					<input type="checkbox" id="B"/>
@@ -79,8 +79,8 @@ function Sidebar() {
 					<span className="icon"><img src={recruit} alt="recruit"/></span>
 					<span className="text">Recruitment</span></label>
 				<ul >
-					<li><a href='/recruitment'>Staff</a></li>
-					<li><a href='/recruitment'>Adhoc</a></li>
+					<li><a href='/recruitment'>Staff recruit</a></li>
+					<li><a href='/recruitment'>Adhoc recruit</a></li>
 				</ul>
 			</div>
 			</a>
