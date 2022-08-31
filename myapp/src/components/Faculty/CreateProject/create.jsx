@@ -48,6 +48,8 @@ export default function Create() {
         <div className="wrapper hover_collapse">
             <Nav user="User Name"></Nav>
             <Sidebar></Sidebar>
+            <div className="main_container">
+		    <div className="container">
             <div class="card_project">
                 <form onSubmit={onSubmit()}>
                     <div class="form-row" style={{ marginTop: '150px' }}>
@@ -103,7 +105,8 @@ export default function Create() {
                     </div>
                 </form>
             </div>
-
+        </div>
+        </div>
         </div>
     )
 }
