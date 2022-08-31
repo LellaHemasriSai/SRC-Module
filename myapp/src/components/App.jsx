@@ -20,8 +20,12 @@ import Nav from "./Navbar/components/Nav.jsx";
 import Sidebar from "./Navbar/components/Sidebar.jsx";
 import "../components/Navbar/components/nav.css"
 import AdminSidebar from "./Admin/Sidebar.jsx";
+
+// should be an json object coming from database
 export const username="poojasree";  // no spaces
 export const admin ="AdminName";
+
+
 export const MainNav = () => {
   return <div>
   <Nav user={username}></Nav>
