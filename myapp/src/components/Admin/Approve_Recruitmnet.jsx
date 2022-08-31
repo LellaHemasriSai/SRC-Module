@@ -1,8 +1,6 @@
 import Card from "./Card";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../Faculty/ongoing/ongoing.css";
-import Sidebar from "./Sidebar";
-import Nav from "../../components/Navbar/components/Nav";
 import { AdminMainNav } from '../App';
 const Approve_Recruitment = () => {
   const cardinfo = [

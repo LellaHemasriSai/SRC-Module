@@ -1,8 +1,6 @@
 import Card from '../ongoing/Card';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./pending.css";
-import Sidebar from "../../Navbar/components/Sidebar";
-import Nav from "../../Navbar/components/Nav";
 import { MainNav } from '../../App';
 const Pending = () => {
   /*const cardinfo = [

@@ -1,4 +1,5 @@
-import { BrowserRouter as Router, Routes,Link , Route, useParams } from "react-router-dom";
+import { BrowserRouter as Router, Routes , Route } from "react-router-dom";
+// import { BrowserRouter as Router, Routes,Link , Route, useParams } from "react-router-dom";
 import Login1 from "./login1/login1.jsx";
 import Ongoing from "../components/Faculty/ongoing/Ongoing"
 import Recruitment from "../components/Faculty/Staff Recruitment/Staff";

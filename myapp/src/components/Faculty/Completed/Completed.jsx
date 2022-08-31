@@ -1,8 +1,6 @@
 import Card from '../ongoing/Card';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./completed.css";
-import Sidebar from "../../Navbar/components/Sidebar";
-import Nav from "../../Navbar/components/Nav";
 import { MainNav } from '../../App';
 const Completed = () => {
   const cardinfo = [
