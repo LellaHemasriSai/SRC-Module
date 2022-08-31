@@ -1,7 +1,6 @@
 
 import React, { useState } from 'react'
-import Sidebar from "../../Navbar/components/Sidebar";
-import Nav from "../../Navbar/components/Nav";
+import { MainNav } from '../../App';
 import "./staff.css"
 import Checkbox from '@mui/material/Checkbox';
 // import InputLabel from '@mui/material/InputLabel';
@@ -26,8 +25,7 @@ export default function Staff() {
 
   return (
     <div className="wrapper hover_collapse">
-      <Nav user="User Name"></Nav>
-      <Sidebar></Sidebar>
+      <MainNav></MainNav>
       <div className="card_staff main_container">
 		  <div className="container">
         <form onSubmit={onSubmit()}>

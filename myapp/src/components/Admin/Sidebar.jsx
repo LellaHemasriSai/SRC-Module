@@ -1,7 +1,7 @@
 import React from "react";
 import { SidebarData } from "./SidebarData";
 import SideElement from "../Navbar/components/SideElement";
-function Sidebar() {
+function AdminSidebar() {
   return (
     <div className="sidebar">
 		<div className="sidebar_inner">
@@ -22,4 +22,4 @@ function Sidebar() {
 
 
 
-export default Sidebar;
+export default AdminSidebar;

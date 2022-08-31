@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
-import Sidebar from "../../Navbar/components/Sidebar";
-import Nav from "../../Navbar/components/Nav";
 //import { Grid } from '@mui/material';
 //import Button from '@mui/material';
-
+import { MainNav } from '../../App';
 
 export default function Create() {
     const [agencyCode, setagencyCode] = useState("0");
@@ -44,8 +42,7 @@ export default function Create() {
 
     return (
         <div className="wrapper hover_collapse">
-            <Nav user="User Name"></Nav>
-            <Sidebar></Sidebar>
+        <MainNav></MainNav>
             <div className="main_container">
                 <div className="container">
                     <div class="card_project">

@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import Sidebar from "../../Navbar/components/Sidebar";
 import Nav from "../../Navbar/components/Nav";
 import "./announcements.css"
+//import MainNav from '../../Navbar/components/MainNav';
+import { MainNav } from '../../App';
 //import { Container } from '@mui/system';
 
 export default function CreateAnnouncement() {
@@ -17,8 +19,7 @@ export default function CreateAnnouncement() {
 
   return (
     <div className="wrapper hover_collapse">
-      <Nav user="User Name"></Nav>
-      <Sidebar></Sidebar>
+      <MainNav></MainNav>
         <div className="main_container">
 		    <div className="container">
         <form onSubmit={onSubmit()}>
