@@ -128,11 +128,13 @@ const announcementSchema = new mongoose.Schema({
 const Announcement = mongoose.model('Announcement', announcementSchema);
 
 //retrieving data from mongodb
-app.get("/pending", async (req, res, next) => {
+app.post("/pending", async (req, res, next) => {
     /*var pendingProjects = await Project.findOne({}, (err, data) => {
         //console.log("Data:\n" + data)
     })*/
     var pendingProjects = await Project.find({})
+    console.log("Pending Projects:\n" + pendingProjects)
+
     //res.send(pendingProjects)
     //console.log(pendingProjects)
     try {
