@@ -38,8 +38,8 @@ const projectsSchema = new mongoose.Schema({
     organizationType: String,
     staff: [mongoose.Types.ObjectId],
     sanctionFund: Number,
-    startDate: String,
-    endDate: String,
+    startDate: Date,
+    endDate: Date,
     status: Number,
     description: String,
     announcements: [{

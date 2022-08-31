@@ -13,8 +13,8 @@ export default function Create() {
     const [projectType, setprojectType] = useState("default")
     const [organizationType, setorganizationType] = useState("default")
     const [sanctionValue, setsanctionValue] = useState(0)
-    const [startDate, setStartDate] = useState("0/0/0")
-    const [endDate, setEndDate] = useState("0/0/0")
+    const [startDate, setStartDate] = useState()
+    const [endDate, setEndDate] = useState()
     const [descriptionBox, setDescriptionBox] = useState("default text")
 
     function onSubmit() { console.log("Submitted") }
@@ -83,7 +83,7 @@ export default function Create() {
                     <Grid item xs={12} md={4}>
                         <label>
                             Organization Type{'\n'}
-                            <select name="organizationType" placeholder="Enter your organization Type" onChange={(event) => { setorganizationType(event.target.value) }} />
+                            <select type="text" name="organizationType" placeholder="Enter your organization Type" onChange={(event) => { setorganizationType(event.target.value) }} />
                         </label>
                     </Grid>
                     <Grid item xs={12} md={4}>
@@ -95,13 +95,13 @@ export default function Create() {
                     <Grid item xs={12} md={4}>
                         <label>
                             Start Date{'\n'}
-                            <input type="date" name="startDate"  onChange={(event) => { setStartDate(event.target.value) }} />
+                            <input type="date" name="startDate" onChange={(event) => { setStartDate(event.target.value) }} />
                         </label>
                     </Grid>
                     <Grid item xs={12} md={4}>
                         <label>
                             End Date{'\n'}
-                            <input type="date" name="endDate"  onChange={(event) => { setEndDate(event.target.value) }} />
+                            <input type="date" name="endDate" onChange={(event) => { setEndDate(event.target.value) }} />
                         </label>
                     </Grid>
                     <Grid item xs={12} md={4}>
