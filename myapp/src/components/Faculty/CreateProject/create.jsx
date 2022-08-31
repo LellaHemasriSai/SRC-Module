@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Sidebar from "../../Navbar/components/Sidebar";
 import Nav from "../../Navbar/components/Nav";
-import { Grid } from '@mui/material';
+//import { Grid } from '@mui/material';
 //import Button from '@mui/material';
 
 
@@ -48,78 +48,63 @@ export default function Create() {
         <div className="wrapper hover_collapse">
             <Nav user="User Name"></Nav>
             <Sidebar></Sidebar>
-            <form className="createProjectforms" onSubmit={onSubmit} style={{ marginLeft: '100px', marginTop: '105px', marginRight: '50px', alignItems: 'center' }}>
-                <Grid container spacing={5}>
-                    <Grid item xs={12} md={4}>
-                        <label>
-                            Project Name{'\n'}
-                            <input type="text" name="projectName" placeholder="Enter your project name" onChange={(event) => { setProjectName(event.target.value) }} />
-                        </label>
-                    </Grid>
-                    <Grid item xs={12} md={4}>
-                        <label>
-                            Project ID{'\n'}
-                            <input type="text" name="projectID" placeholder="Enter the project ID" onChange={(event) => { setProjectID(event.target.value) }} />
-                        </label>
-                    </Grid>
-                    <Grid item xs={12} md={4}>
-                        <label>
-                            Project Type{'\n'}
-                            <input type="text" name="projectType" placeholder="Enter your project Type" onChange={(event) => { setprojectType(event.target.value) }} />
-                        </label>
-                    </Grid>
-                    <Grid item xs={12} md={4}>
-                        <label>
-                            Agency Code{'\n'}
-                            <input type="text" name="agencyCode" placeholder="Enter your Agency Code" onChange={(event) => { setagencyCode(event.target.value) }} />
-                        </label>
-                    </Grid>
-                    <Grid item xs={12} md={4}>
-                        <label>
-                            Agency Name{'\n'}
-                            <input type="text" name="agencyName" placeholder="Enter your Agency Name" onChange={(event) => { setagencyName(event.target.value) }} />
-                        </label>
-                    </Grid>
-                    <Grid item xs={12} md={4}>
-                        <label>
-                            Organization Type{'\n'}
-                            <select type="text" name="organizationType" placeholder="Enter your organization Type" onChange={(event) => { setorganizationType(event.target.value) }} />
-                        </label>
-                    </Grid>
-                    <Grid item xs={12} md={4}>
-                        <label>
-                            Sanction Value{'\n'}
-                            <input type="text" name="sanctionValue" placeholder="Enter your Sanction value" onChange={(event) => { setsanctionValue(event.target.value) }} />
-                        </label>
-                    </Grid>
-                    <Grid item xs={12} md={4}>
-                        <label>
-                            Start Date{'\n'}
-                            <input type="date" name="startDate" onChange={(event) => { setStartDate(event.target.value) }} />
-                        </label>
-                    </Grid>
-                    <Grid item xs={12} md={4}>
-                        <label>
-                            End Date{'\n'}
-                            <input type="date" name="endDate" onChange={(event) => { setEndDate(event.target.value) }} />
-                        </label>
-                    </Grid>
-                    <Grid item xs={12} md={4}>
-                        <label>
-                            Description{'\n'}
-                            <input type="text" name="Description" placeholder="Brief description" onChange={(event) => { setDescriptionBox(event.target.value) }} />
-                        </label>
-                    </Grid>
-                    <Grid item xs={12} md={4}>
-                        <div className="btnCreateProject">
-                            <button type="button" onClick={postData} >Create</button>
-                            {/* <button type="submit" onClick={getData}>GetData</button> */}
+            <div class="card_project">
+                <form onSubmit={onSubmit()}>
+                    <div class="form-row" style={{ marginTop: '150px' }}>
+                        <div class="form-group col-md-4">
+                            <label for="agencyCode">Agency Code</label>
+                            <input type="text" class="form-control" id="agencyCode" value={agencyCode} placeholder="Agency Code" onChange={(event) => { setagencyCode(event.target.value) }} />
                         </div>
-                    </Grid>
-                </Grid>
-            </form>
+                        <div class="form-group col-md-4">
+                            <label for="agencyName">Agency Name</label>
+                            <input type="text" class="form-control" id="agencyName" value={agencyName} placeholder="Agency Name" onChange={(event) => { setagencyName(event.target.value) }} />
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="organizationType">Organization Type</label>
+                            <input type="text" class="form-control" id="organizationType" value={organizationType} placeholder="Organization Type" onChange={(event) => { setorganizationType(event.target.value) }} />
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="projectName">project Name</label>
+                            <input type="text" class="form-control" id="projectName" value={projectName} placeholder="Project Name" onChange={(event) => { setProjectName(event.target.value) }} />
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="projectID">Project ID</label>
+                            <input type="text" class="form-control" id="projectID" value={projectID} placeholder="Project ID" onChange={(event) => { setProjectID(event.target.value) }} />
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="projectType">Project Type</label>
+                            <input type="text" class="form-control" id="projectType" value={projectType} placeholder="Project Type" onChange={(event) => { setprojectType(event.target.value) }} />
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="sanctionValue">Sanction Value</label>
+                            <input type="text" class="form-control" id="sanctionValue" value={sanctionValue} placeholder="Sanction Value" onChange={(event) => { setsanctionValue(event.target.value) }} />
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="startDate">Start Date</label>
+                            <input type="date" class="form-control" id="startDate" value={startDate} placeholder="Start Date" onChange={(event) => { setStartDate(event.target.value) }} />
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="endDate">End date</label>
+                            <input type="date" class="form-control" id="endDate" value={endDate} placeholder="End Date" onChange={(event) => { setEndDate(event.target.value) }} />
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="descriptionBox">Scope and Objective of the Project</label>
+                            <textarea type="text" class="form-control" rows="5" id="descriptionBox" value={descriptionBox} placeholder="Description" onChange={(event) => { setDescriptionBox(event.target.value) }} />
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4" style={{ marginTop: '50px', }}>
+                        <button type="submit" class="btn btn-primary">Create</button>
+                    </div>
+                </form>
+            </div>
 
-        </div >
+        </div>
     )
 }
 // comment

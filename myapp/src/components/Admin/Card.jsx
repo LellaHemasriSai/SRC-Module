@@ -1,12 +1,12 @@
 import React from "react";
 import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./Card.css";
+import "../Faculty/ongoing/Card.css";
 
 const card = (card) => {
-
-return (
-<Card key={card.id} className="card">
+  return (
+    <Card key={card.id} className="card">
             {/* <Card.Img variant="top" src="holder.js/100px160" /> */}
             <Card.Body>
               <Card.Title className="card_projectcode_left">Code:{card.projectCode}  Name:{card.projectName} </Card.Title>
@@ -27,10 +27,10 @@ return (
               <Card.Text className="card_body">
                 {card.description}
               </Card.Text>
+              <Button variant="primary">{card.content}</Button>
             </Card.Body>
           </Card>
-)
-
+  )
 }
 
 export default card;

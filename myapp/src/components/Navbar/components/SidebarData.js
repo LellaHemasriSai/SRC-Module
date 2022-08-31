@@ -5,23 +5,23 @@ import create from "../../../images/create.svg"
 import announcements from "../../../images/announcements.svg"
 import clock from "../../../images/clock.svg"
 import completed from "../../../images/completed.svg"
-export const SidebarData = [
+export const data = [
 
     {
-        key:1,
+        key:'a',
         title: 'HOME',
         path: '/home',
         img: home,
         cName: 'nav-text'
     },
-    {
-        key:2,
+  /*  {
+        key:'b',
         title: 'CREATE PROJECT',
         path: '/create_project',
         img: create,
         cName: 'nav-text'
     },
-      /*  {
+     {
             key:6,
             title: 'Internal',
             path: '/create_project',
@@ -32,37 +32,37 @@ export const SidebarData = [
             title: 'External',
             path: '/create_project',
             img: create,
-        },*/
+        },
+            {
+        key:'f',
+        title: 'RECRUITMENT',
+        path: '/recruitment',
+        img: recruit,
+        cName: 'nav-text'
+    },*/
     {
-        key:3,
+        key:'c',
         title: 'ONGOING PROJECTS',
         path: '/ongoing_project',
         img: ongoing,
         cName: 'nav-text'
     },
     {
-        key:4,
+        key:'d',
         title: 'Pending Approvals',
         path: '/pending_approvals',
         img: clock,
         cName: 'nav-text'
     },
     {
-        key:5,
+        key:'e',
         title: 'Completed Projects',
         path: '/completed_projects',
         img: completed,
         cName: 'nav-text'
     },
     {
-        key:6,
-        title: 'RECRUITMENT',
-        path: '/recruitment',
-        img: recruit,
-        cName: 'nav-text'
-    },
-    {
-        key:7,
+        key:'g',
         title: 'ANNOUNCEMENTS',
         path: '/announcements',
         img: announcements,

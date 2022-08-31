@@ -1,10 +1,10 @@
-import Card from './Card';
+import Card from '../ongoing/Card';
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./ongoing.css";
+import "./completed.css";
 import Sidebar from "../../Navbar/components/Sidebar";
 import Nav from "../../Navbar/components/Nav";
 
-const Ongoing = () => {
+const Completed = () => {
   const cardinfo = [
      { id:"1", projectCode: "2345",
      projectName: "SRC",
@@ -95,11 +95,9 @@ const Ongoing = () => {
 
   return (
     <div className="wrapper hover_collapse">
-    <Nav user="User Name"></Nav>
-    <Sidebar></Sidebar>
-   <div className="main_container">
-    <div className="container" style={{textAlign:"center"}}>
-    <div className='grid'>
+   <div className="grid" style={{marginLeft: "300px",marginTop: "50px"}}>
+     <Nav user="User Name"></Nav>
+     <Sidebar></Sidebar>
     {cardinfo.map((card,index) => (
       <Card id={index} 
       projectCode={card.projectCode} 
@@ -121,10 +119,8 @@ const Ongoing = () => {
     ))}
    </div>
    </div>
-   </div>
-   </div>
   );
 }
 
-export default Ongoing;
+export default Completed;
 
