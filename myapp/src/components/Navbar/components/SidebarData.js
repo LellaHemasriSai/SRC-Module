@@ -1,7 +1,5 @@
 import home from "../../../images/home.svg"
 import ongoing from "../../../images/ongoing.svg"
-import recruit from "../../../images/recruit.svg"
-import create from "../../../images/create.svg"
 import announcements from "../../../images/announcements.svg"
 import clock from "../../../images/clock.svg"
 import completed from "../../../images/completed.svg"
@@ -10,7 +8,7 @@ export const data = [
     {
         key:'a',
         title: 'HOME',
-        path: '/home',
+        path: '././home',
         img: home,
         cName: 'nav-text'
     },
@@ -43,28 +41,28 @@ export const data = [
     {
         key:'c',
         title: 'ONGOING PROJECTS',
-        path: '/ongoing_project',
+        path: '././ongoing_project',
         img: ongoing,
         cName: 'nav-text'
     },
     {
         key:'d',
         title: 'Pending Approvals',
-        path: '/pending_approvals',
+        path: '././pending_approvals',
         img: clock,
         cName: 'nav-text'
     },
     {
         key:'e',
         title: 'Completed Projects',
-        path: '/completed_projects',
+        path: '././completed_projects',
         img: completed,
         cName: 'nav-text'
     },
     {
         key:'g',
         title: 'ANNOUNCEMENTS',
-        path: '/announcements',
+        path: '././announcements',
         img: announcements,
         cName: 'nav-text'
     }

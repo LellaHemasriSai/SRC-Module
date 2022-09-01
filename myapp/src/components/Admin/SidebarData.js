@@ -8,42 +8,42 @@ export const SidebarData = [
     {
         key:1,
         title: 'HOME',
-        path: '/admin_home',
+        path: '././home',
         img: home,
         cName: 'nav-text'
     },
     {
         key:2,
         title: 'Approve Projects',
-        path: '/Approve_project',
+        path: '././Approve_project',
         img: check,
         cName: 'nav-text'
     },
     {
         key:6,
         title: 'Approve Recruitment',
-        path: '/approve_recruitment',
+        path: '././approve_recruitment',
         img: recruit,
         cName: 'nav-text'
     },
     {
         key:3,
         title: 'View Projects',
-        path: '/view_project',
+        path: '././view_project',
         img: create,
         cName: 'nav-text'
     },
     {
         key:4,
         title: 'Funds',
-        path: '/funds',
+        path: '././funds',
         img: dollar,
         cName: 'nav-text'
     },
     {
         key:5,
         title: 'Duration Extension',
-        path: '/duration_extension',
+        path: '././duration_extension',
         img: timeline,
         cName: 'nav-text'
     }

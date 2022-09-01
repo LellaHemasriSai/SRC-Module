@@ -45,8 +45,8 @@ function Sidebar() {
 					<span className="icon"><img src={create} alt="create"/></span>
 					<span className="text">Create Project</span></label>
 				<ul>
-					<li><a href='/create_project'>Sponsored/Consultancy</a></li>
-					<li><a href='/create_project'>Internal</a></li>
+					<li><a href='././create_project'>Sponsored/Consultancy</a></li>
+					<li><a href='././create_project'>Internal</a></li>
 				</ul>
 			</div>
 			</a>
@@ -74,8 +74,8 @@ function Sidebar() {
 					<span className="icon"><img src={recruit} alt="recruit"/></span>
 					<span className="text">Recruitment</span></label>
 				<ul >
-					<li><a href='/recruitment'>Staff recruit</a></li>
-					<li><a href='/recruitment'>Adhoc recruit</a></li>
+					<li><a href='././recruitment'>Staff recruit</a></li>
+					<li><a href='././recruitment'>Adhoc recruit</a></li>
 				</ul>
 			</div>
 			</a>

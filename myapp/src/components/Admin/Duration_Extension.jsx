@@ -1,9 +1,7 @@
 import Card from "./Card";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../Faculty/ongoing/ongoing.css";
-import Sidebar from "./Sidebar";
-import Nav from "../../components/Navbar/components/Nav";
-
+import { AdminMainNav } from '../App';
 const Duration_Extension = () => {
   const cardinfo = [
     
@@ -97,8 +95,7 @@ const Duration_Extension = () => {
   return (
     <div className="wrapper hover_collapse">
    <div className="grid" style={{marginLeft: "300px",marginTop: "50px"}}>
-     <Nav user="User Name"></Nav>
-     <Sidebar></Sidebar>
+    <AdminMainNav></AdminMainNav>
     {cardinfo.map((card,index) => (
       <Card id={index} projectCode={card.projectCode} projectName ={card.agencyName} projectType={card.projectType} agencyCode={card.agencyCode} agencyName={card.agencyName} approval={card.approval} resourceApproval={card.resourceApproval} fundApproval={card.fundApproval} closed={card.closed} facultyID={card.facultyID} organisationType={card.organizationType} staff={card.staff} sanctionFund={card.sanctionFund} startDate={card.startDate} endDate={card.endDate} status={card.status} description={card.description} content="Extend Duration"/>
     ))}

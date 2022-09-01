@@ -3,7 +3,7 @@ import "../login2/login2.css";
 import logo from "./logo.png";
 import { Link } from "react-router-dom"
 
-const LoginFac = () => {
+const LoginFac = (props) => {
     const [user, setUser] = useState(
         {
             name: "",
@@ -38,7 +38,7 @@ const LoginFac = () => {
                         </div>
                     </div>
                     
-                    <Link to="/home">
+                    <Link to={"/Faculty/"+props.name+"/home"}>
                         <div className="form-group_login2">
                             <button type="submit" className="btn btn-primary rounded submit p-3 px-5">Login</button>
                         </div>

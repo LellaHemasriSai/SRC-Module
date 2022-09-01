@@ -1,9 +1,7 @@
 import Card from './Card';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./ongoing.css";
-import Sidebar from "../../Navbar/components/Sidebar";
-import Nav from "../../Navbar/components/Nav";
-
+import { MainNav } from '../../App';
 const Ongoing = () => {
   const cardinfo = [
      { id:"1", projectCode: "2345",
@@ -95,8 +93,7 @@ const Ongoing = () => {
 
   return (
     <div className="wrapper hover_collapse">
-    <Nav user="User Name"></Nav>
-    <Sidebar></Sidebar>
+    <MainNav></MainNav>
    <div className="main_container">
     <div className="container" style={{textAlign:"center"}}>
     <div className='grid'>

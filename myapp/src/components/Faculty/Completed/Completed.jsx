@@ -1,9 +1,7 @@
 import Card from '../ongoing/Card';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./completed.css";
-import Sidebar from "../../Navbar/components/Sidebar";
-import Nav from "../../Navbar/components/Nav";
-
+import { MainNav } from '../../App';
 const Completed = () => {
   const cardinfo = [
      { id:"1", projectCode: "2345",
@@ -96,8 +94,7 @@ const Completed = () => {
   return (
     <div className="wrapper hover_collapse">
    <div className="grid" style={{marginLeft: "300px",marginTop: "50px"}}>
-     <Nav user="User Name"></Nav>
-     <Sidebar></Sidebar>
+    <MainNav></MainNav>
     {cardinfo.map((card,index) => (
       <Card id={index} 
       projectCode={card.projectCode} 
