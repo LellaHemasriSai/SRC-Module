@@ -20,7 +20,7 @@ import Nav from "./Navbar/components/Nav.jsx";
 import Sidebar from "./Navbar/components/Sidebar.jsx";
 import "../components/Navbar/components/nav.css"
 import AdminSidebar from "./Admin/Sidebar.jsx";
-
+import Form from "./Faculty/Form.jsx"
 // should be an json object coming from database
 export const username="poojasree";  // no spaces
 export const admin ="AdminName";
@@ -56,6 +56,7 @@ const App = () => {
         <>
         <Route exact path="/Faculty" element={<LoginFac name={username}/>} />
           <Route exact path="/Faculty/:username/home" element={<NavBar user={username}/>} />
+          <Route exact path="/Faculty/:username/Form" element={<Form/>}/>
           <Route exact path="/Faculty/:username/create_project" element={<Create />} />
           <Route exact path="/Faculty/:username/ongoing_project" element={<Ongoing />} />
           <Route exact path="/Faculty/:username/recruitment" element={<Recruitment />} />

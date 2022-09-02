@@ -225,7 +225,7 @@ body{
 }
 
 .click_collapse .sidebar{
-	transition: all  ease;
+	transition: all 0.2s ease;
 }
 
 .click_collapse .sidebar img{
@@ -246,6 +246,7 @@ body{
 	margin-top: 60px;
 	margin-left: 70px;
 	padding: 25px;
+	
 	width: calc(100% - 70px);
 }
 
@@ -290,10 +291,6 @@ body{
   padding: 0;
   margin-top: 5px;
   font-size: 16px;
-}
-
-.click_collapse .main_container .content{
-	width: 100%;
 }
 
 }
