@@ -13,6 +13,10 @@ body{
     text-align: center;
 	background: #f5f5f5;
     font-weight: 400;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
 .form-group_login2 button {
@@ -21,8 +25,8 @@ body{
 
 .container_login2 {
     box-sizing: border-box;
-    width: 360px;
-    height: 355px;
+    width: 35rem;
+    height: 35rem;
     text-align: center;
     background: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -32,11 +36,12 @@ body{
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    
 }
 
 .form-group_login2 a,
 label {
-    display: inline-block;
+    display: flex;
 }
 
 .login2-form {
@@ -75,8 +80,9 @@ a {
     
 .container_login2 a {
     text-align: right;
-    margin-left: 120px;
-    margin-top: 15px;
+    margin-left: 140%;
+    margin-top: 10%;
+    font-size: 100%;
 }
     
 .container_login2 button {
@@ -84,7 +90,8 @@ a {
     text-align: center;
     align-items: center;
     margin-top: 46px;
-    width: 70%;
+    margin-right: 11%;
+    width: 25rem;
     height: 40px;
     background-color: #3876D0;
     color: #FFFFFF;
@@ -92,7 +99,7 @@ a {
     border-color: #3876D0;
     outline: none;
     font-size: 17px;
-    float:left;
+    float: center;
 }
 
 .container_login2 img {
@@ -102,3 +109,14 @@ a {
     top: 50%;
 }
 
+@media screen and (max-width:600px) {
+
+    .container_login2 {
+        width: 25rem;
+        height: 30rem;
+    }
+    .container_login2 button{
+        margin-top: 2%;
+        width: 17rem;
+    }
+}

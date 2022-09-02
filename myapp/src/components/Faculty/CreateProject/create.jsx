@@ -15,7 +15,8 @@ export default function Create() {
     const [endDate, setEndDate] = useState()
     const [descriptionBox, setDescriptionBox] = useState("default text")
 
-    function onSubmit() {
+    function onSubmit() { console.log('submitted Create Project') }
+    function postData() {
         console.log("Submitted")
         fetch("/created", {
             method: "POST",
@@ -96,7 +97,7 @@ export default function Create() {
                                 </div>
                             </div>
                             <div class="form-group col-md-4" style={{ marginTop: '50px', }}>
-                                <button type="submit" class="btn btn-primary">Create</button>
+                                <button type="button" onClick={postData} class="btn btn-primary">Create</button>
                             </div>
                         </form>
                     </div>

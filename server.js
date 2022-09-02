@@ -1,4 +1,4 @@
-
+import { generateAgencyCode } from './Modules/backendModules.js'
 import express from 'express';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
@@ -161,7 +161,7 @@ app.post("/created", (req, res) => {
         projectCode: req.body.projectID,
         projectName: req.body.projectName,
         projectType: req.body.projectType,
-        agencyCode: req.body.agencyCode,
+        agencyCode: String(generateAgencyCode("User")),
         agencyName: req.body.agencyName,
         organizationType: req.body.organizationType,
         approval: false,
