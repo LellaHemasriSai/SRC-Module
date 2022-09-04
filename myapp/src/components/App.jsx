@@ -5,6 +5,7 @@ import Ongoing from "../components/Faculty/ongoing/Ongoing"
 import Recruitment from "../components/Faculty/Staff Recruitment/Staff";
 import LoginFac from "./login2/login2_fac";
 import LoginAdmin from "./login2/login2_Ad";
+import LoginStu from "./login2/login2_stu.js";
 //import MainNav from "./Navbar/components/MainNav"
 import Create from "../components/Faculty/CreateProject/create"
 import Announcements from "./Faculty/Announcements/Announcements.jsx";
@@ -20,12 +21,12 @@ import Nav from "./Navbar/components/Nav.jsx";
 import Sidebar from "./Navbar/components/Sidebar.jsx";
 import "../components/Navbar/components/nav.css"
 import AdminSidebar from "./Admin/Sidebar.jsx";
+import StudentHome from "./Staff/StudentHome.jsx"
 import Form from "./Faculty/Form.jsx"
 // should be an json object coming from database
 export const username="poojasree";  // no spaces
 export const admin ="AdminName";
-
-
+export const student="Pooja";
 export const MainNav = () => {
   return <div>
   <Nav user={username}></Nav>
@@ -37,6 +38,13 @@ export const AdminMainNav = () => {
   return <div>
   <Nav user={admin}></Nav>
   <AdminSidebar user={admin}></AdminSidebar>
+  </div>
+}
+
+export const StudentMainNav = () => {
+  return <div>
+  <Nav user={student}></Nav>
+  {/**studentsidebar */}
   </div>
 }
 
@@ -64,6 +72,8 @@ const App = () => {
           <Route exact path="/Faculty/:username/pending_approvals" element={<Pending />} />
           <Route exact path="/Faculty/:username/completed_projects" element={<Completed />} />
         </>
+         <Route exact path="/Student" element={<LoginStu name={student}/>} />
+         <Route exact path="/Student/:student/studentHome" element={<StudentHome name={student}/>} />
       </Routes>
     </Router>
   );

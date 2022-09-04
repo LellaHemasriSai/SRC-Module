@@ -4,16 +4,16 @@ import React, { useState } from 'react'
 import { MainNav } from '../../App';
 
 export default function Create() {
-    const [agencyCode, setagencyCode] = useState("0");
-    const [agencyName, setagencyName] = useState("default");
-    const [projectName, setProjectName] = useState("default");
-    const [projectID, setProjectID] = useState("default");
-    const [projectType, setprojectType] = useState("default")
-    const [organizationType, setorganizationType] = useState("default")
-    const [sanctionValue, setsanctionValue] = useState(0)
-    const [startDate, setStartDate] = useState()
-    const [endDate, setEndDate] = useState()
-    const [descriptionBox, setDescriptionBox] = useState("default text")
+    const [agencyCode, setagencyCode] = useState("");
+    const [agencyName, setagencyName] = useState("");
+    const [projectName, setProjectName] = useState("");
+    const [projectID, setProjectID] = useState("");
+    const [projectType, setprojectType] = useState("")
+    const [organizationType, setorganizationType] = useState("")
+    const [sanctionValue, setsanctionValue] = useState("")
+    const [startDate, setStartDate] = useState("")
+    const [endDate, setEndDate] = useState("")
+    const [descriptionBox, setDescriptionBox] = useState("")
 
     function onSubmit() { console.log('submitted Create Project') }
     function postData() {
