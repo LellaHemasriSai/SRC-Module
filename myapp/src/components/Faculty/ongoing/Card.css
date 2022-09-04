@@ -57,7 +57,8 @@
 }
 
 .card_body {
-    text-align: left;
+     margin-top: 20% ;
+    text-align: centre; 
 }
 .option1 { 
     display: inline-block; 
@@ -82,7 +83,8 @@
   display: inline-flex;
   }
   .butt{
-    float: right;
+    margin-top: 15%;
+    float: centre;
     background-color:#438af5 ;
   }
   .card_body

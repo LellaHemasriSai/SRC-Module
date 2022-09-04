@@ -1,10 +1,12 @@
-import React from "react";
+import React,{useState} from "react";
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button'
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Card.css";
 
-const card = (props) => {
+const Cards = (props) => {
+
+  const [show,setShow] = useState(false);
 
 return (
 <Card key={props.id} className="card">
@@ -14,7 +16,11 @@ return (
               <Card.Title className="leftheader">ProjectCode:{props.projectCode} </Card.Title>
               <Card.Title className="rightheader">ProjectName:{props.projectName} </Card.Title>
               </div>
-              <ul class="list-group list-group-flush">
+              <Card.Text className="card_body">
+                {props.description}
+              </Card.Text>
+             { show?<div>
+                <ul class="list-group list-group-flush">
                 <li class="list-group-item">projectType:{props.projectType}</li>
                 <li class="list-group-item">agencyCode:{props.agencyCode}</li>
                 <li class="list-group-item">agencyName:{props.agencyName}</li>
@@ -31,15 +37,14 @@ return (
                 <li class="list-group-item">status:{props.status}</li>
                 <li class="list-group-item">_v:{props._v}</li>
                 <li class="list-group-item">announcements:{props.announcements}</li>
-              </ul>
-              <Card.Text className="card_body">
-                {props.description}
-              </Card.Text>
-              <Button variant="primary" className="butt">Read More</Button>
+              </ul></div>
+                  : null
+             }
+              <Button variant="primary" className="butt" onClick={() =>setShow(!show)}>{show?"Read Less":"Read More"}</Button>
             </Card.Body>
           </Card>
 )
 
 }
 
-export default card;
+export default Cards;
