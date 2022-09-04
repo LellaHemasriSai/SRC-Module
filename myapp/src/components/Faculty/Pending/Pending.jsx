@@ -112,12 +112,16 @@ const Pending = () => {
 
   return (
     <div div className="wrapper hover_collapse" >
-      <div className="grid" style={{ marginLeft: "300px", marginTop: "50px" }}>
-        <MainNav></MainNav>
+      <MainNav></MainNav>
+   <div className="main_container">
+    <div className="container" style={{textAlign:"center"}}>
+    <div className='grid'>
         {cardinfo.map((card, i) => (
           <Card id={i} projectCode={card.projectCode} projectName={card.projectName} projectType={card.projectType} agencyCode={card.agencyCode} agencyName={card.agencyName} approval={card.approval} resourceApproval={card.resourceApproval} fundApproval={card.fundApproval} closed={card.closed} facultyID={card.facultyID} organisationType={card.organizationType} staff={card.staff} sanctionFund={card.sanctionFund} startDate={card.startDate} endDate={card.endDate} status={card.status} description={card.description} _v={card._v} announcements={card.announcements} />
         ))}
       </div>
+    </div>
+    </div>
     </div>
   );
 }

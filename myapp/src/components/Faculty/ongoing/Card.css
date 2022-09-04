@@ -1,7 +1,7 @@
 .card {
     margin: 3rem 3rem 3rem 3rem;
     padding: 1.5rem;
-    width: 500px;
+    width: 100%;
     box-shadow: 0 0 28px 4px rgba(0, 0, 0, 0, 1);
     transition: transform .3s ease;
     cursor: pointer;
@@ -18,7 +18,7 @@
 }
 
 .leftheader {
-    float: left;
+    float:left;
     font-family: "Gilmer",sans-serif;
     text-transform: uppercase;
     padding: 0 12px;
@@ -57,7 +57,7 @@
 }
 
 .card_body {
-     margin-top: 20% ;
+     margin-top: 7% ;
     text-align: centre; 
 }
 .option1 { 
@@ -79,16 +79,22 @@
   }
   .list-group-item
   {
-  font-size: 1.3rem;
+  font-size: 2rem;
   display: inline-flex;
   }
   .butt{
-    margin-top: 15%;
+    margin-top: 7%;
     float: centre;
-    background-color:#438af5 ;
+    background-color:#438af5;
+    font-size: x-small;
   }
   .card_body
   {
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 2rem;
+  }
+  .status
+  {
+    float: right;
+    width: 5%;
   }
