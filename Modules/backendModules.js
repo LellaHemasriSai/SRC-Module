@@ -1,4 +1,22 @@
-export function generateAgencyCode(facultyID) {
+
+//map agency name and code in data base, if new agency add to the mapping else return the existing code.
+//Issue: when agencies have same 1st 3 letters and length.
+export function generateAgencyCode(agencyName) {
+    return agencyName.toUpperCase().substring(0, 3) + agencyName.length;
+}
+
+//function to modify agency code in data base, fetch agency form mongodb, search and update it.
+export function modifyAgencyCode(agencyCode) {
+
+}
+
+export function projectCode(facultyID) {
     return facultyID.toUpperCase().substring(0, 2) + String(Math.floor(Math.random() * (999 - 100 + 1) + 100));
 }
 
+export function updateProjectStatus(facultyID, projectID, status) {
+    //search fauculty data base for faculty id 
+    //search for project with project id 
+    //set status in the respective project
+    console.log("update Status successful!")
+}
