@@ -23,7 +23,7 @@ body{
 .container_login2 {
     box-sizing: border-box;
     width: 35rem;
-    height: 35rem;
+    height: 36rem;
     text-align: center;
     background: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -70,23 +70,25 @@ input[type='password']:focus {
     outline: none;
 }
     
-.container_login2 h3,
-a {
+.container_login2 h3
+{
     color: #3876D0;
+    margin-top: 5%;
+    margin-bottom: 8%;
 }
     
 .container_login2 a {
     text-align: right;
-    margin-left: 140%;
+    margin-left: 150%;
     margin-top: 10%;
-    font-size: 100%;
+    font-size: 12px;
 }
     
 .container_login2 button {
     margin-bottom: auto;
     text-align: center;
     align-items: center;
-    margin-top: 3%;
+
     margin-right: 11%;
     width: 25rem;
     background-color: #3876D0;
@@ -94,7 +96,7 @@ a {
     border-radius: 6px;
     border-color: #3876D0;
     outline: none;
-    font-size: 17px;
+    font-size: 12px;
     float: center;
 }
 

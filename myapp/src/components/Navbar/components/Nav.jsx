@@ -5,11 +5,12 @@ import React, { useState } from "react";
 import user from "../../../images/user.png"
 import logo from "../../../images/logo.png"
 
-import { Link } from "react-router-dom";
+import { Link ,useParams} from "react-router-dom";
 import "./nav.css"
 function Nav(props) {            // user name 
 	//	var li_items = document.querySelectorAll(".sidebar ul li");
 	var menu_icon = document.querySelector(".menu_icon");
+	
 	//   var  wrapper = document.querySelector(".wrapper");
 	const [sidebar, setSidebar] = useState(false);
 
@@ -31,6 +32,12 @@ function Nav(props) {            // user name
 
 
 	// const showSidebar = () => setSidebar(!sidebar);
+
+
+
+	let {username}=useParams();
+
+	
 	function menu() {
 		setSidebar(!sidebar);
 		menu_icon.closest(".wrapper").classList.toggle("click_collapse");
@@ -48,7 +55,7 @@ function Nav(props) {            // user name
 					<button className="dropbtn">
 						<div className="profile">
 							<img src={user} style={{ width: "20px", height: "20px" }} alt="profile_pic" />
-							<span className="name">{props.user}</span>
+							<span className="name">{username}</span>
 							<span className="icon">
 								<i className="fas fa-angle-down"></i>
 							</span>
