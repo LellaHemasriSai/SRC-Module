@@ -3,7 +3,7 @@ import "../login2/login2.css";
 import logo from "./logo.png";
 import { Link } from "react-router-dom"
 
-const LoginFac = (props) => {
+const LoginAdmin = (props) => {
     const [user, setUser] = useState(
         {
             name: "",
@@ -50,4 +50,4 @@ const LoginFac = (props) => {
     )
 }
 
-export default LoginFac;
+export default LoginAdmin;
