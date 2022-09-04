@@ -7,8 +7,10 @@
     cursor: pointer;
 }
 
-.card:hover {
-    transform: scale(1, 1);
+.card:hover{
+    transform: scale(1.05);
+ box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+ color:brown;
 }
 
 .card_title {
@@ -16,19 +18,47 @@
     font-size: 1.5rem;
 }
 
-.card_projectcode_left {
-    text-align: left;
+.leftheader {
+    float: left;
+    font-family: "Gilmer",sans-serif;
+    font-size: 1.5rem;
 }
 
-.card_projectcode_right {
-    text-align: right;
+.rightheader {
+    float: right;
+    font-family: "Gilmer",sans-serif;
+    font-size: 1.5rem;
+}
+.header{
 }
 
 .subtitle {
+    margin-top: 2rem;
     text-align: left;
-    color: blue;
+    color: black;
 }
 
 .card_body {
     text-align: left;
 }
+.option1 { 
+    display: inline-block; 
+    padding-right: 20%; 
+    color: black;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.2rem;
+  }
+  .text-muted
+  {
+    color: black;
+    font-weight: 300;
+  }
+  .list-group
+  {
+    text-align: left;
+    margin-top: 5%;
+  }
+  .list-group-item
+  {
+    text-shadow:0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);;
+  }

@@ -24,7 +24,7 @@ function Login1() {
             <h3>Welcome to IIT Tirupati E-Governance</h3>
             <hr />
             <div className="btn-group_login1">
-                <Link to ="../login2/login2_stu" style={{textDecoration: 'none',marginTop: '0px'}}><button type="button" class="btn btn-outline-primary"  onClick="onClickStaff()">Student Login</button></Link>
+                <Link to ="../Student" style={{textDecoration: 'none',marginTop: '0px'}}><button type="button" class="btn btn-outline-primary"  onClick="onClickStaff()">Student Login</button></Link>
                 <Link to="./Faculty" style={{textDecoration: 'none',marginTop: '0px'}}>
                 <button type="button" className="btn btn-outline-primary" >Faculty Login</button>
                 </Link>
