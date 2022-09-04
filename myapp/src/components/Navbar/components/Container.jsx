@@ -1,4 +1,5 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 //import NavBar from './Navbar';
 import Content from './content';
 // const data=[{
@@ -20,17 +21,32 @@ import Content from './content';
 //         "DoB":"09/06/2003"
 //     }
 // ]
+
+const user={
+      "Name": "Pooja Sree",
+      "DoB":"09/06/2003",
+      "Department": "CSE",
+      "Email": "CS20B002@iittp.ac.in",
+      "Contact":"8247800018",
+      "DateOfJoining":"10/12/2020",
+      "Qualifications":"B-tech",
+      "Address":"Vijayawada"
+      
+}
 export default function Container(props) {
+  const {username}=useParams();
   return (
     	<div className="main_container">
+     
 		<div className="container">
 				<Content
-				name="Pooja"
-        dob="09/06/2003"
-        qual="b-tech"
-        contact="99999999999"
-        email="CS20B002@iittp.ac.in"
-        dep="CSE"
+				name={user.Name}
+        dob={user.DoB}
+        qual={user.Qualifications}
+        contact={user.Contact}
+        email={user.Email}
+        dep={user.Department}
+        addr={user.Address}
         /> 
 		</div>
 	</div>
