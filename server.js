@@ -69,7 +69,7 @@ const facultySchema = new mongoose.Schema({
         DoB: Date,
         Address: String,
     },
-    projects: [mongoose.Types.ObjectId]
+    projects: [mongoose.Types.ObjectId],
 
 });
 const Faculty = mongoose.model('Faculty', facultySchema);
@@ -160,9 +160,9 @@ app.post("/pending", async (req, res, next) => {
 
 app.post("/created", (req, res) => {
     console.log("Recieved?");
-    //console.log("Body:", req.body);
+
     res.send("request sent")
-    //console.log(result)
+
     var newProject = new Project({
         projectCode: req.body.projectID,
         projectName: req.body.projectName,
@@ -183,20 +183,19 @@ app.post("/created", (req, res) => {
         description: req.body.descriptionBox
     });
 
-    console.log(newProject)
+    //console.log(newProject)
     newProject.save()
 
 });
 
 //save details of Recruitment request
-app.post("/saveRecruitment", (req, res) => {
+app.post("/:user/saveRecruitment", (req, res) => {
     console.log("saving Recruitment?")
+
 })
 
 let port = 3001;
-// if (port == null || port == "") {
-//     port = 3001;
-// }
+
 app.listen(port, function () {
     console.log("Server started on port 3001");
 });
