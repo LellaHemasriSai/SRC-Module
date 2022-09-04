@@ -28,6 +28,8 @@ import Extend_Duration from "./Faculty/Extend_Duration/extend_duration.jsx"
 import Funds_Extension from "./Faculty/Funds_Extension/funds_extension.jsx"
 import Modify_Staff from "./Faculty/Modify_Staff/modify_staff.jsx";
 import StudentSidebar from "./Staff/studentSideBar.jsx";
+import Applications from "./Faculty/Applications.jsx"
+import StaffDetails from "./Faculty/staffDetails.jsx"
 // should be an json object coming from database
 //export const username = "poojasree";  // no spaces
 //export const admin = "AdminName";
@@ -78,9 +80,11 @@ const App = () => {
           <Route exact path="/Faculty/:username/announcements" element={<Announcements />} />
           <Route exact path="/Faculty/:username/pending_approvals" element={<Pending />} />
           <Route exact path="/Faculty/:username/completed_projects" element={<Completed />} />
+          <Route exact path="/Faculty/:username/applications" element={<Applications />} />
           <Route exact path="/Faculty/:username/extend_duration" element={<Extend_Duration />} />
           <Route exact path="/Faculty/:username/funds_extension" element={<Funds_Extension />} />
           <Route exact path="/Faculty/:username/modify_staff" element={<Modify_Staff />} />
+           <Route exact path="/Faculty/:username/ongoing_project/StaffDetails" element={<StaffDetails />} />
         </>
         <Route exact path="/Student" element={<LoginStu />} />
         <Route exact path="/Student/:username/studentHome" element={<StudentHome />} />
