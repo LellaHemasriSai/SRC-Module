@@ -1,3 +1,4 @@
+
 import Card from '../ongoing/Card';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./pending.css";
@@ -91,9 +92,7 @@ const Pending = () => {
     //  status: "1",
     //  description: "This is description regarding project"},
   // ]
-
   var cardinfo = []
-
   console.log("Submitted")
   fetch("/pending", {
     method: "POST",
@@ -110,7 +109,6 @@ const Pending = () => {
   })
   // newinfo.append(cardinfo[489])
   // console.log(cardinfo[489])
-
   return (
     <div className="wrapper hover_collapse" >
       <div className="grid" style={{ marginLeft: "300px", marginTop: "50px" }}>
@@ -122,6 +120,6 @@ const Pending = () => {
     </div>
   );
 }
-
 export default Pending;
+
 
