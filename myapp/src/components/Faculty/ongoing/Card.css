@@ -26,7 +26,7 @@
     line-height: 28px;
     letter-spacing: 1px;
     display: inline-flex;
-    border-radius: 14px;
+    border-radius: 4px;
     color: white;
     font-weight: 100;
     background-color: #438af5 ;
@@ -42,8 +42,8 @@
     height: max-content;
     line-height: 28px;
     letter-spacing: 1px;
+    border-radius: 4px;
     display: inline-flex;
-    border-radius: 14px;
     background-color: #438af5 ;
 }
 
@@ -83,10 +83,18 @@
   display: inline-flex;
   }
   .butt{
-    margin-top: 7%;
+    /* margin-top: 100%;
     float: centre;
+    position: relative;
     background-color:#438af5;
+<<<<<<< HEAD
     width: 10%;
+=======
+    width: 8%; */
+    position:absolute;
+    bottom:0;
+    margin-bottom: 0.5%;
+>>>>>>> 888f248c6aeedad067ee1474f12f33778e3233e4
   }
   .card_body
   {
@@ -100,14 +108,22 @@
   }
   .buttitem
   {
-    margin-top: 5%;
+    /* margin-top: 5%;
     margin-left: 5%;
+<<<<<<< HEAD
     margin-right: 5%;
     font-size: 18px;
+=======
+    margin-right: 5%; */
+    /* margin-bottom: 0.5%; */
+>>>>>>> 888f248c6aeedad067ee1474f12f33778e3233e4
     background-color:#438af5;
+    /* margin-left: 2%; */
+    margin-right: 1%;
   }
   .buttgrp
   {
+<<<<<<< HEAD
     margin-right: 8%;
   }
 
@@ -146,3 +162,26 @@
 .dropdown-content a:hover {background-color: #f1f1f1;}
 .dropdown:hover .dropdown-content {display: block;}
 .dropdown:hover .dropbtn {background-color: #f5f5f5;}
+=======
+    /* margin-right: 8%; */
+    /* margin-bottom: 0.5%; */
+    /* position: relative;
+    margin-top: 100%; */
+    /* margin-left: 30%; */
+    position:absolute;
+    bottom:0;
+    margin-bottom: 5%;
+    margin-left: 30%;
+
+  }
+  .leftside
+  {
+    margin-bottom: 10%;
+    float: left;
+  }
+  .rightside
+  {
+  margin-bottom: 10%;
+   float: right;
+  }
+>>>>>>> 888f248c6aeedad067ee1474f12f33778e3233e4
