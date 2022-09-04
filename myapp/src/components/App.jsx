@@ -24,6 +24,7 @@ import AdminSidebar from "./Admin/Sidebar.jsx";
 import StudentHome from "./Staff/StudentHome.jsx"
 import Form from "./Faculty/Form.jsx"
 import Funds from "./Admin/Funds.jsx"
+import StudentSidebar from "./Staff/studentSideBar.jsx";
 // should be an json object coming from database
 export const username="poojasree";  // no spaces
 export const admin ="AdminName";
@@ -45,7 +46,7 @@ export const AdminMainNav = () => {
 export const StudentMainNav = () => {
   return <div>
   <Nav user={student}></Nav>
-  {/**studentsidebar */}
+  <StudentSidebar user={student} ></StudentSidebar>
   </div>
 }
 

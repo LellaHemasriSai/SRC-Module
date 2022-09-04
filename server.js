@@ -86,6 +86,15 @@ const adminSchema = new mongoose.Schema({
     },
     faculty: [mongoose.Types.ObjectId],
     staff: [mongoose.Types.ObjectId],
+    recruitment: {
+        project: mongoose.Types.ObjectId,
+        numberOfStaff: Number,
+        salary: Number,
+        startDate: Date,
+        endDate: Date,
+        reasonForRecruitment: String,
+        approve: Boolean,
+    },
 })
 
 const Admin = mongoose.model('Admin', adminSchema);
@@ -131,14 +140,9 @@ const Announcement = mongoose.model('Announcement', announcementSchema);
 
 //retrieving data from mongodb
 app.post("/pending", async (req, res, next) => {
-    /*var pendingProjects = await Project.findOne({}, (err, data) => {
-        //console.log("Data:\n" + data)
-    })*/
+
     var pendingProjects = await Project.find({})
     console.log("Pending Projects:\n" + pendingProjects)
-
-    //res.send(pendingProjects)
-    //console.log(pendingProjects)
     try {
 
 
@@ -183,6 +187,11 @@ app.post("/created", (req, res) => {
     newProject.save()
 
 });
+
+//save details of Recruitment request
+app.post("/saveRecruitment", (req, res) => {
+    console.log("saving Recruitment?")
+})
 
 let port = 3001;
 // if (port == null || port == "") {
