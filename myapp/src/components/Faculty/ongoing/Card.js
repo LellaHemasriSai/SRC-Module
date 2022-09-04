@@ -5,11 +5,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./Card.css";
 import { CircularProgressbar } from 'react-circular-progressbar';
 import "./statusbarstyles.css"
-
+import ExtendDuration from "../Extend_Duration/extend_duration";
+import { useParams,Link} from "react-router-dom";
 const Cards = (props) => {
 
   const [show,setShow] = useState(false);
-
+  const {username}=useParams();
 return (
 <Card key={props.id} className="card">
             {/* <Card.Img variant="top" src="holder.js/100px160" /> */}
@@ -41,14 +42,21 @@ return (
                 <li class="list-group-item">announcements -&ensp;{props.announcements}</li>
               </ul>
               <div className="buttgrp">
+              <Link to={"/Faculty/"+username+"/extend_duration"}>
                 <Button variant="primary" className="buttitem">Extend Duration</Button>
+                </Link>
+                <Link to={"/Faculty/"+username+"/modify_staff"}>
                 <Button variant="primary" className="buttitem">Staff Modification</Button>
+                </Link>
+                <Link to={"/Faculty/"+username+"/]funds_extension"}>
                 <Button variant="primary" className="buttitem">Additional Funds</Button>
+                </Link>
               </div>
               </div>
                   : null
              }
              <CircularProgressbar value={props.status} text={`${props.status}%`} className="status"/>
+             
               <Button variant="primary" className="butt" onClick={() =>setShow(!show)}>{show?"Read Less":"Read More"}</Button>
             </Card.Body>
           </Card>
