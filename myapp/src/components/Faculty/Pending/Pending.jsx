@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import Card from '../ongoing/Card';
+import Card from './Card';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./pending.css";
 import { MainNav } from '../../App';

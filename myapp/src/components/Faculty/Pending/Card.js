@@ -39,13 +39,7 @@ return (
                 <li class="list-group-item">status -&ensp;{props.status.toString()}</li>
                 {/* <li class="list-group-item">_v -&ensp;{props._v}</li> */}
                 <li class="list-group-item">announcements -&ensp;{props.announcements}</li>
-              </ul>
-              <div className="buttgrp">
-                <Button variant="primary" className="buttitem">Extend Duration</Button>
-                <Button variant="primary" className="buttitem">Staff Modification</Button>
-                <Button variant="primary" className="buttitem">Additional Funds</Button>
-              </div>
-              </div>
+              </ul></div>
                   : null
              }
              <CircularProgressbar value={props.status} text={`${props.status}%`} className="status"/>
