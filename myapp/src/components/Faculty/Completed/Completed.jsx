@@ -1,4 +1,4 @@
-import Card from '../ongoing/Card';
+import Card from '../Pending/Card';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./completed.css";
 import { MainNav } from '../../App';
@@ -92,9 +92,11 @@ const Completed = () => {
   ]
 
   return (
-    <div className="wrapper hover_collapse">
-   <div className="grid" style={{marginLeft: "300px",marginTop: "50px"}}>
+    <div div className="wrapper hover_collapse" >
     <MainNav></MainNav>
+   <div className="main_container">
+    <div className="container" style={{textAlign:"center"}}>
+    <div className='grid'>
     {cardinfo.map((card,index) => (
       <Card id={index} 
       projectCode={card.projectCode} 
@@ -114,6 +116,8 @@ const Completed = () => {
       status={card.status}
       description={card.description}/>
     ))}
+   </div>
+   </div>
    </div>
    </div>
   );

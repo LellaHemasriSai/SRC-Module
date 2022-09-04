@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes , Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // import { BrowserRouter as Router, Routes,Link , Route, useParams } from "react-router-dom";
 import Login1 from "./login1/login1.jsx";
 import Ongoing from "../components/Faculty/ongoing/Ongoing"
@@ -24,28 +24,33 @@ import AdminSidebar from "./Admin/Sidebar.jsx";
 import StudentHome from "./Staff/StudentHome.jsx"
 import Form from "./Faculty/Form.jsx"
 import Funds from "./Admin/Funds.jsx"
+import Extend_Duration from "./Faculty/Extend_Duration/extend_duration.jsx"
+import Funds_Extension from "./Faculty/Funds_Extension/funds_extension.jsx"
+import Modify_Staff from "./Faculty/Modify_Staff/modify_staff.jsx";
+import StudentSidebar from "./Staff/studentSideBar.jsx";
 // should be an json object coming from database
-export const username="poojasree";  // no spaces
-export const admin ="AdminName";
-export const student="Pooja";
+//export const username = "poojasree";  // no spaces
+//export const admin = "AdminName";
+//export const student = "Pooja";
 export const MainNav = () => {
   return <div>
-  <Nav user={username}></Nav>
-  <Sidebar user={username}></Sidebar>
+    <Nav></Nav>
+    <Sidebar></Sidebar>
   </div>
 }
 
 export const AdminMainNav = () => {
   return <div>
-  <Nav user={admin}></Nav>
-  <AdminSidebar user={admin}></AdminSidebar>
+    <Nav></Nav>
+    <AdminSidebar></AdminSidebar>
   </div>
 }
 
 export const StudentMainNav = () => {
   return <div>
-  <Nav user={student}></Nav>
-  {/**studentsidebar */}
+    {/**studentsidebar */}
+    <Nav></Nav>
+    <StudentSidebar></StudentSidebar>
   </div>
 }
 
@@ -55,27 +60,30 @@ const App = () => {
       <Routes>
         <Route exact path="/" element={<Login1 />} />
         <>
-        <Route exact path="/Admin" element={<LoginAdmin name={admin}/>} />
-        <Route exact path="/Admin/:admin/home" element={<Admin user={admin} />} />
-        <Route exact path="/Admin/:admin/Approve_project" element={<ApproveProject />} />
-         <Route exact path="/Admin/:admin/Approve_funds" element={<Funds/>} />
-        <Route exact path="/Admin/:admin/approve_recruitment" element={<ApproveRecruitment />} />
-        <Route exact path="/Admin/:admin/duration_extension" element={<DurationExtension />} />
-        <Route exact path="/Admin/:admin/view_project" element={<View />} />
+          <Route exact path="/Admin" element={<LoginAdmin/>} />
+          <Route exact path="/Admin/:username/home" element={<Admin/>} />
+          <Route exact path="/Admin/:username/Approve_project" element={<ApproveProject />} />
+          <Route exact path="/Admin/:username/Approve_funds" element={<Funds />} />
+          <Route exact path="/Admin/:username/approve_recruitment" element={<ApproveRecruitment />} />
+          <Route exact path="/Admin/:username/duration_extension" element={<DurationExtension />} />
+          <Route exact path="/Admin/:username/view_project" element={<View />} />
         </>
         <>
-        <Route exact path="/Faculty" element={<LoginFac name={username}/>} />
-          <Route exact path="/Faculty/:username/home" element={<NavBar user={username}/>} />
-          <Route exact path="/Faculty/:username/Form" element={<Form/>}/>
+          <Route exact path="/Faculty" element={<LoginFac  />} />
+          <Route exact path="/Faculty/:username/home" element={<NavBar  />} />
+          <Route exact path="/Faculty/:username/Form" element={<Form />} />
           <Route exact path="/Faculty/:username/create_project" element={<Create />} />
           <Route exact path="/Faculty/:username/ongoing_project" element={<Ongoing />} />
           <Route exact path="/Faculty/:username/recruitment" element={<Recruitment />} />
           <Route exact path="/Faculty/:username/announcements" element={<Announcements />} />
           <Route exact path="/Faculty/:username/pending_approvals" element={<Pending />} />
           <Route exact path="/Faculty/:username/completed_projects" element={<Completed />} />
+          <Route exact path="/Faculty/:username/extend_duration" element={<Extend_Duration />} />
+          <Route exact path="/Faculty/:username/funds_extension" element={<Funds_Extension />} />
+          <Route exact path="/Faculty/:username/modify_staff" element={<Modify_Staff />} />
         </>
-         <Route exact path="/Student" element={<LoginStu name={student}/>} />
-         <Route exact path="/Student/:student/studentHome" element={<StudentHome name={student}/>} />
+        <Route exact path="/Student" element={<LoginStu />} />
+        <Route exact path="/Student/:username/studentHome" element={<StudentHome />} />
       </Routes>
     </Router>
   );

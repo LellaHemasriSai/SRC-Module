@@ -38,7 +38,7 @@ const LoginAdmin = (props) => {
                         </div>
                     </div>
                     
-                    <Link to={"/Admin/"+props.name+"/home"}>        
+                    <Link to={"/Admin/"+user.name+"/home"}>        
                         <div className="form-group_login2">
                             <button type="submit" className="btn btn-primary rounded submit p-3 px-5">Login</button>
                         </div>

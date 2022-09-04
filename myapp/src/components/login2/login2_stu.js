@@ -37,7 +37,7 @@ const LoginStu = (props) => {
                         </div>
                     </div>
                     
-                    <Link to={"/Student/"+props.name+"/studentHome"}>
+                    <Link to={"/Student/"+user.name+"/studentHome"}>
                         <div className="form-group_login2">
                             <button type="submit" className="btn btn-primary rounded submit p-3 px-5">Login</button>
                         </div>

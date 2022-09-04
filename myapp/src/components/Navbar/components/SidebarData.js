@@ -3,11 +3,12 @@ import ongoing from "../../../images/ongoing.svg"
 import announcements from "../../../images/announcements.svg"
 import clock from "../../../images/clock.svg"
 import completed from "../../../images/completed.svg"
+import applications from "../../../images/applications.svg"
 export const data = [
 
     {
         key:'a',
-        title: 'HOME',
+        title: 'Home',
         path: '././home',
         img: home,
         cName: 'nav-text'
@@ -40,7 +41,7 @@ export const data = [
     },*/
     {
         key:'c',
-        title: 'ONGOING PROJECTS',
+        title: 'Ongoing Projects',
         path: '././ongoing_project',
         img: ongoing,
         cName: 'nav-text'
@@ -59,9 +60,17 @@ export const data = [
         img: completed,
         cName: 'nav-text'
     },
+        
+    {
+        key:'f',
+        title: 'Applications',
+        path: '././applications',
+        img: applications,
+        cName: 'nav-text'
+    },
     {
         key:'g',
-        title: 'ANNOUNCEMENTS',
+        title: 'Announcements',
         path: '././announcements',
         img: announcements,
         cName: 'nav-text'
