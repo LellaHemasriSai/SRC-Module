@@ -251,6 +251,7 @@ body{
 }
 
 .main_container .content{
+	box-shadow: 0 0 28px 4px rgba(0, 0, 0, 0, 1);
 	background: #fff;
 	padding: 25px;
 	margin-bottom: 25px;
@@ -268,6 +269,11 @@ body{
 	margin-left: 250px;
 
 }
+.content:hover{
+    transform: scale(1.02);
+	box-shadow: 0 2px 5px -1px rgba(0, 0, 0, .08);
+}
+ 
 .hidden{
     height: 4rem;
     width: 100%;

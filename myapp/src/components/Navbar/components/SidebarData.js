@@ -7,7 +7,7 @@ export const data = [
 
     {
         key:'a',
-        title: 'HOME',
+        title: 'Home',
         path: '././home',
         img: home,
         cName: 'nav-text'
@@ -40,7 +40,7 @@ export const data = [
     },*/
     {
         key:'c',
-        title: 'ONGOING PROJECTS',
+        title: 'Ongoing Projects',
         path: '././ongoing_project',
         img: ongoing,
         cName: 'nav-text'
@@ -61,7 +61,7 @@ export const data = [
     },
     {
         key:'g',
-        title: 'ANNOUNCEMENTS',
+        title: 'Announcements',
         path: '././announcements',
         img: announcements,
         cName: 'nav-text'
