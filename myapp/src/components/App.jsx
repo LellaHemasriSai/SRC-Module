@@ -24,13 +24,10 @@ import AdminSidebar from "./Admin/Sidebar.jsx";
 import StudentHome from "./Staff/StudentHome.jsx"
 import Form from "./Faculty/Form.jsx"
 import Funds from "./Admin/Funds.jsx"
-<<<<<<< HEAD
 import Extend_Duration from "./Faculty/Extend_Duration/extend_duration.jsx"
 import Funds_Extension from "./Faculty/Funds_Extension/funds_extension.jsx"
 import Modify_Staff from "./Faculty/Modify_Staff/modify_staff.jsx";
-=======
 import StudentSidebar from "./Staff/studentSideBar.jsx";
->>>>>>> 008231af7635095715c67c24fd1974445f0baaf3
 // should be an json object coming from database
 export const username = "poojasree";  // no spaces
 export const admin = "AdminName";
@@ -51,13 +48,10 @@ export const AdminMainNav = () => {
 
 export const StudentMainNav = () => {
   return <div>
-<<<<<<< HEAD
     <Nav user={student}></Nav>
     {/**studentsidebar */}
-=======
-  <Nav user={student}></Nav>
-  <StudentSidebar user={student} ></StudentSidebar>
->>>>>>> 008231af7635095715c67c24fd1974445f0baaf3
+    <Nav user={student}></Nav>
+    <StudentSidebar user={student} ></StudentSidebar>
   </div>
 }
 
