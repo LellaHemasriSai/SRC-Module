@@ -7,7 +7,7 @@ import check from "../../images/check.svg"
 export const SidebarData = [
     {
         key:1,
-        title: 'HOME',
+        title: 'Home',
         path: '././home',
         img: home,
         cName: 'nav-text'
