@@ -42,6 +42,7 @@ const projectsSchema = new mongoose.Schema({
     endDate: Date,
     status: Number,
     description: String,
+    sanctionLetter: String,//shld be file
     announcements: [{
 
     }]
@@ -57,6 +58,7 @@ const facultySchema = new mongoose.Schema({
     },
     password: String,
     userCode: String,
+    principalInvestigatorCode: String,
     details: {
         Department: String,
         Designation: String,
