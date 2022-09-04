@@ -5,7 +5,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./ongoing.css";
 import { MainNav } from '../../App';
 const Ongoing = () => {
- 
   const [cardinfo, setCardInfo] = useState([])
 
   console.log("Submitted")

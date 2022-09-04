@@ -7,12 +7,9 @@ import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import lodash from "lodash";
 import cors from "cors";
-
 const _ = { lodash };
 const app = express();
-
 app.set("view engine", "ejs");
-
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
@@ -22,7 +19,6 @@ app.use(
     methods: ["POST", "GET", "PUT", "HEAD", "OPTIONS"],
   })
 );
-
 mongoose.connect(
   "mongodb://localhost:27017/SRC",
   { useNewUrlParser: true },
@@ -30,7 +26,6 @@ mongoose.connect(
     console.log("connected to database");
   }
 );
-
 //SCHEMAS
 const projectsSchema = new mongoose.Schema({
   projectCode: String,
@@ -53,9 +48,7 @@ const projectsSchema = new mongoose.Schema({
   sanctionLetter: String, //shld be file
   announcements: [{}],
 });
-
 const Project = mongoose.model("Project", projectsSchema);
-
 const facultySchema = new mongoose.Schema({
   username: {
     type: String,
@@ -93,46 +86,14 @@ const facultySchema = new mongoose.Schema({
     endDate: Date,
     status: Number,
     description: String,
-<<<<<<< HEAD
     sanctionLetter: String, //shld be file
     announcements: [{}],
   },
-=======
-    sanctionLetter: String,//shld be file
-    announcements: [{
-
-    }]
-})
-
-const Project = mongoose.model("Project", projectsSchema)
-
-const facultySchema = new mongoose.Schema({
-    username: {
-        type: String,
-        trim: true,
-        required: true,
-    },
-    password: String,
-    userCode: String,
-    principalInvestigatorCode: String,
-    details: {
-        Department: String,
-        Designation: String,
-        Email: String,
-        ContactNumber: String,
-        DateOfJoining: Date,
-        Qualifications: String,
-        DoB: Date,
-        Address: String,
-    },
-    projects: [mongoose.Types.ObjectId],
-
->>>>>>> baba7ba5282fe6470c82484f42c3e51ffe7e7159
+  sanctionLetter: String, //shld be file
+  announcements: [{}],
 });
 const Faculty = mongoose.model("Faculty", facultySchema);
-
 const adminSchema = new mongoose.Schema({
-<<<<<<< HEAD
   username: {
     type: String,
     trim: true,
@@ -144,33 +105,18 @@ const adminSchema = new mongoose.Schema({
   },
   faculty: [mongoose.Types.ObjectId],
   staff: [mongoose.Types.ObjectId],
+  recruitment: {
+    project: mongoose.Types.ObjectId,
+    numberOfStaff: Number,
+    salary: Number,
+    startDate: Date,
+    endDate: Date,
+    reasonForRecruitment: String,
+    approve: Boolean,
+  },
 });
-=======
-    username: {
-        type: String,
-        trim: true,
-        required: true,
-    },
-    password: String,
-    projects: {
-        approve: [projectsSchema],
-    },
-    faculty: [mongoose.Types.ObjectId],
-    staff: [mongoose.Types.ObjectId],
-    recruitment: {
-        project: mongoose.Types.ObjectId,
-        numberOfStaff: Number,
-        salary: Number,
-        startDate: Date,
-        endDate: Date,
-        reasonForRecruitment: String,
-        approve: Boolean,
-    },
-})
->>>>>>> baba7ba5282fe6470c82484f42c3e51ffe7e7159
 
 const Admin = mongoose.model("Admin", adminSchema);
-
 const staffSchema = new mongoose.Schema({
   username: {
     type: String,
@@ -198,7 +144,6 @@ const staffSchema = new mongoose.Schema({
     },
   ],
 });
-
 const announcementSchema = new mongoose.Schema({
   projectID: String,
   project: mongoose.Types.ObjectId,
@@ -209,77 +154,25 @@ const announcementSchema = new mongoose.Schema({
   FacultyName: String,
   description: String,
 });
-
 const Announcement = mongoose.model("Announcement", announcementSchema);
-
-//retrieving data from mongodb
 app.post("/pending", async (req, res, next) => {
-  /*var pendingProjects = await Project.findOne({}, (err, data) => {
-        //console.log("Data:\n" + data)
-    })*/
   var pendingProjects = await Project.find({});
   console.log("Pending Projects:\n" + pendingProjects);
 
-  //res.send(pendingProjects)
-  //console.log(pendingProjects)
   try {
     return res.status(200).json({
       success: true,
       count: pendingProjects.length,
       data: pendingProjects,
-
-    var pendingProjects = await Project.find({})
-    console.log("Pending Projects:\n" + pendingProjects)
-    try {
-
-
-        return res.status(200).json({
-            success: true,
-            count: pendingProjects.length,
-            data: pendingProjects,
-        });
-    } catch (err) {
-        console.log(err);
-        res.status(500).json({ error: 'server error' });
-    }
-
-})
-
-app.post("/created", (req, res) => {
-    console.log("Recieved?");
-
-    res.send("request sent")
-
-    var newProject = new Project({
-        projectCode: req.body.projectID,
-        projectName: req.body.projectName,
-        projectType: req.body.projectType,
-        agencyCode: String(generateAgencyCode("User")),
-        agencyName: req.body.agencyName,
-        organizationType: req.body.organizationType,
-        approval: false,
-        resourceApproval: false,
-        fundApproval: false,
-        closed: false,
-        facultyID: "ID",
-        staff: [],
-        sanctionFund: req.body.sanctionValue,
-        startDate: req.body.startDate,
-        endDate: req.body.endDate,
-        status: 0,
-        description: req.body.descriptionBox
     });
   } catch (err) {
     console.log(err);
     res.status(500).json({ error: "server error" });
   }
 });
-
 app.post("/created", (req, res) => {
   console.log("Recieved?");
-  //console.log("Body:", req.body);
   res.send("request sent");
-  //console.log(result)
   var newProject = new Project({
     projectCode: req.body.projectID,
     projectName: req.body.projectName,
@@ -299,25 +192,19 @@ app.post("/created", (req, res) => {
     status: 0,
     description: req.body.descriptionBox,
   });
-    //console.log(newProject)
-    newProject.save()
-
   console.log(newProject);
   newProject.save();
 });
 
 //save details of Recruitment request
-app.post("/:user/saveRecruitment", (req, res) => {
-    console.log("saving Recruitment?")
-
-})
+app.post("/saveRecruitment", (req, res) => {
+  console.log("saving Recruitment?");
+});
 
 let port = 3001;
-
 app.listen(port, function () {
   console.log("Server started on port 3001");
 });
-
 var newFac = new Faculty({
   username: "CS20B020",
   password: "cs20b020",

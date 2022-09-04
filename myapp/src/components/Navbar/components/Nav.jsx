@@ -62,7 +62,7 @@ function Nav(props) {            // user name
 						</div>
 					</button>
 					<div className="dropdown-content">
-						<Link to={"/Faculty/"+props.user+"/Form"}>Settings</Link>
+						<Link to={"/Faculty/"+username+"/Form"}>Settings</Link>
 						<Link to="/">Log out</Link>
 					</div>
 				</div>

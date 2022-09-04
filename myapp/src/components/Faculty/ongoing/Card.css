@@ -54,7 +54,7 @@
 }
 
 .card_body {
-     margin-top: 7% ;
+     margin-bottom: 5% ;
     text-align: centre; 
 }
 .comment{
@@ -87,21 +87,18 @@
     float: centre;
     position: relative;
     background-color:#438af5;
-<<<<<<< HEAD
-    width: 10%;
-=======
     width: 8%; */
     width: 9%;
     position:absolute;
     bottom:0;
     margin-bottom: 0.5%;
->>>>>>> 888f248c6aeedad067ee1474f12f33778e3233e4
+    align-content: center;
   }
-  .card_body
+  /* .card_body
   {
     text-align: center;
     font-size: 2rem;
-  }
+  } */
   .status
   {
     float: right;
@@ -109,82 +106,21 @@
   }
   .buttitem
   {
-<<<<<<< HEAD
      /* margin-top: 5%; */
     /* margin-left: 5%;
     margin-right: 5%;  */
-=======
-    /* margin-top: 5%;
-    margin-left: 5%;
-<<<<<<< HEAD
-    margin-right: 5%;
-    font-size: 18px;
-=======
-    margin-right: 5%; */
->>>>>>> 3e1f4553ff285990d71107bccd6b01541af4ca32
-    /* margin-bottom: 0.5%; */
->>>>>>> 888f248c6aeedad067ee1474f12f33778e3233e4
-    background-color:#438af5;
-    margin-left: 30px;
-    margin-right: 30px;
-    font-size: 80%;
-   
+
+    /* margin-top: 5%; */
+    margin-left: 20px;
+    margin-right: 20px;
+    /* font-size: 18px; */
   }
   .buttgrp
   {
-<<<<<<< HEAD
-    margin-right: 8%;
-  }
-
-  .dropbtn {
-  color: black;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-	background-color: white;
-  cursor: pointer;
-}
-
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  right: 0;
-  background-color: black;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-    font-size: 14px;
-  text-decoration: none;
-  display: block;
-}
-
-.dropdown-content a:hover {background-color: #f1f1f1;}
-.dropdown:hover .dropdown-content {display: block;}
-.dropdown:hover .dropbtn {background-color: #f5f5f5;}
-=======
-    /* margin-right: 8%; */
-    /* margin-bottom: 0.5%; */
-    /* position: relative;
-    margin-top: 100%; */
-    /* margin-left: 30%; */
-    position:absolute;
-    
-    display: flex;
-    bottom:0;
+    position: absolute;
+    bottom: 0;
     margin-bottom: 5%;
-    margin-left: 27%;
-    justify-content: space-between;
-
+    margin-left: 31%;
   }
   .leftside
   {
@@ -193,7 +129,6 @@
   }
   .rightside
   {
-  margin-bottom: 10%;
-   float: right;
+    margin-bottom: 10%;
+    float: right;
   }
->>>>>>> 888f248c6aeedad067ee1474f12f33778e3233e4
