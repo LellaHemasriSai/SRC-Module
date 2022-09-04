@@ -1,95 +1,26 @@
+import React, { useEffect, useState } from 'react';
 import Card from './Card';
+import axios from 'axios';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./ongoing.css";
 import { MainNav } from '../../App';
 const Ongoing = () => {
-  const cardinfo = [
-     { id:"1", projectCode: "2345",
-     projectName: "SRC",
-     projectType: "Web",
-     agencyCode: "X2450",
-     agencyName: "TCS",
-     approval: "0",
-     resourceApproval: "1",
-     fundApproval: "0",
-     closed: "0",
-     facultyID: "94350",
-     organizationType: "Global",
-     staff: ["nam","manas","hems"],
-     sanctionFund: "20000",
-     startDate: "01-01-2022",
-     endDate: "10-01-2022",
-     status: "1",
-     description: "This is description regarding project"},
-     { id:"2", projectCode: "2345",
-     projectName: "SRC",
-     projectType: "Web",
-     agencyCode: "X2450",
-     agencyName: "TCS",
-     approval: "0",
-     resourceApproval: "1",
-     fundApproval: "0",
-     closed: "0",
-     facultyID: "94350",
-     organizationType: "Global",
-     staff: ["nam","manas","hems"],
-     sanctionFund: "20000",
-     startDate: "01-01-2022",
-     endDate: "10-01-2022",
-     status: "1",
-     description: "This is description regarding project"},
-     { id:"3", projectCode: "2345",
-     projectName: "SRC",
-     projectType: "Web",
-     agencyCode: "X2450",
-     agencyName: "TCS",
-     approval: "0",
-     resourceApproval: "1",
-     fundApproval: "0",
-     closed: "0",
-     facultyID: "94350",
-     organizationType: "Global",
-     staff: ["nam","manas","hems"],
-     sanctionFund: "20000",
-     startDate: "01-01-2022",
-     endDate: "10-01-2022",
-     status: "1",
-     description: "This is description regarding project"},
-     { id:"4", projectCode: "2345",
-     projectName: "SRC",
-     projectType: "Web",
-     agencyCode: "X2450",
-     agencyName: "TCS",
-     approval: "0",
-     resourceApproval: "1",
-     fundApproval: "0",
-     closed: "0",
-     facultyID: "94350",
-     organizationType: "Global",
-     staff: ["nam","manas","hems"],
-     sanctionFund: "20000",
-     startDate: "01-01-2022",
-     endDate: "10-01-2022",
-     status: "1",
-     description: "This is description regarding project"},
-     { id:"5", projectCode: "2345",
-     projectName: "SRC",
-     projectType: "Web",
-     agencyCode: "X2450",
-     agencyName: "TCS",
-     approval: "0",
-     resourceApproval: "1",
-     fundApproval: "0",
-     closed: "0",
-     facultyID: "94350",
-     organizationType: "Global",
-     staff: ["nam","manas","hems"],
-     sanctionFund: "20000",
-     startDate: "01-01-2022",
-     endDate: "10-01-2022",
-     status: "1",
-     description: "This is description regarding project"},
-  ]
+ 
+  const [cardinfo, setCardInfo] = useState([])
+
+  console.log("Submitted")
+
+  useEffect(() => {
+    axios.post('http://localhost:3001/pending')
+      .then(res => {
+        console.log('Data: ', res.data.data)
+        setCardInfo(res.data.data)
+
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }, [])
 
   return (
     <div className="wrapper hover_collapse">
