@@ -23,6 +23,7 @@ import "../components/Navbar/components/nav.css"
 import AdminSidebar from "./Admin/Sidebar.jsx";
 import StudentHome from "./Staff/StudentHome.jsx"
 import Form from "./Faculty/Form.jsx"
+import Funds from "./Admin/Funds.jsx"
 // should be an json object coming from database
 export const username="poojasree";  // no spaces
 export const admin ="AdminName";
@@ -57,6 +58,7 @@ const App = () => {
         <Route exact path="/Admin" element={<LoginAdmin name={admin}/>} />
         <Route exact path="/Admin/:admin/home" element={<Admin user={admin} />} />
         <Route exact path="/Admin/:admin/Approve_project" element={<ApproveProject />} />
+         <Route exact path="/Admin/:admin/Approve_funds" element={<Funds/>} />
         <Route exact path="/Admin/:admin/approve_recruitment" element={<ApproveRecruitment />} />
         <Route exact path="/Admin/:admin/duration_extension" element={<DurationExtension />} />
         <Route exact path="/Admin/:admin/view_project" element={<View />} />

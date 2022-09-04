@@ -36,7 +36,7 @@ export const SidebarData = [
     {
         key:4,
         title: 'Funds',
-        path: '././funds',
+        path: '././Approve_funds',
         img: dollar,
         cName: 'nav-text'
     },
