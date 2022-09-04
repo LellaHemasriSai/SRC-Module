@@ -29,7 +29,7 @@
     border-radius: 14px;
     color: white;
     font-weight: 100;
-    background-color: #659cee ;
+    background-color: #438af5 ;
     font-size:xx-small;
 }
 
@@ -44,7 +44,7 @@
     letter-spacing: 1px;
     display: inline-flex;
     border-radius: 14px;
-    background-color: #659cee ;
+    background-color: #438af5 ;
     font-size:xx-small;
 }
 .header{
@@ -83,7 +83,7 @@
   }
   .butt{
     float: right;
-    background-color:#659cee ;
+    background-color:#438af5 ;
   }
   .card_body
   {
