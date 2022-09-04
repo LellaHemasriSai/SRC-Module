@@ -52,38 +52,38 @@ class Staff extends React.Component {
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="projectID">Project ID</label>
-                                    <input type="text" class="form-control" name="projectID" id="projectID" placeholder="Project ID" onChange={this.handleInputChange} />
+                                    <input type="text" required class="form-control" name="projectID" id="projectID" placeholder="Project ID" onChange={this.handleInputChange} />
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="projectType">Project Type</label>
-                                    <input type="text" class="form-control" name="projectType" id="projectType" placeholder="Project Type" onChange={this.handleInputChange} />
+                                    <input type="text" required class="form-control" name="projectType" id="projectType" placeholder="Project Type" onChange={this.handleInputChange} />
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-4">
                                     <label for="no_ofStaff">Number of Staff</label>
-                                    <input type="number" class="form-control" name="no_ofStaff" id="no_ofStaff" placeholder="Number of Staff" onChange={this.handleInputChange} />
+                                    <input type="number" required class="form-control" name="no_ofStaff" id="no_ofStaff" placeholder="Number of Staff" onChange={this.handleInputChange} />
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="salaryDetails">Salary Details</label>
-                                    <input type="text" class="form-control" name="salaryDetails" id="salaryDetails" placeholder="Salary Details" onChange={this.handleInputChange} />
+                                    <input type="text" required class="form-control" name="salaryDetails" id="salaryDetails" placeholder="Salary Details" onChange={this.handleInputChange} />
                                 </div>
                                 <div class="form-group col-md-2">
                                     <label for="startDate">Start Date</label>
-                                    <input type="date" class="form-control" name="startDate" id="startDate" placeholder="Start Date" onChange={this.handleInputChange} />
+                                    <input type="date" required class="form-control" name="startDate" id="startDate" placeholder="Start Date" onChange={this.handleInputChange} />
                                 </div>
                                 <div class="form-group col-md-2">
                                     <label for="endDate">End date</label>
-                                    <input type="date" class="form-control" name="endDate" id="endDate" placeholder="End Date" onChange={this.handleInputChange} />
+                                    <input type="date" required class="form-control" name="endDate" id="endDate" placeholder="End Date" onChange={this.handleInputChange} />
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-4">
                                     <label for="descriptionBox">Reason for Recruitment</label>
-                                    <textarea type="text" class="form-control" rows="5" id="descriptionBox" placeholder="Description" onChange={this.handleInputChange} />
+                                    <textarea type="text" required class="form-control" rows="5" id="descriptionBox" placeholder="Description" onChange={this.handleInputChange} />
                                 </div>
                                 <div class="form-group col-md-4" style={{ marginTop: '50px', }}>
-                                    <button type="button" onClick={() => this.submit()} class="btn btn-primary">Submit</button>
+                                    <button type="button" required onClick={() => this.submit()} class="btn btn-primary">Submit</button>
                                 </div>
                             </div>
                         </form>
