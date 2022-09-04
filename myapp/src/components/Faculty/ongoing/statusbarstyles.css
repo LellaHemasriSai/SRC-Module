@@ -11,6 +11,10 @@
      * https://github.com/kevinsqi/react-circular-progressbar/issues/94
      */
     vertical-align:right;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-bottom: 3%;
   }
   
   .CircularProgressbar .CircularProgressbar-path {
