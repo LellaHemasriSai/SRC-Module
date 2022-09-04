@@ -13,6 +13,7 @@ body{
     text-align: center;
 	background: #f5f5f5;
     font-weight: 400;
+    font-size: 15px;
 }
 
 .form-group_login2 button {
@@ -85,7 +86,7 @@ a {
     margin-bottom: auto;
     text-align: center;
     align-items: center;
-    margin-top: 46px;
+    margin-top: 7%;
     margin-right: 11%;
     width: 25rem;
     height: 40px;

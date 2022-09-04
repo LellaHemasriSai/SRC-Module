@@ -1,6 +1,6 @@
-import React, { useState,useRef } from 'react'
-import Sidebar from "../../Navbar/components/Sidebar";
-import Nav from "../../Navbar/components/Nav";
+import React from 'react'
+//import Sidebar from "../../Navbar/components/Sidebar";
+//import Nav from "../../Navbar/components/Nav";
 import "./announcements.css"
 //import MainNav from '../../Navbar/components/MainNav';
 import { MainNav } from '../../App';
@@ -44,7 +44,7 @@ class Announcements extends React.Component{
         <div className="main_container">
 		    <div className="container">
         <form>
-          <div class="form-row" style={{ marginTop: '150px' }}>
+          <div class="form-row">
             <div class="form-group col-md-4">
               <label for="projectName">project Name</label>
               <input type="text" class="form-control" name="projectName" id="projectName" placeholder="Project Name" onChange={this.handleInputChange}/>

@@ -48,7 +48,7 @@ export default function Create() {
                 <div className="container">
                     <div class="card_project">
                         <form onSubmit={onSubmit()}>
-                            <div class="form-row" style={{ marginTop: '150px' }}>
+                            <div class="form-row">
                                 <div class="form-group col-md-4">
                                     <label for="agencyCode">Agency Code</label>
                                     <input type="text" class="form-control" id="agencyCode" value={agencyCode} placeholder="Agency Code" onChange={(event) => { setagencyCode(event.target.value) }} />
