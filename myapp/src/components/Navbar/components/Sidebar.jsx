@@ -85,6 +85,11 @@ function Sidebar() {
 				title={data[4].title} 
 				path={data[4].path}
 				img={data[4].img}/>
+			<SideElement
+				key={data[5].key} 
+				title={data[5].title} 
+				path={data[5].path}
+				img={data[5].img}/>
 		</ul>
 	</div>
 	</div>

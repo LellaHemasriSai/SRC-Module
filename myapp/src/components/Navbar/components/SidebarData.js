@@ -3,6 +3,7 @@ import ongoing from "../../../images/ongoing.svg"
 import announcements from "../../../images/announcements.svg"
 import clock from "../../../images/clock.svg"
 import completed from "../../../images/completed.svg"
+import applications from "../../../images/applications.svg"
 export const data = [
 
     {
@@ -57,6 +58,14 @@ export const data = [
         title: 'Completed Projects',
         path: '././completed_projects',
         img: completed,
+        cName: 'nav-text'
+    },
+        
+    {
+        key:'f',
+        title: 'Applications',
+        path: '././applications',
+        img: applications,
         cName: 'nav-text'
     },
     {

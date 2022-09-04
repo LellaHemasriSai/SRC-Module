@@ -6,7 +6,7 @@ import React, { useState, useRef } from 'react'
 import { MainNav } from '../../App';
 //import { Container } from '@mui/system';
 
-export default function Extend_Duration() {
+export default function ExtendDuration() {
     const [projectName, setProjectName] = useState("default");
     const [projectID, setProjectID] = useState("default");
     const [projectType, setProjectType] = useState("default")
