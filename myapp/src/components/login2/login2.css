@@ -13,10 +13,6 @@ body{
     text-align: center;
 	background: #f5f5f5;
     font-weight: 400;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
 }
 
 .form-group_login2 button {
