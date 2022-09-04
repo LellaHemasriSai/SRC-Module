@@ -48,7 +48,7 @@ class Staff extends React.Component {
                             <div class="form-row">
                                 <div class="form-group col-md-4">
                                     <label for="projectName">Project Name</label>
-                                    <input type="text" class="form-control" name="projectName" id="projectName" placeholder="Project Name" onChange={this.handleInputChange} />
+                                    <input type="text" required class="form-control" name="projectName" id="projectName" placeholder="Project Name" onChange={this.handleInputChange} />
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="projectID">Project ID</label>
