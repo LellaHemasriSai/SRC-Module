@@ -1,8 +1,11 @@
+import React, { useEffect, useState } from 'react';
 import Card from './Card';
+import axios from 'axios';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./ongoing.css";
 import { MainNav } from '../../App';
 const Ongoing = () => {
+<<<<<<< HEAD
   const cardinfo = [
      { id:"1", projectCode: "2345",
      projectName: "SRC",
@@ -20,7 +23,7 @@ const Ongoing = () => {
      startDate: "01-01-2022",
      endDate: "10-01-2022",
      status: "1",
-     description: "This is description regarding project"},
+     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."},
      { id:"2", projectCode: "2345",
      projectName: "SRC",
      projectType: "Web",
@@ -37,7 +40,7 @@ const Ongoing = () => {
      startDate: "01-01-2022",
      endDate: "10-01-2022",
      status: "1",
-     description: "This is description regarding project"},
+     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."},
      { id:"3", projectCode: "2345",
      projectName: "SRC",
      projectType: "Web",
@@ -54,7 +57,7 @@ const Ongoing = () => {
      startDate: "01-01-2022",
      endDate: "10-01-2022",
      status: "1",
-     description: "This is description regarding project"},
+     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."},
      { id:"4", projectCode: "2345",
      projectName: "SRC",
      projectType: "Web",
@@ -71,7 +74,7 @@ const Ongoing = () => {
      startDate: "01-01-2022",
      endDate: "10-01-2022",
      status: "1",
-     description: "This is description regarding project"},
+     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."},
      { id:"5", projectCode: "2345",
      projectName: "SRC",
      projectType: "Web",
@@ -88,8 +91,26 @@ const Ongoing = () => {
      startDate: "01-01-2022",
      endDate: "10-01-2022",
      status: "1",
-     description: "This is description regarding project"},
+     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."},
   ]
+=======
+ 
+  const [cardinfo, setCardInfo] = useState([])
+
+  console.log("Submitted")
+
+  useEffect(() => {
+    axios.post('http://localhost:3001/pending')
+      .then(res => {
+        console.log('Data: ', res.data.data)
+        setCardInfo(res.data.data)
+
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }, [])
+>>>>>>> 888f248c6aeedad067ee1474f12f33778e3233e4
 
   return (
     <div className="wrapper hover_collapse">
