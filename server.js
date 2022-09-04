@@ -7,8 +7,10 @@ import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import lodash from "lodash";
 import cors from "cors";
+
 const _ = { lodash };
 const app = express();
+
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
@@ -19,6 +21,7 @@ app.use(
     methods: ["POST", "GET", "PUT", "HEAD", "OPTIONS"],
   })
 );
+
 mongoose.connect(
   "mongodb://localhost:27017/SRC",
   { useNewUrlParser: true },
@@ -26,6 +29,7 @@ mongoose.connect(
     console.log("connected to database");
   }
 );
+
 //SCHEMAS
 const projectsSchema = new mongoose.Schema({
   projectCode: String,
@@ -48,7 +52,10 @@ const projectsSchema = new mongoose.Schema({
   sanctionLetter: String, //shld be file
   announcements: [{}],
 });
+
 const Project = mongoose.model("Project", projectsSchema);
+
+//facultySchema
 const facultySchema = new mongoose.Schema({
   username: {
     type: String,
@@ -93,6 +100,8 @@ const facultySchema = new mongoose.Schema({
   announcements: [{}],
 });
 const Faculty = mongoose.model("Faculty", facultySchema);
+
+//admin Schema
 const adminSchema = new mongoose.Schema({
   username: {
     type: String,
@@ -117,6 +126,8 @@ const adminSchema = new mongoose.Schema({
 });
 
 const Admin = mongoose.model("Admin", adminSchema);
+
+//staffSchema
 const staffSchema = new mongoose.Schema({
   username: {
     type: String,
@@ -144,6 +155,8 @@ const staffSchema = new mongoose.Schema({
     },
   ],
 });
+
+
 const announcementSchema = new mongoose.Schema({
   projectID: String,
   project: mongoose.Types.ObjectId,
@@ -154,10 +167,34 @@ const announcementSchema = new mongoose.Schema({
   FacultyName: String,
   description: String,
 });
+
 const Announcement = mongoose.model("Announcement", announcementSchema);
+
+//---------------------------------------------------------------------------------------------
+//Functions to send data to front end
+//---------------------------------------------------------------------------------------------
+
+//returns data to faculty ongoing projects
+app.post("/ongoing", async (req, res, next) => {
+  var ongoingProjects = await Project.find({ "approval": true, "closed": false });
+  console.log("Ongoing Projects:\n" + ongoingProjects);
+
+  try {
+    return res.status(200).json({
+      success: true,
+      count: ongoingProjects.length,
+      data: ongoingProjects,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: "server error" });
+  }
+});
+
+//returns data to faculty pending projects
 app.post("/pending", async (req, res, next) => {
-  var pendingProjects = await Project.find({});
-  console.log("Pending Projects:\n" + pendingProjects);
+  var pendingProjects = await Project.find({ "approval": false });
+  //console.log("Pending Projects:\n" + pendingProjects);
 
   try {
     return res.status(200).json({
@@ -170,29 +207,52 @@ app.post("/pending", async (req, res, next) => {
     res.status(500).json({ error: "server error" });
   }
 });
+
+//returns data to faculty ongoing projects
+app.post("/completed", async (req, res, next) => {
+  var ongoingProjects = await Project.find({ "approval": true, "closed": true });
+  console.log("Ongoing Projects:\n" + ongoingProjects);
+
+  try {
+    return res.status(200).json({
+      success: true,
+      count: ongoingProjects.length,
+      data: ongoingProjects,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: "server error" });
+  }
+});
+
+//---------------------------------------------------------------------
+//functions to save data to backend database
+//---------------------------------------------------------------------
+
+//save newProject data into database from create Project
 app.post("/created", (req, res) => {
   console.log("Recieved?");
   res.send("request sent");
   var newProject = new Project({
-    projectCode: req.body.projectID,
+    projectCode: 'Shall be assigned after Approval',
     projectName: req.body.projectName,
     projectType: req.body.projectType,
     agencyCode: String(generateAgencyCode("User")),
     agencyName: req.body.agencyName,
     organizationType: req.body.organizationType,
-    approval: false,
+    approval: true,
     resourceApproval: false,
     fundApproval: false,
-    closed: false,
+    closed: true,
     facultyID: "ID",
     staff: [],
     sanctionFund: req.body.sanctionValue,
     startDate: req.body.startDate,
     endDate: req.body.endDate,
-    status: 0,
+    status: 75,
     description: req.body.descriptionBox,
   });
-  console.log(newProject);
+  //console.log(newProject);
   newProject.save();
 });
 
@@ -201,10 +261,14 @@ app.post("/saveRecruitment", (req, res) => {
   console.log("saving Recruitment?");
 });
 
+//setting up a port
 let port = 3001;
 app.listen(port, function () {
   console.log("Server started on port 3001");
 });
+
+
+//testing
 var newFac = new Faculty({
   username: "CS20B020",
   password: "cs20b020",
@@ -241,6 +305,7 @@ var newFac = new Faculty({
     sanctionLetter: "String",
   },
 });
+
 newFac.save();
 console.log(newFac);
 var s1 = "CS01";
