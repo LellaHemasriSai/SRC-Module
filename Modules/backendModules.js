@@ -15,8 +15,22 @@ export function projectCode(facultyID) {
 }
 
 export function updateProjectStatus(facultyID, projectID, status) {
-    //search fauculty data base for faculty id 
+    //search faculty data base for faculty id 
     //search for project with project id 
     //set status in the respective project
     console.log("update Status successful!")
+}
+
+export function updateProjectDuration(facultyID, projectID, newDuration) {
+    //search faculty data base for faculty id 
+    //search for project with project id 
+    //update duration to the new duration
+    console.log("project Duration updated!")
+}
+
+export function updateFunds(facultyID, projectID, additionalFunds) {
+    //search faculty data base for faculty id 
+    //search for project with project id 
+    //add additionalFunds to old Funds
+    console.log("additionalFunds updated!")
 }

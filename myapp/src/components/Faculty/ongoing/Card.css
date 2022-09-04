@@ -10,7 +10,6 @@
 .card:hover{
     transform: scale(1.05);
  box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
- color:brown;
 }
 
 .card_title {
@@ -21,13 +20,32 @@
 .leftheader {
     float: left;
     font-family: "Gilmer",sans-serif;
-    font-size: 1.5rem;
+    text-transform: uppercase;
+    padding: 0 12px;
+    height: max-content;
+    line-height: 28px;
+    letter-spacing: 1px;
+    display: inline-flex;
+    border-radius: 14px;
+    color: white;
+    font-weight: 100;
+    background-color: #438af5 ;
+    font-size:xx-small;
 }
 
 .rightheader {
     float: right;
     font-family: "Gilmer",sans-serif;
-    font-size: 1.5rem;
+    color: white;
+    text-transform: uppercase;
+    padding: 0 12px;
+    height: max-content;
+    line-height: 28px;
+    letter-spacing: 1px;
+    display: inline-flex;
+    border-radius: 14px;
+    background-color: #438af5 ;
+    font-size:xx-small;
 }
 .header{
 }
@@ -60,5 +78,15 @@
   }
   .list-group-item
   {
-    text-shadow:0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);;
+  font-size: 1.3rem;
+  display: inline-flex;
+  }
+  .butt{
+    float: right;
+    background-color:#438af5 ;
+  }
+  .card_body
+  {
+    text-align: center;
+    font-size: 1.5rem;
   }

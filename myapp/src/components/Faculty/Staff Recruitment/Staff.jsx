@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useRef } from 'react'
 //import Sidebar from "../../Navbar/components/Sidebar";
 //import Nav from "../../Navbar/components/Nav";
 import "./staff.css"
