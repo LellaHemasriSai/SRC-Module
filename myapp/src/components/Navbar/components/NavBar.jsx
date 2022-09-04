@@ -4,7 +4,7 @@ import Container from "./Container";
 import "./nav.css"
 const NavBar = (props) => {
   return <div className="wrapper hover_collapse">
-  <Nav user={props.user}></Nav>
+  <Nav></Nav>
   <Sidebar></Sidebar>
   <Container></Container>
   </div>
