@@ -3,29 +3,36 @@ import Card from 'react-bootstrap/Card';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Card.css";
 
-const card = (card) => {
+const card = (props) => {
 
 return (
-<Card key={card.id} className="card">
+<Card key={props.id} className="card">
             {/* <Card.Img variant="top" src="holder.js/100px160" /> */}
             <Card.Body>
-              <Card.Title className="card_projectcode_left">Code:{card.projectCode}  Name:{card.projectName} </Card.Title>
-              <Card.Subtitle className="mb-2 text-muted subtitle">projectType: {card.projectType}</Card.Subtitle>
-              <Card.Subtitle className="mb-2 text-muted subtitle">agencyCode: {card.agencyCode}</Card.Subtitle>
-              <Card.Subtitle className="mb-2 text-muted subtitle">agencyName: {card.agencyName}</Card.Subtitle>
-              <Card.Subtitle className="mb-2 text-muted subtitle">approval: {card.approval}</Card.Subtitle>
-              <Card.Subtitle className="mb-2 text-muted subtitle">resourceApproval: {card.resourceApproval}</Card.Subtitle>
-              <Card.Subtitle className="mb-2 text-muted subtitle">fundApproval: {card.fundApproval}</Card.Subtitle>
-              <Card.Subtitle className="mb-2 text-muted subtitle">closed: {card.closed}</Card.Subtitle>
-              <Card.Subtitle className="mb-2 text-muted subtitle">facultyID: {card.facultyID}</Card.Subtitle>
-              <Card.Subtitle className="mb-2 text-muted subtitle">organisationType: {card.organisationType}</Card.Subtitle>
-              <Card.Subtitle className="mb-2 text-muted subtitle">staff: {card.staff}</Card.Subtitle>
-              <Card.Subtitle className="mb-2 text-muted subtitle">sanctionFund: {card.sanctionFund}</Card.Subtitle>
-              <Card.Subtitle className="mb-2 text-muted subtitle">startDate: {card.startDate}</Card.Subtitle>
-              <Card.Subtitle className="mb-2 text-muted subtitle">endDate: {card.endDate}</Card.Subtitle>
-              <Card.Subtitle className="mb-2 text-muted subtitle">status: {card.status}</Card.Subtitle>
+            <div className="header">
+              <Card.Title className="leftheader">ProjectCode:{props.projectCode} </Card.Title>
+              <Card.Title className="rightheader">ProjectName:{props.projectName} </Card.Title>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">projectType: {props.projectType}</li>
+                <li class="list-group-item">agencyCode: {props.agencyCode}</li>
+                <li class="list-group-item">agencyName: {props.agencyName}</li>
+                <li class="list-group-item">approval: {props.approval}</li>
+                <li class="list-group-item">resourceApproval: {props.resourceApproval}</li>
+                <li class="list-group-item">fundApproval: {props.fundApproval}</li>
+                <li class="list-group-item">closed: {props.closed}</li>
+                <li class="list-group-item">facultyID: {props.facultyID}</li>
+                <li class="list-group-item">organisationType: {props.organisationType}</li>
+                <li class="list-group-item">staff: {props.staff}</li>
+                <li class="list-group-item">sanctionFund: {props.sanctionFund}</li>
+                <li class="list-group-item">startDate: {props.startDate}</li>
+                <li class="list-group-item">endDate: {props.endDate}</li>
+                <li class="list-group-item">status: {props.status}</li>
+                <li class="list-group-item">_v: {props._v}</li>
+                <li class="list-group-item">announcements: {props.announcements}</li>
+              </ul>
               <Card.Text className="card_body">
-                {card.description}
+                {props.description}
               </Card.Text>
             </Card.Body>
           </Card>
