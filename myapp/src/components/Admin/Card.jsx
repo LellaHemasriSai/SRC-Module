@@ -7,6 +7,8 @@ import "./Card.css";
 const Cards = (props) => {
 
   const [show,setShow] = useState(false);
+  const [clickstatus,setStatus] = useState(false);
+  
 
 return (
 <Card key={props.id} className="card">
@@ -19,7 +21,8 @@ return (
               <Card.Text className="card_body">
                 {props.description}
               </Card.Text>
-                { show?<div>
+                { show?
+                <div>
                 <ul class="list-group list-group-flush leftside">
                 <li class="list-group-item">projectType -&ensp;{props.projectType}</li>
                 <li class="list-group-item">agencyCode -&ensp;{props.agencyCode}</li>
@@ -38,7 +41,14 @@ return (
                 <li class="list-group-item">endDate -&ensp;{props.endDate}</li>
                 <li class="list-group-item">status -&ensp;{props.status.toString()}</li>
                 <li class="list-group-item">announcements -&ensp;{props.announcements}</li>
-              </ul></div>
+              </ul>
+
+              <div className="butGRP">
+               <Button variant="primary" className="Button1" onClick={() => {clickstatus?setStatus(clickstatus):setStatus(!clickstatus)}}>Approve</Button>
+               <Button variant="primary" className="Button1" onClick={() => {clickstatus?setStatus(!clickstatus):setStatus(clickstatus)}}>Disapprove</Button>
+               {console.log(clickstatus)}
+              </div>
+              </div>
                   : null
              }
               <Button variant="primary" className="butt" onClick={() =>setShow(!show)}>{show?"Read Less":"Read More"}</Button>

@@ -87,6 +87,7 @@
     float: centre;
     background-color:#438af5;
     font-size: x-small;
+    
   }
   .card_body
   {
@@ -97,4 +98,22 @@
   {
     float: right;
     width: 5%;
+  }
+  .Button1
+  {
+    /* position: absolute;
+    bottom:0;
+    margin-bottom: 4%;
+    width: 15%; */
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 90px;
+    
+  }
+  .butGRP
+  {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 5%;
+    margin-left: 37%;
   }
