@@ -95,14 +95,14 @@ import { MainNav } from '../../App';
 
 export default Announcements;*/
 export default function CreateAnnouncement() {
-  const [projectName, setProjectName] = useState("default");
-  const [projectID, setProjectID] = useState("default");
-  const [projectType, setprojectType] = useState("default")
-  const [salaryDetails, setSalaryDetails] = useState("default")
-  const [openPositions, setOpenPositions] = useState("default")
-  const [startDate, setStartDate] = useState("0/0/0")
-  const [endDate, setEndDate] = useState("0/0/0")
-  const [requiredQualifications, setRequiredQualifications] = useState("default text")
+  const [projectName, setProjectName] = useState("");
+  const [projectID, setProjectID] = useState("");
+  const [projectType, setprojectType] = useState("")
+  const [salaryDetails, setSalaryDetails] = useState("")
+  const [openPositions, setOpenPositions] = useState("")
+  const [startDate, setStartDate] = useState("")
+  const [endDate, setEndDate] = useState("")
+  const [requiredQualifications, setRequiredQualifications] = useState("")
   function onSubmit() { console.log("Submitted") }
 
   return (
