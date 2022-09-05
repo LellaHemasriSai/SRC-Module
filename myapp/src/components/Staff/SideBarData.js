@@ -32,13 +32,13 @@ export const SidebarData = [
         img: offers,
         cName: 'nav-text'
     },
-    {
+ /*   {
         key:4,
         title: 'Resumes',
         path: '././resumes',
         img: resume,
         cName: 'nav-text'
     },
-
+*/
     
 ];

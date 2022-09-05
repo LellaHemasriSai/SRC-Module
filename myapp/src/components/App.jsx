@@ -30,6 +30,7 @@ import Modify_Staff from "./Faculty/Modify_Staff/modify_staff.jsx";
 import StudentSidebar from "./Staff/studentSideBar.jsx";
 import Applications from "./Faculty/Applications.jsx"
 import StaffDetails from "./Faculty/staffDetails.jsx"
+import Opportunites from "./Staff/Opportunities.jsx";
 // should be an json object coming from database
 //export const username = "poojasree";  // no spaces
 //export const admin = "AdminName";
@@ -88,6 +89,7 @@ const App = () => {
         </>
         <Route exact path="/Student" element={<LoginStu />} />
         <Route exact path="/Student/:username/studentHome" element={<StudentHome />} />
+        <Route exact path="/Student/:username/opportunites" element={<Opportunites />} />
       </Routes>
     </Router>
   );

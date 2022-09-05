@@ -1,7 +1,7 @@
 import React from 'react'
 import Container from '../Navbar/components/Container';
 import {StudentMainNav} from '../App.jsx'
-function Admin(props) {
+function StudentHome(props) {
   return <div className="wrapper hover_collapse">
   <StudentMainNav></StudentMainNav>
   	<div class="main_container">
@@ -32,4 +32,4 @@ function Admin(props) {
   </div>
 }
 
-export default Admin;
+export default StudentHome;

@@ -296,10 +296,7 @@ body{
     transition: 0.3s linear;
 
 }
-.container_form{
-	
-	background-color:wheat;
-}
+
 @media screen and (max-width:540px){
 .top_navbar .menu .profile .name{
 	margin: 0 2px;
