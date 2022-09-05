@@ -3,13 +3,17 @@ import Container from '../Navbar/components/Container';
 import {StudentMainNav} from '../App.jsx'
 import "./staff.css"
 import StudentCard from './StudentCard';
+import opportunites from "../../images/opportunites.svg"
 function Opportunites(props) {
   return <div className="wrapper hover_collapse">
   <StudentMainNav></StudentMainNav>
   	<div class="main_container">
 	<div class="container">
     <div class="main">
-  <h1>Opportunites</h1>
+    <div className='head_wrap'>
+    <span><img src={opportunites} style={{ width: "40px", height: "40px" }} alt="opportunities"/></span>
+    <span><h1 id="head_text">Opportunites</h1></span>
+    </div>
   <ul class="cards">
     <li class="cards_item">
       <div class="card">

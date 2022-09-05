@@ -126,6 +126,7 @@ body{
 	margin: 0 15px;
 }
 
+
 .dropbtn {
   color: black;
   padding: 16px;
@@ -153,7 +154,7 @@ body{
 .dropdown-content a {
   color: black;
   padding: 12px 16px;
-    font-size: 14px;
+	font-size: 14px;
   text-decoration: none;
   display: block;
 }

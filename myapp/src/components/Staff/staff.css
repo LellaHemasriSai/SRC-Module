@@ -115,3 +115,58 @@ p{
   margin-bottom: 1.25rem;    
   font-weight: 400;
 }
+
+#head_text{
+  text-align: left;
+  margin-left: 5%;
+  font-weight: bolder;
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.head_wrap{
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+  margin-bottom: 0.6rem;
+}
+
+.student_box{
+  color: black;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  background-color: white;
+  width: 25rem;
+  height: 20rem;
+  float: right;
+  position: relative;
+  left: 6rem;
+  bottom:17rem;
+    text-align: left;
+}
+.student_li{
+  margin-bottom: 3.5rem;
+}
+.list_head{
+  font-size: 2.5rem;
+  font-weight: bold;
+  border-bottom: 3px #272727;
+}
+
+.li_text{
+  margin-bottom: 0;
+  margin-left: 4%;
+}
+.student_link{
+  color: black;
+  text-decoration: none;
+}
+.student_link:hover{
+  color: black;
+  text-decoration: none;
+}
+
+.arrow{
+  margin-left: 2.5rem;
+}

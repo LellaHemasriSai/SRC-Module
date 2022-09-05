@@ -7,7 +7,7 @@ export const SidebarData = [
     {
         key:1,
         title: 'Home',
-        path: '././home',
+        path: '././studentHome',
         img: home,
         cName: 'nav-text'
     },
