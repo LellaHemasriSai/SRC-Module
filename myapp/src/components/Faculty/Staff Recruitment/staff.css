@@ -1,0 +1,14 @@
+
+/* CAUTION: This CSS Styling is used in Application.jsx file which is present in Faculty */
+.button2
+{
+    margin-left: 2%;
+    margin-right: 2%;
+    /* color: white;
+    background-color: rgb(67, 48, 48); */
+    border-color: white;
+}
+.button2:hover{
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+}
