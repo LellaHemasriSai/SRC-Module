@@ -29,6 +29,10 @@ mongoose.connect(
     console.log("connected to database");
   }
 );
+var conn = mongoose.connection;
+conn.on('connected', function () {
+  console.log('database is connected successfully');
+});
 
 //SCHEMAS
 const projectsSchema = new mongoose.Schema({
@@ -267,22 +271,22 @@ app.post("/created", (req, res) => {
   console.log("Recieved?");
   res.send("request sent");
   var newProject = new Project({
-    projectCode: 'Shall be assigned after Approval',
+    projectCode: Math.random().toString(),
     projectName: req.body.projectName,
     projectType: req.body.projectType,
-    agencyCode: String(generateAgencyCode("User")),
+    agencyCode: String(generateAgencyCode(req.body.agencyName)),
     agencyName: req.body.agencyName,
     organizationType: req.body.organizationType,
-    approval: true,
+    approval: false,
     resourceApproval: false,
     fundApproval: false,
-    closed: true,
+    closed: false,
     facultyID: "ID",
     staff: [],
     sanctionFund: req.body.sanctionValue,
     startDate: req.body.startDate,
     endDate: req.body.endDate,
-    status: 75,
+    status: 0,
     description: req.body.descriptionBox,
   });
   //console.log(newProject);
@@ -294,6 +298,29 @@ app.post("/saveRecruitment", (req, res) => {
   console.log("saving Recruitment?");
 });
 
+
+//----------------------------------------------------------------------------
+//updating values in data base
+//----------------------------------------------------------------------------
+
+//update pending approval status in admin 
+app.post("/updateProjectApprovalStatus", async (req, res, next) => {
+  await Project.findByIdAndUpdate(req.body.id, { approval: true });
+  var updateApproval = await Project.find({ "_id": req.body.id, "facultyID": req.body.facultyID });
+  //console.log(updateApproval)
+  try {
+    return res.status(200).json({
+      success: true,
+      count: updateApproval.length,
+      data: updateApproval,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: "server error" });
+  }
+});
+
+//----------------------------------------------------------------------------
 //setting up a port
 let port = 3001;
 app.listen(port, function () {
