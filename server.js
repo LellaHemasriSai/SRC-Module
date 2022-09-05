@@ -174,6 +174,22 @@ const Announcement = mongoose.model("Announcement", announcementSchema);
 //Functions to send data to front end
 //---------------------------------------------------------------------------------------------
 
+//returns data to admin pending approvals
+app.post("/pendingApprovals", async (req, res, next) => {
+  var pendingApproval = await Project.find({ "approval": false });
+
+  try {
+    return res.status(200).json({
+      success: true,
+      count: pendingApproval.length,
+      data: pendingApproval,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: "server error" });
+  }
+});
+
 //returns data to faculty ongoing projects
 app.post("/ongoing", async (req, res, next) => {
   var ongoingProjects = await Project.find({ "approval": true, "closed": false });
@@ -212,6 +228,23 @@ app.post("/pending", async (req, res, next) => {
 app.post("/completed", async (req, res, next) => {
   var ongoingProjects = await Project.find({ "approval": true, "closed": true });
   console.log("Ongoing Projects:\n" + ongoingProjects);
+
+  try {
+    return res.status(200).json({
+      success: true,
+      count: ongoingProjects.length,
+      data: ongoingProjects,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: "server error" });
+  }
+});
+
+//returns data to faculty ongoing projects
+app.post("/sendRecruitment", async (req, res, next) => {
+  var ongoingProjects = await Project.find({ "approval": true, "closed": true });
+  //console.log("requestRecruitment:\n" + ongoingProjects);
 
   try {
     return res.status(200).json({
@@ -267,7 +300,7 @@ app.listen(port, function () {
   console.log("Server started on port 3001");
 });
 
-
+//---------------------------------------------------------------------------------
 //testing
 var newFac = new Faculty({
   username: "CS20B020",

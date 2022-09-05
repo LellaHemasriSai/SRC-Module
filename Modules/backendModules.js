@@ -10,7 +10,7 @@ export function generateAgencyCode(agencyName) {
 }
 
 //function to modify agency code in data base, fetch agency form mongodb, search and update it.
-export function modifyAgencyCode(agencyCode) {}
+export function modifyAgencyCode(agencyCode) { }
 
 export function projectCode(facultyID) {
   return (
@@ -29,10 +29,6 @@ export function updateProjectStatus(facultyID, projectID, status) {
     { facultyID: facultyID, projectCode: projectID },
     { $set: { status: status } }
   );
-  console.log("update Status successful!");
-  //search faculty data base for faculty id
-  //search for project with project id
-  //set status in the respective project
   console.log("update Status successful!");
 }
 
