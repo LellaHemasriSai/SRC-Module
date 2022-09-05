@@ -30,7 +30,7 @@ img {
   vertical-align: middle;
 }
 
-.btn {
+.cards .btn {
   color: black;
   padding: 0.8rem;
   font-size: 14px;
@@ -44,7 +44,7 @@ img {
   background: transparent;
 }
 
-.btn:hover {
+.cards .btn:hover {
   background-color: rgba(255, 255, 255, 0.12);
 }
 
