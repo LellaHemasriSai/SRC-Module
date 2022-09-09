@@ -61,6 +61,21 @@ img {
   padding: 1rem;
 }
 
+.application_text{
+  display: flex;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.application_text items_p{
+  width: 100% !important;
+  margin: 0;
+}
+
+.application_text .application_items{
+  flex: 1 1;
+}
+
+
 @media (min-width: 40rem) {
   .cards_item {
     width: 50%;
@@ -73,7 +88,7 @@ img {
   }
 }
 
-p{
+.details p{
   align-items: center;
   text-align: left;
   width: 90%;
@@ -114,6 +129,7 @@ p{
   line-height: 1.5;
   margin-bottom: 1.25rem;    
   font-weight: 400;
+  text-align: left;
 }
 
 #head_text{
@@ -139,11 +155,7 @@ p{
   background-color: white;
   width: 25rem;
   height: 20rem;
-  float: right;
-  position: relative;
-  left: 6rem;
-  bottom:17rem;
-    text-align: left;
+  text-align: left;
 }
 .student_li{
   margin-bottom: 3.5rem;
@@ -170,3 +182,10 @@ p{
 .arrow{
   margin-left: 2.5rem;
 }
+
+
+.top_content{
+  display: flex;
+  justify-content: space-between;
+}
+

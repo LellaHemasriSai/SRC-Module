@@ -4,6 +4,36 @@ import {StudentMainNav} from '../App.jsx'
 import "./staff.css"
 import StudentCard from './StudentCard';
 import opportunites from "../../images/opportunites.svg"
+const data=[
+  {
+  key:1,
+  name:"xyz",
+  id:2345,
+  faculty:"faculty",
+  quals:"xyz, abc ..."
+},
+  {
+      key:2,
+  name:"xyz",
+  id:2345,
+  faculty:"faculty",
+  quals:"xyz, abc ..."
+},
+  {
+      key:3,
+  name:"xyz",
+  id:2345,
+  faculty:"faculty",
+  quals:"xyz, abc ..."
+},
+  {
+      key:4,
+  name:"xyz",
+  id:2345,
+  faculty:"faculty",
+  quals:"xyz, abc ..."
+},
+]
 function Opportunites(props) {
   return <div className="wrapper hover_collapse">
   <StudentMainNav></StudentMainNav>
@@ -14,98 +44,18 @@ function Opportunites(props) {
     <span><img src={opportunites} style={{ width: "40px", height: "40px" }} alt="opportunities"/></span>
     <span><h1 id="head_text">Opportunites</h1></span>
     </div>
-  <ul class="cards">
-    <li class="cards_item">
-      <div class="card">
-        <div class="card_content">
-          <br></br>
-          <p class="card_text">
-          <span className="head_content">Project Code</span><span>Lorem ipsum dolor</span><br></br><br></br>
-          <span className="head_content">Project Name</span><span>Lorem ipsum dolor</span><br></br><br></br>
-          <span className="head_content">Faculty Name</span><span>Lorem ipsum dolor</span><br></br><br></br>
-          <span className="head_content">Qualifications</span><span>Lorem ipsum dolor</span><br></br><br></br>
-          <span className="head_content" >Salary Details</span><span>Lorem ipsum dolor</span><br></br>
-          </p>
-          <button class="btn card_btn">Apply Now</button>
-        </div>
-      </div>
-    </li>
-        <li class="cards_item">
-      <div class="card">
-        <div class="card_content">
-          <br></br>
-          <p class="card_text">
-          <span className="head_content">Project Code</span><span>Lorem ipsum dolor</span><br></br><br></br>
-          <span className="head_content">Project Name</span><span>Lorem ipsum dolor</span><br></br><br></br>
-          <span className="head_content">Faculty Name</span><span>Lorem ipsum dolor</span><br></br><br></br>
-          <span className="head_content">Qualifications</span><span>Lorem ipsum dolor</span><br></br><br></br>
-          <span className="head_content" >Salary Details</span><span>Lorem ipsum dolor</span><br></br>
-          </p>
-          <button class="btn card_btn">Apply Now</button>
-        </div>
-      </div>
-    </li>
-        <li class="cards_item">
-      <div class="card">
-        <div class="card_content">
-          <br></br>
-          <p class="card_text">
-          <span className="head_content">Project Code</span><span>Lorem ipsum dolor</span><br></br><br></br>
-          <span className="head_content">Project Name</span><span>Lorem ipsum dolor</span><br></br><br></br>
-          <span className="head_content">Faculty Name</span><span>Lorem ipsum dolor</span><br></br><br></br>
-          <span className="head_content">Qualifications</span><span>Lorem ipsum dolor</span><br></br><br></br>
-          <span className="head_content" >Salary Details</span><span>Lorem ipsum dolor</span><br></br>
-          </p>
-          <button class="btn card_btn">Apply Now</button>
-        </div>
-      </div>
-    </li>
-        <li class="cards_item">
-      <div class="card">
-        <div class="card_content">
-          <br></br>
-          <p class="card_text">
-          <span className="head_content">Project Code</span><span>Lorem ipsum dolor</span><br></br><br></br>
-          <span className="head_content">Project Name</span><span>Lorem ipsum dolor</span><br></br><br></br>
-          <span className="head_content">Faculty Name</span><span>Lorem ipsum dolor</span><br></br><br></br>
-          <span className="head_content">Qualifications</span><span>Lorem ipsum dolor</span><br></br><br></br>
-          <span className="head_content" >Salary Details</span><span>Lorem ipsum dolor</span><br></br>
-          </p>
-          <button class="btn card_btn">Apply Now</button>
-        </div>
-      </div>
-    </li>
-        <li class="cards_item">
-      <div class="card">
-        <div class="card_content">
-          <br></br>
-          <p class="card_text">
-          <span className="head_content">Project Code</span><span>Lorem ipsum dolor</span><br></br><br></br>
-          <span className="head_content">Project Name</span><span>Lorem ipsum dolor</span><br></br><br></br>
-          <span className="head_content">Faculty Name</span><span>Lorem ipsum dolor</span><br></br><br></br>
-          <span className="head_content">Qualifications</span><span>Lorem ipsum dolor</span><br></br><br></br>
-          <span className="head_content" >Salary Details</span><span>Lorem ipsum dolor</span><br></br>
-          </p>
-          <button class="btn card_btn">Apply Now</button>
-        </div>
-      </div>
-    </li>
-        <li class="cards_item">
-      <div class="card">
-        <div class="card_content">
-          <br></br>
-          <p class="card_text">
-          <span className="head_content">Project Code</span><span>Lorem ipsum dolor</span><br></br><br></br>
-          <span className="head_content">Project Name</span><span>Lorem ipsum dolor</span><br></br><br></br>
-          <span className="head_content">Faculty Name</span><span>Lorem ipsum dolor</span><br></br><br></br>
-          <span className="head_content">Qualifications</span><span>Lorem ipsum dolor</span><br></br><br></br>
-          <span className="head_content" >Salary Details</span><span>Lorem ipsum dolor</span><br></br>
-          </p>
-          <button class="btn card_btn">Apply Now</button>
-        </div>
-      </div>
-    </li>
-  </ul>
+    <ul className="cards">
+			{data.map((d)=>{
+				return <StudentCard
+				name={d.name} 
+				id={d.id} 
+				faculty={d.faculty}
+				quals={d.quals}
+          key={d.key}
+        />
+			})}  
+		</ul>
+ 
 </div>
 	</div>
   </div>
