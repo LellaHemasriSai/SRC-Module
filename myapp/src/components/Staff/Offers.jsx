@@ -1,25 +1,27 @@
 import React from 'react'
-import Container from '../Navbar/components/Container';
 import {StudentMainNav} from '../App.jsx'
 import "./staff.css"
-import StudentCard from './StudentCard';
 import offers from "../../images/offers.svg"
 import applications from "../../images/applications.svg"
 import opportunites from "../../images/opportunites.svg"
 import arrow from "../../images/arrow.svg"
 import { Link, useParams } from 'react-router-dom';
-function Opportunites(props) {
+
+
+function Offers(props) {
     const {username}=useParams();
   return <div className="wrapper hover_collapse">
   <StudentMainNav></StudentMainNav>
   	<div class="main_container">
-	<div class="container">
     <div class="main">
+    <div className='top_content'>
+    <span className='display_content'>
         <div className='head_wrap'>
         <span><img src={offers} style={{ width: "40px", height: "40px" }} alt="offers"/></span>
         <span><h1 id="head_text">Offers Recieved</h1></span>
         </div>
-        <h2 style={{ margin:"5%", color:"GrayText"}} >There are no job offers</h2>
+    </span>
+    <span className='display_content'>
         <div className='student_box'>
         <ul>
         <li className='list_head student_li'>0 Offers</li>
@@ -37,11 +39,14 @@ function Opportunites(props) {
         </div></li>
         </Link>
         </ul>
-        </div>
+      </div>
+      </span>
+      
+      </div>
+      <h2 style={{ margin:"5%", color:"GrayText"}} >There are no job offers</h2>
     </div>
-  </div>
   </div>
   </div>
 }
 
-export default Opportunites;
+export default Offers;

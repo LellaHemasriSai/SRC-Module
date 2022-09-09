@@ -72,8 +72,10 @@ img {
 }
 
 .application_text .application_items{
-  flex: 1 1 ;
+  flex: 1 1;
 }
+
+
 @media (min-width: 40rem) {
   .cards_item {
     width: 50%;
@@ -153,11 +155,7 @@ img {
   background-color: white;
   width: 25rem;
   height: 20rem;
-  float: right;
-  position: relative;
-  left: 6rem;
-  bottom:17rem;
-    text-align: left;
+  text-align: left;
 }
 .student_li{
   margin-bottom: 3.5rem;
@@ -185,4 +183,9 @@ img {
   margin-left: 2.5rem;
 }
 
+
+.top_content{
+  display: flex;
+  justify-content: space-between;
+}
 
