@@ -1,5 +1,6 @@
 import {
   generateAgencyCode,
+  projectCode,
   updateProjectStatus,
 } from "./Modules/backendModules.js";
 import express from "express";
@@ -34,7 +35,10 @@ conn.on('connected', function () {
   console.log('database is connected successfully');
 });
 
+//-----------------------------------------------------------------------------
 //SCHEMAS
+//-----------------------------------------------------------------------------
+
 const projectsSchema = new mongoose.Schema({
   projectCode: String,
   projectName: String,
@@ -47,7 +51,7 @@ const projectsSchema = new mongoose.Schema({
   closed: Boolean,
   facultyID: String,
   organizationType: String,
-  staff: [mongoose.Types.ObjectId],
+  staff: [String],
   sanctionFund: Number,
   startDate: Date,
   endDate: Date,
@@ -55,6 +59,7 @@ const projectsSchema = new mongoose.Schema({
   description: String,
   sanctionLetter: String, //shld be file
   announcements: [{}],
+  staffRecruitment: [{}],
 });
 
 const Project = mongoose.model("Project", projectsSchema);
@@ -271,7 +276,7 @@ app.post("/created", (req, res) => {
   console.log("Recieved?");
   res.send("request sent");
   var newProject = new Project({
-    projectCode: Math.random().toString(),
+    projectCode: Math.random().toString(), //temporarily assign random value to the project
     projectName: req.body.projectName,
     projectType: req.body.projectType,
     agencyCode: String(generateAgencyCode(req.body.agencyName)),
@@ -305,9 +310,12 @@ app.post("/saveRecruitment", (req, res) => {
 
 //update pending approval status in admin 
 app.post("/updateProjectApprovalStatus", async (req, res, next) => {
-  await Project.findByIdAndUpdate(req.body.id, { approval: true });
-  var updateApproval = await Project.find({ "_id": req.body.id, "facultyID": req.body.facultyID });
+
+  await Project.findByIdAndUpdate(req.body.id, { approval: true, projectCode: projectCode(req.body.facultyID) });
+
+  //var updateApproval = await Project.find({ "_id": req.body.id, "facultyID": req.body.facultyID });
   //console.log(updateApproval)
+
   try {
     return res.status(200).json({
       success: true,
@@ -322,6 +330,8 @@ app.post("/updateProjectApprovalStatus", async (req, res, next) => {
 
 //----------------------------------------------------------------------------
 //setting up a port
+//----------------------------------------------------------------------------
+
 let port = 3001;
 app.listen(port, function () {
   console.log("Server started on port 3001");
