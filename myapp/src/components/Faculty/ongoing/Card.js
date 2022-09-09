@@ -16,7 +16,7 @@ const Cards = (props) => {
   //   setstatus(value);
   // }
   // const value = prompt("Enter current progress");
-  function postData() {
+  function postData(_id) {
     const value = prompt("Enter current progress");
     setstatus(value);
     fetch("/updateProjectStatus", {
