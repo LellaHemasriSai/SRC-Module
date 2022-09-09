@@ -44,7 +44,9 @@ const Ongoing = () => {
                 startDate={card.startDate}
                 endDate={card.endDate}
                 status={card.status}
-                description={card.description} />
+                description={card.description} 
+                _id = {card._id}
+                />
             ))}
           </div>
         </div>
