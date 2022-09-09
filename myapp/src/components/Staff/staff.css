@@ -66,9 +66,10 @@ img {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
 }
-.application_text items_p{
+.application_text .items_p{
   width: 100% !important;
   margin: 0;
+  font-weight: 600;
 }
 
 .application_text .application_items{
@@ -187,5 +188,34 @@ img {
 .top_content{
   display: flex;
   justify-content: space-between;
+}
+
+.header_text{
+  display: flex;
+  justify-content: space-between;
+}
+
+.home_text{
+  margin-top: 2rem;
+}
+
+.home_btn,.apply_btn{
+  border: 0;
+  background-color: #ffffff;
+}
+.apply_btn{
+  border: #272727;
+  border-style: solid;
+  border-width:0.9px;
+  outline: none;
+   border-radius: 4px;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.apply_btn:hover{
+    cursor: pointer;
+    background-color: #272727;
+    color: white;
 }
 

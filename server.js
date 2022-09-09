@@ -313,7 +313,7 @@ app.post("/updateProjectApprovalStatus", async (req, res, next) => {
 
   await Project.findByIdAndUpdate(req.body.id, { approval: true, projectCode: projectCode(req.body.facultyID) });
 
-  //var updateApproval = await Project.find({ "_id": req.body.id, "facultyID": req.body.facultyID });
+  var updateApproval = await Project.find({ "_id": req.body.id, "facultyID": req.body.facultyID });
   //console.log(updateApproval)
 
   try {
@@ -321,6 +321,22 @@ app.post("/updateProjectApprovalStatus", async (req, res, next) => {
       success: true,
       count: updateApproval.length,
       data: updateApproval,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: "server error" });
+  }
+});
+
+//update project status in faculty projects
+app.post("/updateProjectStatus", async (req, res, next) => {
+
+  await Project.findByIdAndUpdate(req.body._id, { status: req.body.status });
+
+  try {
+    return res.status(200).json({
+      success: true,
+
     });
   } catch (err) {
     console.log(err);
@@ -338,8 +354,9 @@ app.listen(port, function () {
 });
 
 //---------------------------------------------------------------------------------
+
 //testing
-var newFac = new Faculty({
+/*var newFac = new Faculty({
   username: "CS20B020",
   password: "cs20b020",
   userCode: "CS12",
@@ -382,4 +399,4 @@ var s1 = "CS01";
 var s2 = "123";
 var n1 = 1;
 updateProjectStatus(s1, s2, n1);
-console.log(newFac);
+console.log(newFac);*/
