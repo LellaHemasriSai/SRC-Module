@@ -10,6 +10,30 @@ import { useParams,Link} from "react-router-dom";
 const Cards = (props) => {
 
   const [show,setShow] = useState(false);
+  const [status,setstatus] = useState(0);
+  // const update  = () => {
+  //   const value = prompt("Enter current progress");
+  //   setstatus(value);
+  // }
+  // const value = prompt("Enter current progress");
+  function postData(_id) {
+    const value = prompt("Enter current progress");
+    setstatus(value);
+    fetch("/ongoing", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            status: status,
+            _id: _id
+
+        }),
+    }).then((res) => {
+        console.log("Res:", res);
+
+    })
+}
   const {username}=useParams();
 return (
 <Card key={props.id} className="card">
@@ -52,11 +76,12 @@ return (
                 <Link to={"/Faculty/"+username+"/]funds_extension"}>
                 <Button variant="primary" className="buttitem">Additional Funds</Button>
                 </Link>
+                <Button variant="primary" className="statbutt" onClick={() => {postData(props._id)}}>Update Status</Button>
               </div>
               </div>
                   : null
              }
-             <CircularProgressbar value={props.status} text={`${props.status}%`} className="status"/>
+             <CircularProgressbar value={status} text={`${status}%`} className="status"/>
              
               <Button variant="primary" className="butt" onClick={() =>setShow(!show)}>{show?"Read Less":"Read More"}</Button>
             </Card.Body>
