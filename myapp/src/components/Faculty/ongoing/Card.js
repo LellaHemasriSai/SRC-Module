@@ -16,7 +16,7 @@ const Cards = (props) => {
   //   setstatus(value);
   // }
   // const value = prompt("Enter current progress");
-  function postData(_id) {
+  function postData() {
     const value = prompt("Enter current progress");
     setstatus(value);
     fetch("/ongoing", {
@@ -25,9 +25,7 @@ const Cards = (props) => {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            status: status,
-            _id: _id
-
+            status: status
         }),
     }).then((res) => {
         console.log("Res:", res);
@@ -76,7 +74,7 @@ return (
                 <Link to={"/Faculty/"+username+"/]funds_extension"}>
                 <Button variant="primary" className="buttitem">Additional Funds</Button>
                 </Link>
-                <Button variant="primary" className="statbutt" onClick={() => {postData(props._id)}}>Update Status</Button>
+                <Button variant="primary" className="statbutt" onClick={postData}>Update Status</Button>
               </div>
               </div>
                   : null

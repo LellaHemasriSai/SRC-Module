@@ -1,4 +1,4 @@
-import Card from "./Card";
+import Card from "./Card_Recruitment";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../Faculty/ongoing/ongoing.css";
 import { AdminMainNav } from '../App';
