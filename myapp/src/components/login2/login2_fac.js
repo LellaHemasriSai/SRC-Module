@@ -19,21 +19,22 @@ const LoginFac = (props) => {
         })
     }
 
-    const postUserName = async()=>{
-		const USER={
-			"username":user.name
-		};
-		const result= await fetch("/userDetails", {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json"
-				},
-			body: JSON.stringify(USER)
-		})
+    const postUserName = async () => {
+        const USER = {
+            "username": user.name
+        };
+        console.log(USER)
+        const result = await fetch("/verifyFacultyLogin", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(USER)
+        })
 
-		const resultInJSON=await result.json();
-		console.log(resultInJSON);
-	}
+        const resultInJSON = await result.json();
+        console.log(resultInJSON);
+    }
 
     return (
         <div>
@@ -53,8 +54,8 @@ const LoginFac = (props) => {
                             <a href="www.google.com">Forgot Password</a>
                         </div>
                     </div>
-                    
-                    <Link to={"/Faculty/"+user.name+"/home"}>
+
+                    <Link to={"/Faculty/" + user.name + "/home"}>
                         <div className="form-group_login2">
                             <button type="submit" onClick={postUserName} className="btn btn-primary rounded submit p-3 px-5">Login</button>
                         </div>

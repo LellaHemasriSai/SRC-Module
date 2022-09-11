@@ -58,7 +58,7 @@ const projectsSchema = new mongoose.Schema({
   status: Number,
   description: String,
   sanctionLetter: String, //shld be file
-  announcements: [{}],
+  announcements: [String],
   staffRecruitment: [{}],
 });
 
@@ -84,31 +84,31 @@ const facultySchema = new mongoose.Schema({
     DoB: Date,
     Address: String,
   },
-  projects: {
-    projectCode: String,
-    projectName: String,
-    projectType: String,
-    agencyCode: String,
-    agencyName: String,
-    approval: Boolean,
-    resourceApproval: Boolean,
-    fundApproval: Boolean,
-    closed: Boolean,
-    facultyID: String,
-    organizationType: String,
-    staff: [mongoose.Types.ObjectId],
-    sanctionFund: Number,
-    startDate: Date,
-    endDate: Date,
-    status: Number,
-    description: String,
-    sanctionLetter: String, //shld be file
-    announcements: [{}],
-  },
+  projects: [String],
   sanctionLetter: String, //shld be file
-  announcements: [{}],
 });
 const Faculty = mongoose.model("Faculty", facultySchema);
+
+//dummy faculty
+
+var newFac = new Faculty({
+  username: "faculty",
+  password: "faculty",
+  userCode: "fac00",
+  principalInvestigatorCode: "FAC0",
+  details: {
+    Department: "CS",
+    Designation: "Associate Professor",
+    Email: "faculty@iitp.ac.in",
+    ContactNumber: "3276456938",
+    DateOfJoining: new Date("2018-11-16"),
+    Qualifications: "B.Tech",
+    DoB: new Date("1986-04-10"),
+    Address: "Tirupati",
+  },
+  projects: [],
+})
+newFac.save();
 
 //admin Schema
 const adminSchema = new mongoose.Schema({
@@ -179,6 +179,28 @@ const announcementSchema = new mongoose.Schema({
 
 const Announcement = mongoose.model("Announcement", announcementSchema);
 
+
+//--------------------------------------------------------------------------------------------
+//Login Authentication
+//---------------------------------------------------------------------------------------------
+//returns data to faculty ongoing projects
+app.post("/verifyFacultyLogin", async (req, res, next) => {
+
+  var verify = await Faculty.find({ "username": req.body.username });
+  console.log(verify)
+
+  try {
+    return res.status(200).json({
+      success: true,
+
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: "server error" });
+  }
+
+});
+
 //---------------------------------------------------------------------------------------------
 //Functions to send data to front end
 //---------------------------------------------------------------------------------------------
@@ -202,7 +224,7 @@ app.post("/pendingApprovals", async (req, res, next) => {
 //returns data to faculty ongoing projects
 app.post("/ongoing", async (req, res, next) => {
   var ongoingProjects = await Project.find({ "approval": true, "closed": false });
-  console.log("Ongoing Projects:\n" + ongoingProjects);
+  //console.log("Ongoing Projects:\n" + ongoingProjects);
 
   try {
     return res.status(200).json({
