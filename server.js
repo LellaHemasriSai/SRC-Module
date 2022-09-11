@@ -58,7 +58,7 @@ const projectsSchema = new mongoose.Schema({
   status: Number,
   description: String,
   sanctionLetter: String, //shld be file
-  announcements: [{}],
+  announcements: [String],
   staffRecruitment: [{}],
 });
 
