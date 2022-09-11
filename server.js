@@ -31,13 +31,8 @@ mongoose.connect(
   }
 );
 var conn = mongoose.connection;
-<<<<<<< HEAD
 conn.on("connected", function () {
-  console.log("database is connected successfully");
-=======
-conn.on('connected', function () {
-  console.log('database is connected successfully!');
->>>>>>> 76f096a53cbd9b00200e46afe6d33c1bc27ecc1d
+  console.log("database is connected successfully!");
 });
 
 //-----------------------------------------------------------------------------
