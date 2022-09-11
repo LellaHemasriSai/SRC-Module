@@ -27,24 +27,23 @@
     letter-spacing: 1px;
     display: inline-flex;
     border-radius: 4px;
-    color: white;
-    font-weight: 100;
-    background-color: #438af5 ;
+    color: black;
+    font-weight: 700;
     font-size:small;
 }
 
 .rightheader {
     float: right;
     font-family: "Gilmer",sans-serif;
-    color: white;
+    color: black;
     text-transform: uppercase;
     padding: 0 12px;
     height: max-content;
     line-height: 28px;
     letter-spacing: 1px;
     border-radius: 4px;
+    font-weight: 700;
     display: inline-flex;
-    background-color: #438af5 ;
 }
 
 .subtitle {

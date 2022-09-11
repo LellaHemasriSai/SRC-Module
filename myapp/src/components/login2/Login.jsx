@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../login2/login2.css";
-import logo from "./logo.png";
+import logo from "../../images/logo.png"
 import { Link } from "react-router-dom"
 
 const LoginFac = () => {

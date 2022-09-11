@@ -27,16 +27,15 @@
     letter-spacing: 1px;
     display: inline-flex;
     border-radius: 4px;
-    color: white;
-    font-weight: 100;
-    background-color: #438af5 ;
+    color: black;
+    font-weight: 700;
     font-size:xx-small;
 }
 
 .rightheader {
     float: right;
     font-family: "Gilmer",sans-serif;
-    color: white;
+    color: black;
     text-transform: uppercase;
     padding: 0 12px;
     height: max-content;
@@ -44,7 +43,7 @@
     letter-spacing: 1px;
     display: inline-flex;
     border-radius: 4px;
-    background-color: #438af5 ;
+        font-weight: 700;
     font-size:xx-small;
 }
 .header{

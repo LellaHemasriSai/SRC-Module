@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import "../login2/login2.css";
-import logo from "./logo.png";
+import logo from "../../images/logo.png"
 import { Link } from "react-router-dom"
+
+
 const LoginStu = (props) => {
     const [user, setUser] = useState(
         {
@@ -17,6 +19,22 @@ const LoginStu = (props) => {
             [name]: value
         })
     }
+
+    const postUserName = async()=>{
+		const USER={
+			"username":user.name
+		};
+		const result= await fetch("/userDetails", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json"
+				},
+			body: JSON.stringify(USER)
+		})
+
+		const resultInJSON=await result.json();
+		console.log(resultInJSON);
+	}
 
     return (
         <div>
@@ -39,7 +57,7 @@ const LoginStu = (props) => {
                     
                     <Link to={"/Student/"+user.name+"/studentHome"}>
                         <div className="form-group_login2">
-                            <button type="submit" className="btn btn-primary rounded submit p-3 px-5">Login</button>
+                            <button type="submit" onClick={postUserName} className="btn btn-primary rounded submit p-3 px-5">Login</button>
                         </div>
                     </Link>
 

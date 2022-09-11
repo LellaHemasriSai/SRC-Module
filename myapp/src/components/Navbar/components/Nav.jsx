@@ -1,43 +1,16 @@
-
 import React, { useState } from "react";
-// import user from "./images/user.png";
-// import logo from "./images/logo.png";
 import user from "../../../images/user.png"
 import logo from "../../../images/logo.png"
-
-import { Link ,useParams} from "react-router-dom";
 import "./nav.css"
-function Nav(props) {            // user name 
-	//	var li_items = document.querySelectorAll(".sidebar ul li");
+import { Link ,useParams} from "react-router-dom";
+
+function Nav(props) {          
 	var menu_icon = document.querySelector(".menu_icon");
-	
-	//   var  wrapper = document.querySelector(".wrapper");
+
 	const [sidebar, setSidebar] = useState(false);
 
-	// const [show, setShow] = useState(true);
-	// const controlNavbar = () => {
-	// 	if (window.scrollY > 50) {
-	// 		setShow(true);
-	// 	}
-	// 	else {
-	// 		setShow(false);
-	// 	}
-	// }
-	// useEffect(() => {
-	// 	window.addEventListener('scroll', controlNavbar)
-	// 	return () => {
-	// 		window.removeEventListener('scroll', controlNavbar)
-	// 	}
-	// }, [])
+	let {username}=useParams();  //object destructuring ,accessing only username from url
 
-
-	// const showSidebar = () => setSidebar(!sidebar);
-
-
-
-	let {username}=useParams();
-
-	
 	function menu() {
 		setSidebar(!sidebar);
 		menu_icon.closest(".wrapper").classList.toggle("click_collapse");
