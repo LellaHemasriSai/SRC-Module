@@ -33,6 +33,8 @@ import StaffDetails from "./Faculty/staffDetails.jsx"
 import Opportunites from "./Staff/Opportunities.jsx";
 import StudentApplications from "./Staff/StudentApplications.jsx"
 import Offers from "./Staff/Offers.jsx"
+import StudentOngoing from "./Staff/StudentOngoing.jsx";
+import StudentCompleted from "./Staff/StudentCompleted.jsx";
 // should be an json object coming from database
 //export const username = "poojasree";  // no spaces
 //export const admin = "AdminName";
@@ -92,7 +94,9 @@ const App = () => {
         <Route exact path="/Student" element={<LoginStu />} />
         <Route exact path="/Student/:username/studentHome" element={<StudentHome />} />
         <Route exact path="/Student/:username/opportunites" element={<Opportunites />} />
-        <Route exact path="/Student/:username/applications" element={<StudentApplications />} />
+        <Route exact path="/Student/:username/staff_applications" element={<StudentApplications />} />
+        <Route exact path="/Student/:username/staff_ongoing" element={<StudentOngoing />} />
+        <Route exact path="/Student/:username/staff_completed" element={<StudentCompleted />} />
         <Route exact path="/Student/:username/offers" element={<Offers />} />
       </Routes>
     </Router>

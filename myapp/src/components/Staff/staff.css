@@ -179,9 +179,10 @@ img {
 
 
 .top_content{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  grid-gap: 45em;
+  display: flex;
+ /* grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  grid-gap: 45em;*/
+  justify-content: space-between;
 }
 
 .header_text{
@@ -223,6 +224,10 @@ img {
 @media screen and (max-width:540px) {
   .student_content{
     margin-left: 0;
+}
+
+.student_box{
+  display:none;
 }
 }
 /*@media screen and (max-width:1100px) {

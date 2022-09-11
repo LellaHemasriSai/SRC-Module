@@ -23,21 +23,21 @@ export const SidebarData = [
         {
         key:3,
         title: 'Ongoing Projects',
-        path: '././ongoing',
+        path: '././staff_ongoing',
         img: ongoing,
         cName: 'nav-text'
     },
     {
         key:4,
         title: 'Completed Projects',
-        path: '././completed',
+        path: '././staff_completed',
         img: completed,
         cName: 'nav-text'
     },
         {
         key:5,
         title: 'Applications',
-        path: '././applications',
+        path: '././staff_applications',
         img: applications,
         cName: 'nav-text'
     },
