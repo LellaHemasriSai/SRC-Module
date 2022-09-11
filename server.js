@@ -31,8 +31,8 @@ mongoose.connect(
   }
 );
 var conn = mongoose.connection;
-conn.on('connected', function () {
-  console.log('database is connected successfully');
+conn.on("connected", function () {
+  console.log("database is connected successfully");
 });
 
 //-----------------------------------------------------------------------------
@@ -107,7 +107,7 @@ var newFac = new Faculty({
     Address: "Tirupati",
   },
   projects: [],
-})
+});
 newFac.save();
 
 //admin Schema
@@ -165,40 +165,35 @@ const staffSchema = new mongoose.Schema({
   ],
 });
 
-
 const announcementSchema = new mongoose.Schema({
+  projectName: String,
   projectID: String,
-  project: mongoose.Types.ObjectId,
-  qualifications: String,
+  projectType: String,
+  salaryDetails: Number,
+  openPositions: String,
+  requiredQualifications: String,
   startDate: Date,
   endDate: Date,
-  salary: Number,
-  FacultyName: String,
-  description: String,
 });
 
 const Announcement = mongoose.model("Announcement", announcementSchema);
-
 
 //--------------------------------------------------------------------------------------------
 //Login Authentication
 //---------------------------------------------------------------------------------------------
 //returns data to faculty ongoing projects
 app.post("/verifyFacultyLogin", async (req, res, next) => {
-
-  var verify = await Faculty.find({ "username": req.body.username });
-  console.log(verify)
+  var verify = await Faculty.find({ username: req.body.username });
+  console.log(verify);
 
   try {
     return res.status(200).json({
       success: true,
-
     });
   } catch (err) {
     console.log(err);
     res.status(500).json({ error: "server error" });
   }
-
 });
 
 //---------------------------------------------------------------------------------------------
@@ -207,7 +202,7 @@ app.post("/verifyFacultyLogin", async (req, res, next) => {
 
 //returns data to admin pending approvals
 app.post("/pendingApprovals", async (req, res, next) => {
-  var pendingApproval = await Project.find({ "approval": false });
+  var pendingApproval = await Project.find({ approval: false });
 
   try {
     return res.status(200).json({
@@ -223,7 +218,7 @@ app.post("/pendingApprovals", async (req, res, next) => {
 
 //returns data to faculty ongoing projects
 app.post("/ongoing", async (req, res, next) => {
-  var ongoingProjects = await Project.find({ "approval": true, "closed": false });
+  var ongoingProjects = await Project.find({ approval: true, closed: false });
   //console.log("Ongoing Projects:\n" + ongoingProjects);
 
   try {
@@ -240,7 +235,7 @@ app.post("/ongoing", async (req, res, next) => {
 
 //returns data to faculty pending projects
 app.post("/pending", async (req, res, next) => {
-  var pendingProjects = await Project.find({ "approval": false });
+  var pendingProjects = await Project.find({ approval: false });
   //console.log("Pending Projects:\n" + pendingProjects);
 
   try {
@@ -257,7 +252,7 @@ app.post("/pending", async (req, res, next) => {
 
 //returns data to faculty ongoing projects
 app.post("/completed", async (req, res, next) => {
-  var ongoingProjects = await Project.find({ "approval": true, "closed": true });
+  var ongoingProjects = await Project.find({ approval: true, closed: true });
   console.log("Ongoing Projects:\n" + ongoingProjects);
 
   try {
@@ -274,7 +269,7 @@ app.post("/completed", async (req, res, next) => {
 
 //returns data to faculty ongoing projects
 app.post("/sendRecruitment", async (req, res, next) => {
-  var ongoingProjects = await Project.find({ "approval": true, "closed": true });
+  var ongoingProjects = await Project.find({ approval: true, closed: true });
   //console.log("requestRecruitment:\n" + ongoingProjects);
 
   try {
@@ -320,22 +315,43 @@ app.post("/created", (req, res) => {
   newProject.save();
 });
 
+//save announcement
+app.post("/announced", (req, res) => {
+  console.log("Recieved?");
+  res.send("request sent");
+  var newAnnouncement = new Announcement({
+    projectName: req.body.projectName,
+    projectID: req.body.projectID,
+    projectType: req.body.projectType,
+    salaryDetails: req.body.salaryDetails,
+    openPositions: req.body.openPositions,
+    requiredQualifications: req.body.requiredQualifications,
+    startDate: req.body.startDate,
+    endDate: req.body.endDate,
+  });
+  newAnnouncement.save();
+});
+
 //save details of Recruitment request
 app.post("/saveRecruitment", (req, res) => {
   console.log("saving Recruitment?");
 });
 
-
 //----------------------------------------------------------------------------
 //updating values in data base
 //----------------------------------------------------------------------------
 
-//update pending approval status in admin 
+//update pending approval status in admin
 app.post("/updateProjectApprovalStatus", async (req, res, next) => {
+  await Project.findByIdAndUpdate(req.body.id, {
+    approval: true,
+    projectCode: projectCode(req.body.facultyID),
+  });
 
-  await Project.findByIdAndUpdate(req.body.id, { approval: true, projectCode: projectCode(req.body.facultyID) });
-
-  var updateApproval = await Project.find({ "_id": req.body.id, "facultyID": req.body.facultyID });
+  var updateApproval = await Project.find({
+    _id: req.body.id,
+    facultyID: req.body.facultyID,
+  });
   //console.log(updateApproval)
 
   try {
@@ -352,13 +368,11 @@ app.post("/updateProjectApprovalStatus", async (req, res, next) => {
 
 //update project status in faculty projects
 app.post("/updateProjectStatus", async (req, res, next) => {
-
   await Project.findByIdAndUpdate(req.body._id, { status: req.body.status });
 
   try {
     return res.status(200).json({
       success: true,
-
     });
   } catch (err) {
     console.log(err);

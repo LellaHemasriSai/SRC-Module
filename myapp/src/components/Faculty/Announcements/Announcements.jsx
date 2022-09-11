@@ -104,7 +104,27 @@ export default function CreateAnnouncement() {
   const [endDate, setEndDate] = useState("")
   const [requiredQualifications, setRequiredQualifications] = useState("")
   function onSubmit() { console.log("Submitted") }
-
+  function postData() {
+        console.log("Submitted")
+        fetch("/announced", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                projectName: projectName,
+                projectID: projectID,
+                projectType: projectType,
+                salaryDetails: salaryDetails,
+                openPositions: openPositions,
+                requiredQualifications: requiredQualifications,
+                startDate: startDate,
+                endDate: endDate,
+            }),
+        }).then((res) => {
+            console.log("Res:", res);
+        })
+    }
   return (
     <div className="wrapper hover_collapse">
       <MainNav></MainNav>
@@ -149,7 +169,7 @@ export default function CreateAnnouncement() {
                 <input type="text" class="form-control" id="requiredQualifications" value={requiredQualifications} placeholder="Required Qualifications" onChange={(event) => { setRequiredQualifications(event.target.value) }} />
               </div>
               <div class="form-group col-md-4" style={{ marginTop: '30px' }}>
-                <button type="submit" class="btn btn-primary mb-2">Announce</button>
+                <button type="submit" onClick={postData} class="btn btn-primary mb-2">Announce</button>
               </div>
             </div>
           </form>
