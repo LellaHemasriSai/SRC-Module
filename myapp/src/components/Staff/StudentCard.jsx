@@ -14,7 +14,7 @@ export default function StudentCard(props) {
 
   return (
  <li class="cards_item">
-      <div class="card">
+      <div class="card_student">
         <div class="card_content">
           <br></br>
           <p class="card_text">
