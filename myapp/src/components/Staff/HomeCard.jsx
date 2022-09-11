@@ -1,17 +1,25 @@
-import React from 'react'
+import{ React ,useState } from 'react'
 import "./staff.css"
 import close from "../../images/close.svg"
 
 function onApply(){
     console.log("Applied");
 }
+
+
 function HomeCard() {
+  
+  const [display, setDisplay] = useState(true);
+  function onClose(){
+  console.log("Closed");
+  setDisplay(!display);
+}
   return (
-    <div className='student_content'>
+    <div  className={display ? "student_content" : "remove_content"}>
       <div class="content">
       <div className='header_text'>
         <span style={{ fontSize:"2.3rem" , fontWeight:"900"}}>Project Name</span>
-        <span><button className='home_btn'><img src={close} style={{ width: "25px", height: "25px" }} alt="close_pic" /></button></span>
+        <span><button  onClick={onClose} className='home_btn'><img src={close} style={{ width: "25px", height: "25px" }} alt="close_pic" /></button></span>
       </div>
           <div>
             <span>
@@ -20,7 +28,7 @@ function HomeCard() {
           </div>
             <div>
             <span>
-              Porject Type
+              Project Type
             </span>
           </div>
           <div className='application_text'>

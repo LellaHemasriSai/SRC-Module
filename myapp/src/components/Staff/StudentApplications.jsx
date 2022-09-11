@@ -14,7 +14,7 @@ function StudentApplications(props) {
 	<div class="container">
     <div class="main">
     <div className='head_wrap'>
-    <span><img src={applications} style={{ width: "40px", height: "40px" }} alt="opportunities"/></span>
+    <span><img src={applications} style={{ width: "40px", height: "40px" }} alt="applications"/></span>
     <span><h1 id="head_text">Applications</h1></span>
     </div>
     <ApplicationCard></ApplicationCard>

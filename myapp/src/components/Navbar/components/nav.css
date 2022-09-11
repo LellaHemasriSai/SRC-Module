@@ -244,10 +244,9 @@ body{
 	color: #fff;
 }
 .main_container{
-	margin-top: 60px;
-	margin-left: 70px;
-	padding: 25px;
-	
+	margin:60px;
+	/*padding: 25px;*/
+	padding-top: 30px;
 	width: calc(100% - 70px);
 }
 
@@ -273,12 +272,13 @@ body{
 	background: #fff;
 	padding: 25px;
 	margin-left: 25px;
+	margin-right: 25px;
 	text-align: left;
 }
 
 .click_collapse .main_container{
 	width: calc(100% - 250px);
-	margin-left: 250px;
+	margin-left: 270px;
 
 }
 .content:hover{
@@ -299,6 +299,39 @@ body{
 }
 
 @media screen and (max-width:540px){
+
+.sidebar{
+	/*position:static;*/
+	position: relative;
+	width: 100%;
+	height: max-content;
+}
+.sidebar_inner{
+	display: none;
+	width: 100%;
+}
+
+.click_collapse .sidebar_inner{
+	display: contents;
+}
+.click_collapse .main_container .content{
+	margin:auto;
+}
+
+.click_collapse .main_container{
+	width: 100%;
+	margin-left: 0;
+}
+
+.main_container {
+	margin-top:50px;
+	margin-left:0;
+	margin-right: 0;
+    padding-top: 30px;
+    width: 100%;
+
+}
+
 .top_navbar .menu .profile .name{
 	margin: 0 2px;
 	font-size: 14px;

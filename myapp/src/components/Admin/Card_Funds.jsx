@@ -3,7 +3,7 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button'
 import "bootstrap/dist/css/bootstrap.min.css";
 // import QRCode from './QRCode';
-import { QrCode } from 'react-bootstrap-icons';
+//import { QrCode } from 'react-bootstrap-icons';
 import "./Card.css";
 
 const Cards = (props) => {

@@ -1,8 +1,10 @@
 import home from "../../images/home.svg"
 import offers from "../../images/offers.svg"
-import resume from "../../images/resume.svg"
+//import resume from "../../images/resume.svg"
 import opportunites from "../../images/opportunites.svg"
 import applications from "../../images/applications.svg"
+import ongoing from "../../images/ongoing.svg"
+import completed from "../../images/completed.svg"
 export const SidebarData = [
     {
         key:1,
@@ -18,15 +20,29 @@ export const SidebarData = [
         img: opportunites,
         cName: 'nav-text'
     },
+        {
+        key:3,
+        title: 'Ongoing Projects',
+        path: '././ongoing',
+        img: ongoing,
+        cName: 'nav-text'
+    },
     {
-        key:6,
+        key:4,
+        title: 'Completed Projects',
+        path: '././completed',
+        img: completed,
+        cName: 'nav-text'
+    },
+        {
+        key:5,
         title: 'Applications',
         path: '././applications',
         img: applications,
         cName: 'nav-text'
     },
     {
-        key:3,
+        key:6,
         title: 'Offers',
         path: '././offers',
         img: offers,

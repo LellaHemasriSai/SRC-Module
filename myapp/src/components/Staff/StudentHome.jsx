@@ -20,6 +20,10 @@ function StudentHome(props) {
   <StudentMainNav></StudentMainNav>
   	<div class="main_container">
 		<div class="container">
+    <div class="main">
+    <HomeCard></HomeCard>
+    <HomeCard></HomeCard>
+    <HomeCard></HomeCard>
     <HomeCard></HomeCard>
     {
       homedata.map=(h)=>{
@@ -28,6 +32,7 @@ function StudentHome(props) {
     }
 		</div>
 	</div>
+  </div>
   </div>
 }
 

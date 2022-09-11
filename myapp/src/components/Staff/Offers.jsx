@@ -13,6 +13,7 @@ function Offers(props) {
   return <div className="wrapper hover_collapse">
   <StudentMainNav></StudentMainNav>
   	<div class="main_container">
+    <div class="container">
     <div class="main">
     <div className='top_content'>
     <span className='display_content'>
@@ -45,6 +46,7 @@ function Offers(props) {
       </div>
       <h2 style={{ margin:"5%", color:"GrayText"}} >There are no job offers</h2>
     </div>
+  </div>
   </div>
   </div>
 }
