@@ -28,7 +28,7 @@ const user={
       "Department": "CSE",
       "Email": "CS20B002@iittp.ac.in",
       "Contact":"8247800018",
-      "DateOfJoining":"10/12/2020",
+      "DoF":"10/12/2020",
       "Qualifications":"B-tech",
       "Address":"Vijayawada"
       
@@ -47,6 +47,7 @@ export default function Container(props) {
         email={user.Email}
         dep={user.Department}
         addr={user.Address}
+        dof={user.DoF}
         /> 
 		</div>
 	</div>

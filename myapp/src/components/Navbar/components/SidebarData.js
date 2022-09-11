@@ -4,6 +4,7 @@ import announcements from "../../../images/announcements.svg"
 import clock from "../../../images/clock.svg"
 import completed from "../../../images/completed.svg"
 import applications from "../../../images/applications.svg"
+import recruit from "../../../images/recruit.svg"
 export const data = [
 
     {
@@ -31,14 +32,7 @@ export const data = [
             title: 'External',
             path: '/create_project',
             img: create,
-        },
-            {
-        key:'f',
-        title: 'RECRUITMENT',
-        path: '/recruitment',
-        img: recruit,
-        cName: 'nav-text'
-    },*/
+        },*/
     {
         key:'c',
         title: 'Ongoing Projects',
@@ -60,7 +54,13 @@ export const data = [
         img: completed,
         cName: 'nav-text'
     },
-        
+    {
+        key:'h',
+        title: 'Recruitment',
+        path: '././recruitment',
+        img: recruit,
+        cName: 'nav-text'
+    },
     {
         key:'f',
         title: 'Applications',

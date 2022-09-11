@@ -2,9 +2,12 @@ import React from 'react';
 
 export default function SideElement(props) {
   return (
-            <li >
+            <li>
 				<a href={props.path}>
-					<span className="icon"><img src={props.img} alt={props.title}/></span>
+					<span className="icon image_wrap">
+					<img src={props.img} alt={props.title}/>
+					 <p class="img_description">{props.title}</p>
+					</span>
 					<span className="text">{props.title}</span>
 				</a>
 			</li>

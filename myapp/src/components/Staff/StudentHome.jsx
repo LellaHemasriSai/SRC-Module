@@ -1,5 +1,4 @@
 import React from 'react'
-import Container from '../Navbar/components/Container';
 import {StudentMainNav} from '../App.jsx'
 import HomeCard from "./HomeCard.jsx"
 const homedata=[
