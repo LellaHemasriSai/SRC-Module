@@ -42,7 +42,8 @@ function Sidebar() {
 			<div className="item">
 					<input type="checkbox" id="A"/>
 					<label for="A">
-					<span className="icon"><img src={create} alt="create"/></span>
+					<span className="icon image_wrap"><img src={create} alt="create"/>
+					<p class="img_description">Create</p></span>
 					<span className="text">Create Project</span></label>
 				<ul>
 					<li><a href='././create_project'>Sponsored/Consultancy</a></li>
@@ -66,21 +67,7 @@ function Sidebar() {
 				title={data[3].title} 
 				path={data[3].path}
 				img={data[3].img}/>
-		<li>
-			<a href="#">
-			<div className="item">
-					<input type="checkbox" id="B"/>
-					<label for="B">
-					<span className="icon"><img src={recruit} alt="recruit"/></span>
-					<span className="text">Recruitment</span></label>
-				<ul >
-					<li><a href='././recruitment'>Staff recruit</a></li>
-					<li><a href='././recruitment'>Adhoc recruit</a></li>
-				</ul>
-			</div>
-			</a>
-			</li>
-							<SideElement
+			<SideElement
 				key={data[4].key} 
 				title={data[4].title} 
 				path={data[4].path}
@@ -90,6 +77,11 @@ function Sidebar() {
 				title={data[5].title} 
 				path={data[5].path}
 				img={data[5].img}/>
+			<SideElement
+				key={data[6].key} 
+				title={data[6].title} 
+				path={data[6].path}
+				img={data[6].img}/>
 		</ul>
 	</div>
 	</div>
