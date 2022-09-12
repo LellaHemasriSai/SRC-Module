@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {BiPlus} from 'react-icons/bi';
 
 function CreateArea(props) {
   const [note, setNote] = useState({
@@ -58,7 +59,7 @@ function CreateArea(props) {
           placeholder="Description about item"
           rows="3"
         />
-        <button onClick={submitNote}>Add</button>
+        <button onClick={submitNote}><BiPlus /></button>
       </form>
     </div>
   );

@@ -10,7 +10,10 @@ body {
   font-style: normal;
   font-weight: 400;
   letter-spacing: 0;
-  padding: 1rem;
+  padding: 0rem;
+  /* overflow:scroll; */
+  overflow: visible;
+  overflow-x: hidden;
 }
 
 .main{
