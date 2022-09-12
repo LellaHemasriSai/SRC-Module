@@ -170,7 +170,7 @@ let newAdmin = new Admin({
     Gender: "Male",
   },
 });
-
+newAdmin.save();
 //staffSchema
 const staffSchema = new mongoose.Schema({
   username: {
