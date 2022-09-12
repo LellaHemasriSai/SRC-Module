@@ -20,6 +20,11 @@ function CreateArea(props) {
     });
   }
 
+  function reset()
+  {
+    this.setNote({item: "", cost: "", name: "",description: ""});
+  }
+
   function submitNote(event) {
     props.onAdd(note);
     setNote({
@@ -29,6 +34,30 @@ function CreateArea(props) {
       description: "",
     });
     event.preventDefault();
+    postData(props.projectCode, props.facultyID, props.note, props._id);
+
+  }
+
+  function postData(projectCode, facultyID, note, _id) {
+    console.log("Submitted")
+    fetch("/updateProjectApprovalStatus", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        projectCode: projectCode,
+        facultyID: facultyID,
+        item: note.item,
+        cost: note.cost,
+        name:note.name,
+        description: note.description,
+        id: _id,
+
+      }),
+    }).then((res) => {
+      console.log("Res:", res);
+    })
   }
 
   return (

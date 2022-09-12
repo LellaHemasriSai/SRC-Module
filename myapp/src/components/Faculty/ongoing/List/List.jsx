@@ -23,6 +23,8 @@ function List() {
     });
   }
 
+ 
+
   return (
     <div className="wrapper hover_collapse">
     <MainNav></MainNav>
@@ -30,7 +32,6 @@ function List() {
     <div className="container" style={{ textAlign: "center" }}>
     <div className='grid'>
     <div>
-      {/* <Header /> */}
       <CreateArea onAdd={addNote} />
   <table>
   <thead>
@@ -56,7 +57,6 @@ function List() {
           />
         );
       })}
-      {/* <Footer /> */}
     </div>
     </div>
     </div>
