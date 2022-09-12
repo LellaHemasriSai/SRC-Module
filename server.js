@@ -138,6 +138,11 @@ const adminSchema = new mongoose.Schema({
 
 const Admin = mongoose.model("Admin", adminSchema);
 
+//dummy Admin 
+let newAdmin = new Admin({
+
+});
+
 //staffSchema
 const staffSchema = new mongoose.Schema({
   username: {
@@ -220,7 +225,7 @@ app.post("/verifyFacultyLogin", async (req, res, next) => {
 //returns Announcements to Staff / Student page
 app.post("/sendAnnouncements", async (req, res, next) => {
   var announcements = await Announcement.find({ 'active': true });
-
+  console.log(announcements)
   try {
     return res.status(200).json({
       success: true,
@@ -378,6 +383,7 @@ app.post("/announced", (req, res) => {
     endDate: req.body.endDate,
     active: true,
   });
+  //console.log(newAnnouncement)
   newAnnouncement.save();
 });
 

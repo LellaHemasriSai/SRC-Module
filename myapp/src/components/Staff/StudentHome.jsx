@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import {StudentMainNav} from '../App.jsx'
+import { StudentMainNav } from '../App.jsx'
 import HomeCard from "./HomeCard.jsx"
 
 export default function StudentHome(props) {
 
-   const [homedata, setHomeData] = useState([])
+  const [homedata, setHomeData] = useState([])
 
   console.log("Submitted")
 
@@ -22,21 +22,21 @@ export default function StudentHome(props) {
   }, [])
 
   return <div className="wrapper hover_collapse">
-  <StudentMainNav></StudentMainNav>
-  	<div class="main_container">
-		<div class="container">
-    <div class="main">
-    <HomeCard></HomeCard>
-    <HomeCard></HomeCard>
-    <HomeCard></HomeCard>
-    <HomeCard></HomeCard>
-    {
-      homedata.map=(h)=>{
-        <HomeCard></HomeCard>
-      }
-    }
-		</div>
-	</div>
-  </div>
+    <StudentMainNav></StudentMainNav>
+    <div class="main_container">
+      <div class="container">
+        <div class="main">
+          <HomeCard></HomeCard>
+          <HomeCard></HomeCard>
+          <HomeCard></HomeCard>
+          <HomeCard></HomeCard>
+          {
+            homedata.map = (h) => {
+              <HomeCard></HomeCard>
+            }
+          }
+        </div>
+      </div>
+    </div>
   </div>
 }
