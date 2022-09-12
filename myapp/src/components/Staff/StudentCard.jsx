@@ -5,29 +5,52 @@ function onApply(e) {
   console.log("Applied") }
 
 export default function StudentCard(props) {
-  const [ state, setState ] = useState([]);
+  let start=new Date(props.start);
+  console.log(start);
+  let sDate=start.getDay()+"/"+start.getMonth()+"/"+start.getFullYear();
+  let end=new Date(props.end);
+  let eDate=end.getDay()+"/"+end.getMonth()+"/"+end.getFullYear();
 
-    function addApplication(e) {
-    const object = { name: '',id:'', faculty:'',quals:''};
-    setState([...state, object]);
-  }
-
+  
   return (
- <li class="cards_item">
-      <div class="card_student">
-        <div class="card_content">
-          <br></br>
-          <p class="card_text">
-          <span className="head_content">Project Code</span><span>{props.id}</span><br></br><br></br>
-          <span className="head_content">Project Name</span><span>{props.name}</span><br></br><br></br>
-          <span className="head_content">Faculty Name</span><span>{props.faculty}</span><br></br><br></br>
-          <span className="head_content">Qualifications</span><span>{props.quals}</span><br></br><br></br>
-          <span className="head_content" >Salary Details</span><span></span><br></br>
-          </p>
-          <button class="btn card_btn" onClick={onApply
-          ()}>Apply Now</button>
-        </div>
+    <div className='student_content'>
+      <div class="content">
+      <div className='header_text'>
+        <span style={{ fontSize:"2.3rem" , fontWeight:"900"}}>{props.name}</span>
       </div>
-    </li>
-  );
+          <div>
+            <span>
+              {props.id}
+            </span>
+          </div>
+            <div>
+            <span>
+              {props.type}
+            </span>
+          </div>
+          <div className='application_text'>
+            <span className='application_items'>
+              <p className='items_p'>Faculty Name</p>
+              <span>faculty</span>
+              </span>
+            <span className='application_items'>
+              <p className='items_p'>Salary Details</p>
+              <p>{props.details}</p>
+            </span>
+            <span className='application_items'>
+              <p className='items_p'>Start Date</p>
+              <p>{sDate}</p>
+            </span>
+            <span className='application_items'>
+              <p className='items_p'>End Date</p>
+              <p>{eDate}</p>
+            </span>
+          </div>
+      <div className='home_text'>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+    <button onClick={onApply} className='apply_btn'>Apply Now</button>
+	</div>
+  </div>
+  )
 };

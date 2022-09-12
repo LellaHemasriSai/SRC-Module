@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { StudentMainNav } from '../App.jsx'
 import HomeCard from "./HomeCard.jsx"
-
+import "./Details.jsx"
+import Details from './Details.jsx';
 export default function StudentHome(props) {
 
   const [homedata, setHomeData] = useState([])
@@ -25,17 +26,21 @@ export default function StudentHome(props) {
     <StudentMainNav></StudentMainNav>
     <div class="main_container">
       <div class="container">
-        <div class="main">
-          <HomeCard></HomeCard>
-          <HomeCard></HomeCard>
-          <HomeCard></HomeCard>
-          <HomeCard></HomeCard>
+      <Details/> 
+        <section class="card-container">
           {
-            homedata.map = (h) => {
-              <HomeCard></HomeCard>
-            }
+            homedata.map((h, index) => (
+              <HomeCard key={index}
+              name={h.projectName}
+              id={h.projectID}
+              type={h.projectType}
+              details={h.salaryDetails}
+              start={h.startDate}
+              end={h.endDate}
+              ></HomeCard>
+            ))
           }
-        </div>
+        </section>
       </div>
     </div>
   </div>
