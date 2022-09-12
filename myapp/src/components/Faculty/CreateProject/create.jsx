@@ -43,7 +43,7 @@ export default function Create() {
 
     return (
         <div className="wrapper hover_collapse">
-        <MainNav></MainNav>
+            <MainNav></MainNav>
             <div className="main_container">
                 <div className="container">
                     <div class="card_project">
@@ -72,8 +72,12 @@ export default function Create() {
                                     <input type="text" class="form-control" id="projectID" value={projectID} placeholder="Project ID" onChange={(event) => { setProjectID(event.target.value) }} />
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <label for="projectType">Project Type</label>
-                                    <input type="text" class="form-control" id="projectType" value={projectType} placeholder="Project Type" onChange={(event) => { setprojectType(event.target.value) }} />
+                                    <label for="inputState">Project Type</label>
+                                    <select id="inputState" class="form-control" onChange={(event) => { setprojectType(event.target.value) }} >
+                                        <option>Sponsered</option>
+                                        <option>Consultancy</option>
+                                        <option>Internal</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-row">
