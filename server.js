@@ -83,6 +83,7 @@ const facultySchema = new mongoose.Schema({
     Qualifications: String,
     DoB: Date,
     Address: String,
+    Gender: String,
   },
   projects: [String],
   sanctionLetter: String, //shld be file
@@ -105,6 +106,7 @@ var newFac = new Faculty({
     Qualifications: "B.Tech",
     DoB: new Date("1986-04-10"),
     Address: "Tirupati",
+    Gender: "Male",
   },
   projects: [],
 });
@@ -174,9 +176,19 @@ const announcementSchema = new mongoose.Schema({
   requiredQualifications: String,
   startDate: Date,
   endDate: Date,
+  active: Boolean,
 });
 
 const Announcement = mongoose.model("Announcement", announcementSchema);
+
+const recruitmentRequest = new mongoose.Schema({
+  projectID: String,
+  recruitmentType: String,
+  numberOfStaff: Number,
+  salaryDetails: Number,
+  startDate: Date,
+  endDate: Date,
+})
 
 //--------------------------------------------------------------------------------------------
 //Login Authentication
@@ -205,10 +217,26 @@ app.post("/verifyFacultyLogin", async (req, res, next) => {
 //Functions to send data to front end
 //---------------------------------------------------------------------------------------------
 
+//returns Announcements to Staff / Student page
+app.post("/sendAnnouncements", async (req, res, next) => {
+  var announcements = await Announcement.find({ 'active': true });
+
+  try {
+    return res.status(200).json({
+      success: true,
+      count: announcements.length,
+      data: announcements,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: "server error" });
+  }
+});
+
 //returns data to faculty Home Page
 app.post("/sendFacultyDetails", async (req, res, next) => {
   var details = await Faculty.findOne({ 'username': user });
-  console.log(details)
+
   try {
     return res.status(200).json({
       success: true,
@@ -288,10 +316,9 @@ app.post("/completed", async (req, res, next) => {
   }
 });
 
-//returns data to faculty ongoing projects
+//returns data to 
 app.post("/sendRecruitment", async (req, res, next) => {
   var ongoingProjects = await Project.find({ approval: true, closed: true });
-  //console.log("requestRecruitment:\n" + ongoingProjects);
 
   try {
     return res.status(200).json({
@@ -349,13 +376,19 @@ app.post("/announced", (req, res) => {
     requiredQualifications: req.body.requiredQualifications,
     startDate: req.body.startDate,
     endDate: req.body.endDate,
+    active: true,
   });
   newAnnouncement.save();
 });
 
 //save details of Recruitment request
-app.post("/saveRecruitment", (req, res) => {
+app.post("/saveRecruitmentRequest", (req, res) => {
   console.log("saving Recruitment?");
+  res.send("request sent");
+  var newRequest = new Request({
+
+  });
+  newRequest.save();
 });
 
 //----------------------------------------------------------------------------
