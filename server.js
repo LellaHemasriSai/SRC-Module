@@ -123,8 +123,8 @@ const adminSchema = new mongoose.Schema({
   projects: {
     approve: [projectsSchema],
   },
-  faculty: [mongoose.Types.ObjectId],
-  staff: [mongoose.Types.ObjectId],
+  faculty: [String],
+  staff: [String],
   recruitment: {
     project: mongoose.Types.ObjectId,
     numberOfStaff: Number,
@@ -134,13 +134,41 @@ const adminSchema = new mongoose.Schema({
     reasonForRecruitment: String,
     approve: Boolean,
   },
+  details: {
+    Department: String,
+    Designation: String,
+    Email: String,
+    ContactNumber: String,
+    DateOfJoining: Date,
+    Qualifications: String,
+    DoB: Date,
+    Address: String,
+    Gender: String,
+  },
 });
 
 const Admin = mongoose.model("Admin", adminSchema);
 
 //dummy Admin 
 let newAdmin = new Admin({
-
+  username: "admin",
+  password: "admin",
+  projects: {
+    approve: [],
+  },
+  faculty: [],
+  staff: [],
+  details: {
+    Department: "Administration",
+    Designation: "ERP Manager",
+    Email: "erp.manager@iittp.ac.in",
+    ContactNumber: "0000000000",
+    DateOfJoining: new Date("2017-09-19"),
+    Qualifications: "MBA, B.Sc - Computers",
+    DoB: new Date("1990-10-18"),
+    Address: "Chennai, Metropolitan Area",
+    Gender: "Male",
+  },
 });
 
 //staffSchema
@@ -208,7 +236,23 @@ const RecruitmentRequest = mongoose.model("RecruitmentRequest", recruitmentReque
 //variable to store current user information - default is set to faculty for current presentation
 var user = "faculty"
 
-//returns data to faculty ongoing projects
+//returns data to admin login
+app.post("/verifyAdminLogin", async (req, res, next) => {
+  var verify = await Admin.find({ username: req.body.username });
+  var verificationStatus = verify.length > 0 ? true : false;
+  user = req.body.username
+
+  try {
+    return res.status(200).json({
+      success: verificationStatus,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: "server error" });
+  }
+});
+
+//returns data to faculty Login
 app.post("/verifyFacultyLogin", async (req, res, next) => {
   var verify = await Faculty.find({ username: req.body.username });
   var verificationStatus = verify.length > 0 ? true : false;
@@ -262,6 +306,22 @@ app.post("/sendAnnouncements", async (req, res, next) => {
 //returns data to faculty Home Page
 app.post("/sendFacultyDetails", async (req, res, next) => {
   var details = await Faculty.findOne({ 'username': user });
+
+  try {
+    return res.status(200).json({
+      success: true,
+      count: details.length,
+      data: details,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: "server error" });
+  }
+});
+
+//returns data to Admin Home Page
+app.post("/sendAdminDetails", async (req, res, next) => {
+  var details = await Admin.findOne({ 'username': user });
 
   try {
     return res.status(200).json({

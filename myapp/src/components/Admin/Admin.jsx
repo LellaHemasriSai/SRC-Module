@@ -1,10 +1,14 @@
 import React from 'react'
-import Container from '../Navbar/components/Container';
+import AdminContent from './AdminContent';
 import { AdminMainNav } from '../App';
 function Admin(props) {
   return <div className="wrapper hover_collapse">
   <AdminMainNav></AdminMainNav>
-  <Container></Container>
+  <div className="main_container">
+		<div className="container">
+    <AdminContent></AdminContent>
+	</div>
+	</div>
   </div>
 }
 
