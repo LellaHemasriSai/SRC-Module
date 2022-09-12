@@ -209,8 +209,7 @@ app.post("/verifyFacultyLogin", async (req, res, next) => {
 app.post("/sendFacultyDetails", async (req, res, next) => {
   var details = await Faculty.findOne({ 'username': user });
   console.log(details)
-  try {
-    return res.status(200).json({
+  try {    return res.status(200).json({
       success: true,
       count: details.length,
       data: details,
