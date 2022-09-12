@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import user from "../../../images/user.png"
 import logo from "../../../images/logo.png"
 import "./nav.css"
-import { Link ,useParams} from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
-function Nav(props) {          
+function Nav(props) {
 	var menu_icon = document.querySelector(".menu_icon");
 
 	const [sidebar, setSidebar] = useState(false);
 
-	let {username}=useParams();  //object destructuring ,accessing only username from url
+	let { username } = useParams();  //object destructuring ,accessing only username from url
 
 	function menu() {
 		setSidebar(!sidebar);
@@ -35,7 +35,7 @@ function Nav(props) {
 						</div>
 					</button>
 					<div className="dropdown-content">
-						<Link to={"/Faculty/"+username+"/Form"}>Settings</Link>
+						<Link to={"/Faculty/" + username + "/Form"}>Details</Link>
 						<Link to="/">Log out</Link>
 					</div>
 				</div>
