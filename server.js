@@ -196,6 +196,7 @@ const recruitmentRequestSchema = new mongoose.Schema({
   active: Boolean,
   description: String,
   approval: Boolean,
+  projectName: String,
 })
 
 const RecruitmentRequest = mongoose.model("RecruitmentRequest", recruitmentRequestSchema);
@@ -411,8 +412,10 @@ app.post("/announced", (req, res) => {
 app.post("/saveRecruitmentRequest", (req, res) => {
   console.log("saving Recruitment?");
   res.send("request sent");
-  var newRecruitmentRequest = new RecruitmentRequest({
+  var newRequest = new RecruitmentRequest({
     projectID: req.body.projectID,
+    //projectName: await Project.findOne({ 'projectCode': req.body.projectID }).projectName,
+    projectName: req.body.projectName,
     recruitmentType: req.body.recruitmentType,
     numberOfStaff: req.body.no_ofStaff,
     salaryDetails: req.body.salaryDetails,
@@ -423,6 +426,7 @@ app.post("/saveRecruitmentRequest", (req, res) => {
     description: req.body.descriptionBox,
   });
   newRequest.save();
+  // console.log(newRequest.projectName);
 });
 
 //----------------------------------------------------------------------------
