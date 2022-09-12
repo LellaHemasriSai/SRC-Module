@@ -123,8 +123,8 @@ const adminSchema = new mongoose.Schema({
   projects: {
     approve: [projectsSchema],
   },
-  faculty: [mongoose.Types],
-  staff: [mongoose.Types.ObjectId],
+  faculty: [String],
+  staff: [String],
   recruitment: {
     project: mongoose.Types.ObjectId,
     numberOfStaff: Number,
