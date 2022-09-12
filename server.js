@@ -186,14 +186,20 @@ const announcementSchema = new mongoose.Schema({
 
 const Announcement = mongoose.model("Announcement", announcementSchema);
 
-const recruitmentRequest = new mongoose.Schema({
+const recruitmentRequestSchema = new mongoose.Schema({
   projectID: String,
   recruitmentType: String,
   numberOfStaff: Number,
   salaryDetails: Number,
   startDate: Date,
   endDate: Date,
+  active: Boolean,
+  description: String,
+  approval: Boolean,
+  projectName: String,
 })
+
+const RecruitmentRequest = mongoose.model("RecruitmentRequest", recruitmentRequestSchema);
 
 //--------------------------------------------------------------------------------------------
 //Login Authentication
@@ -223,9 +229,24 @@ app.post("/verifyFacultyLogin", async (req, res, next) => {
 //---------------------------------------------------------------------------------------------
 
 //returns Announcements to Staff / Student page
+app.post("/sendRecruitmentApprovals", async (req, res, next) => {
+  var approvals = await RecruitmentRequest.find({ 'active': true, 'approval': false });
+  try {
+    return res.status(200).json({
+      success: true,
+      count: approvals.length,
+      data: approvals,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: "server error" });
+  }
+});
+
+//returns Announcements to Staff / Student page
 app.post("/sendAnnouncements", async (req, res, next) => {
   var announcements = await Announcement.find({ 'active': true });
-  console.log(announcements)
+  //console.log(announcements)
   try {
     return res.status(200).json({
       success: true,
@@ -370,7 +391,7 @@ app.post("/created", (req, res) => {
 
 //save announcement
 app.post("/announced", (req, res) => {
-  console.log("Recieved?");
+  console.log("Received?");
   res.send("request sent");
   var newAnnouncement = new Announcement({
     projectName: req.body.projectName,
@@ -391,10 +412,21 @@ app.post("/announced", (req, res) => {
 app.post("/saveRecruitmentRequest", (req, res) => {
   console.log("saving Recruitment?");
   res.send("request sent");
-  var newRequest = new Request({
-
+  var newRequest = new RecruitmentRequest({
+    projectID: req.body.projectID,
+    //projectName: await Project.findOne({ 'projectCode': req.body.projectID }).projectName,
+    projectName: req.body.projectName,
+    recruitmentType: req.body.recruitmentType,
+    numberOfStaff: req.body.no_ofStaff,
+    salaryDetails: req.body.salaryDetails,
+    startDate: req.body.startDate,
+    endDate: req.body.endDate,
+    active: true,
+    approval: false,
+    description: req.body.descriptionBox,
   });
   newRequest.save();
+  // console.log(newRequest.projectName);
 });
 
 //----------------------------------------------------------------------------

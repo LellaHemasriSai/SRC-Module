@@ -36,19 +36,9 @@ const user={
 export default function Container(props) {
   const {username}=useParams();
   return (
-    	<div className="main_container">
-     
+    <div className="main_container">
 		<div className="container">
-				<Content
-				name={user.Name}
-        dob={user.DoB}
-        qual={user.Qualifications}
-        contact={user.Contact}
-        email={user.Email}
-        dep={user.Department}
-        addr={user.Address}
-        dof={user.DoF}
-        /> 
+		<Content/> 
 		</div>
 	</div>
   );
