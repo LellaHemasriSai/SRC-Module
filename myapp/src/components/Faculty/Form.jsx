@@ -13,8 +13,9 @@ export default function RegisterForm() {
     const [DoB, setDoB] = useState("")
     const [Address, setAddress] = useState("")
     const [Gender, setGender] = useState("")
+    const [Signature, setSignature] = useState("")
 
-    function onSubmit() { console.log('submitted Create Project') }
+    function onSubmit() { console.log('submitted RegisterForm') }
     function postData() {
         console.log("Submitted")
         fetch("/created", {
@@ -31,7 +32,8 @@ export default function RegisterForm() {
                 DateofJoining: DateofJoining,
                 DoB: DoB,
                 Address: Address,
-                Gender: Gender
+                Gender: Gender,
+                Signature: Signature
             }),
         }).then((res) => {
             console.log("Res:", res);
@@ -77,15 +79,11 @@ export default function RegisterForm() {
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="form-group col-md-4">
-                                <label>Qualifications</label>
-                                <input type="text" class="form-control" id="Qualifications" value={Qualifications} placeholder="Qualifications" onChange={(event) => { setQualifications(event.target.value) }} />
-                            </div>
-                            <div class="form-group col-md-4">
+                            <div class="form-group col-md-6">
                                 <label>Date of joining</label>
                                 <input type="date" class="form-control" id="DateofJoining" value={DateofJoining} placeholder="DateofJoining" onChange={(event) => { setDateofJoining(event.target.value) }} />
                             </div>
-                            <div class="form-group col-md-4">
+                            <div class="form-group col-md-6">
                                 <label>Date of Birth</label>
                                 <input type="date" class="form-control" id="DoB" value={DoB} placeholder="DoB" onChange={(event) => { setDoB(event.target.value) }} />
                             </div>
@@ -105,8 +103,8 @@ export default function RegisterForm() {
                         </div>*/}
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label>Address </label>
-                                <textarea id="Address" class="form-control" value={Address} placeholder="Address" onChange={(event) => { setAddress(event.target.value) }} />
+                                <label>Qualifications</label>
+                                <input type="text" class="form-control" id="Qualifications" value={Qualifications} placeholder="Qualifications" onChange={(event) => { setQualifications(event.target.value) }} />
                             </div>
                             <div class="form-group col-md-6">
                                 <label>Gender</label>
@@ -118,7 +116,17 @@ export default function RegisterForm() {
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="col-md-12 text-center">
+                            <div class="form-group col-md-6">
+                                <label>Address </label>
+                                <textarea id="Address" class="form-control" value={Address} placeholder="Address" onChange={(event) => { setAddress(event.target.value) }} />
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label>Signature</label>
+                                <input type="file" class="form-control-file" id="Signature" onChange={(event) => { setSignature(event.target.value) }} />
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-12 text-center" style={{ marginTop: '5%', }}>
                                 <button type="button" onClick={postData} class="btn btn-primary">Submit</button>
                             </div>
                         </div>
