@@ -180,15 +180,20 @@ const Announcement = mongoose.model("Announcement", announcementSchema);
 
 //--------------------------------------------------------------------------------------------
 //Login Authentication
-//---------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------
+
+//variable to store current user information - default is set to faculty for current presentation
+var user = "faculty"
+
 //returns data to faculty ongoing projects
 app.post("/verifyFacultyLogin", async (req, res, next) => {
   var verify = await Faculty.find({ username: req.body.username });
-  console.log(verify);
+  var verificationStatus = verify.length > 0 ? true : false;
+  user = req.body.username
 
   try {
     return res.status(200).json({
-      success: true,
+      success: verificationStatus,
     });
   } catch (err) {
     console.log(err);
@@ -199,6 +204,22 @@ app.post("/verifyFacultyLogin", async (req, res, next) => {
 //---------------------------------------------------------------------------------------------
 //Functions to send data to front end
 //---------------------------------------------------------------------------------------------
+
+//returns data to faculty Home Page
+app.post("/sendFacultyDetails", async (req, res, next) => {
+  var details = await Faculty.findOne({ 'username': user });
+  console.log(details)
+  try {
+    return res.status(200).json({
+      success: true,
+      count: details.length,
+      data: details,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: "server error" });
+  }
+});
 
 //returns data to admin pending approvals
 app.post("/pendingApprovals", async (req, res, next) => {
@@ -253,7 +274,7 @@ app.post("/pending", async (req, res, next) => {
 //returns data to faculty ongoing projects
 app.post("/completed", async (req, res, next) => {
   var ongoingProjects = await Project.find({ approval: true, closed: true });
-  console.log("Ongoing Projects:\n" + ongoingProjects);
+  // console.log("Ongoing Projects:\n" + ongoingProjects);
 
   try {
     return res.status(200).json({
@@ -390,6 +411,10 @@ app.listen(port, function () {
 });
 
 //---------------------------------------------------------------------------------
+//                                      END
+//---------------------------------------------------------------------------------
+
+
 
 //testing
 /*var newFac = new Faculty({
