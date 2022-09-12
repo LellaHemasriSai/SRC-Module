@@ -4,6 +4,7 @@ import Footer from "./Footer";
 import Note from "./Note";
 import CreateArea from "./CreateArea";
 import "./styles.css";
+import { MainNav } from '../../../App';
 
 function List() {
   const [notes, setNotes] = useState([]);
@@ -23,19 +24,14 @@ function List() {
   }
 
   return (
+    <div className="wrapper hover_collapse">
+    <MainNav></MainNav>
+    <div className="main_container">
+    <div className="container" style={{ textAlign: "center" }}>
+    <div className='grid'>
     <div>
-      <Header />
+      {/* <Header /> */}
       <CreateArea onAdd={addNote} />
-      {/* <table class="table">
-      <thead>
-      <tr>
-        <th scope="col">Item</th>
-        <th scope="col">Cost</th>
-        <th scope="col">Retailer Name</th>
-        <th scope="col">Description</th>
-      </tr>
-      </thead>
-      </table> */}
   <table>
   <thead>
     <tr>
@@ -60,7 +56,11 @@ function List() {
           />
         );
       })}
-      <Footer />
+      {/* <Footer /> */}
+    </div>
+    </div>
+    </div>
+    </div>
     </div>
   );
 }
