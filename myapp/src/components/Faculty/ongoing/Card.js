@@ -7,6 +7,7 @@ import { CircularProgressbar } from 'react-circular-progressbar';
 import "./statusbarstyles.css"
 import ExtendDuration from "../Extend_Duration/extend_duration";
 import { useParams, Link } from "react-router-dom";
+import List from './List/List';
 const Cards = (props) => {
 
   const [show, setShow] = useState(false);
@@ -73,10 +74,13 @@ const Cards = (props) => {
             <Link to={"/Faculty/" + username + "/modify_staff"}>
               <Button variant="primary" className="buttitem">Staff Modification</Button>
             </Link>
-            <Link to={"/Faculty/" + username + "/]funds_extension"}>
+            <Link to={"/Faculty/" + username + "/funds_extension"}>
               <Button variant="primary" className="buttitem">Additional Funds</Button>
             </Link>
             <Button variant="primary" className="statbutt" onClick={() => { postData(props._id) }}>Update Status</Button>
+            <Link to={"/Faculty/" + username + "/list"}>
+            <Button variant="primary" className="buttitem" >View Details</Button>
+            </Link>
           </div>
           <section style={{backgroundColor: "white"}}>
                               <div class="commentbox">
