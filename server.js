@@ -288,10 +288,9 @@ app.post("/completed", async (req, res, next) => {
   }
 });
 
-//returns data to faculty ongoing projects
+//returns data to 
 app.post("/sendRecruitment", async (req, res, next) => {
   var ongoingProjects = await Project.find({ approval: true, closed: true });
-  //console.log("requestRecruitment:\n" + ongoingProjects);
 
   try {
     return res.status(200).json({
