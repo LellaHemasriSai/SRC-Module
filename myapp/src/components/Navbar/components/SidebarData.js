@@ -8,68 +8,68 @@ import recruit from "../../../images/recruit.svg"
 export const data = [
 
     {
-        key:'a',
+        key: 'a',
         title: 'Home',
         path: '././home',
         img: home,
         cName: 'nav-text'
     },
-  /*  {
-        key:'b',
-        title: 'CREATE PROJECT',
-        path: '/create_project',
-        img: create,
-        cName: 'nav-text'
-    },
-     {
-            key:6,
-            title: 'Internal',
-            path: '/create_project',
-            img: create,
-        },
-        {
-            key:7,
-            title: 'External',
-            path: '/create_project',
-            img: create,
-        },*/
+    /*  {
+          key:'b',
+          title: 'CREATE PROJECT',
+          path: '/create_project',
+          img: create,
+          cName: 'nav-text'
+      },
+       {
+              key:6,
+              title: 'Internal',
+              path: '/create_project',
+              img: create,
+          },
+          {
+              key:7,
+              title: 'External',
+              path: '/create_project',
+              img: create,
+          },*/
     {
-        key:'c',
+        key: 'c',
         title: 'Ongoing Projects',
         path: '././ongoing_project',
         img: ongoing,
         cName: 'nav-text'
     },
     {
-        key:'d',
+        key: 'd',
         title: 'Pending Approvals',
         path: '././pending_approvals',
         img: clock,
         cName: 'nav-text'
     },
     {
-        key:'e',
+        key: 'e',
         title: 'Completed Projects',
         path: '././completed_projects',
         img: completed,
         cName: 'nav-text'
     },
     {
-        key:'h',
-        title: 'Recruitment',
+        key: 'h',
+        title: 'Request Recruitment',
         path: '././recruitment',
         img: recruit,
         cName: 'nav-text'
     },
     {
-        key:'f',
+        key: 'f',
         title: 'Applications',
         path: '././applications',
         img: applications,
         cName: 'nav-text'
     },
     {
-        key:'g',
+        key: 'g',
         title: 'Announcements',
         path: '././announcements',
         img: announcements,

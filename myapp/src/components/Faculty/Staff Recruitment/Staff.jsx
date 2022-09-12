@@ -98,7 +98,7 @@ export default Staff;*/
 export default function CreateAnnouncement() {
   const [projectName, setProjectName] = useState("default");
   const [projectID, setProjectID] = useState("default");
-  const [projectType, setProjectType] = useState("default")
+  const [recruitmentType, setRecruitmentType] = useState("default")
   const [no_ofStaff, setNo_ofStaff] = useState("default")
   const [salaryDetails, setSalaryDetails] = useState("default")
   const [startDate, setStartDate] = useState("0/0/0")
@@ -115,7 +115,7 @@ export default function CreateAnnouncement() {
       body: JSON.stringify({
         projectName: projectName,
         projectID: projectID,
-        projectType: projectType,
+        recruitmentType: recruitmentType,
         no_ofStaff: no_ofStaff,
         salaryDetails: salaryDetails,
         startDate: startDate,
@@ -144,8 +144,11 @@ export default function CreateAnnouncement() {
                 <input type="text" class="form-control" id="projectID" value={projectID} placeholder="Project ID" onChange={(event) => { setProjectID(event.target.value) }} />
               </div>
               <div class="form-group col-md-4">
-                <label for="projectType">Project Type</label>
-                <input type="text" class="form-control" id="projectType" value={projectType} placeholder="Project Type" onChange={(event) => { setProjectType(event.target.value) }} />
+                <label for="recruitmentType">Recruitment Type</label>
+                <select id="inputState" class="form-control" onChange={(event) => { setRecruitmentType(event.target.value) }} >
+                  <option>Staff</option>
+                  <option>Adhoc</option>
+                </select>
               </div>
             </div>
             <div class="form-row">

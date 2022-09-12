@@ -116,3 +116,29 @@
     margin-bottom: 5%;
     margin-left: 37%;
   }
+  .qrcode
+  {
+    width: 20%;
+    position: absolute;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 500px;
+  }
+  .hideme
+  {
+    opacity: 0;
+  }
+  /* .qrcode {
+    -webkit-animation: cssAnimation 5s forwards; 
+    animation: cssAnimation 5s forwards;
+}
+@keyframes cssAnimation {
+    0%   {opacity: 1;}
+    90%  {opacity: 1;}
+    100% {opacity: 0;}
+}
+@-webkit-keyframes cssAnimation {
+    0%   {opacity: 1;}
+    90%  {opacity: 1;}
+    100% {opacity: 0;}
+} */

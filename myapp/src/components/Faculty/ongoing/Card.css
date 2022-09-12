@@ -131,3 +131,16 @@
     margin-bottom: 10%;
     float: right;
   }
+  .commentbox
+  {
+    bottom: 0;
+    width: 30%;
+  }
+  .commentline
+  {
+     margin-bottom: 0px;
+  }
+  .postbutt
+  {
+    margin-bottom: 30px;
+  }
