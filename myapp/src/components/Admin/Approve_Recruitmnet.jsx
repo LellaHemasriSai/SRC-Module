@@ -33,11 +33,11 @@ const Approve_Recruitment = () => {
     projectCode={card.projectID} 
     projectName ={card.projectName} 
     approval={card.approval} 
-     facultyID={card.facultyID} 
-     staff={card.numberOfStaff} 
-     startDate={card.startDate} 
-     endDate={card.endDate} 
-     description={card.description}
+    facultyID={card.facultyID} 
+    staff={card.numberOfStaff} 
+    startDate={card.startDate} 
+    endDate={card.endDate} 
+    description={card.description}
     content="Approve Recruitment"/>
     ))}
    </div>

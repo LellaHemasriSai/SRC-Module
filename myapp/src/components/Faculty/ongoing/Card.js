@@ -39,7 +39,7 @@ const Cards = (props) => {
    useEffect(() => {
     axios.post('http://localhost:3001/ongoing')
       .then(res => {
-        console.log('Data: ', res.data.data[0].status)
+        console.log('Data: ', res.data.data[0].status)  // have to take the project array index which we wanted to update
        setstatus(res.data.data[0].status)
       })
       .catch(err => {

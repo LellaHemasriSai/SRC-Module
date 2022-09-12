@@ -4,7 +4,8 @@ import { MDBContainer, MDBRow, MDBCol } from 'mdb-react-ui-kit';
 
 
 export default function AdminContent(props) {
-     const [username, setUserName] = useState([])
+  const [userdata,setUserdata]=useState([])
+    const [username, setUserName] = useState([])
     const [dob,setDob]=useState([])
     const [email,setEmail]=useState([])
     const [addr,setAddress]=useState([])
@@ -12,11 +13,14 @@ export default function AdminContent(props) {
     const [dep,setDep]=useState([])
     const [contact,setContact]=useState([])
     const [dof,setDof]=useState([])
+    const [gender,setGender]=useState([])
   useEffect(() => {
     axios.post('http://localhost:3001/sendAdminDetails')
       .then(res => {
         console.log('Data: ', res.data.data)
-        setUserName(res.data.data.username)
+        setUserdata(res.data.data)
+      console.log(res.data.data.details.Gender)
+       setUserName(res.data.data.username)
         let birth=JSON.stringify(res.data.data.details.DoB).substring(1,11);
         var date=new Date(birth);
         setDob(date.getDay()+"/"+date.getMonth()+"/"+date.getFullYear())
@@ -28,20 +32,16 @@ export default function AdminContent(props) {
         setDof(date2.getDay()+"/"+date2.getMonth()+"/"+date2.getFullYear())
         setEmail(res.data.data.details.Email)
         setQual(res.data.data.details.Qualifications)
+        setGender(res.data.data.details.Gender)
       })
       .catch(err => {
         console.log(err);
       })
   }, [])
- // console.log(userdata.username)
-  //const name=userdata.username;
- // console.log(name)
- // console.log(typeof(dob))
- // console.log(typeof());
-  //let date=dob.substring(0,10);
+
   return (
 		<div className="content">
-    <MDBContainer>
+  <MDBContainer>
       <MDBRow className='box_text'>
         <MDBCol className='main_text' size='6' sm='3'>Name</MDBCol>
         <MDBCol size='6' sm='3'>{username}</MDBCol>
