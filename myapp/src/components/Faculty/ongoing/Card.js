@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
+import axios from "axios";
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button'
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -34,6 +35,17 @@ const Cards = (props) => {
       console.log("Res:", res);
     })
   }
+
+   useEffect(() => {
+    axios.post('http://localhost:3001/ongoing')
+      .then(res => {
+        console.log('Data: ', res.data.data[0].status)
+       setstatus(res.data.data[0].status)
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }, [])
 
   const { username } = useParams();
   return (
