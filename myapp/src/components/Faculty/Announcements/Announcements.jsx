@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react'
-import Sidebar from "../../Navbar/components/Sidebar";
+import Sidebar from '../Sidebar';
 import Nav from "../../Navbar/components/Nav";
 import "./announcements.css"
 //import MainNav from '../../Navbar/components/MainNav';
