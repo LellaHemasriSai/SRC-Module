@@ -26,7 +26,7 @@ function List() {
     <div>
       <Header />
       <CreateArea onAdd={addNote} />
-      <table class="table">
+      {/* <table class="table">
       <thead>
       <tr>
         <th scope="col">Item</th>
@@ -35,7 +35,18 @@ function List() {
         <th scope="col">Description</th>
       </tr>
       </thead>
-      </table>
+      </table> */}
+  <table>
+  <thead>
+    <tr>
+      <th>Item</th>
+      <th>Cost</th>
+      <th>Retailer Name</th>
+      <th>Description</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  </table>
       {notes.map((noteItem, index) => {
         return (
           <Note
