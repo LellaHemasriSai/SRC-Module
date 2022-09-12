@@ -78,6 +78,23 @@ const Cards = (props) => {
             </Link>
             <Button variant="primary" className="statbutt" onClick={() => { postData(props._id) }}>Update Status</Button>
           </div>
+          <section style={{backgroundColor: "white"}}>
+                              <div class="commentbox">
+                                  <div class="form-outline w-100">
+                                    <textarea class="form-control" id="textAreaExample" rows="4"
+                                      style={{background: "white"}}></textarea>
+                                    <label class="form-label" for="textAreaExample">Message</label>
+                                  </div>
+                                <div class="float-end mt-2 pt-1 postbutt">
+                                  <button type="button" class="btn btn-primary btn-sm">
+                                    Post comment
+                                  </button>
+                                  <button type="button" class="btn btn-outline-primary btn-sm">
+                                    Cancel
+                                  </button>
+                                </div>
+                              </div>
+              </section>
         </div>
           : null
         }
