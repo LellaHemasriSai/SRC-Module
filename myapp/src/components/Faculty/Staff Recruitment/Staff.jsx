@@ -33,7 +33,7 @@ export default function CreateAnnouncement() {
         salaryDetails: salaryDetails,
         startDate: startDate,
         endDate: endDate,
-        descriptionBox: descriptionBox
+        descriptionBox: descriptionBox,
       }),
     }).then((res) => {
       console.log("Res:", res);
