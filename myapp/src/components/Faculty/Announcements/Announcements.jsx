@@ -1,14 +1,8 @@
-<<<<<<< HEAD
-import React, { useState, useRef } from 'react'
-import "./announcements.css"
-import announce from "../../../images/announcements.svg"
-import { MainNav } from '../../App';
-=======
 import React, { useState} from 'react'
 import "./announcements.css"
 import { MainNav } from '../../App';
+import announce from "../../../images/announcements.svg"
 import swal from 'sweetalert';
->>>>>>> 9ceb7bb0eee3955ae8b1a5fcbe318308683bb805
 
 export default function CreateAnnouncement() {
   const [projectName, setProjectName] = useState("");

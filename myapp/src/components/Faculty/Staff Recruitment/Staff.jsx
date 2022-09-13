@@ -1,12 +1,8 @@
 import React, { useState, useRef } from 'react'
 import "./staff.css"
 import { MainNav } from '../../App';
-<<<<<<< HEAD
 import recruit from "../../../images/recruit.svg"
-=======
-//import { Container } from '@mui/system';
 import swal from 'sweetalert'
->>>>>>> 9ceb7bb0eee3955ae8b1a5fcbe318308683bb805
 
 export default function CreateAnnouncement() {
   const [projectName, setProjectName] = useState();
