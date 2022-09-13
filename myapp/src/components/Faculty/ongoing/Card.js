@@ -17,34 +17,16 @@ const Cards = (props) => {
 
   function postData(_id) {
     const value = prompt("Enter current progress");
-    if(value<=100 && value >=0){
-         setstatus(value);
-          fetch("/updateProjectStatus", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({            //updating status of project in database
-            status: value,
-            _id: _id
+    setstatus(value);
+    fetch("/updateProjectStatus", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({            //updating status of project in database
+        status: value,
+        _id: _id
 
-          }),
-        }).then((res) => {
-          console.log("Res:", res);
-        })
-      }
-      else{
-        alert("Enter in between 0 to 100!")
-        postData(_id);
-      }
-    }
-
-
-  let id=props.id;  // testing
-
-
-
-<<<<<<< HEAD
       }),
     }).then((res) => {
       console.log("Res:", res);
@@ -52,10 +34,7 @@ const Cards = (props) => {
   }
   let id = props.id;
   useEffect(() => {
-=======
-   useEffect(() => {
->>>>>>> 09530dda395dca18135a8f59ce3b6c6b0fc5d066
-    axios.post('http://localhost:3001/ongoing')
+    axios.post('http://localhost:3001/pending')
       .then(res => {
         console.log('Data: ', res.data.data[props.id].status)  // have to take the project array index which we wanted to update
         console.log(id);
@@ -65,22 +44,6 @@ const Cards = (props) => {
         console.log(err);
       })
   }, [])
-
-    function postCompleteStatus(_id) {
-        console.log("Submitted _id : "+_id)
-        fetch("/completeStatus", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                status:true,
-                _id:_id
-            }),
-        }).then((res) => {
-            console.log("Res:", res);
-        })
-    }
 
   const { username } = useParams();
   return (
@@ -162,7 +125,6 @@ const Cards = (props) => {
               &ensp;{props.status.toString()}
             </div>
           </ul>
-<<<<<<< HEAD
           <div>
             <div class="form-group col-md-6">
               <label>Comment</label>
@@ -193,8 +155,6 @@ const Cards = (props) => {
                 <Button variant="primary" className="buttitem">Staff Modification</Button>
               </Link>
             </div>
-          </div>
-          <div class="form-row">
             <div class="form-group col-md-6" >
               <Link to={"/Faculty/" + username + "/]funds_extension"}>
                 <Button variant="primary" className="buttitem">Additional Funds</Button>
@@ -202,37 +162,14 @@ const Cards = (props) => {
             </div>
             <div class="form-group col-md-6">
               <Link to={"/Faculty/" + username + "/list"}>
-                <Button variant="primary" className="buttitem" >View Details</Button>
+                <Button variant="primary" className="buttitem">View Details</Button>
               </Link>
             </div>
-=======
-          <div className="buttgrp">
-            <Link to={"/Faculty/" + username + "/extend_duration"}>
-              <Button variant="primary" className="buttitem">Extend Duration</Button>
-            </Link>
-            <Link to={"/Faculty/" + username + "/modify_staff"}>
-              <Button variant="primary" className="buttitem">Staff Modification</Button>
-            </Link>
-            <Link to={"/Faculty/" + username + "/funds_extension"}>
-              <Button variant="primary" className="buttitem">Additional Funds</Button>
-            </Link>
-            <Button variant="primary" className="statbutt" onClick={() => { postData(props._id) }}>Update Status</Button>
-          <Button variant="primary" className="statbutt" onClick={() => { postCompleteStatus(props._id) }}>Close Project</Button>
-            <Link to={"/Faculty/" + username + "/list"}>
-            <Button variant="primary" className="buttitem" >View Details</Button>
-            </Link>
->>>>>>> 09530dda395dca18135a8f59ce3b6c6b0fc5d066
           </div>
         </div>
           : null
         }
-<<<<<<< HEAD
         { }
-=======
-        {}
-        <CircularProgressbar  value={status} text={`${status}%`} className=" circularprogressbar status" />
-
->>>>>>> 09530dda395dca18135a8f59ce3b6c6b0fc5d066
         <Button variant="primary" className="butt" onClick={() => setShow(!show)}>{show ? "Read Less" : "Read More"}</Button>
       </Card.Body>
     </Card>
