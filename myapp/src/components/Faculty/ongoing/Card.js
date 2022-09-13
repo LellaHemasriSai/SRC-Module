@@ -140,7 +140,7 @@ const Cards = (props) => {
           : null
         }
         {}
-        <CircularProgressbar  value={status} text={`${status}%`} className="status" />
+        <CircularProgressbar  value={status} text={`${status}%`} className=" circularprogressbar status" />
 
         <Button variant="primary" className="butt" onClick={() => setShow(!show)}>{show ? "Read Less" : "Read More"}</Button>
       </Card.Body>

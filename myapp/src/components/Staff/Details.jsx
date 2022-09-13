@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-//import NavBar from './Navbar';  // main faculty home page
 import { MDBContainer, MDBRow, MDBCol } from 'mdb-react-ui-kit';
 
 
@@ -28,12 +27,7 @@ export default function Details(props) {
         console.log(err);
       })
   }, [])
- // console.log(userdata.username)
-  //const name=userdata.username;
- // console.log(name)
- // console.log(typeof(dob))
- // console.log(typeof());
-  //let date=dob.substring(0,10);
+
   return (
 		<div className="content">
     <MDBContainer>
