@@ -19,10 +19,16 @@ function CreateArea(props) {
       };
     });
   }
+  const initialstate = {
+    item: "",
+    cost: "",
+    name: "",
+    description: "",
+  }
 
   function reset()
   {
-    this.setNote({item: "", cost: "", name: "",description: ""});
+    setNote({...initialstate});
   }
 
   function submitNote(event) {
@@ -35,7 +41,7 @@ function CreateArea(props) {
     });
     event.preventDefault();
     postData(props.projectCode, props.facultyID, props.note, props._id);
-
+    reset();
   }
 
   function postData(projectCode, facultyID, note, _id) {
@@ -58,6 +64,7 @@ function CreateArea(props) {
     }).then((res) => {
       console.log("Res:", res);
     })
+    // reset();
   }
 
   return (
@@ -68,7 +75,7 @@ function CreateArea(props) {
         <input
           name="item"
           onChange={handleChange}
-          value={note.title}
+          value={note.item}
           placeholder="Item"
         />
         </div>
@@ -77,7 +84,7 @@ function CreateArea(props) {
         <input
           name="cost"
           onChange={handleChange}
-          value={note.title}
+          value={note.cost}
           placeholder="Cost"
         />
         </div>
@@ -86,7 +93,7 @@ function CreateArea(props) {
         <input
           name="name"
           onChange={handleChange}
-          value={note.title}
+          value={note.name}
           placeholder="Retailer Name"
         />
         </div>
@@ -95,7 +102,7 @@ function CreateArea(props) {
         <textarea
           name="description"
           onChange={handleChange}
-          value={note.content}
+          value={note.description}
           placeholder="Description about item"
           rows="3"
         />
