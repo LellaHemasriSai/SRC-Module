@@ -34,7 +34,7 @@ const Cards = (props) => {
   }
   let id = props.id;
   useEffect(() => {
-    axios.post('http://localhost:3001/pending')
+    axios.post('http://localhost:3001/ongoing')
       .then(res => {
         console.log('Data: ', res.data.data[props.id].status)  // have to take the project array index which we wanted to update
         console.log(id);
@@ -156,7 +156,7 @@ const Cards = (props) => {
               </Link>
             </div>
             <div class="form-group col-md-6" >
-              <Link to={"/Faculty/" + username + "/]funds_extension"}>
+              <Link to={"/Faculty/" + username + "/funds_extension"}>
                 <Button variant="primary" className="buttitem">Additional Funds</Button>
               </Link>
             </div>
