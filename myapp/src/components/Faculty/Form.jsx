@@ -17,21 +17,23 @@ export default function RegisterForm() {
     function onSubmit() { console.log('submitted Create Project') }
     function postData() {
         console.log("Submitted")
-        fetch("/created", {
+        fetch("/updateFacultyDetails", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                Department: Department,
-                Designation: Designation,
-                Email: Email,
-                ContactNumber: ContactNumber,
-                Qualifications: Qualifications,
-                DateofJoining: DateofJoining,
-                DoB: DoB,
-                Address: Address,
-                Gender: Gender
+                details: {
+                    Department: Department,
+                    Designation: Designation,
+                    Email: Email,
+                    ContactNumber: ContactNumber,
+                    DateOfJoining: DateofJoining,
+                    Qualifications: Qualifications,
+                    DoB: DoB,
+                    Address: Address,
+                    Gender: Gender
+                },
             }),
         }).then((res) => {
             console.log("Res:", res);
