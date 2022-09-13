@@ -3,6 +3,7 @@ import Card from '../../Admin/Card';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./completed.css";
 import { MainNav } from '../../App';
+import completed from "../../../images/completed.svg"
 import axios from 'axios';
 const Completed = () => {
 
@@ -27,6 +28,10 @@ const Completed = () => {
       <MainNav></MainNav>
       <div className="main_container">
         <div className="container" style={{ textAlign: "center" }}>
+          <div  className='head_wrap'>
+            <span><img src={completed} style={{ width: "28px", height: "28px" }} alt="completed"/></span>
+            <span><h1 id="head_text">Completed Projects</h1></span>
+          </div>
           <div className='grid'>
             {cardinfo.map((card, index) => (
               <Card id={index}
