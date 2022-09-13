@@ -1,133 +1,160 @@
 .card {
-    margin: 3rem 3rem 3rem 3rem;
-    padding: 1.5rem;
-    width: 100%;
-    box-shadow: 0 0 28px 4px rgba(0, 0, 0, 0, 1);
-    transition: transform .3s ease;
-    cursor: pointer;
+  margin: 3rem 3rem 3rem 3rem;
+  padding: 1.5rem;
+  width: 100%;
+  box-shadow: 0 0 28px 4px rgba(0, 0, 0, 0, 1);
+  transition: transform .3s ease;
+  cursor: pointer;
 }
 
-.card:hover{
-    transform: scale(1.05);
-    box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
 }
 
 .card_title {
-    font-weight: 800;
-    font-size: 1.5rem;
+  font-weight: 800;
+  font-size: 1.5rem;
 }
 
 .leftheader {
-    float:left;
-    font-family: "Gilmer",sans-serif;
-    text-transform: uppercase;
-    padding: 0 12px;
-    height: max-content;
-    line-height: 28px;
-    letter-spacing: 1px;
-    display: inline-flex;
-    border-radius: 4px;
-    color: black;
-    font-weight: 700;
-    font-size:small;
+  float: left;
+  font-family: "Gilmer", sans-serif;
+  text-transform: uppercase;
+  padding: 0 12px;
+  height: max-content;
+  line-height: 28px;
+  letter-spacing: 1px;
+  display: inline-flex;
+  border-radius: 4px;
+  color: black;
+  font-weight: 700;
+  font-size: small;
 }
 
 .rightheader {
-    float: right;
-    font-family: "Gilmer",sans-serif;
-    color: black;
-    text-transform: uppercase;
-    padding: 0 12px;
-    height: max-content;
-    line-height: 28px;
-    letter-spacing: 1px;
-    border-radius: 4px;
-    font-weight: 700;
-    display: inline-flex;
+  float: right;
+  font-family: "Gilmer", sans-serif;
+  color: black;
+  text-transform: uppercase;
+  padding: 0 12px;
+  height: max-content;
+  line-height: 28px;
+  letter-spacing: 1px;
+  border-radius: 4px;
+  font-weight: 700;
+  display: inline-flex;
 }
 
 .subtitle {
-    margin-top: 2rem;
-    text-align: left;
-    color: black;
+  margin-top: 2rem;
+  text-align: left;
+  color: black;
 }
 
 .card_body {
-     margin-bottom: 5%;
-    text-align: centre; 
+  margin-bottom: 5%;
+  text-align: centre;
 }
-.comment{
+
+.comment {
   font-size: 20px;
 }
-.option1 { 
-    display: inline-block; 
-    padding-right: 20%; 
-    color: black;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 1.2rem;
-  }
-  .text-muted
-  {
-    color: black;
-    font-weight: 300;
-  }
-  .list-group
-  {
-    padding-top: 8%;
-    text-align: left;
-  }
-  .list-group-item
-  {
+
+.option1 {
+  display: inline-block;
+  padding-right: 20%;
+  color: black;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 1.2rem;
+}
+
+.text-muted {
+  color: black;
+  font-weight: 300;
+}
+
+.list-group {
+  padding-top: 8%;
+  text-align: left;
+}
+
+.list-group-item {
   font-size: 2rem;
   display: inline-flex;
-  }
-  .butt{
-    /* margin-top: 100%;
+}
+
+.butt {
+  /* margin-top: 100%;
     float: centre;
     position: relative;
     background-color:#438af5;
     width: 8%; */
-    width: 9%;
-    position:absolute;
-    bottom:0;
-    margin-bottom: 0.5%;
-    align-content: center;
-  }
-  /* .card_body
+  width: 9%;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 0.5%;
+  align-content: center;
+}
+
+/* .card_body
   {
     text-align: center;
     font-size: 2rem;
   } */
-  .status
-  {
-    float: right;
-    width: 5%;
-  }
-  .buttitem
-  {
-     /* margin-top: 5%; */
-    /* margin-left: 5%;
+.status {
+  float: right;
+  width: 15%;
+  scale: 1.5;
+}
+
+.buttitem {
+  /* margin-top: 5%; */
+  /* margin-left: 5%;
     margin-right: 5%;  */
 
-    /* margin-top: 5%; */
-    margin-left: 20px;
-    margin-right: 20px;
-    /* font-size: 18px; */
-  }
-  .buttgrp
-  {
-    position: absolute;
-    bottom: 0;
-    margin-bottom: 5%;
-    margin-left: 31%;
-  }
-  .leftside
-  {
-    margin-bottom: 10%;
-    float: left;
-  }
-  .rightside
-  {
-    margin-bottom: 10%;
-    float: right;
-  }
+  /* margin-top: 5%; */
+  margin-left: 20px;
+  margin-right: 20px;
+  /* font-size: 18px; */
+}
+
+.buttgrp {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 5%;
+  margin-left: 31%;
+}
+
+.leftside {
+  margin-bottom: 10%;
+  float: left;
+}
+
+.rightside {
+  margin-bottom: 10%;
+  float: right;
+}
+
+.commentbox {
+  bottom: 0;
+  width: 30%;
+}
+
+.commentline {
+  margin-bottom: 0px;
+}
+
+.postbutt {
+  margin-bottom: 30px;
+}
+
+.header {
+  font-size: 2rem;
+  text-align: left;
+}
+
+.statbutt {
+  float: right;
+  margin-right: 22px;
+}
