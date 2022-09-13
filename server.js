@@ -203,6 +203,8 @@ const staffSchema = new mongoose.Schema({
   ],
 });
 
+const Staff = mongoose.model("Staff", staffSchema)
+
 const announcementSchema = new mongoose.Schema({
   projectName: String,
   projectID: String,
@@ -271,6 +273,22 @@ app.post("/verifyFacultyLogin", async (req, res, next) => {
   }
 });
 
+//returns data to Staff Login
+app.post("/verifyStaffLogin", async (req, res, next) => {
+  var verify = await Staff.find({ 'username': req.body.username });
+  var verificationStatus = verify.length > 0 ? true : false;
+  user = req.body.username
+
+  try {
+    return res.status(200).json({
+      success: verificationStatus,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: "server error" });
+  }
+});
+
 //---------------------------------------------------------------------------------------------
 //Functions to send data to front end
 //---------------------------------------------------------------------------------------------
@@ -325,6 +343,22 @@ app.post("/sendFacultyDetails", async (req, res, next) => {
 //returns data to Admin Home Page
 app.post("/sendAdminDetails", async (req, res, next) => {
   var details = await Admin.findOne({ 'username': user });
+
+  try {
+    return res.status(200).json({
+      success: true,
+      count: details.length,
+      data: details,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: "server error" });
+  }
+});
+
+//returns data to Student Home Page
+app.post("/sendStaffDetails", async (req, res, next) => {
+  var details = await Staff.findOne({ 'username': user });
 
   try {
     return res.status(200).json({
@@ -539,6 +573,40 @@ app.post("/updateProjectStatus", async (req, res, next) => {
 app.post("/updateFacultyDetails", async (req, res, next) => {
   const fac = await Faculty.findOne({ 'username': user })
   const id = fac.id;
+  await Faculty.findByIdAndUpdate(id, { details: req.body.details });
+  //console.log(Faculty.findOne({ 'username': 'faculty' }))
+
+  try {
+    return res.status(200).json({
+      success: true,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: "server error" });
+  }
+});
+
+//update admin details from Details form
+app.post("/updateAdminDetails", async (req, res, next) => {
+  const admin = await Admin.findOne({ 'username': user })
+  const id = admin.id;
+  await Admin.findByIdAndUpdate(id, { details: req.body.details });
+  //console.log(Faculty.findOne({ 'username': 'faculty' }))
+
+  try {
+    return res.status(200).json({
+      success: true,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: "server error" });
+  }
+});
+
+//update Student details from Details form
+app.post("/updateStudentDetails", async (req, res, next) => {
+  const student = await Faculty.findOne({ 'username': user })
+  const id = student.id;
   await Faculty.findByIdAndUpdate(id, { details: req.body.details });
   //console.log(Faculty.findOne({ 'username': 'faculty' }))
 
