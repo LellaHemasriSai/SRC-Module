@@ -18,6 +18,18 @@ export default function CreateAnnouncement() {
 
   function onSubmit() { console.log("Submitted") }
 
+  function handlechange()
+  {
+    setProjectName("");
+    setProjectID("");
+    setRecruitmentType("");
+    setNo_ofStaff("");
+    setSalaryDetails("");
+    setStartDate("");
+    setEndDate("");
+    setDescriptionBox("");
+  }
+
   function postData() {
     console.log("Submitted Staff recruitment Request")
     fetch("/saveRecruitmentRequest", {
@@ -38,6 +50,8 @@ export default function CreateAnnouncement() {
     }).then((res) => {
       console.log("Res:", res);
     })
+    alert("Submitted");
+    handlechange();
   }
   //console.alert("SubmittedValues: ", projectID, " ", projectName, " ", projectType, organizationType, agencyCode, agencyName, sanctionValue, startDate, endDate, descriptionBox)
 

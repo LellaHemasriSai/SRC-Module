@@ -16,6 +16,17 @@ export default function Modify_Staff() {
     const [endDate, setEndDate] = useState("0/0/0")
     const [descriptionBox, setDescriptionBox] = useState("default text")
     function onSubmit() { console.log("Submitted") }
+    function handlchange()
+    {
+        setProjectName("");
+        setProjectID("");
+        setProjectType("");
+        setWithdrawnStaff("");
+        setExtendStaff("");
+        setStartDate("");
+        setEndDate("");
+        setDescriptionBox("");
+    }
     function postData() {
         console.log("Submitted")
         fetch("/created", {
@@ -36,6 +47,7 @@ export default function Modify_Staff() {
         }).then((res) => {
             console.log("Res:", res);
         })
+        handlchange();
     }
     //console.alert("SubmittedValues: ", projectID, " ", projectName, " ", projectType, organizationType, agencyCode, agencyName, sanctionValue, startDate, endDate, descriptionBox)
 

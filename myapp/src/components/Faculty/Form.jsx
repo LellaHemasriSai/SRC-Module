@@ -14,6 +14,19 @@ export default function RegisterForm() {
     const [Address, setAddress] = useState("")
     const [Gender, setGender] = useState("")
 
+    function handlechange()
+    {
+        setDepartment("");
+        setDesignation("");
+        setEmail("");
+        setContactNumber("");
+        setQualifications("");
+        setDateofJoining("");
+        setDoB("");
+        setAddress("");
+        setGender("");
+    }
+
     function onSubmit() { console.log('submitted Create Project') }
     function postData() {
         console.log("Submitted")
@@ -38,6 +51,8 @@ export default function RegisterForm() {
         }).then((res) => {
             console.log("Res:", res);
         })
+        alert("Created Project");
+        handlechange();
     }
 
 
