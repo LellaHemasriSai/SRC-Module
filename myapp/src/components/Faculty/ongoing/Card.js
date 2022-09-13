@@ -13,11 +13,7 @@ const Cards = (props) => {
 
   const [show, setShow] = useState(false);
   const [status, setstatus] = useState(0);
-  // const update  = () => {
-  //   const value = prompt("Enter current progress");
-  //   setstatus(value);
-  // }
-  // const value = prompt("Enter current progress");
+
   function postData(_id) {
     const value = prompt("Enter current progress");
     setstatus(value);
@@ -26,7 +22,7 @@ const Cards = (props) => {
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({
+      body: JSON.stringify({            //updating status of project in database
         status: value,
         _id: _id
 
@@ -35,12 +31,13 @@ const Cards = (props) => {
       console.log("Res:", res);
     })
   }
-
+  let id=props.id;
    useEffect(() => {
     axios.post('http://localhost:3001/ongoing')
       .then(res => {
-        console.log('Data: ', res.data.data[0].status)  // have to take the project array index which we wanted to update
-       setstatus(res.data.data[0].status)
+        console.log('Data: ', res.data.data[props.id].status)  // have to take the project array index which we wanted to update
+        console.log(id);
+       setstatus(res.data.data[props.id].status)
       })
       .catch(err => {
         console.log(err);
@@ -70,13 +67,13 @@ const Cards = (props) => {
             <li class="list-group-item">closed -&ensp;{props.closed ? "True" : "False"}</li>
           </ul>
           <ul class="list-group list-group-flush rightside">
-            <li class="list-group-item">facultyID -&ensp;{props.facultyID}</li>
+            <li class="list-group-item">facultyID -&ensp;{props.key}</li>
             <li class="list-group-item">organisationType -&ensp;{props.organisationType}</li>
             <li class="list-group-item">staff -&ensp;{props.staff}</li>
             <li class="list-group-item">sanctionFund -&ensp;{props.sanctionFund}</li>
             <li class="list-group-item">startDate -&ensp;{props.startDate}</li>
             <li class="list-group-item">endDate -&ensp;{props.endDate}</li>
-            <li class="list-group-item">status -&ensp;{props.status.toString()}</li>
+            <li class="list-group-item">status -&ensp;{status}</li> {/*getting status from backend*/ }
             <li class="list-group-item">announcements -&ensp;{props.announcements}</li>
           </ul>
           <div className="buttgrp">
@@ -114,6 +111,7 @@ const Cards = (props) => {
         </div>
           : null
         }
+        {}
         <CircularProgressbar value={status} text={`${status}%`} className="status" />
 
         <Button variant="primary" className="butt" onClick={() => setShow(!show)}>{show ? "Read Less" : "Read More"}</Button>

@@ -21,6 +21,7 @@ const Ongoing = () => {
       })
   }, [])
 
+  //let index=0;
 /*var date=new Date(birth);
 setDob(date.getDay()+"/"+date.getMonth()+"/"+date.getFullYear())*/
   return (
