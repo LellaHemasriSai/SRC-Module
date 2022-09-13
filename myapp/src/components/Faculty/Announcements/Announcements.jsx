@@ -4,6 +4,7 @@ import Nav from "../../Navbar/components/Nav";
 import "./announcements.css"
 //import MainNav from '../../Navbar/components/MainNav';
 import { MainNav } from '../../App';
+import swal from 'sweetalert'
 //import { Container } from '@mui/system';
 
 /*class Announcements extends React.Component {
@@ -137,7 +138,7 @@ export default function CreateAnnouncement() {
         }).then((res) => {
             console.log("Res:", res);
         })
-        alert("Announcement Created !");
+        swal("","Announcement Created !","success");
         handlechange();
     }
   return (

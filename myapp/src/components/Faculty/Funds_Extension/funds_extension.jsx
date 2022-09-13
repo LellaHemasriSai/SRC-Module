@@ -4,6 +4,7 @@ import React, { useState, useRef } from 'react'
 //import "./staff.css"
 //import MainNav from '../../Navbar/components/MainNav';
 import { MainNav } from '../../App';
+import swal from 'sweetalert';
 //import { Container } from '@mui/system';
 
 export default function Funds_Extension() {
@@ -47,6 +48,7 @@ export default function Funds_Extension() {
         }).then((res) => {
             console.log("Res:", res);
         })
+        swal("","Submitted Funds Extention Request","success");
         handlchange();
     }
     //console.alert("SubmittedValues: ", projectID, " ", projectName, " ", projectType, organizationType, agencyCode, agencyName, sanctionValue, startDate, endDate, descriptionBox)

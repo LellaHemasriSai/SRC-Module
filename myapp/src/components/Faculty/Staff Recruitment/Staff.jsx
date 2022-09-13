@@ -5,6 +5,7 @@ import "./staff.css"
 //import MainNav from '../../Navbar/components/MainNav';
 import { MainNav } from '../../App';
 //import { Container } from '@mui/system';
+import swal from 'sweetalert'
 
 export default function CreateAnnouncement() {
   const [projectName, setProjectName] = useState();
@@ -50,7 +51,7 @@ export default function CreateAnnouncement() {
     }).then((res) => {
       console.log("Res:", res);
     })
-    alert("Submitted");
+    swal("","Submitted Staff recruitment Request","success");
     handlechange();
   }
   //console.alert("SubmittedValues: ", projectID, " ", projectName, " ", projectType, organizationType, agencyCode, agencyName, sanctionValue, startDate, endDate, descriptionBox)

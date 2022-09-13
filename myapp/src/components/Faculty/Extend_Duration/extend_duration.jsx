@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react'
 import { MainNav } from '../../App';
-
+import swal from 'sweetalert';
 
 export default function ExtendDuration() {
     const [projectName, setProjectName] = useState("default");
@@ -37,6 +37,7 @@ export default function ExtendDuration() {
         }).then((res) => {
             console.log("Res:", res);
         })
+        swal("","Submitted Extend Duration Request","success");
        handlechange();
     }
 
