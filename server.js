@@ -349,7 +349,6 @@ app.post("/sendFacultyDetails", async (req, res, next) => {
   try {
     return res.status(200).json({
       success: true,
-      count: details.length,
       data: details,
     });
   } catch (err) {
@@ -365,7 +364,6 @@ app.post("/sendAdminDetails", async (req, res, next) => {
   try {
     return res.status(200).json({
       success: true,
-      count: details.length,
       data: details,
     });
   } catch (err) {
@@ -381,7 +379,6 @@ app.post("/sendStaffDetails", async (req, res, next) => {
   try {
     return res.status(200).json({
       success: true,
-      count: details.length,
       data: details,
     });
   } catch (err) {
@@ -457,15 +454,14 @@ app.post("/completed", async (req, res, next) => {
   }
 });
 
-//returns data to 
+//returns recruitment data to admin
 app.post("/sendRecruitment", async (req, res, next) => {
-  var ongoingProjects = await Project.find({ approval: true, closed: true });
+  var rec = await RecruitmentRequest.find({ approval: false, active: true });
 
   try {
     return res.status(200).json({
       success: true,
-      count: ongoingProjects.length,
-      data: ongoingProjects,
+      data: rec,
     });
   } catch (err) {
     console.log(err);
@@ -555,12 +551,11 @@ app.post("/updateRecruitmentApprovalStatus", async (req, res, next) => {
     active: false,
   });
 
+  await Project.findOneAndUpdate(req.body.projectCode, { resourceApproval: true })
 
   var updateApproval = await Project.find({
-    _id: req.body.id,
-    facultyID: req.body.facultyID,
+    'projectCode': req.body.projectCode,
   });
-  //console.log(updateApproval)
 
   try {
     return res.status(200).json({
@@ -665,7 +660,7 @@ app.post("/updateStudentDetails", async (req, res, next) => {
 });
 
 //----------------------------------------------------------------------------
-//setting up a port
+//setting up the port
 //----------------------------------------------------------------------------
 
 let port = 3001;

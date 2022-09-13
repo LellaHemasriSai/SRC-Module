@@ -10,7 +10,7 @@ const Cards = (props) => {
   const [clickstatus, setStatus] = useState(false);
   function postData(projectCode, facultyID, status, _id) {
     console.log("Submitted")
-    fetch("/updateProjectRecriutmentStatus", {
+    fetch("/updateRecruitmentApprovalStatus", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
