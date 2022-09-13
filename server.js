@@ -111,6 +111,7 @@ var newFac = new Faculty({
   projects: [],
 });
 newFac.save();
+//console.log(Faculty.findOne({ 'username': 'faculty' }))
 
 //admin Schema
 const adminSchema = new mongoose.Schema({
@@ -121,12 +122,12 @@ const adminSchema = new mongoose.Schema({
   },
   password: String,
   projects: {
-    approve: [projectsSchema],
+    approve: [String],
   },
   faculty: [String],
   staff: [String],
   recruitment: {
-    project: mongoose.Types.ObjectId,
+    project: String,
     numberOfStaff: Number,
     salary: Number,
     startDate: Date,
@@ -171,6 +172,8 @@ let newAdmin = new Admin({
   },
 });
 newAdmin.save();
+//console.log(Admin.findOne({ 'username': "admin" }))
+
 //staffSchema
 const staffSchema = new mongoose.Schema({
   username: {
@@ -238,7 +241,7 @@ var user = "faculty"
 
 //returns data to admin login
 app.post("/verifyAdminLogin", async (req, res, next) => {
-  var verify = await Admin.find({ username: req.body.username });
+  var verify = await Admin.find({ 'username': req.body.username });
   var verificationStatus = verify.length > 0 ? true : false;
   user = req.body.username
 
@@ -254,7 +257,7 @@ app.post("/verifyAdminLogin", async (req, res, next) => {
 
 //returns data to faculty Login
 app.post("/verifyFacultyLogin", async (req, res, next) => {
-  var verify = await Faculty.find({ username: req.body.username });
+  var verify = await Faculty.find({ 'username': req.body.username });
   var verificationStatus = verify.length > 0 ? true : false;
   user = req.body.username
 
@@ -521,6 +524,23 @@ app.post("/updateProjectApprovalStatus", async (req, res, next) => {
 //update project status in faculty projects
 app.post("/updateProjectStatus", async (req, res, next) => {
   await Project.findByIdAndUpdate(req.body._id, { status: req.body.status });
+
+  try {
+    return res.status(200).json({
+      success: true,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: "server error" });
+  }
+});
+
+//update faculty details from Details form
+app.post("/updateFacultyDetails", async (req, res, next) => {
+  const fac = await Faculty.findOne({ 'username': user })
+  const id = fac.id;
+  await Faculty.findByIdAndUpdate(id, { details: req.body.details });
+  //console.log(Faculty.findOne({ 'username': 'faculty' }))
 
   try {
     return res.status(200).json({
