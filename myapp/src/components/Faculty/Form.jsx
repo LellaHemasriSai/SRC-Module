@@ -65,7 +65,7 @@ export default function RegisterForm() {
             <div class="row">
                 <div class="col-md-6 offset-md-3">
                     <br /><br />
-                    <h1>Register Form</h1>
+                    <h1>Update Details</h1>
                     <br />
                     <form>
                         <div class="form-row">
