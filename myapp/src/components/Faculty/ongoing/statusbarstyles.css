@@ -1,4 +1,4 @@
-.CircularProgressbar {
+.circularprogressbar {
     /*
      * This fixes an issue where the CircularProgressbar svg has
      * 0 width inside a "display: flex" container, and thus not visible.

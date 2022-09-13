@@ -2,14 +2,30 @@
 	align-items: start;
 	display: grid;
 	grid-gap: 25px;
-	grid-template-columns: repeat(auto-fit, 390px);
+	grid-template-columns: repeat(auto-fit, 370px);
 	justify-content: center;
 }
 
 .card_ongoing {
     background-color:white;
 	border-radius: 5px;
-	color: white;
+	color: black;
 	padding: 24px 0 16px;
 	text-align: left;
+	transition: transform .3s ease;
+}
+
+.card_ongoing:hover{
+    transform: scale(1.05);
+	box-shadow: 0 2px 5px -1px rgba(0, 0, 0, .08);
+}
+.student_box_text{
+	padding-left:10%;
+	padding-right:10%;
+}
+
+.status_circle{
+	width: 20%;
+	display: flex;
+	align-items:flex-end;
 }
