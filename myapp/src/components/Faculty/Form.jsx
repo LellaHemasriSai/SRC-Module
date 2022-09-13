@@ -16,7 +16,7 @@ export default function RegisterForm() {
     const [Gender, setGender] = useState("")
     const [Signature, setSignature] = useState("")
 
-    function onSubmit() { console.log('submitted RegisterForm') }
+    //function onSubmit() { console.log('submitted RegisterForm') }
     function handlechange() {
         setDepartment("");
         setDesignation("");
@@ -29,7 +29,7 @@ export default function RegisterForm() {
         setGender("");
     }
 
-    function onSubmit() { console.log('submitted Create Project') }
+    //function onSubmit() { console.log('submitted Create Project') }
     function postData() {
         console.log("Submitted")
         fetch("/updateFacultyDetails", {
@@ -57,7 +57,8 @@ export default function RegisterForm() {
                     Qualifications: Qualifications,
                     DoB: DoB,
                     Address: Address,
-                    Gender: Gender
+                    Gender: Gender,
+                    Signature: Signature,
                 },
             }),
         }).then((res) => {
