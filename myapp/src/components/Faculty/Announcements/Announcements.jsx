@@ -1,6 +1,7 @@
 import React, { useState} from 'react'
 import "./announcements.css"
 import { MainNav } from '../../App';
+import announce from "../../../images/announcements.svg"
 import swal from 'sweetalert';
 
 export default function CreateAnnouncement() {
@@ -54,6 +55,10 @@ export default function CreateAnnouncement() {
       <MainNav></MainNav>
       <div className="main_container">
         <div className="container">
+          <div className='head_wrap'>
+            <span><img src={announce} style={{ width: "30px", height: "30px" }} alt="applications"/></span>
+            <span><h1 id="head_text">Create Announcements</h1></span>
+          </div>
           <form onSubmit={onSubmit()}>
             <div class="form-row">
               <div class="form-group col-md-4">

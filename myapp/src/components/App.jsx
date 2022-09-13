@@ -25,7 +25,7 @@ import Extend_Duration from "./Faculty/Extend_Duration/extend_duration.jsx"
 import Funds_Extension from "./Faculty/Funds_Extension/funds_extension.jsx"
 import Modify_Staff from "./Faculty/Modify_Staff/modify_staff.jsx";
 import StudentSidebar from "./Staff/studentSideBar.jsx";
-import Applications from "./Faculty/Applications.jsx"
+import Applications from "./Faculty/Applications/Applications.jsx"
 import Opportunites from "./Staff/Opportunities.jsx";
 import StudentApplications from "./Staff/StudentApplications.jsx"
 import Offers from "./Staff/Offers.jsx"

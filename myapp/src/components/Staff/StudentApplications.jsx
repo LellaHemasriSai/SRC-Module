@@ -1,8 +1,6 @@
 import React from 'react'
-import Container from '../Navbar/components/Container';
 import {StudentMainNav} from '../App.jsx'
 import "./staff.css"
-import StudentCard from './StudentCard';
 import applications from "../../images/applications.svg"
 import ApplicationCard from './ApplicationCard';
 

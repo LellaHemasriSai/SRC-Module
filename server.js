@@ -1,8 +1,4 @@
-import {
-  generateAgencyCode,
-  projectCode,
-  updateProjectStatus,
-} from "./Modules/backendModules.js";
+import { generateAgencyCode, projectCode } from "./Modules/backendModules.js";
 import express from "express";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
@@ -84,6 +80,14 @@ const facultySchema = new mongoose.Schema({
     DoB: Date,
     Address: String,
     Gender: String,
+    Signature: [
+      {
+        fileName: String,
+        filePath: String,
+        fileType: String,
+        fileSize: String,
+      },
+    ],
   },
   projects: [String],
   sanctionLetter: String, //shld be file
@@ -150,7 +154,7 @@ const adminSchema = new mongoose.Schema({
 
 const Admin = mongoose.model("Admin", adminSchema);
 
-//dummy Admin 
+//dummy Admin
 let newAdmin = new Admin({
   username: "admin",
   password: "admin",
@@ -203,7 +207,25 @@ const staffSchema = new mongoose.Schema({
   ],
 });
 
-const Staff = mongoose.model("Staff", staffSchema)
+const Staff = mongoose.model("Staff", staffSchema);
+
+let newStaff = new Staff({
+  username: "student",
+  password: "student",
+  staffCode: "stu00",
+  details: {
+    Department: "AI",
+    Designation: "Student",
+    Email: "student@iittp.ac.in",
+    ContactNumber: "0101017878",
+    DateOfJoining: new Date("2020-06-19"),
+    Qualifications: "class 12, B-Tech",
+    DoB: new Date("2002-12-18"),
+    Address: "Tirupati, Andhra Pradesh",
+  },
+  projects: [],
+});
+newStaff.save();
 
 const announcementSchema = new mongoose.Schema({
   projectName: String,
@@ -230,22 +252,37 @@ const recruitmentRequestSchema = new mongoose.Schema({
   description: String,
   approval: Boolean,
   projectName: String,
-})
+});
 
-const RecruitmentRequest = mongoose.model("RecruitmentRequest", recruitmentRequestSchema);
+const RecruitmentRequest = mongoose.model(
+  "RecruitmentRequest",
+  recruitmentRequestSchema
+);
+
+// const scannedSignaturesSchema = new mongoose.Schema({
+//   fileName: String,
+//   filePath: String,
+//   fileType: String,
+//   fileSize: String,
+// });
+
+// const ScannedSignatures = mongoose.model(
+//   "ScannedSignatures",
+//   scannedSignaturesSchema
+// );
 
 //--------------------------------------------------------------------------------------------
 //Login Authentication
 //--------------------------------------------------------------------------------------------
 
 //variable to store current user information - default is set to faculty for current presentation
-var user = "faculty"
+var user = "faculty";
 
 //returns data to admin login
 app.post("/verifyAdminLogin", async (req, res, next) => {
-  var verify = await Admin.find({ 'username': req.body.username });
+  var verify = await Admin.find({ username: req.body.username });
   var verificationStatus = verify.length > 0 ? true : false;
-  user = req.body.username
+  user = req.body.username;
 
   try {
     return res.status(200).json({
@@ -259,9 +296,9 @@ app.post("/verifyAdminLogin", async (req, res, next) => {
 
 //returns data to faculty Login
 app.post("/verifyFacultyLogin", async (req, res, next) => {
-  var verify = await Faculty.find({ 'username': req.body.username });
+  var verify = await Faculty.find({ username: req.body.username });
   var verificationStatus = verify.length > 0 ? true : false;
-  user = req.body.username
+  user = req.body.username;
 
   try {
     return res.status(200).json({
@@ -275,9 +312,9 @@ app.post("/verifyFacultyLogin", async (req, res, next) => {
 
 //returns data to Staff Login
 app.post("/verifyStaffLogin", async (req, res, next) => {
-  var verify = await Staff.find({ 'username': req.body.username });
+  var verify = await Staff.find({ username: req.body.username });
   var verificationStatus = verify.length > 0 ? true : false;
-  user = req.body.username
+  user = req.body.username;
 
   try {
     return res.status(200).json({
@@ -293,9 +330,12 @@ app.post("/verifyStaffLogin", async (req, res, next) => {
 //Functions to send data to front end
 //---------------------------------------------------------------------------------------------
 
-//returns Announcements to Staff / Student page
+//returns recruitment to admin
 app.post("/sendRecruitmentApprovals", async (req, res, next) => {
-  var approvals = await RecruitmentRequest.find({ 'active': true, 'approval': false });
+  var approvals = await RecruitmentRequest.find({
+    active: true,
+    approval: false,
+  });
   try {
     return res.status(200).json({
       success: true,
@@ -310,7 +350,7 @@ app.post("/sendRecruitmentApprovals", async (req, res, next) => {
 
 //returns Announcements to Staff / Student page
 app.post("/sendAnnouncements", async (req, res, next) => {
-  var announcements = await Announcement.find({ 'active': true });
+  var announcements = await Announcement.find({ active: true });
   //console.log(announcements)
   try {
     return res.status(200).json({
@@ -326,7 +366,7 @@ app.post("/sendAnnouncements", async (req, res, next) => {
 
 //returns data to faculty Home Page
 app.post("/sendFacultyDetails", async (req, res, next) => {
-  var details = await Faculty.findOne({ 'username': user });
+  var details = await Faculty.findOne({ username: user });
 
   try {
     return res.status(200).json({
@@ -342,7 +382,7 @@ app.post("/sendFacultyDetails", async (req, res, next) => {
 
 //returns data to Admin Home Page
 app.post("/sendAdminDetails", async (req, res, next) => {
-  var details = await Admin.findOne({ 'username': user });
+  var details = await Admin.findOne({ username: user });
 
   try {
     return res.status(200).json({
@@ -358,7 +398,7 @@ app.post("/sendAdminDetails", async (req, res, next) => {
 
 //returns data to Student Home Page
 app.post("/sendStaffDetails", async (req, res, next) => {
-  var details = await Staff.findOne({ 'username': user });
+  var details = await Staff.findOne({ username: user });
 
   try {
     return res.status(200).json({
@@ -439,7 +479,7 @@ app.post("/completed", async (req, res, next) => {
   }
 });
 
-//returns data to 
+//returns data to
 app.post("/sendRecruitment", async (req, res, next) => {
   var ongoingProjects = await Project.find({ approval: true, closed: true });
 
@@ -530,6 +570,32 @@ app.post("/saveRecruitmentRequest", (req, res) => {
 //updating values in data base
 //----------------------------------------------------------------------------
 
+//update recruitment approval status in admin
+app.post("/updateRecruitmentApprovalStatus", async (req, res, next) => {
+  const recruit = await RecruitmentRequest.findByIdAndUpdate(req.body.id, {
+    approval: true,
+    active: false,
+  });
+
+
+  var updateApproval = await Project.find({
+    _id: req.body.id,
+    facultyID: req.body.facultyID,
+  });
+  //console.log(updateApproval)
+
+  try {
+    return res.status(200).json({
+      success: true,
+      count: updateApproval.length,
+      data: updateApproval,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: "server error" });
+  }
+});
+
 //update pending approval status in admin
 app.post("/updateProjectApprovalStatus", async (req, res, next) => {
   await Project.findByIdAndUpdate(req.body.id, {
@@ -571,7 +637,7 @@ app.post("/updateProjectStatus", async (req, res, next) => {
 
 //update faculty details from Details form
 app.post("/updateFacultyDetails", async (req, res, next) => {
-  const fac = await Faculty.findOne({ 'username': user })
+  const fac = await Faculty.findOne({ username: user });
   const id = fac.id;
   await Faculty.findByIdAndUpdate(id, { details: req.body.details });
   //console.log(Faculty.findOne({ 'username': 'faculty' }))
@@ -588,7 +654,7 @@ app.post("/updateFacultyDetails", async (req, res, next) => {
 
 //update admin details from Details form
 app.post("/updateAdminDetails", async (req, res, next) => {
-  const admin = await Admin.findOne({ 'username': user })
+  const admin = await Admin.findOne({ username: user });
   const id = admin.id;
   await Admin.findByIdAndUpdate(id, { details: req.body.details });
   //console.log(Faculty.findOne({ 'username': 'faculty' }))
@@ -605,7 +671,7 @@ app.post("/updateAdminDetails", async (req, res, next) => {
 
 //update Student details from Details form
 app.post("/updateStudentDetails", async (req, res, next) => {
-  const student = await Faculty.findOne({ 'username': user })
+  const student = await Faculty.findOne({ username: user });
   const id = student.id;
   await Faculty.findByIdAndUpdate(id, { details: req.body.details });
   //console.log(Faculty.findOne({ 'username': 'faculty' }))
@@ -632,8 +698,6 @@ app.listen(port, function () {
 //---------------------------------------------------------------------------------
 //                                      END
 //---------------------------------------------------------------------------------
-
-
 
 //testing
 /*var newFac = new Faculty({

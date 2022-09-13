@@ -1,6 +1,8 @@
 import{ React ,useState } from 'react'
 import "./staff.css"
 import close from "../../images/close.svg"
+import AnnouncementCard from './AnnouncementCard';
+
 
 function onApply(){
     console.log("Applied");
@@ -23,13 +25,10 @@ function HomeCard(props) {
     <div className={display ? "student_content" : "remove_content"}>
       <div className="content">
       <div className='header_text'>
-        <span style={{ fontSize:"1em" , fontWeight:"600"}}>{props.name}</span>
+        <span style={{ paddingLeft:"10%", fontSize:"1.2em" , fontWeight:"600"}}>{props.name}</span>
         <span><button  onClick={onClose} className='home_btn'><img src={close} style={{ width: "25px", height: "25px" }} alt="close_pic" /></button></span>
-      </div>    
-      <br></br>
-      <p>ProjectID: {props.id}</p>
-      <p>Salary: {props.details}</p>
-      <p></p>
+      </div>
+      <AnnouncementCard></AnnouncementCard>
 	  </div>
     </div>
   )

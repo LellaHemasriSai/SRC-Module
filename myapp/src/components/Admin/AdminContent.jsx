@@ -4,7 +4,6 @@ import { MDBContainer, MDBRow, MDBCol } from 'mdb-react-ui-kit';
 
 
 export default function AdminContent(props) {
-  const [userdata,setUserdata]=useState([])
     const [username, setUserName] = useState([])
     const [dob,setDob]=useState([])
     const [email,setEmail]=useState([])
@@ -18,9 +17,7 @@ export default function AdminContent(props) {
     axios.post('http://localhost:3001/sendAdminDetails')
       .then(res => {
         console.log('Data: ', res.data.data)
-        setUserdata(res.data.data)
-      console.log(res.data.data.details.Gender)
-       setUserName(res.data.data.username)
+        setUserName(res.data.data.username)
         let birth=JSON.stringify(res.data.data.details.DoB).substring(1,11);
         var date=new Date(birth);
         setDob(date.getDay()+"/"+date.getMonth()+"/"+date.getFullYear())
