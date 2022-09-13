@@ -4,6 +4,7 @@ import axios from 'axios';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./ongoing.css";
 import { MainNav } from '../../App';
+import ongoing from "../../../images/ongoing.svg"
 const Ongoing = () => {
   const [cardinfo, setCardInfo] = useState([])
 
@@ -26,6 +27,10 @@ const Ongoing = () => {
       <MainNav></MainNav>
       <div className="main_container">
         <div className="container" style={{ textAlign: "center" }}>
+            <div  className='head_wrap'>
+            <span><img src={ongoing} style={{ width: "28px", height: "28px" }} alt="ongoing"/></span>
+            <span><h1 id="head_text">Ongoing Projects</h1></span>
+            </div>
           <div className='grid'>
             {cardinfo.map((card, index) => (
               <Card id={index}

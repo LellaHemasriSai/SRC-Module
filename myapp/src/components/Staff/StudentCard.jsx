@@ -1,10 +1,58 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState,useEffect } from "react";
+import axios from "axios";
 import "./staff.css"
 
-function onApply(e) {
-  console.log("Applied") }
+
+
 
 export default function StudentCard(props) {
+    const [username, setUserName] = useState([])
+    const [dob,setDob]=useState([])
+    const [email,setEmail]=useState([])
+    const [addr,setAddress]=useState([])
+    const [qual,setQual]=useState([])
+    const [dep,setDep]=useState([])
+    const [contact,setContact]=useState([])
+    const [dof,setDof]=useState([])
+    const [gender,setGender]=useState([])
+  useEffect(() => {
+    axios.post('http://localhost:3001/sendStaffDetails')
+      .then(res => {
+        console.log('Data: ', res.data.data)
+        setUserName(res.data.data.username)
+        setDob(res.data.data.details.DoB)
+        setAddress(res.data.data.details.Address)
+        setContact(res.data.data.details.ContactNumber)
+        setDep(res.data.data.details.Department)
+        setDof(res.data.data.details.dof)
+        setEmail(res.data.data.details.Email)
+        setQual(res.data.data.details.Qualifications)
+        setGender(res.data.data.details.Gender)
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }, [])
+
+
+    function postApplication(id) {
+        console.log("Applied")
+        fetch("/sendApplications", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                staffName:username,
+                projectID:id,
+                department:dep,
+                email:email,
+            }),
+        }).then((res) => {
+            console.log("Res:", res);
+        })
+    }
+
   let start=new Date(props.start);
   console.log(start);
   let sDate=start.getDay()+"/"+start.getMonth()+"/"+start.getFullYear();
@@ -49,7 +97,7 @@ export default function StudentCard(props) {
       <div className='home_text'>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
     </div>
-    <button onClick={onApply} className='apply_btn'>Apply Now</button>
+    <button onClick={() => { postApplication(props.id) }} className='apply_btn'>Apply Now</button>
 	</div>
   </div>
   )

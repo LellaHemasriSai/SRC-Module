@@ -205,6 +205,24 @@ const staffSchema = new mongoose.Schema({
 
 const Staff = mongoose.model("Staff", staffSchema)
 
+let newStaff = new Staff({
+  username: "student",
+  password: "student",
+  staffCode: "stu00",
+  details: {
+    Department: "AI",
+    Designation: "Student",
+    Email: "student@iittp.ac.in",
+    ContactNumber: "0101017878",
+    DateOfJoining: new Date("2020-06-19"),
+    Qualifications: "class 12, B-Tech",
+    DoB: new Date("2002-12-18"),
+    Address: "Tirupati, Andhra Pradesh",
+  },
+  projects: [],
+});
+newStaff.save();
+
 const announcementSchema = new mongoose.Schema({
   projectName: String,
   projectID: String,
@@ -293,7 +311,7 @@ app.post("/verifyStaffLogin", async (req, res, next) => {
 //Functions to send data to front end
 //---------------------------------------------------------------------------------------------
 
-//returns Announcements to Staff / Student page
+//returns recruitment to admin
 app.post("/sendRecruitmentApprovals", async (req, res, next) => {
   var approvals = await RecruitmentRequest.find({ 'active': true, 'approval': false });
   try {
@@ -529,6 +547,32 @@ app.post("/saveRecruitmentRequest", (req, res) => {
 //----------------------------------------------------------------------------
 //updating values in data base
 //----------------------------------------------------------------------------
+
+//update recruitment approval status in admin
+app.post("/updateRecruitmentApprovalStatus", async (req, res, next) => {
+  const recruit = await RecruitmentRequest.findByIdAndUpdate(req.body.id, {
+    approval: true,
+    active: false,
+  });
+
+
+  var updateApproval = await Project.find({
+    _id: req.body.id,
+    facultyID: req.body.facultyID,
+  });
+  //console.log(updateApproval)
+
+  try {
+    return res.status(200).json({
+      success: true,
+      count: updateApproval.length,
+      data: updateApproval,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: "server error" });
+  }
+});
 
 //update pending approval status in admin
 app.post("/updateProjectApprovalStatus", async (req, res, next) => {

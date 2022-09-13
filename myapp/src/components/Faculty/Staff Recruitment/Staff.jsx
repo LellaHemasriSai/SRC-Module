@@ -1,10 +1,8 @@
 import React, { useState, useRef } from 'react'
-//import Sidebar from "../../Navbar/components/Sidebar";
-//import Nav from "../../Navbar/components/Nav";
 import "./staff.css"
-//import MainNav from '../../Navbar/components/MainNav';
 import { MainNav } from '../../App';
-//import { Container } from '@mui/system';
+import recruit from "../../../images/recruit.svg"
+import swal from 'sweetalert'
 
 export default function CreateAnnouncement() {
   const [projectName, setProjectName] = useState();
@@ -50,7 +48,7 @@ export default function CreateAnnouncement() {
     }).then((res) => {
       console.log("Res:", res);
     })
-    alert("Submitted");
+    swal("","Submitted Staff recruitment Request","success");
     handlechange();
   }
   //console.alert("SubmittedValues: ", projectID, " ", projectName, " ", projectType, organizationType, agencyCode, agencyName, sanctionValue, startDate, endDate, descriptionBox)
@@ -60,6 +58,10 @@ export default function CreateAnnouncement() {
       <MainNav></MainNav>
       <div className="main_container">
         <div className="container">
+          <div className='head_wrap'>
+          <span><img src={recruit} style={{ width: "30px", height: "30px" }} alt="recruit"/></span>
+          <span><h1 id="head_text">Request Recruitment</h1></span>
+          </div>
           <form onSubmit={onSubmit()}>
             <div class="form-row">
               <div class="form-group col-md-4">

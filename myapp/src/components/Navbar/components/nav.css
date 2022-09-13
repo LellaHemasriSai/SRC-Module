@@ -265,6 +265,7 @@ body{
 	margin-left: 25px;
 	margin-right: 25px;
 	text-align: left;
+	transform: scale(1.05);
 }
 
 .click_collapse .main_container{
@@ -322,6 +323,9 @@ body{
 	margin-top: 15px;
 }
 
+.box_content_text{
+	width: 50%;
+}
 .main_text{
 	font-weight: bolder;
 }

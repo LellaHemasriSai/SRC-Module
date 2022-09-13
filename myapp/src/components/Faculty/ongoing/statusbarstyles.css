@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 .CircularProgressbar {
   /*
+=======
+.circularprogressbar {
+    /*
+>>>>>>> 09530dda395dca18135a8f59ce3b6c6b0fc5d066
      * This fixes an issue where the CircularProgressbar svg has
      * 0 width inside a "display: flex" container, and thus not visible.
      */

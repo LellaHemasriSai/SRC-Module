@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-//import { Grid } from '@mui/material';
-//import Button from '@mui/material';
+import create from "../../../images/create.svg"
 import { MainNav } from '../../App';
+import swal from 'sweetalert';
 
 export default function Create() {
     const [agencyCode, setagencyCode] = useState("");
@@ -17,7 +17,6 @@ export default function Create() {
 
     function onSubmit() { 
         console.log('submitted Create Project');
-    //    handlechange();
 }
 function handlechange()
 {
@@ -54,7 +53,7 @@ function handlechange()
         }).then((res) => {
             console.log("Res:", res);
         })
-        alert('submitted Create Project');
+        swal("","submitted Create Project","success");
         handlechange();
     }
     //console.alert("SubmittedValues: ", projectID, " ", projectName, " ", projectType, organizationType, agencyCode, agencyName, sanctionValue, startDate, endDate, descriptionBox)
@@ -64,6 +63,10 @@ function handlechange()
             <MainNav></MainNav>
             <div className="main_container">
                 <div className="container"> 
+                    <div className='head_wrap'>
+                    <span><img src={create} style={{ width: "28px", height: "28px" }} alt="create"/></span>
+                    <span><h1 id="head_text">Create Project</h1></span>
+                    </div>
                     <div class="card_project">
                         <form onSubmit={onSubmit()} id="my_form">
                             <div class="form-row">
@@ -128,4 +131,3 @@ function handlechange()
         </div>
     )
 }
-// comment
