@@ -1,12 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-// import { BrowserRouter as Router, Routes,Link , Route, useParams } from "react-router-dom";
 import Login1 from "./login1/login1.jsx";
 import Ongoing from "../components/Faculty/ongoing/Ongoing"
 import Recruitment from "../components/Faculty/Staff Recruitment/Staff";
 import LoginFac from "./login2/login2_fac";
 import LoginAdmin from "./login2/login2_Ad";
 import LoginStu from "./login2/login2_stu.js";
-//import MainNav from "./Navbar/components/MainNav"
 import Create from "../components/Faculty/CreateProject/create"
 import Announcements from "./Faculty/Announcements/Announcements.jsx";
 import Admin from "./Admin/Admin.jsx";
@@ -16,9 +14,8 @@ import ApproveRecruitment from "./Admin/Approve_Recruitmnet.jsx";
 import DurationExtension from "./Admin/Duration_Extension.jsx";
 import Completed from "./Faculty/Completed/Completed";
 import View from "./Admin/View.jsx";
-import NavBar from "./Navbar/components/NavBar.jsx";
 import Nav from "./Navbar/components/Nav.jsx";
-import Sidebar from "./Navbar/components/Sidebar.jsx";
+import Sidebar from "./Faculty/Sidebar.jsx";
 import "../components/Navbar/components/nav.css"
 import AdminSidebar from "./Admin/Sidebar.jsx";
 import StudentHome from "./Staff/StudentHome.jsx"
@@ -29,12 +26,13 @@ import Funds_Extension from "./Faculty/Funds_Extension/funds_extension.jsx"
 import Modify_Staff from "./Faculty/Modify_Staff/modify_staff.jsx";
 import StudentSidebar from "./Staff/studentSideBar.jsx";
 import Applications from "./Faculty/Applications.jsx"
-import StaffDetails from "./Faculty/staffDetails.jsx"
 import Opportunites from "./Staff/Opportunities.jsx";
 import StudentApplications from "./Staff/StudentApplications.jsx"
 import Offers from "./Staff/Offers.jsx"
 import StudentOngoing from "./Staff/StudentOngoing.jsx";
 import StudentCompleted from "./Staff/StudentCompleted.jsx";
+import List from "./Faculty/ongoing/List/List.jsx";
+import FacultyHome from "./Faculty/Home/FacultyHome.jsx"
 // should be an json object coming from database
 //export const username = "poojasree";  // no spaces
 //export const admin = "AdminName";
@@ -77,7 +75,7 @@ const App = () => {
         </>
         <>
           <Route exact path="/Faculty" element={<LoginFac  />} />
-          <Route exact path="/Faculty/:username/home" element={<NavBar  />} />
+          <Route exact path="/Faculty/:username/home" element={<FacultyHome  />} />
           <Route exact path="/Faculty/:username/Form" element={<Form />} />
           <Route exact path="/Faculty/:username/create_project" element={<Create />} />
           <Route exact path="/Faculty/:username/ongoing_project" element={<Ongoing />} />
@@ -89,7 +87,7 @@ const App = () => {
           <Route exact path="/Faculty/:username/extend_duration" element={<Extend_Duration />} />
           <Route exact path="/Faculty/:username/funds_extension" element={<Funds_Extension />} />
           <Route exact path="/Faculty/:username/modify_staff" element={<Modify_Staff />} />
-           <Route exact path="/Faculty/:username/ongoing_project/StaffDetails" element={<StaffDetails />} />
+          <Route exact path="/Faculty/:username/list" element={<List />} />
         </>
         <Route exact path="/Student" element={<LoginStu />} />
         <Route exact path="/Student/:username/studentHome" element={<StudentHome />} />

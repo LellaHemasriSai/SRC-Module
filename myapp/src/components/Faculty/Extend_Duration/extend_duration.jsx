@@ -1,10 +1,6 @@
 import React, { useState, useRef } from 'react'
-//import Sidebar from "../../Navbar/components/Sidebar";
-//import Nav from "../../Navbar/components/Nav";
-//import "./staff.css"
-//import MainNav from '../../Navbar/components/MainNav';
 import { MainNav } from '../../App';
-//import { Container } from '@mui/system';
+
 
 export default function ExtendDuration() {
     const [projectName, setProjectName] = useState("default");
@@ -14,6 +10,15 @@ export default function ExtendDuration() {
     const [extendDate, setExtendDate] = useState("0/0/0")
     const [descriptionBox, setDescriptionBox] = useState("default text")
     function onSubmit() { console.log("Submitted") }
+    function handlechange()
+    {
+        setProjectName("");
+        setProjectID("");
+        setProjectType("");
+        setPreviousDate("");
+        setExtendDate("");
+        setDescriptionBox("");
+    }
     function postData() {
         console.log("Submitted")
         fetch("/created", {
@@ -32,8 +37,8 @@ export default function ExtendDuration() {
         }).then((res) => {
             console.log("Res:", res);
         })
+       handlechange();
     }
-    //console.alert("SubmittedValues: ", projectID, " ", projectName, " ", projectType, organizationType, agencyCode, agencyName, sanctionValue, startDate, endDate, descriptionBox)
 
     return (
         <div className="wrapper hover_collapse">

@@ -111,6 +111,7 @@ var newFac = new Faculty({
   projects: [],
 });
 newFac.save();
+//console.log(Faculty.findOne({ 'username': 'faculty' }))
 
 //admin Schema
 const adminSchema = new mongoose.Schema({
@@ -121,12 +122,12 @@ const adminSchema = new mongoose.Schema({
   },
   password: String,
   projects: {
-    approve: [projectsSchema],
+    approve: [String],
   },
-  faculty: [mongoose.Types.ObjectId],
-  staff: [mongoose.Types.ObjectId],
+  faculty: [String],
+  staff: [String],
   recruitment: {
-    project: mongoose.Types.ObjectId,
+    project: String,
     numberOfStaff: Number,
     salary: Number,
     startDate: Date,
@@ -134,9 +135,44 @@ const adminSchema = new mongoose.Schema({
     reasonForRecruitment: String,
     approve: Boolean,
   },
+  details: {
+    Department: String,
+    Designation: String,
+    Email: String,
+    ContactNumber: String,
+    DateOfJoining: Date,
+    Qualifications: String,
+    DoB: Date,
+    Address: String,
+    Gender: String,
+  },
 });
 
 const Admin = mongoose.model("Admin", adminSchema);
+
+//dummy Admin 
+let newAdmin = new Admin({
+  username: "admin",
+  password: "admin",
+  projects: {
+    approve: [],
+  },
+  faculty: [],
+  staff: [],
+  details: {
+    Department: "Administration",
+    Designation: "ERP Manager",
+    Email: "erp.manager@iittp.ac.in",
+    ContactNumber: "0000000000",
+    DateOfJoining: new Date("2017-09-19"),
+    Qualifications: "MBA, B.Sc - Computers",
+    DoB: new Date("1990-10-18"),
+    Address: "Chennai, Metropolitan Area",
+    Gender: "Male",
+  },
+});
+newAdmin.save();
+//console.log(Admin.findOne({ 'username': "admin" }))
 
 //staffSchema
 const staffSchema = new mongoose.Schema({
@@ -167,6 +203,8 @@ const staffSchema = new mongoose.Schema({
   ],
 });
 
+const Staff = mongoose.model("Staff", staffSchema)
+
 const announcementSchema = new mongoose.Schema({
   projectName: String,
   projectID: String,
@@ -181,14 +219,20 @@ const announcementSchema = new mongoose.Schema({
 
 const Announcement = mongoose.model("Announcement", announcementSchema);
 
-const recruitmentRequest = new mongoose.Schema({
+const recruitmentRequestSchema = new mongoose.Schema({
   projectID: String,
   recruitmentType: String,
   numberOfStaff: Number,
   salaryDetails: Number,
   startDate: Date,
   endDate: Date,
+  active: Boolean,
+  description: String,
+  approval: Boolean,
+  projectName: String,
 })
+
+const RecruitmentRequest = mongoose.model("RecruitmentRequest", recruitmentRequestSchema);
 
 //--------------------------------------------------------------------------------------------
 //Login Authentication
@@ -197,9 +241,41 @@ const recruitmentRequest = new mongoose.Schema({
 //variable to store current user information - default is set to faculty for current presentation
 var user = "faculty"
 
-//returns data to faculty ongoing projects
+//returns data to admin login
+app.post("/verifyAdminLogin", async (req, res, next) => {
+  var verify = await Admin.find({ 'username': req.body.username });
+  var verificationStatus = verify.length > 0 ? true : false;
+  user = req.body.username
+
+  try {
+    return res.status(200).json({
+      success: verificationStatus,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: "server error" });
+  }
+});
+
+//returns data to faculty Login
 app.post("/verifyFacultyLogin", async (req, res, next) => {
-  var verify = await Faculty.find({ username: req.body.username });
+  var verify = await Faculty.find({ 'username': req.body.username });
+  var verificationStatus = verify.length > 0 ? true : false;
+  user = req.body.username
+
+  try {
+    return res.status(200).json({
+      success: verificationStatus,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: "server error" });
+  }
+});
+
+//returns data to Staff Login
+app.post("/verifyStaffLogin", async (req, res, next) => {
+  var verify = await Staff.find({ 'username': req.body.username });
   var verificationStatus = verify.length > 0 ? true : false;
   user = req.body.username
 
@@ -218,9 +294,24 @@ app.post("/verifyFacultyLogin", async (req, res, next) => {
 //---------------------------------------------------------------------------------------------
 
 //returns Announcements to Staff / Student page
+app.post("/sendRecruitmentApprovals", async (req, res, next) => {
+  var approvals = await RecruitmentRequest.find({ 'active': true, 'approval': false });
+  try {
+    return res.status(200).json({
+      success: true,
+      count: approvals.length,
+      data: approvals,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: "server error" });
+  }
+});
+
+//returns Announcements to Staff / Student page
 app.post("/sendAnnouncements", async (req, res, next) => {
   var announcements = await Announcement.find({ 'active': true });
-
+  //console.log(announcements)
   try {
     return res.status(200).json({
       success: true,
@@ -236,6 +327,38 @@ app.post("/sendAnnouncements", async (req, res, next) => {
 //returns data to faculty Home Page
 app.post("/sendFacultyDetails", async (req, res, next) => {
   var details = await Faculty.findOne({ 'username': user });
+
+  try {
+    return res.status(200).json({
+      success: true,
+      count: details.length,
+      data: details,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: "server error" });
+  }
+});
+
+//returns data to Admin Home Page
+app.post("/sendAdminDetails", async (req, res, next) => {
+  var details = await Admin.findOne({ 'username': user });
+
+  try {
+    return res.status(200).json({
+      success: true,
+      count: details.length,
+      data: details,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: "server error" });
+  }
+});
+
+//returns data to Student Home Page
+app.post("/sendStaffDetails", async (req, res, next) => {
+  var details = await Staff.findOne({ 'username': user });
 
   try {
     return res.status(200).json({
@@ -365,7 +488,7 @@ app.post("/created", (req, res) => {
 
 //save announcement
 app.post("/announced", (req, res) => {
-  console.log("Recieved?");
+  console.log("Received?");
   res.send("request sent");
   var newAnnouncement = new Announcement({
     projectName: req.body.projectName,
@@ -378,6 +501,7 @@ app.post("/announced", (req, res) => {
     endDate: req.body.endDate,
     active: true,
   });
+  //console.log(newAnnouncement)
   newAnnouncement.save();
 });
 
@@ -385,10 +509,21 @@ app.post("/announced", (req, res) => {
 app.post("/saveRecruitmentRequest", (req, res) => {
   console.log("saving Recruitment?");
   res.send("request sent");
-  var newRequest = new Request({
-
+  var newRequest = new RecruitmentRequest({
+    projectID: req.body.projectID,
+    //projectName: await Project.findOne({ 'projectCode': req.body.projectID }).projectName,
+    projectName: req.body.projectName,
+    recruitmentType: req.body.recruitmentType,
+    numberOfStaff: req.body.no_ofStaff,
+    salaryDetails: req.body.salaryDetails,
+    startDate: req.body.startDate,
+    endDate: req.body.endDate,
+    active: true,
+    approval: false,
+    description: req.body.descriptionBox,
   });
   newRequest.save();
+  // console.log(newRequest.projectName);
 });
 
 //----------------------------------------------------------------------------
@@ -423,6 +558,57 @@ app.post("/updateProjectApprovalStatus", async (req, res, next) => {
 //update project status in faculty projects
 app.post("/updateProjectStatus", async (req, res, next) => {
   await Project.findByIdAndUpdate(req.body._id, { status: req.body.status });
+
+  try {
+    return res.status(200).json({
+      success: true,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: "server error" });
+  }
+});
+
+//update faculty details from Details form
+app.post("/updateFacultyDetails", async (req, res, next) => {
+  const fac = await Faculty.findOne({ 'username': user })
+  const id = fac.id;
+  await Faculty.findByIdAndUpdate(id, { details: req.body.details });
+  //console.log(Faculty.findOne({ 'username': 'faculty' }))
+
+  try {
+    return res.status(200).json({
+      success: true,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: "server error" });
+  }
+});
+
+//update admin details from Details form
+app.post("/updateAdminDetails", async (req, res, next) => {
+  const admin = await Admin.findOne({ 'username': user })
+  const id = admin.id;
+  await Admin.findByIdAndUpdate(id, { details: req.body.details });
+  //console.log(Faculty.findOne({ 'username': 'faculty' }))
+
+  try {
+    return res.status(200).json({
+      success: true,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: "server error" });
+  }
+});
+
+//update Student details from Details form
+app.post("/updateStudentDetails", async (req, res, next) => {
+  const student = await Faculty.findOne({ 'username': user })
+  const id = student.id;
+  await Faculty.findByIdAndUpdate(id, { details: req.body.details });
+  //console.log(Faculty.findOne({ 'username': 'faculty' }))
 
   try {
     return res.status(200).json({

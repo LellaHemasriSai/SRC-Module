@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react'
-import Sidebar from "../../Navbar/components/Sidebar";
+import Sidebar from '../Sidebar';
 import Nav from "../../Navbar/components/Nav";
 import "./announcements.css"
 //import MainNav from '../../Navbar/components/MainNav';
@@ -103,6 +103,19 @@ export default function CreateAnnouncement() {
   const [startDate, setStartDate] = useState("")
   const [endDate, setEndDate] = useState("")
   const [requiredQualifications, setRequiredQualifications] = useState("")
+
+ function handlechange()
+ {
+  setProjectName("");
+  setProjectID("");
+  setprojectType("");
+  setSalaryDetails("");
+  setOpenPositions("");
+  setStartDate("");
+  setEndDate("");
+  setRequiredQualifications("");
+ }
+
   function onSubmit() { console.log("Submitted") }
   function postData() {
         console.log("Submitted")
@@ -124,6 +137,8 @@ export default function CreateAnnouncement() {
         }).then((res) => {
             console.log("Res:", res);
         })
+        alert("Announcement Created !");
+        handlechange();
     }
   return (
     <div className="wrapper hover_collapse">

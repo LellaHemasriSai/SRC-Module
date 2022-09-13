@@ -10,7 +10,10 @@ body {
   font-style: normal;
   font-weight: 400;
   letter-spacing: 0;
-  padding: 1rem;
+  padding: 0rem;
+  /* overflow:scroll; */
+  overflow: visible;
+  overflow-x: hidden;
 }
 
 .main{
@@ -35,14 +38,14 @@ img {
   padding: 0.8rem;
   font-size: 14px;
   text-transform: uppercase;
-  border-radius: 4px;
+  border-radius: 30px;
   font-weight: 400;
   display: block;
-  width: 100%;
+  width: 50%;
   cursor: pointer;
   border: 2px solid black;
   background: transparent;
-  margin: auto ;
+  margin: auto;
 }
 
 .cards .btn:hover {
@@ -88,16 +91,21 @@ img {
   display: inline-block;
  
 }
-.card_student {
+.card_student{
   background-color: white;
   border-radius: 0.25rem;
   box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+	transition: transform .2s ease;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  width: 500px;
+  width: 450px;
 }
 
+.card_student:hover{
+    transform: scale(1.05);
+	box-shadow: 0 2px 5px -1px rgba(0, 0, 0, .08);
+}
 .card_content {
   padding: 1rem;
   
@@ -230,6 +238,53 @@ img {
   display:none;
 }
 }
+
+
+
+
+
+/*@media screen and (max-width:1099px) {
+  .cards_item{
+    padding-left:2rem;
+  }
+  .cards{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  .click_collapse .main_container .cards{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  } 
+  
+}
+*/
+/*@media  screen and (max-width:750px) {
+  .cards{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  .card_student{
+    width: 35rem;
+  }
+  .click_collapse .main_container .card_student{
+    width: 32rem;
+  }
+}
+
+@media  screen and (max-width:600px) {
+  .cards{
+        display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  .card_student{
+    width: 35rem;
+  }
+}
+
 /*@media screen and (max-width:1100px) {
   .click_collapse .student_content{
     margin-left: 2rem;

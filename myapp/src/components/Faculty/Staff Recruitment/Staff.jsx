@@ -7,16 +7,28 @@ import { MainNav } from '../../App';
 //import { Container } from '@mui/system';
 
 export default function CreateAnnouncement() {
-  const [projectName, setProjectName] = useState("default");
-  const [projectID, setProjectID] = useState("default");
-  const [recruitmentType, setRecruitmentType] = useState("default")
-  const [no_ofStaff, setNo_ofStaff] = useState("default")
-  const [salaryDetails, setSalaryDetails] = useState("default")
-  const [startDate, setStartDate] = useState("0/0/0")
-  const [endDate, setEndDate] = useState("0/0/0")
-  const [descriptionBox, setDescriptionBox] = useState("default text")
+  const [projectName, setProjectName] = useState();
+  const [projectID, setProjectID] = useState();
+  const [recruitmentType, setRecruitmentType] = useState()
+  const [no_ofStaff, setNo_ofStaff] = useState(0)
+  const [salaryDetails, setSalaryDetails] = useState(0)
+  const [startDate, setStartDate] = useState()
+  const [endDate, setEndDate] = useState()
+  const [descriptionBox, setDescriptionBox] = useState()
 
   function onSubmit() { console.log("Submitted") }
+
+  function handlechange()
+  {
+    setProjectName("");
+    setProjectID("");
+    setRecruitmentType("");
+    setNo_ofStaff("");
+    setSalaryDetails("");
+    setStartDate("");
+    setEndDate("");
+    setDescriptionBox("");
+  }
 
   function postData() {
     console.log("Submitted Staff recruitment Request")
@@ -33,11 +45,13 @@ export default function CreateAnnouncement() {
         salaryDetails: salaryDetails,
         startDate: startDate,
         endDate: endDate,
-        descriptionBox: descriptionBox
+        descriptionBox: descriptionBox,
       }),
     }).then((res) => {
       console.log("Res:", res);
     })
+    alert("Submitted");
+    handlechange();
   }
   //console.alert("SubmittedValues: ", projectID, " ", projectName, " ", projectType, organizationType, agencyCode, agencyName, sanctionValue, startDate, endDate, descriptionBox)
 

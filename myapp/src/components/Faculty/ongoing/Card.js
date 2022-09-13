@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
+import axios from "axios";
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button'
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -7,15 +8,12 @@ import { CircularProgressbar } from 'react-circular-progressbar';
 import "./statusbarstyles.css"
 import ExtendDuration from "../Extend_Duration/extend_duration";
 import { useParams, Link } from "react-router-dom";
+import List from './List/List';
 const Cards = (props) => {
 
   const [show, setShow] = useState(false);
   const [status, setstatus] = useState(0);
-  // const update  = () => {
-  //   const value = prompt("Enter current progress");
-  //   setstatus(value);
-  // }
-  // const value = prompt("Enter current progress");
+
   function postData(_id) {
     const value = prompt("Enter current progress");
     setstatus(value);
@@ -24,7 +22,7 @@ const Cards = (props) => {
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({
+      body: JSON.stringify({            //updating status of project in database
         status: value,
         _id: _id
 
@@ -33,6 +31,18 @@ const Cards = (props) => {
       console.log("Res:", res);
     })
   }
+  let id=props.id;
+   useEffect(() => {
+    axios.post('http://localhost:3001/ongoing')
+      .then(res => {
+        console.log('Data: ', res.data.data[props.id].status)  // have to take the project array index which we wanted to update
+        console.log(id);
+       setstatus(res.data.data[props.id].status)
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }, [])
 
   const { username } = useParams();
   return (
@@ -57,13 +67,13 @@ const Cards = (props) => {
             <li class="list-group-item">closed -&ensp;{props.closed ? "True" : "False"}</li>
           </ul>
           <ul class="list-group list-group-flush rightside">
-            <li class="list-group-item">facultyID -&ensp;{props.facultyID}</li>
+            <li class="list-group-item">facultyID -&ensp;{props.key}</li>
             <li class="list-group-item">organisationType -&ensp;{props.organisationType}</li>
             <li class="list-group-item">staff -&ensp;{props.staff}</li>
             <li class="list-group-item">sanctionFund -&ensp;{props.sanctionFund}</li>
             <li class="list-group-item">startDate -&ensp;{props.startDate}</li>
             <li class="list-group-item">endDate -&ensp;{props.endDate}</li>
-            <li class="list-group-item">status -&ensp;{props.status.toString()}</li>
+            <li class="list-group-item">status -&ensp;{status}</li> {/*getting status from backend*/ }
             <li class="list-group-item">announcements -&ensp;{props.announcements}</li>
           </ul>
           <div className="buttgrp">
@@ -73,10 +83,13 @@ const Cards = (props) => {
             <Link to={"/Faculty/" + username + "/modify_staff"}>
               <Button variant="primary" className="buttitem">Staff Modification</Button>
             </Link>
-            <Link to={"/Faculty/" + username + "/]funds_extension"}>
+            <Link to={"/Faculty/" + username + "/funds_extension"}>
               <Button variant="primary" className="buttitem">Additional Funds</Button>
             </Link>
             <Button variant="primary" className="statbutt" onClick={() => { postData(props._id) }}>Update Status</Button>
+            <Link to={"/Faculty/" + username + "/list"}>
+            <Button variant="primary" className="buttitem" >View Details</Button>
+            </Link>
           </div>
           <section style={{backgroundColor: "white"}}>
                               <div class="commentbox">
@@ -98,6 +111,7 @@ const Cards = (props) => {
         </div>
           : null
         }
+        {}
         <CircularProgressbar value={status} text={`${status}%`} className="status" />
 
         <Button variant="primary" className="butt" onClick={() => setShow(!show)}>{show ? "Read Less" : "Read More"}</Button>

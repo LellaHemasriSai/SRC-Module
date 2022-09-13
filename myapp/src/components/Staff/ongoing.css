@@ -1,0 +1,15 @@
+.card-container {
+	align-items: start;
+	display: grid;
+	grid-gap: 25px;
+	grid-template-columns: repeat(auto-fit, 390px);
+	justify-content: center;
+}
+
+.card_ongoing {
+    background-color:white;
+	border-radius: 5px;
+	color: white;
+	padding: 24px 0 16px;
+	text-align: left;
+}

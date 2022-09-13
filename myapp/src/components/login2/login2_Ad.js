@@ -18,21 +18,23 @@ const LoginAdmin = (props) => {
             [name]: value
         })
     }
-    const postUserName = async()=>{
-		const USER={
-			"username":user.name
-		};
-		const result= await fetch("/userDetails", {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json"
-				},
-			body: JSON.stringify(USER)
-		})
+    const postUserName = async () => {
+        const USER = {
+            "username": user.name
+        };
+        console.log(USER)
+        const result = await fetch("/verifyAdminLogin", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(USER)
+        })
 
-		const resultInJSON=await result.json();
-		console.log(resultInJSON);
-	}
+        const resultInJSON = await result.json();
+        console.log(resultInJSON);
+    }
+
     return (
         <div>
             <div className="container_login2">

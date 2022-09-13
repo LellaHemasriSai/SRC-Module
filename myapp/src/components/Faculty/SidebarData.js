@@ -1,38 +1,17 @@
-import home from "../../../images/home.svg"
-import ongoing from "../../../images/ongoing.svg"
-import announcements from "../../../images/announcements.svg"
-import clock from "../../../images/clock.svg"
-import completed from "../../../images/completed.svg"
-import applications from "../../../images/applications.svg"
-import recruit from "../../../images/recruit.svg"
-export const data = [
-
-    {
+import home from "../../images/home.svg"
+import ongoing from "../../images/ongoing.svg"
+import announcements from "../../images/announcements.svg"
+import clock from "../../images/clock.svg"
+import completed from "../../images/completed.svg"
+import applications from "../../images/applications.svg"
+import recruit from "../../images/recruit.svg"
+export const data = [{
         key: 'a',
         title: 'Home',
         path: '././home',
         img: home,
         cName: 'nav-text'
     },
-    /*  {
-          key:'b',
-          title: 'CREATE PROJECT',
-          path: '/create_project',
-          img: create,
-          cName: 'nav-text'
-      },
-       {
-              key:6,
-              title: 'Internal',
-              path: '/create_project',
-              img: create,
-          },
-          {
-              key:7,
-              title: 'External',
-              path: '/create_project',
-              img: create,
-          },*/
     {
         key: 'c',
         title: 'Ongoing Projects',

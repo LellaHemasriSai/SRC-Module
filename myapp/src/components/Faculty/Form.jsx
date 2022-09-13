@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 //import { Grid } from '@mui/material';
 //import Button from '@mui/material';
-//import { MainNav } from '../../App';
+import { MainNav } from '../App';
 
 export default function RegisterForm() {
     const [Department, setDepartment] = useState("");
@@ -15,15 +15,33 @@ export default function RegisterForm() {
     const [Gender, setGender] = useState("")
     const [Signature, setSignature] = useState("")
 
+<<<<<<< HEAD
     function onSubmit() { console.log('submitted RegisterForm') }
+=======
+    function handlechange()
+    {
+        setDepartment("");
+        setDesignation("");
+        setEmail("");
+        setContactNumber("");
+        setQualifications("");
+        setDateofJoining("");
+        setDoB("");
+        setAddress("");
+        setGender("");
+    }
+
+    function onSubmit() { console.log('submitted Create Project') }
+>>>>>>> 3948d5fe606a9f3dd210bb33312161eaee80a634
     function postData() {
         console.log("Submitted")
-        fetch("/created", {
+        fetch("/updateFacultyDetails", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
+<<<<<<< HEAD
                 Department: Department,
                 Designation: Designation,
                 Email: Email,
@@ -34,30 +52,40 @@ export default function RegisterForm() {
                 Address: Address,
                 Gender: Gender,
                 Signature: Signature
+=======
+                details: {
+                    Department: Department,
+                    Designation: Designation,
+                    Email: Email,
+                    ContactNumber: ContactNumber,
+                    DateOfJoining: DateofJoining,
+                    Qualifications: Qualifications,
+                    DoB: DoB,
+                    Address: Address,
+                    Gender: Gender
+                },
+>>>>>>> 3948d5fe606a9f3dd210bb33312161eaee80a634
             }),
         }).then((res) => {
             console.log("Res:", res);
         })
+        alert("Created Project");
+        handlechange();
     }
 
 
     return (
-        <div>
+        <div className="wrapper hover_collapse" >
+        <MainNav></MainNav>
+        <div className="main_container">
+          <div className="container" >
+            {/* <div className='grid'> */}
             <div class="row">
                 <div class="col-md-6 offset-md-3">
                     <br /><br />
-                    <h1>Register Form</h1><br />
+                    <h1>Update Details</h1>
+                    <br />
                     <form>
-                        {/*<div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label>First Name</label>
-                                    <input type="text" class="form-control" name="first_name" onChange={this.handleInputChange} />
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label>Last Name</label>
-                                    <input type="text" class="form-control" name="last_name" onChange={this.handleInputChange} />
-                                </div>
-                            </div>*/}
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label>Department</label>
@@ -88,19 +116,6 @@ export default function RegisterForm() {
                                 <input type="date" class="form-control" id="DoB" value={DoB} placeholder="DoB" onChange={(event) => { setDoB(event.target.value) }} />
                             </div>
                         </div>
-                        {/*<div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label>Gender</label><br />
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="Gender" id="inlineRadiom" value="male" checked={this.state.gender === "male"} onChange={this.handleInputChange} />
-                                        <label class="form-check-label" for="inlineRadiom">Male</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="gender" id="inlineRadiof" value="female" checked={this.state.gender === "female"} onChange={this.handleInputChange} />
-                                        <label class="form-check-label" for="inlineRadiof">Female</label>
-                                    </div>
-                                </div>
-                        </div>*/}
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label>Qualifications</label>
@@ -134,5 +149,8 @@ export default function RegisterForm() {
                 </div>
             </div>
         </div>
+        </div>
+        </div>
+        // </div>
     )
 }
