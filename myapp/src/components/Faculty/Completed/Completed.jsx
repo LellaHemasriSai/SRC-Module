@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Card from '../../Admin/Card';
+import Card from './Card_completed';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./completed.css";
 import { MainNav } from '../../App';
