@@ -16,6 +16,17 @@ export default function Funds_Extension() {
     const [endDate, setEndDate] = useState("0/0/0")
     const [descriptionBox, setDescriptionBox] = useState("default text")
     function onSubmit() { console.log("Submitted") }
+    function handlchange()
+    {
+        setProjectName("");
+        setProjectID("");
+        setProjectType("");
+        setPrevsanctionValue("");
+        setExtendsanctionValue("");
+        setStartDate("");
+        setEndDate("");
+        setDescriptionBox("");
+    }
     function postData() {
         console.log("Submitted")
         fetch("/created", {
@@ -36,6 +47,7 @@ export default function Funds_Extension() {
         }).then((res) => {
             console.log("Res:", res);
         })
+        handlchange();
     }
     //console.alert("SubmittedValues: ", projectID, " ", projectName, " ", projectType, organizationType, agencyCode, agencyName, sanctionValue, startDate, endDate, descriptionBox)
 

@@ -15,7 +15,23 @@ export default function Create() {
     const [endDate, setEndDate] = useState("")
     const [descriptionBox, setDescriptionBox] = useState("")
 
-    function onSubmit() { console.log('submitted Create Project') }
+    function onSubmit() { 
+        console.log('submitted Create Project');
+    //    handlechange();
+}
+function handlechange()
+{
+    setagencyCode("");
+    setagencyName("");
+    setProjectName("");
+    setProjectID("");
+    setprojectType("");
+    setorganizationType("");
+    setsanctionValue("");
+    setStartDate("");
+    setEndDate("");
+    setDescriptionBox("");
+}
     function postData() {
         console.log("Submitted")
         fetch("/created", {
@@ -38,6 +54,8 @@ export default function Create() {
         }).then((res) => {
             console.log("Res:", res);
         })
+        alert('submitted Create Project');
+        handlechange();
     }
     //console.alert("SubmittedValues: ", projectID, " ", projectName, " ", projectType, organizationType, agencyCode, agencyName, sanctionValue, startDate, endDate, descriptionBox)
 
@@ -45,9 +63,9 @@ export default function Create() {
         <div className="wrapper hover_collapse">
             <MainNav></MainNav>
             <div className="main_container">
-                <div className="container">
+                <div className="container"> 
                     <div class="card_project">
-                        <form onSubmit={onSubmit()}>
+                        <form onSubmit={onSubmit()} id="my_form">
                             <div class="form-row">
                                 <div class="form-group col-md-4">
                                     <label for="agencyCode">Agency Code</label>
