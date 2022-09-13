@@ -259,6 +259,11 @@ body{
 	text-align: left;
 }
 
+.student_content .content{
+	box-shadow: 0 0 28px 4px rgba(0, 0, 0, 0, 1);
+	transition: transform .3s ease;
+	
+}
 .click_collapse .main_container .content{
 	background: #fff;
 	padding: 25px;
@@ -274,7 +279,7 @@ body{
 
 }
 .content:hover{
-    transform: scale(1.02);
+    transform: scale(1.05);
 	box-shadow: 0 2px 5px -1px rgba(0, 0, 0, .08);
 }
  

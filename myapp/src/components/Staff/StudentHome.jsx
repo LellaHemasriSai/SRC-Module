@@ -27,6 +27,7 @@ export default function StudentHome(props) {
     <div class="main_container">
       <div class="container">
       <Details/> 
+      <h1>-----New Announcements------</h1>
         <section class="card-container">
           {
             homedata.map((h, index) => (

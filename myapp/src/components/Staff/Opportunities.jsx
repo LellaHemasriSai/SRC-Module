@@ -47,18 +47,5 @@ export default function Opportunities(props) {
 	</div>
   </div>
 
-  { /* <ul className="cards">
-			{opportunity.map((d,index)=>{
-				return <StudentCard
-				name={d.projectName} 
-				id={d.projectID} 
-				quals={d.requiredQualifications}
-        key={index}
-        salary={d.salaryDetails}
-        />
-			})}  
-		</ul>*/}
- 
-
 }
 

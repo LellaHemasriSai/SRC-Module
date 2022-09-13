@@ -7,27 +7,19 @@ import "./staff.css"
 
 export default function StudentCard(props) {
     const [username, setUserName] = useState([])
-    const [dob,setDob]=useState([])
     const [email,setEmail]=useState([])
-    const [addr,setAddress]=useState([])
     const [qual,setQual]=useState([])
     const [dep,setDep]=useState([])
     const [contact,setContact]=useState([])
-    const [dof,setDof]=useState([])
-    const [gender,setGender]=useState([])
   useEffect(() => {
     axios.post('http://localhost:3001/sendStaffDetails')
       .then(res => {
-        console.log('Data: ', res.data.data)
+        console.log('Data: ', res.data.data);
         setUserName(res.data.data.username)
-        setDob(res.data.data.details.DoB)
-        setAddress(res.data.data.details.Address)
         setContact(res.data.data.details.ContactNumber)
         setDep(res.data.data.details.Department)
-        setDof(res.data.data.details.dof)
         setEmail(res.data.data.details.Email)
         setQual(res.data.data.details.Qualifications)
-        setGender(res.data.data.details.Gender)
       })
       .catch(err => {
         console.log(err);
@@ -47,6 +39,8 @@ export default function StudentCard(props) {
                 projectID:id,
                 department:dep,
                 email:email,
+                qualifications:qual,
+                contact:contact,
             }),
         }).then((res) => {
             console.log("Res:", res);
@@ -54,7 +48,6 @@ export default function StudentCard(props) {
     }
 
   let start=new Date(props.start);
-  console.log(start);
   let sDate=start.getDay()+"/"+start.getMonth()+"/"+start.getFullYear();
   let end=new Date(props.end);
   let eDate=end.getDay()+"/"+end.getMonth()+"/"+end.getFullYear();
