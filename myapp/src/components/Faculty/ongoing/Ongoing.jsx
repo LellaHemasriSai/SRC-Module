@@ -21,12 +21,6 @@ const Ongoing = () => {
       })
   }, [])
 
-<<<<<<< HEAD
-  //let index=0;
-/*var date=new Date(birth);
-setDob(date.getDay()+"/"+date.getMonth()+"/"+date.getFullYear())*/
-=======
->>>>>>> be18a4f308c7e2fb2ad8c53d825846c9ce717b39
   return (
     <div className="wrapper hover_collapse">
       <MainNav></MainNav>
