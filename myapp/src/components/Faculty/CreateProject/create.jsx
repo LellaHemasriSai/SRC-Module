@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import create from "../../../images/create.svg"
 import { MainNav } from '../../App';
+import swal from 'sweetalert';
 
 export default function Create() {
     const [agencyCode, setagencyCode] = useState("");
@@ -16,7 +17,6 @@ export default function Create() {
 
     function onSubmit() { 
         console.log('submitted Create Project');
-    //    handlechange();
 }
 function handlechange()
 {
@@ -53,7 +53,7 @@ function handlechange()
         }).then((res) => {
             console.log("Res:", res);
         })
-        alert('submitted Create Project');
+        swal("","submitted Create Project","success");
         handlechange();
     }
     //console.alert("SubmittedValues: ", projectID, " ", projectName, " ", projectType, organizationType, agencyCode, agencyName, sanctionValue, startDate, endDate, descriptionBox)
@@ -131,4 +131,3 @@ function handlechange()
         </div>
     )
 }
-// comment

@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 import React, { useState, useRef } from 'react'
 import "./announcements.css"
 import announce from "../../../images/announcements.svg"
 import { MainNav } from '../../App';
+=======
+import React, { useState} from 'react'
+import "./announcements.css"
+import { MainNav } from '../../App';
+import swal from 'sweetalert';
+>>>>>>> 9ceb7bb0eee3955ae8b1a5fcbe318308683bb805
 
 export default function CreateAnnouncement() {
   const [projectName, setProjectName] = useState("");
@@ -46,7 +53,7 @@ export default function CreateAnnouncement() {
         }).then((res) => {
             console.log("Res:", res);
         })
-        alert("Announcement Created !");
+        swal("", "Announcement Created!", "success");
         handlechange();
     }
   return (
@@ -97,7 +104,7 @@ export default function CreateAnnouncement() {
                 <input type="text" class="form-control" id="requiredQualifications" value={requiredQualifications} placeholder="Required Qualifications" onChange={(event) => { setRequiredQualifications(event.target.value) }} />
               </div>
               <div class="form-group col-md-4" style={{ marginTop: '30px' }}>
-                <button type="submit" onClick={postData} class="btn btn-primary mb-2">Announce</button>
+                <button type="button" onClick={postData} class="btn btn-primary mb-2">Announce</button>
               </div>
             </div>
           </form>

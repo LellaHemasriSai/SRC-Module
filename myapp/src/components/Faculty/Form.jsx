@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 //import { Grid } from '@mui/material';
 //import Button from '@mui/material';
 import { MainNav } from '../App';
+import swal from 'sweetalert'
 
 export default function RegisterForm() {
     const [Department, setDepartment] = useState("");
@@ -62,7 +63,7 @@ export default function RegisterForm() {
         }).then((res) => {
             console.log("Res:", res);
         })
-        alert("Created Project");
+        swal("","Updated Registration Details","success");
         handlechange();
     }
 
