@@ -56,8 +56,6 @@ function handlechange()
         swal("","submitted Create Project","success");
         handlechange();
     }
-    //console.alert("SubmittedValues: ", projectID, " ", projectName, " ", projectType, organizationType, agencyCode, agencyName, sanctionValue, startDate, endDate, descriptionBox)
-
     return (
         <div className="wrapper hover_collapse">
             <MainNav></MainNav>

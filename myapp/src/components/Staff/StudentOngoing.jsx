@@ -3,7 +3,9 @@ import {StudentMainNav} from '../App.jsx'
 import "./ongoing.css"
 import ProjectCard from './ProjectCard.jsx';
 import ongoing from "../../images/ongoing.svg"
-
+const data=[];
+let length=data.length;
+console.log(length)
 function StudentOngoing(props) {
   return <div className="wrapper hover_collapse">
   <StudentMainNav></StudentMainNav>
@@ -13,6 +15,8 @@ function StudentOngoing(props) {
             <span><h1 id="head_text">Ongoing Projects</h1></span>
     </div>
 	<section class="card-container">
+		{/*{length===0? <h1>No Ongoing Projects</h1>: <ProjectCard></ProjectCard>}*/}
+		<ProjectCard></ProjectCard>
 		<ProjectCard></ProjectCard>
 		<ProjectCard></ProjectCard>
 		<ProjectCard></ProjectCard>

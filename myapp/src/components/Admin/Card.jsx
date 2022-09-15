@@ -4,7 +4,9 @@ import Button from 'react-bootstrap/Button'
 import "bootstrap/dist/css/bootstrap.min.css";
 import { MDBContainer, MDBRow, MDBCol } from 'mdb-react-ui-kit'
 import "./Card.css";
+/*Card Component used in Approve_pojects.jsx*/
 
+/*Used to Approve Projects by Admin*/
 const Cards = (props) => {
 
   const [show, setShow] = useState(false);
@@ -112,7 +114,7 @@ const Cards = (props) => {
             </ul>
             <div className="butGRP">
               <Button variant="primary" className="Button1" onClick={() => { postData(props.projectCode, props.facultyID, true, props._id) }}>Approve</Button>
-              <Button variant="primary" className="Button1" onClick={() => { postData(props.projectCode, props.facultyID, true, props._id) }}>Disapprove</Button>
+              <Button variant="primary" className="Button1" onClick={() => { postData(props.projectCode, props.facultyID, false, props._id) }}>Disapprove</Button>
               {console.log(clickstatus)}
             </div>
           </div>

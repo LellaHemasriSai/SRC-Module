@@ -1,11 +1,6 @@
-import React, { useState, useRef } from 'react'
-//import Sidebar from "../../Navbar/components/Sidebar";
-//import Nav from "../../Navbar/components/Nav";
-//import "./staff.css"
-//import MainNav from '../../Navbar/components/MainNav';
+import React, { useState } from 'react'
 import { MainNav } from '../../App';
 import swal from 'sweetalert';
-//import { Container } from '@mui/system';
 
 export default function Funds_Extension() {
     const [projectName, setProjectName] = useState("default");
@@ -17,8 +12,7 @@ export default function Funds_Extension() {
     const [endDate, setEndDate] = useState("0/0/0")
     const [descriptionBox, setDescriptionBox] = useState("default text")
     function onSubmit() { console.log("Submitted") }
-    function handlchange()
-    {
+    function handlchange() {
         setProjectName("");
         setProjectID("");
         setProjectType("");
@@ -30,7 +24,7 @@ export default function Funds_Extension() {
     }
     function postData() {
         console.log("Submitted")
-        fetch("/created", {
+        fetch("/saveFundRequest", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -48,11 +42,10 @@ export default function Funds_Extension() {
         }).then((res) => {
             console.log("Res:", res);
         })
-        swal("","Submitted Funds Extention Request","success");
+        swal("", "Submitted Funds Extention Request", "success");
         handlchange();
     }
-    //console.alert("SubmittedValues: ", projectID, " ", projectName, " ", projectType, organizationType, agencyCode, agencyName, sanctionValue, startDate, endDate, descriptionBox)
-
+   
     return (
         <div className="wrapper hover_collapse">
             <MainNav></MainNav>

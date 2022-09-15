@@ -3,7 +3,6 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button'
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../../Admin/Card.css";
-import Tax from "./Tax_Calculator";
 import {Link,useParams} from "react-router-dom";
 
 const Card_completed = (props) => {
@@ -32,7 +31,6 @@ const Card_completed = (props) => {
 
   return (
     <Card key={props.id} className="card">
-      {/* <Card.Img variant="top" src="holder.js/100px160" /> */}
       <Card.Body>
         <div className="header">
           <Card.Title className="leftheader">ProjectCode - &ensp;{props.projectCode} </Card.Title>
@@ -71,7 +69,6 @@ const Card_completed = (props) => {
               </Link>
               {console.log(clickstatus)}
             </div>
-            {/* <Tax cost={val}/> */}
           </div>
           : null
         }

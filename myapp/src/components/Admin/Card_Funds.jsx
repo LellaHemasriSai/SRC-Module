@@ -28,7 +28,7 @@ const Cards = (props) => {
 
   function postData(projectCode, facultyID, status, _id) {
     console.log("Submitted")
-    fetch("/updateProjectApprovalStatus", {
+    fetch("/updateFundApproval", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

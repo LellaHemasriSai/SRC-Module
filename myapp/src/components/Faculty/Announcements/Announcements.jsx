@@ -27,7 +27,7 @@ export default function CreateAnnouncement() {
  }
 
   function onSubmit() { console.log("Submitted") }
-  function postData() {
+  function postData() {                                                   /* This function is used to send required data to backend(server)*/
         console.log("Submitted")
         fetch("/announced", {
             method: "POST",
@@ -48,9 +48,9 @@ export default function CreateAnnouncement() {
             console.log("Res:", res);
         })
         swal("", "Announcement Created!", "success");
-        handlechange();
+        handlechange();                                       // After create button is clicked all input fields are set to their default values
     }
-  return (
+  return (                                                      
     <div className="wrapper hover_collapse">
       <MainNav></MainNav>
       <div className="main_container">
