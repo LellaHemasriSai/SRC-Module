@@ -57,6 +57,7 @@ const projectsSchema = new mongoose.Schema({
   sanctionLetter: String, //shld be file
   announcements: [String],
   staffRecruitment: [{}],
+  items: [],
 });
 
 const Project = mongoose.model("Project", projectsSchema);
@@ -639,11 +640,12 @@ app.post("/saveExtendDurationRequest", (req, res) => {
     projectName: req.body.projectName,
     projectType: req.body.projectType,
     prevDate: req.body.previousDate,
-    endDate: req.body.extendDate,
+    newDate: req.body.extendDate,
     active: true,
     approval: false,
     descriptionBox: req.body.descriptionBox,
   });
+  console.log(newRequest);
   newRequest.save();
   // console.log(newRequest.projectName);
 });
@@ -661,6 +663,7 @@ app.post("/saveFundRequest", (req, res) => {
     approval: false,
     descriptionBox: req.body.descriptionBox,
   });
+  //console.log(newRequest);
   newRequest.save();
   // console.log(newRequest.projectName);
 });
