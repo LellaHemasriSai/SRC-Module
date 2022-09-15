@@ -23,10 +23,19 @@ export default function Tax_Calculator(props)
         console.log(err);
       })
   }, [])
-   console.log(cardinfo);
-    var taxval = cardinfo.sanctionFund;
+  //  console.log(cardinfo);
+  function extractValue(arr, prop) {
+
+    let extractedValue = arr.map(item => item[prop]);
+
+    return extractedValue;
+
+   }
+   const result = extractValue(cardinfo, 'sanctionFund');
+   var cost = result[0];
+    var taxval = result[0];
     taxval=taxval*(12/100);
-    var finalval = cardinfo.sanctionFund + taxval;
+    var finalval = result[0] + taxval;
    
 return (
 <>
@@ -40,7 +49,7 @@ return (
     <div class="tax-input-container">
       <div class="tax-input tax-input--income">
         <label class="lab">Amount</label>
-        <input id="income" type="number" placeholder="Sanction Fund" value={cardinfo.sanctionFund}/>
+        <input id="income" type="number" placeholder="Sanction Fund" value={cost}/>
       </div>
       <div class="tax-input tax-input--ser">
         <label class="lab">Tax </label>
