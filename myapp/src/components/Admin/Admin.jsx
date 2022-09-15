@@ -1,9 +1,10 @@
 import React from 'react'
 import AdminContent from './AdminContent';
 import { AdminMainNav } from '../App';
-function Admin(props) {
+//Admin Main Home page layout 
+function Admin() {                               
   return <div className="wrapper hover_collapse">
-  <AdminMainNav></AdminMainNav>
+  <AdminMainNav></AdminMainNav>                    {/* Admin Navbar Component*/}
   <div className="main_container">
 		<div className="container">
     <AdminContent></AdminContent>

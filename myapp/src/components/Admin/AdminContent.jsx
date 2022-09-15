@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { MDBContainer, MDBRow, MDBCol } from 'mdb-react-ui-kit';
 
-
+// Component to Display Admin Details on Home page
 export default function AdminContent(props) {
     const [username, setUserName] = useState([])
     const [dob,setDob]=useState([])
@@ -14,7 +14,7 @@ export default function AdminContent(props) {
     const [dof,setDof]=useState([])
     const [gender,setGender]=useState([])
   useEffect(() => {
-    axios.post('http://localhost:3001/sendAdminDetails')
+    axios.post('http://localhost:3001/sendAdminDetails') 
       .then(res => {
         console.log('Data: ', res.data.data)
         setUserName(res.data.data.username)
@@ -48,8 +48,16 @@ export default function AdminContent(props) {
         <MDBCol size='6' sm='3'>{dob}</MDBCol>
       </MDBRow>
       <MDBRow className='box_text'>
+        <MDBCol className='main_text' size='6' sm='3'>Gender</MDBCol>
+        <MDBCol size='6' sm='3'>{gender}</MDBCol>
+      </MDBRow>
+      <MDBRow className='box_text'>
         <MDBCol className='main_text' size='6' sm='3'>Department</MDBCol>
         <MDBCol size='6' sm='3'>{dep}</MDBCol>
+      </MDBRow>
+      <MDBRow className='box_text' >
+        <MDBCol className='main_text' size='6' sm='3'>Educational Details</MDBCol>
+        <MDBCol size='6' sm='3'>{qual}</MDBCol>
       </MDBRow>
       <MDBRow className='box_text'>
         <MDBCol className='main_text' size='6' sm='3'>Email</MDBCol>
@@ -62,10 +70,6 @@ export default function AdminContent(props) {
       <MDBRow className='box_text'>
         <MDBCol className='main_text' size='6' sm='3'>Date Of Joining</MDBCol>
         <MDBCol size='6' sm='3'>{dof}</MDBCol>
-      </MDBRow>
-      <MDBRow className='box_text' >
-        <MDBCol className='main_text' size='6' sm='3'>Qualifications</MDBCol>
-        <MDBCol size='6' sm='3'>{qual}</MDBCol>
       </MDBRow>
       <MDBRow className='box_text'>
         <MDBCol className='main_text' size='6' sm='3'>Address</MDBCol>

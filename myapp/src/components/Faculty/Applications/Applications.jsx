@@ -6,8 +6,10 @@ import application from "../../../images/applications.svg"
 import FacultyApplicationCard from './FacultyApplicationCard'
 
 export default function Applications() {
-  const [applications, setApplications] = useState([])
-  useEffect(() => {
+  const [applications, setApplications] = useState([])  
+  // This function is used to retrieve necessary data from server                                                           
+  useEffect(() => 
+  {                               
     axios.post('http://localhost:3001/sendApplications')
       .then(res => {
         console.log('Data: ', res.data.data)
