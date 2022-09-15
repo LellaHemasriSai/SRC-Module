@@ -10,8 +10,7 @@ export default function ExtendDuration() {
     const [extendDate, setExtendDate] = useState("0/0/0")
     const [descriptionBox, setDescriptionBox] = useState("default text")
     function onSubmit() { console.log("Submitted") }
-    function handlechange()
-    {
+    function handlechange() {
         setProjectName("");
         setProjectID("");
         setProjectType("");
@@ -21,7 +20,7 @@ export default function ExtendDuration() {
     }
     function postData() {
         console.log("Submitted")
-        fetch("/created", {
+        fetch("/saveExtendDurationRequest", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -37,8 +36,8 @@ export default function ExtendDuration() {
         }).then((res) => {
             console.log("Res:", res);
         })
-        swal("","Submitted Extend Duration Request","success");
-       handlechange();
+        swal("", "Submitted Extend Duration Request", "success");
+        handlechange();
     }
 
     return (

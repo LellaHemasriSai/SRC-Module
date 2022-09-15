@@ -10,24 +10,24 @@ const Card_completed = (props) => {
   const val = 13000;
   const [show, setShow] = useState(false);
   const [clickstatus, setStatus] = useState(false);
-  function postData(projectCode, facultyID, status, _id) {
-    console.log("Submitted")
-    fetch("/updateProjectApprovalStatus", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        projectCode: projectCode,
-        facultyID: facultyID,
-        approveStatus: status,
-        id: _id,
+//   function postData(projectCode, facultyID, status, _id) {
+//     console.log("Submitted")
+//     fetch("/updateProjectApprovalStatus", {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json"
+//       },
+//       body: JSON.stringify({
+//         projectCode: projectCode,
+//         facultyID: facultyID,
+//         approveStatus: status,
+//         id: _id,
 
-      }),
-    }).then((res) => {
-      console.log("Res:", res);
-    })
-  }
+//       }),
+//     }).then((res) => {
+//       console.log("Res:", res);
+//     })
+//   }
   const { username } = useParams();
 
   return (
@@ -64,14 +64,14 @@ const Card_completed = (props) => {
             </ul>
 
             <div className="butGRP">
-              <Button variant="primary" className="Button1" onClick={() => { postData(props.projectCode, props.facultyID, true, props._id) }}>Approve</Button>
-              <Button variant="primary" className="Button1" onClick={() => { postData(props.projectCode, props.facultyID, true, props._id) }}>Disapprove</Button>
+              <Button variant="primary" className="Button1" >Approve</Button>
+              <Button variant="primary" className="Button1" >Disapprove</Button>
               <Link to={"/Faculty/" + username + "/tax"}>
               <Button variant="primary" className="Button1">Tax Details</Button>
               </Link>
               {console.log(clickstatus)}
             </div>
-            <Tax cost={val}/>
+            {/* <Tax cost={val}/> */}
           </div>
           : null
         }

@@ -13,14 +13,13 @@ const Cards = (props) => {
   function postData(projectCode, facultyID, status, _id) {   
     /*sending data to backend whether the project is approved or not*/
     console.log("Submitted")
-    fetch("/updateProjectApprovalStatus", {
+    fetch("/updateDurationApprovalStatus", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
         projectCode: projectCode,
-        facultyID: facultyID,
         approveStatus: status,
         id: _id,
 
