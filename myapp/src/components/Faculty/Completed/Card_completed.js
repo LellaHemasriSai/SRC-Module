@@ -2,7 +2,7 @@ import React, { useState} from "react";
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button'
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../../Admin/Card.css";
+import "../Pending/Card.css"
 import {Link,useParams} from "react-router-dom";
 
 const Card_completed = (props) => {
@@ -62,8 +62,6 @@ const Card_completed = (props) => {
             </ul>
 
             <div className="butGRP">
-              <Button variant="primary" className="Button1" >Approve</Button>
-              <Button variant="primary" className="Button1" >Disapprove</Button>
               <Link to={"/Faculty/" + username + "/tax"}>
               <Button variant="primary" className="Button1">Tax Details</Button>
               </Link>

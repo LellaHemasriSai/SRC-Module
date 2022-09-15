@@ -6,7 +6,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./Card.css";
 import { CircularProgressbar } from 'react-circular-progressbar';
 import "./statusbarstyles.css"
-import ExtendDuration from "../Extend_Duration/extend_duration";
 import { useParams, Link } from "react-router-dom";
 import { MDBContainer, MDBRow, MDBCol } from 'mdb-react-ui-kit'
 const Cards = (props) => {
@@ -127,9 +126,6 @@ const Cards = (props) => {
           <div>
             <div class="form-group col-md-6">
               <label>Comment</label>
-              {/*<textarea class="form-control" id="textAreaExample" rows="4"
-                  style={{ background: "white" }}></textarea>
-                    <label class="form-label" for="textAreaExample">Message</label>*/}
               <textarea id="Comment" class="form-control" placeholder="Comment...." />
             </div>
             <div class="form-group col-md-3" style={{ marginTop: '33px' }}>
@@ -155,7 +151,7 @@ const Cards = (props) => {
               </Link>
             </div>
             <div class="form-group col-md-4" >
-              <Link to={"/Faculty/" + username + "/]funds_extension"}>
+              <Link to={"/Faculty/" + username + "/funds_extension"}>
                 <Button variant="primary" className="buttitem">Additional Funds</Button>
               </Link>
             </div>
