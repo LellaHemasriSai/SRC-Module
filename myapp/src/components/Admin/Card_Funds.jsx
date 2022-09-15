@@ -10,25 +10,24 @@ const Cards = (props) => {
 
   const [show, setShow] = useState(false);
   const [clickstatus, setStatus] = useState(false);
-  const [sh , setsh] = useState(false);
-    const handleOnClick = () => {
+  const [sh, setsh] = useState(false);
+  const handleOnClick = () => {
     setsh(true);
-    }
-    // const handleButtonClick = () => { setStatus(true); + setTimeout(() => { + setStatus(false) + }, 3000); } 
-    function image()
-    {
-      return (
-        <>
-          <img className="qrcode" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/QR-code-obituary.svg/2277px-QR-code-obituary.svg.png" alt="QRCode"/>
-        </>
-      )
-    }
-    
+  }
+  // const handleButtonClick = () => { setStatus(true); + setTimeout(() => { + setStatus(false) + }, 3000); } 
+  function image() {
+    return (
+      <>
+        <img className="qrcode" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/QR-code-obituary.svg/2277px-QR-code-obituary.svg.png" alt="QRCode" />
+      </>
+    )
+  }
+
 
 
   function postData(projectCode, facultyID, status, _id) {
     console.log("Submitted")
-    fetch("/updateProjectApprovalStatus", {
+    fetch("/updateFundApproval", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -44,7 +43,7 @@ const Cards = (props) => {
       console.log("Res:", res);
     })
   }
- 
+
 
 
   return (
@@ -79,7 +78,7 @@ const Cards = (props) => {
               <li class="list-group-item">announcements -&ensp;{props.announcements}</li>
             </ul>
             <div className="butGRP">
-              <Button variant="primary" className="Button1" onClick={() => { postData(props.projectCode, props.facultyID, true, props._id);setStatus(true); }}>Sanction Funds</Button>
+              <Button variant="primary" className="Button1" onClick={() => { postData(props.projectCode, props.facultyID, true, props._id); setStatus(true); }}>Sanction Funds</Button>
               {clickstatus ? image() : null}
               <Button variant="primary" className="Button1" onClick={() => { postData(props.projectCode, props.facultyID, true, props._id) }}>Disapprove</Button>
             </div>
