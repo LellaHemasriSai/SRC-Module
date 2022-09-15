@@ -1,9 +1,8 @@
-import React, { useState,useEffect } from "react";
+import React, { useState } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import Note from "./Note";
 import CreateArea from "./CreateArea";
-import axios from 'axios'
 import "./styles.css";
 import { MainNav } from '../../../App';
 
@@ -23,19 +22,6 @@ function List() {
       });
     });
   }
-
-  useEffect(() => {
-    axios.post('http://localhost:3001/sendIndentDetails')
-      .then(res => {
-        console.log('Data: ', res.data.data)
-        setNotes(res.data.data)
-
-      })
-      .catch(err => {
-        console.log(err);
-      })
-  }, [])
-
 
  
 
