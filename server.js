@@ -697,10 +697,11 @@ app.post("/saveExtendDurationRequest", (req, res) => {
 });
 
 //save details of Additional funds request
-app.post("/saveFundRequest", (req, res) => {
+app.post("/saveFundRequest", async (req, res) => {
   console.log("saving Additional Funds?");
   res.send("request sent");
-  var project = Project.findOne({ projectCode: req.body.projectID })
+  var project = await Project.findOne({ projectCode: req.body.projectID })
+  console.log(project.status)
   var newRequest = new FundsRequest({
     projectID: req.body.projectID,
     projectName: req.body.projectName,
@@ -712,7 +713,7 @@ app.post("/saveFundRequest", (req, res) => {
     status: project.status,
     facultyID: project.facultyID,
   });
-  //console.log(newRequest);
+  console.log(newRequest);
   newRequest.save();
   // console.log(newRequest.projectName);
 });
