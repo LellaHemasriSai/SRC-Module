@@ -4,6 +4,9 @@ import Button from 'react-bootstrap/Button'
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Card.css";
 
+/*Card Component used in Approve_Recruitment.jsx*/
+
+/*Used to Approve Recruitment*/
 const Cards = (props) => {
 
   const [show, setShow] = useState(false);
