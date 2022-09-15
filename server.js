@@ -178,7 +178,6 @@ let newAdmin = new Admin({
   },
 });
 newAdmin.save();
-//console.log(Admin.findOne({ 'username': "admin" }))
 
 //staffSchema
 const staffSchema = new mongoose.Schema({
@@ -211,6 +210,7 @@ const staffSchema = new mongoose.Schema({
 
 const Staff = mongoose.model("Staff", staffSchema);
 
+//dummy staff object
 let newStaff = new Staff({
   username: "student",
   password: "student",
@@ -229,6 +229,7 @@ let newStaff = new Staff({
 });
 newStaff.save();
 
+//announcement Schema
 const announcementSchema = new mongoose.Schema({
   projectName: String,
   projectID: String,
@@ -244,6 +245,7 @@ const announcementSchema = new mongoose.Schema({
 
 const Announcement = mongoose.model("Announcement", announcementSchema);
 
+//Recruitment details schema
 const recruitmentRequestSchema = new mongoose.Schema({
   projectID: String,
   recruitmentType: String,
@@ -262,6 +264,7 @@ const RecruitmentRequest = mongoose.model(
   recruitmentRequestSchema
 );
 
+//fund extension data schema
 const fundsRequestSchema = new mongoose.Schema({
   projectID: String,
   projectType: String,
@@ -278,6 +281,7 @@ const FundsRequest = mongoose.model(
   fundsRequestSchema
 );
 
+//duration extension schema
 const durationExtensionSchema = new mongoose.Schema({
   projectID: String,
   projectType: String,
@@ -289,6 +293,8 @@ const durationExtensionSchema = new mongoose.Schema({
   approval: Boolean,
   projectName: String,
   descriptionBox: String,
+  facultyID: String,
+  status: Number,
 });
 
 const DurationExtension = mongoose.model(
@@ -296,6 +302,7 @@ const DurationExtension = mongoose.model(
   durationExtensionSchema
 );
 
+//ident details schema
 const indentSchema = new mongoose.Schema({
   projectCode: String,
   itemName: String,
@@ -664,6 +671,7 @@ app.post("/saveRecruitmentRequest", (req, res) => {
 app.post("/saveExtendDurationRequest", (req, res) => {
   console.log("saving Extend Duration?");
   res.send("request sent");
+  var project = Project.findOne({ projectCode: req.body.projectID })
   var newRequest = new DurationExtension({
     projectID: req.body.projectID,
     projectName: req.body.projectName,
@@ -673,6 +681,8 @@ app.post("/saveExtendDurationRequest", (req, res) => {
     active: true,
     approval: false,
     descriptionBox: req.body.descriptionBox,
+    status: project.status,
+    facultyID: project.facultyID,
   });
   console.log(newRequest);
   newRequest.save();
@@ -822,7 +832,9 @@ app.post("/updateProjectApprovalStatus", async (req, res, next) => {
 //update project status in faculty projects
 app.post("/updateProjectStatus", async (req, res, next) => {
   await Project.findByIdAndUpdate(req.body._id, { status: req.body.status });
-
+  if (req.body.status == 100) {
+    await Project.findByIdAndUpdate(req.body._id, { closed: true });
+  }
   try {
     return res.status(200).json({
       success: true,
@@ -869,14 +881,30 @@ app.post("/updateAdminDetails", async (req, res, next) => {
 
 //update Student details from Details form
 app.post("/updateStudentDetails", async (req, res, next) => {
-  const student = await Faculty.findOne({ username: user });
+  const student = await Staff.findOne({ username: user });
   const id = student.id;
-  await Faculty.findByIdAndUpdate(id, { details: req.body.details });
+  await Staff.findByIdAndUpdate(id, { details: req.body.details });
   //console.log(Faculty.findOne({ 'username': 'faculty' }))
 
   try {
     return res.status(200).json({
       success: true,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: "server error" });
+  }
+});
+
+//update student application in student - on pressing apply now
+app.post("updateOpportunitiesApplyNow", async (req, res, next) => {
+  await Staff.find({ username: req.body.staffName })
+
+  try {
+    return res.status(200).json({
+      success: true,
+      count: updateApproval.length,
+      data: updateApproval,
     });
   } catch (err) {
     console.log(err);
