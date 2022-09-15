@@ -12,8 +12,7 @@ export default function ExtendDuration() {
     const [extendDate, setExtendDate] = useState("")
     const [descriptionBox, setDescriptionBox] = useState("")
     function onSubmit() { console.log("") }
-    function handlechange() 
-    {
+    function handlechange() {
         setProjectName("");
         setProjectID("");
         setProjectType("");
@@ -79,7 +78,7 @@ export default function ExtendDuration() {
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-4" style={{ marginTop: '50px' }}>
-                                <button type="button" onClick={postData} class="btn btn-primary">Submit</button>
+                                <button type="button" onClick={() => { postData(projectID, projectName, projectType, previousDate, extendDate, descriptionBox) }} class="btn btn-primary">Submit</button>
                             </div>
                         </div>
                     </form>

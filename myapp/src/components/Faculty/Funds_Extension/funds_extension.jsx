@@ -22,8 +22,9 @@ export default function Funds_Extension() {
         setEndDate("");
         setDescriptionBox("");
     }
-    function postData() {
+    function postData(projectID, projectName, projectType, prevsanctionValue, extendsanctionValue, startDate, endDate, descriptionBox) {
         console.log("Submitted")
+        console.log()
         fetch("/saveFundRequest", {
             method: "POST",
             headers: {
@@ -45,7 +46,7 @@ export default function Funds_Extension() {
         swal("", "Submitted Funds Extention Request", "success");
         handlchange();
     }
-   
+
     return (
         <div className="wrapper hover_collapse">
             <MainNav></MainNav>
@@ -90,7 +91,7 @@ export default function Funds_Extension() {
                                 <textarea type="text" class="form-control" rows="5" id="descriptionBox" value={descriptionBox} placeholder="Description" onChange={(event) => { setDescriptionBox(event.target.value) }} />
                             </div>
                             <div class="form-group col-md-4" style={{ marginTop: '50px' }}>
-                                <button type="button" onClick={postData} class="btn btn-primary">Submit</button>
+                                <button type="button" onClick={() => { postData(projectID, projectName, projectType, prevsanctionValue, extendsanctionValue, startDate, endDate, descriptionBox) }} class="btn btn-primary">Submit</button>
                             </div>
                         </div>
                     </form>

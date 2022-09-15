@@ -21,7 +21,7 @@ const Cards = (props) => {
   }
 
   function postData(projectCode, facultyID, status, _id) {
-    console.log("Submitted")
+    console.log("Submitted", projectCode, facultyID, status, _id)
     fetch("/updateFundApproval", {
       method: "POST",
       headers: {
@@ -41,39 +41,39 @@ const Cards = (props) => {
 
   return (
     <div class="card_ongoing">
-		<MDBContainer style={{paddingLeft:"10%"}} className='student_box_text'>
-		<MDBRow className='box_text'>
-        <MDBCol className='box_content_text main_text' size='6' sm='3'>Project Name</MDBCol>
-        <MDBCol className='box_content_text' size='6' sm='3'>{props.name}</MDBCol>
-      </MDBRow>
-      <MDBRow className='box_text'>
-        <MDBCol className=' box_content_text main_text' size='6' sm='3'>Project ID</MDBCol>
-       <MDBCol className='box_content_text' size='6' sm='3'>{props.code}</MDBCol>
-      </MDBRow>
-    <MDBRow className='box_text'>
-        <MDBCol className=' box_content_text main_text' size='6' sm='3'>Faculty Name</MDBCol>
-       <MDBCol className='box_content_text' size='6' sm='3'>faculty</MDBCol>
-      </MDBRow>
-      <MDBRow className='box_text'>
-        <MDBCol className=' box_content_text main_text' size='6' sm='3'>Faculty ID</MDBCol>
-       <MDBCol className='box_content_text' size='6' sm='3'>facultyID</MDBCol>
-      </MDBRow>
-    <MDBRow className='box_text'>
-        <MDBCol className=' box_content_text main_text' size='6' sm='3'>Additional Funds</MDBCol>
-       <MDBCol className='box_content_text' size='6' sm='3'>{props.AdditionalFunds}</MDBCol>
-    </MDBRow>
-  {/*  <MDBRow className='box_text'>
+      <MDBContainer style={{ paddingLeft: "10%" }} className='student_box_text'>
+        <MDBRow className='box_text'>
+          <MDBCol className='box_content_text main_text' size='6' sm='3'>Project Name</MDBCol>
+          <MDBCol className='box_content_text' size='6' sm='3'>{props.name}</MDBCol>
+        </MDBRow>
+        <MDBRow className='box_text'>
+          <MDBCol className=' box_content_text main_text' size='6' sm='3'>Project ID</MDBCol>
+          <MDBCol className='box_content_text' size='6' sm='3'>{props.code}</MDBCol>
+        </MDBRow>
+        <MDBRow className='box_text'>
+          <MDBCol className=' box_content_text main_text' size='6' sm='3'>Faculty Name</MDBCol>
+          <MDBCol className='box_content_text' size='6' sm='3'>faculty</MDBCol>
+        </MDBRow>
+        <MDBRow className='box_text'>
+          <MDBCol className=' box_content_text main_text' size='6' sm='3'>Faculty ID</MDBCol>
+          <MDBCol className='box_content_text' size='6' sm='3'>facultyID</MDBCol>
+        </MDBRow>
+        <MDBRow className='box_text'>
+          <MDBCol className=' box_content_text main_text' size='6' sm='3'>Additional Funds</MDBCol>
+          <MDBCol className='box_content_text' size='6' sm='3'>{props.AdditionalFunds}</MDBCol>
+        </MDBRow>
+        {/*  <MDBRow className='box_text'>
       <MDBCol className='box_content_text main_text' size='6' sm='3'>Description</MDBCol>
        <MDBCol className='box_content_text' size='6' sm='3'>{props.description}</MDBCol>
     </MDBRow>*/}
-    <MDBRow style={{}}>
-        <MDBCol className=' box_content_text main_text' size='6' sm='3'><button  className='approve_btn' onClick={() => { postData(props.projectCode, props.facultyID, true, props._id); setStatus(true); }}>Approve</button></MDBCol>
-       {/*  {clickstatus ? image() : null}*/}
-       <MDBCol className='box_content_text' size='6' sm='3'><button className='disapprove_btn' onClick={() => { postData(props.projectCode, props.facultyID, true, props._id) }}>Disapprove</button></MDBCol>
-    </MDBRow>
-	</MDBContainer>
-	</div>
-    )
+        <MDBRow style={{}}>
+          <MDBCol className=' box_content_text main_text' size='6' sm='3'><button className='approve_btn' onClick={() => { postData(props.projectCode, props.facultyID, true, props._id); setStatus(true); }}>Approve</button></MDBCol>
+          {/*  {clickstatus ? image() : null}*/}
+          <MDBCol className='box_content_text' size='6' sm='3'><button className='disapprove_btn' onClick={() => { postData(props.projectCode, props.facultyID, true, props._id) }}>Disapprove</button></MDBCol>
+        </MDBRow>
+      </MDBContainer>
+    </div>
+  )
 
 }
 
