@@ -1,16 +1,33 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button'
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Card.css";
 import { MDBContainer, MDBRow, MDBCol } from 'mdb-react-ui-kit'
+import { CircularProgressbar } from 'react-circular-progressbar';
+import "../Faculty/ongoing/statusbarstyles.css";
+import axios from 'axios';
 const Cards = (props) => {
 
   const [show, setShow] = useState(false);
+  const [status, setstatus] = useState(0);
+  let id = props.id;
+  useEffect(() => {
+    axios.post('http://localhost:3001/ongoing')
+      .then(res => {
+        console.log('Data: ', res.data.data[props.id].status)  // have to take the project array index which we wanted to update
+        console.log(id);
+        setstatus(res.data.data[props.id].status)
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }, [])
 
   return (
     <Card key={props.id} className="card">
       <Card.Body>
+      <CircularProgressbar value={status} text={`${status}%`} className="status" />
         <div class="header">
           <MDBContainer>
             <MDBRow className='box_text'>

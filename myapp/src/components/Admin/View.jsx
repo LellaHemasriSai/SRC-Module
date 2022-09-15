@@ -11,11 +11,11 @@ const View = () => {
   console.log("Submitted")
 
   useEffect(() => {
-    axios.post('http://localhost:3001/pending')
+    axios.post('http://localhost:3001/ongoing')
       .then(res => {
         console.log('Data: ', res.data.data)
         setCardInfo(res.data.data)
-
+        
       })
       .catch(err => {
         console.log(err);
