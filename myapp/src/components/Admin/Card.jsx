@@ -37,10 +37,6 @@ const Cards = (props) => {
         <div class="header">
           <MDBContainer>
             <MDBRow className='box_text'>
-              <MDBCol className='main_text' size='6' sm='3'>Project Code</MDBCol>
-              <MDBCol size='6' sm='3'>&ensp;{props.projectCode}</MDBCol>
-            </MDBRow>
-            <MDBRow className='box_text'>
               <MDBCol className='main_text' size='6' sm='3'>Project Name</MDBCol>
               <MDBCol size='6' sm='3'>&ensp;{props.projectName}</MDBCol>
             </MDBRow>

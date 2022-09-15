@@ -1,14 +1,11 @@
 import React, { useState } from "react";
-import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button'
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./Card.css";
+import "../Staff/ongoing.css"
+import { MDBContainer, MDBRow, MDBCol } from 'mdb-react-ui-kit';
 
 /* Card Component in Admin Page */
 
 const Cards = (props) => {
 
-  const [show, setShow] = useState(false);
   const [clickstatus, setStatus] = useState(false);
   function postData(projectCode, facultyID, status, _id) {   
     /*sending data to backend whether the project is approved or not*/
@@ -28,52 +25,54 @@ const Cards = (props) => {
       console.log("Res:", res);
     })
   }
-
-  return (
-    <Card key={props.id} className="card">
-      <Card.Body>
-        <div className="header">
-          <Card.Title className="leftheader">ProjectCode - &ensp;{props.projectCode} </Card.Title>
-          <Card.Title className="rightheader">ProjectName -&ensp;{props.projectName} </Card.Title>
-        </div>
-        <Card.Text className="card_body">
-          {props.description}
-        </Card.Text>
-        {show ?
-          <div>
-            <ul class="list-group list-group-flush leftside">
-              <li class="list-group-item">projectType -&ensp;{props.projectType}</li>
-              <li class="list-group-item">agencyCode -&ensp;{props.agencyCode}</li>
-              <li class="list-group-item">agencyName -&ensp;{props.agencyName}</li>
-              <li class="list-group-item">approval -&ensp;{props.approval ? "True" : "False"}</li>
-              <li class="list-group-item">resourceApproval -&ensp;{props.resourceApproval ? "True" : "False"}</li>
-              <li class="list-group-item">fundApproval -&ensp;{props.fundApproval ? "True" : "False"}</li>
-              <li class="list-group-item">closed -&ensp;{props.closed ? "True" : "False"}</li>
-            </ul>
-            <ul class="list-group list-group-flush rightside">
-              <li class="list-group-item">facultyID -&ensp;{props.facultyID}</li>
-              <li class="list-group-item">organisationType -&ensp;{props.organisationType}</li>
-              <li class="list-group-item">staff -&ensp;{props.staff}</li>
-              <li class="list-group-item">sanctionFund -&ensp;{props.sanctionFund}</li>
-              <li class="list-group-item">startDate -&ensp;{props.startDate}</li>
-              <li class="list-group-item">endDate -&ensp;{props.endDate}</li>
-              <li class="list-group-item">status -&ensp;{props.status.toString()}</li>
-              <li class="list-group-item">announcements -&ensp;{props.announcements}</li>
-            </ul>
-
-            <div className="butGRP">
-              <Button variant="primary" className="Button1" onClick={() => { postData(props.projectCode, props.facultyID, true, props._id) }}>Approve Extension</Button>
-              <Button variant="primary" className="Button1" onClick={() => { postData(props.projectCode, props.facultyID, true, props._id) }}>Disapprove</Button>
-              {console.log(clickstatus)}
-            </div>
-          </div>
-          : null
-        }
-        <Button variant="primary" className="butt" onClick={() => setShow(!show)}>{show ? "Read Less" : "Read More"}</Button>
-      </Card.Body>
-    </Card>
-  )
+return (
+    <div class="card_ongoing">
+		<MDBContainer style={{paddingLeft:"10%"}} className='student_box_text'>
+		<MDBRow className='box_text'>
+        <MDBCol className='box_content_text main_text' size='6' sm='3'>Project Name</MDBCol>
+        <MDBCol className='box_content_text' size='6' sm='3'>{props.name}</MDBCol>
+      </MDBRow>
+      <MDBRow className='box_text'>
+        <MDBCol className=' box_content_text main_text' size='6' sm='3'>Project ID</MDBCol>
+       <MDBCol className='box_content_text' size='6' sm='3'>{props.code}</MDBCol>
+      </MDBRow>
+      <MDBRow className='box_text'>
+        <MDBCol className=' box_content_text main_text' size='6' sm='3'>Project Type</MDBCol>
+       <MDBCol className='box_content_text' size='6' sm='3'>{props.type}</MDBCol>
+      </MDBRow>
+    <MDBRow className='box_text'>
+        <MDBCol className=' box_content_text main_text' size='6' sm='3'>Faculty Name</MDBCol>
+       <MDBCol className='box_content_text' size='6' sm='3'>faculty</MDBCol>
+      </MDBRow>
+      <MDBRow className='box_text'>
+        <MDBCol className=' box_content_text main_text' size='6' sm='3'>Faculty ID</MDBCol>
+       <MDBCol className='box_content_text' size='6' sm='3'>facultyID</MDBCol>
+      </MDBRow>
+    <MDBRow className='box_text'>
+        <MDBCol className=' box_content_text main_text' size='6' sm='3'>previous End Date</MDBCol>
+       <MDBCol className='box_content_text' size='6' sm='3'>{props.prevDate}</MDBCol>
+    </MDBRow>
+    <MDBRow className='box_text'>
+        <MDBCol className=' box_content_text main_text' size='6' sm='3'>new End Date</MDBCol>
+       <MDBCol className='box_content_text' size='6' sm='3'>{props.newDate}</MDBCol>
+    </MDBRow>
+  {/*  <MDBRow className='box_text'>
+      <MDBCol className='box_content_text main_text' size='6' sm='3'>Description</MDBCol>
+       <MDBCol className='box_content_text' size='6' sm='3'>{props.description}</MDBCol>
+    </MDBRow>*/}
+    <MDBRow style={{}}>
+        <MDBCol className=' box_content_text main_text' size='6' sm='3'><button  className='approve_btn'onClick={() => { postData(props.projectCode, props.facultyID, true, props._id) }} >Approve </button></MDBCol>
+       <MDBCol className='box_content_text' size='6' sm='3'><button className='disapprove_btn'  onClick={() => { postData(props.projectCode, props.facultyID, false, props._id) }}>Disapprove</button></MDBCol>
+        {console.log(clickstatus)}
+    </MDBRow>
+	</MDBContainer>
+	</div>
+    )
+ 
 
 }
 
 export default Cards;
+
+
+          
