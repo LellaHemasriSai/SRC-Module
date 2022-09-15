@@ -1,6 +1,6 @@
-import Card from '../Faculty/ongoing/Card'
+import Card from './Card_View'
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../Faculty/ongoing/ongoing.css";
+import "../Faculty/ongoing/ongoing.css"
 import { AdminMainNav } from '../App';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';

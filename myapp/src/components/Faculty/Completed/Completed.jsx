@@ -12,7 +12,7 @@ const Completed = () => {
   console.log("Submitted")
   // Retrieves necessary data from server
   useEffect(() => {
-    axios.post('http://localhost:3001/completed')
+    axios.post('http://localhost:3001/pending')
       .then(res => {
         console.log('Data: ', res.data.data)
         setCardInfo(res.data.data)
@@ -34,7 +34,7 @@ console.log(cardinfo.length)
           </div>
           <div className='grid'>
           {/* maps all the content retrieved from server to a card */}
-            {cardinfo.length==0? <h1 style={{ marginLeft:"auto",marginRight:"auto",
+            {cardinfo.length===0? <h1 style={{ marginLeft:"auto",marginRight:"auto",
             marginTop:"10%" , color:"GrayText"}}>No Completed Projects</h1> :
               cardinfo.map((card, index) => (
               <Card id={index}

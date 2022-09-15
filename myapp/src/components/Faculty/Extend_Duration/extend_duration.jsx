@@ -5,14 +5,15 @@ import { MainNav } from '../../App';
 import swal from 'sweetalert';
 
 export default function ExtendDuration() {
-    const [projectName, setProjectName] = useState("default");
-    const [projectID, setProjectID] = useState("default");
-    const [projectType, setProjectType] = useState("default")
-    const [previousDate, setPreviousDate] = useState("0/0/0")
-    const [extendDate, setExtendDate] = useState("0/0/0")
-    const [descriptionBox, setDescriptionBox] = useState("default text")
-    function onSubmit() { console.log("Submitted") }
-    function handlechange() {
+    const [projectName, setProjectName] = useState("");
+    const [projectID, setProjectID] = useState("");
+    const [projectType, setProjectType] = useState("")
+    const [previousDate, setPreviousDate] = useState("")
+    const [extendDate, setExtendDate] = useState("")
+    const [descriptionBox, setDescriptionBox] = useState("")
+    function onSubmit() { console.log("") }
+    function handlechange() 
+    {
         setProjectName("");
         setProjectID("");
         setProjectType("");
