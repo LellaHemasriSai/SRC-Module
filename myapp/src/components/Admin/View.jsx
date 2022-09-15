@@ -1,6 +1,6 @@
-import Card from '../Faculty/ongoing/Card'
+import Card from './Card_View'
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../Faculty/ongoing/ongoing.css";
+import "../Faculty/ongoing/ongoing.css"
 import { AdminMainNav } from '../App';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
@@ -11,11 +11,11 @@ const View = () => {
   console.log("Submitted")
 
   useEffect(() => {
-    axios.post('http://localhost:3001/pending')
+    axios.post('http://localhost:3001/ongoing')
       .then(res => {
         console.log('Data: ', res.data.data)
         setCardInfo(res.data.data)
-
+        
       })
       .catch(err => {
         console.log(err);

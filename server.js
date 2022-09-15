@@ -57,6 +57,7 @@ const projectsSchema = new mongoose.Schema({
   sanctionLetter: String, //shld be file
   announcements: [String],
   staffRecruitment: [{}],
+  items: [],
 });
 
 const Project = mongoose.model("Project", projectsSchema);
@@ -238,6 +239,7 @@ const announcementSchema = new mongoose.Schema({
   startDate: Date,
   endDate: Date,
   active: Boolean,
+  description: String,
 });
 
 const Announcement = mongoose.model("Announcement", announcementSchema);
@@ -294,7 +296,17 @@ const DurationExtension = mongoose.model(
   durationExtensionSchema
 );
 
+const indentSchema = new mongoose.Schema({
+  projectCode: String,
+  itemName: String,
+  cost: Number,
+  retailerName: String,
+  description: String,
+})
 
+const Indent = mongoose.model("Indent", indentSchema);
+
+//Test code for saving files 
 
 // const scannedSignaturesSchema = new mongoose.Schema({
 //   fileName: String,
@@ -543,6 +555,37 @@ app.post("/sendDurationExtension", async (req, res, next) => {
   }
 });
 
+//returns additional funds request data to admin
+app.post("/sendFundsRequest", async (req, res, next) => {
+  var fund = await FundsRequest.find({ approval: false, active: true });
+
+  try {
+    return res.status(200).json({
+      success: true,
+      data: fund,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: "server error" });
+  }
+});
+
+//returns indent data to faculty items page
+app.post("/sendIndentDetails", async (req, res, next) => {
+  var indent = await Indent.find({ projectCode: req.body.projectCode });
+
+  try {
+    return res.status(200).json({
+      success: true,
+      data: indent,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: "server error" });
+  }
+});
+
+
 //---------------------------------------------------------------------
 //functions to save data to backend database
 //---------------------------------------------------------------------
@@ -579,6 +622,7 @@ app.post("/created", (req, res) => {
 app.post("/announced", (req, res) => {
   console.log("Received?");
   res.send("request sent");
+  var project = Project.findOne({ projectCode: req.body.projectCode })
   var newAnnouncement = new Announcement({
     projectName: req.body.projectName,
     projectID: req.body.projectID,
@@ -588,6 +632,7 @@ app.post("/announced", (req, res) => {
     requiredQualifications: req.body.requiredQualifications,
     startDate: req.body.startDate,
     endDate: req.body.endDate,
+    description: project.description,
     active: true,
   });
   //console.log(newAnnouncement)
@@ -624,11 +669,12 @@ app.post("/saveExtendDurationRequest", (req, res) => {
     projectName: req.body.projectName,
     projectType: req.body.projectType,
     prevDate: req.body.previousDate,
-    endDate: req.body.extendDate,
+    newDate: req.body.extendDate,
     active: true,
     approval: false,
     descriptionBox: req.body.descriptionBox,
   });
+  console.log(newRequest);
   newRequest.save();
   // console.log(newRequest.projectName);
 });
@@ -646,6 +692,23 @@ app.post("/saveFundRequest", (req, res) => {
     approval: false,
     descriptionBox: req.body.descriptionBox,
   });
+  //console.log(newRequest);
+  newRequest.save();
+  // console.log(newRequest.projectName);
+});
+
+//save Indent details of a project
+app.post("/saveIndentDetails", (req, res) => {
+  console.log("saving Indent Details!");
+  res.send("request sent");
+  var newRequest = new Indent({
+    projectCode: req.body.projectCode,
+    itemName: req.body.item,
+    cost: req.body.cost,
+    retailerName: req.body.name,
+    description: req.body.description,
+  });
+  //console.log(newRequest);
   newRequest.save();
   // console.log(newRequest.projectName);
 });
@@ -661,7 +724,7 @@ app.post("/updateFundApproval", async (req, res, next) => {
     active: false,
   });
 
-  await Project.findOneAndUpdate(req.body.projectCode, { resourceApproval: true })
+  await Project.findOneAndUpdate(req.body.projectCode, { fundApproval: true, sanctionFund: fund.extendSanctionValue })
 
   var updateApproval = await Project.find({
     'projectCode': req.body.projectCode,

@@ -3,15 +3,15 @@ import { MainNav } from '../../App';
 import swal from 'sweetalert';
 
 export default function Funds_Extension() {
-    const [projectName, setProjectName] = useState("default");
-    const [projectID, setProjectID] = useState("default");
-    const [projectType, setProjectType] = useState("default")
-    const [prevsanctionValue, setPrevsanctionValue] = useState("0")
-    const [extendsanctionValue, setExtendsanctionValue] = useState("0")
-    const [startDate, setStartDate] = useState("0/0/0")
-    const [endDate, setEndDate] = useState("0/0/0")
-    const [descriptionBox, setDescriptionBox] = useState("default text")
-    function onSubmit() { console.log("Submitted") }
+    const [projectName, setProjectName] = useState("");
+    const [projectID, setProjectID] = useState("");
+    const [projectType, setProjectType] = useState("")
+    const [prevsanctionValue, setPrevsanctionValue] = useState("")
+    const [extendsanctionValue, setExtendsanctionValue] = useState("")
+    const [startDate, setStartDate] = useState("")
+    const [endDate, setEndDate] = useState("")
+    const [descriptionBox, setDescriptionBox] = useState("")
+    function onSubmit() { console.log("") }
     function handlchange() {
         setProjectName("");
         setProjectID("");

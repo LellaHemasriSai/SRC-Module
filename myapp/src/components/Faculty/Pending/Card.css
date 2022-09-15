@@ -88,11 +88,11 @@
   /* margin-top: 100%;
     float: centre;
     position: relative;
-    background-color:#438af5;
     width: 8%; */
-  width: 9%;
+  width: 7%;
   position: absolute;
   bottom: 0;
+  /* font-size: xx-small; */
   margin-bottom: 0.5%;
   align-content: center;
 }

@@ -144,6 +144,10 @@ const Cards = (props) => {
               </div>
             </div>
           </div>
+          <div class="card_body">
+            <label class="desc">Description of the Project:</label>
+            {props.description}
+          </div>
           <div class="form-row">
             <div class="form-group col-md-6" >
               <Link to={"/Faculty/" + username + "/extend_duration"}>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {BiPlus} from 'react-icons/bi';
+import { BiPlus } from 'react-icons/bi';
 
 function CreateArea(props) {
   const [note, setNote] = useState({
@@ -26,9 +26,8 @@ function CreateArea(props) {
     description: "",
   }
 
-  function reset()
-  {
-    setNote({...initialstate});
+  function reset() {
+    setNote({ ...initialstate });
   }
 
   function submitNote(event) {
@@ -46,7 +45,7 @@ function CreateArea(props) {
 
   function postData(projectCode, facultyID, note, _id) {
     console.log("Submitted")
-    fetch("/updateProjectApprovalStatus", {
+    fetch("/saveIndentDetails", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -56,7 +55,7 @@ function CreateArea(props) {
         facultyID: facultyID,
         item: note.item,
         cost: note.cost,
-        name:note.name,
+        name: note.name,
         description: note.description,
         id: _id,
 
@@ -70,42 +69,42 @@ function CreateArea(props) {
   return (
     <div>
       <form className="ff">
-      <div style={{display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "center"}}>
-      <label className="Lab" for="item" style={{fontSize: "18px" , fontWeight: "normal", marginTop: "2px"}}>Item: </label>
-        <input
-          name="item"
-          onChange={handleChange}
-          value={note.item}
-          placeholder="Item"
-        />
+        <div style={{ display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "center" }}>
+          <label className="Lab" for="item" style={{ fontSize: "18px", fontWeight: "normal", marginTop: "2px" }}>Item: </label>
+          <input
+            name="item"
+            onChange={handleChange}
+            value={note.item}
+            placeholder="Item"
+          />
         </div>
-        <div style={{display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "center"}}>
-        <label className="Lab" for="cost" style={{fontSize: "18px" , fontWeight: "normal"}}>Cost: </label>
-        <input
-          name="cost"
-          onChange={handleChange}
-          value={note.cost}
-          placeholder="Cost"
-        />
+        <div style={{ display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "center" }}>
+          <label className="Lab" for="cost" style={{ fontSize: "18px", fontWeight: "normal" }}>Cost: </label>
+          <input
+            name="cost"
+            onChange={handleChange}
+            value={note.cost}
+            placeholder="Cost"
+          />
         </div>
-        <div style={{display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "center"}}>
-        <label className="Lab" for="name" style={{fontSize: "18px" , fontWeight: "normal"}}>Name: </label>
-        <input
-          name="name"
-          onChange={handleChange}
-          value={note.name}
-          placeholder="Retailer Name"
-        />
+        <div style={{ display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "center" }}>
+          <label className="Lab" for="name" style={{ fontSize: "18px", fontWeight: "normal" }}>Name: </label>
+          <input
+            name="name"
+            onChange={handleChange}
+            value={note.name}
+            placeholder="Retailer Name"
+          />
         </div>
-        <div style={{display: "flex", flexDirection: "row", justifyContent: "left", alignItems: "centre"}}>
-        <label className="Lab" for="description" style={{fontSize: "18px", fontWeight: "normal", marginTop: "2px"}}>Description: </label>
-        <textarea
-          name="description"
-          onChange={handleChange}
-          value={note.description}
-          placeholder="Description about item"
-          rows="3"
-        />
+        <div style={{ display: "flex", flexDirection: "row", justifyContent: "left", alignItems: "centre" }}>
+          <label className="Lab" for="description" style={{ fontSize: "18px", fontWeight: "normal", marginTop: "2px" }}>Description: </label>
+          <textarea
+            name="description"
+            onChange={handleChange}
+            value={note.description}
+            placeholder="Description about item"
+            rows="3"
+          />
         </div>
         <button onClick={submitNote}><BiPlus /></button>
       </form>
