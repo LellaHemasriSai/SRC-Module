@@ -36,6 +36,7 @@ import StudentCompleted from "./Staff/StudentCompleted.jsx";
 import List from "./Faculty/ongoing/List/List.jsx";
 import FacultyHome from "./Faculty/Home/FacultyHome.jsx"
 import Tax from "./Faculty/Completed/Tax_Calculator";
+import Internal from "../components/Faculty/CreateProject/internal"
 // should be an json object coming from database
 //export const username = "poojasree";  // no spaces
 //export const admin = "AdminName";
@@ -72,8 +73,8 @@ const App = () => {
       <Routes>
         <Route exact path="/" element={<Login1 />} />
         <>
-          <Route exact path="/Admin" element={<LoginAdmin/>} />
-          <Route exact path="/Admin/:username/home" element={<Admin/>} />
+          <Route exact path="/Admin" element={<LoginAdmin />} />
+          <Route exact path="/Admin/:username/home" element={<Admin />} />
           <Route exact path="/Admin/:username/Approve_project" element={<ApproveProject />} />
           <Route exact path="/Admin/:username/Approve_funds" element={<Funds />} />
           <Route exact path="/Admin/:username/approve_recruitment" element={<ApproveRecruitment />} />
@@ -81,10 +82,11 @@ const App = () => {
           <Route exact path="/Admin/:username/view_project" element={<View />} />
         </>
         <>
-          <Route exact path="/Faculty" element={<LoginFac  />} />
-          <Route exact path="/Faculty/:username/home" element={<FacultyHome  />} />
+          <Route exact path="/Faculty" element={<LoginFac />} />
+          <Route exact path="/Faculty/:username/home" element={<FacultyHome />} />
           <Route exact path="/Faculty/:username/Form" element={<Form />} />
           <Route exact path="/Faculty/:username/create_project" element={<Create />} />
+          <Route exact path="/Faculty/:username/internal" element={<Internal />} />
           <Route exact path="/Faculty/:username/ongoing_project" element={<Ongoing />} />
           <Route exact path="/Faculty/:username/recruitment" element={<Recruitment />} />
           <Route exact path="/Faculty/:username/announcements" element={<Announcements />} />
