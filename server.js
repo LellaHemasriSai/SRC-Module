@@ -718,7 +718,7 @@ app.post("/saveIndentDetails", (req, res) => {
     retailerName: req.body.name,
     description: req.body.description,
   });
-  //console.log(newRequest);
+  console.log(newRequest);
   newRequest.save();
   // console.log(newRequest.projectName);
 });
