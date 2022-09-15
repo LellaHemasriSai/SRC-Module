@@ -10,7 +10,7 @@ const Completed = () => {
   const [cardinfo, setCardInfo] = useState([])
 
   console.log("Submitted")
-
+  // Retrieves necessary data from server
   useEffect(() => {
     axios.post('http://localhost:3001/completed')
       .then(res => {
@@ -33,6 +33,7 @@ const Completed = () => {
             <span><h1 id="head_text">Completed Projects</h1></span>
           </div>
           <div className='grid'>
+          {/* maps all the content retrieved from server to a card */}
             {cardinfo.map((card, index) => (
               <Card id={index}
                 projectCode={card.projectCode}

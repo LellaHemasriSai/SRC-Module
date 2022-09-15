@@ -1,11 +1,6 @@
-import React, { useState, useRef } from 'react'
-//import Sidebar from "../../Navbar/components/Sidebar";
-//import Nav from "../../Navbar/components/Nav";
-//import "./staff.css"
-//import MainNav from '../../Navbar/components/MainNav';
+import React, { useState } from 'react'
 import { MainNav } from '../../App';
 import swal from 'sweetalert';
-//import { Container } from '@mui/system';
 
 export default function Funds_Extension() {
     const [projectName, setProjectName] = useState("default");
@@ -51,8 +46,7 @@ export default function Funds_Extension() {
         swal("","Submitted Funds Extention Request","success");
         handlchange();
     }
-    //console.alert("SubmittedValues: ", projectID, " ", projectName, " ", projectType, organizationType, agencyCode, agencyName, sanctionValue, startDate, endDate, descriptionBox)
-
+   
     return (
         <div className="wrapper hover_collapse">
             <MainNav></MainNav>

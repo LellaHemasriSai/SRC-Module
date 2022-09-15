@@ -1,4 +1,6 @@
-import React, { useState, useRef } from 'react'
+// Form created to request for the extension of duration 
+
+import React, { useState } from 'react'
 import { MainNav } from '../../App';
 import swal from 'sweetalert';
 
