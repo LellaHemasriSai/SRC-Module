@@ -1,3 +1,5 @@
+/*App imports the all the components and renders itself*/
+
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login1 from "./login1/login1.jsx";
 import Ongoing from "../components/Faculty/ongoing/Ongoing"
@@ -14,9 +16,9 @@ import ApproveRecruitment from "./Admin/Approve_Recruitmnet.jsx";
 import DurationExtension from "./Admin/Duration_Extension.jsx";
 import Completed from "./Faculty/Completed/Completed";
 import View from "./Admin/View.jsx";
-import Nav from "./Navbar/components/Nav.jsx";
+import Nav from "./Navbar/Nav.jsx";
 import Sidebar from "./Faculty/Sidebar.jsx";
-import "../components/Navbar/components/nav.css"
+import "../components/Navbar/nav.css"
 import AdminSidebar from "./Admin/Sidebar.jsx";
 import StudentHome from "./Staff/StudentHome.jsx"
 import Form from "./Faculty/Form.jsx"
@@ -38,13 +40,16 @@ import Tax from "./Faculty/Completed/Tax_Calculator";
 //export const username = "poojasree";  // no spaces
 //export const admin = "AdminName";
 //export const student = "Pooja";
+
+
+/*Faculty Page TopBar + SideBar component*/
 export const MainNav = () => {
   return <div>
     <Nav></Nav>
     <Sidebar></Sidebar>
   </div>
 }
-
+/*Admin Page TopBar + SideBar component*/
 export const AdminMainNav = () => {
   return <div>
     <Nav></Nav>
@@ -52,6 +57,7 @@ export const AdminMainNav = () => {
   </div>
 }
 
+/*StudentPage TopBar + SideBar component*/
 export const StudentMainNav = () => {
   return <div>
     {/**studentsidebar */}

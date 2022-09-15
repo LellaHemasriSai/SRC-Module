@@ -1,7 +1,7 @@
 import React from "react";
 import { data } from "./SidebarData";
 import create from "../../images/create.svg"
-import SideElement from "../Navbar/components/SideElement";
+import SideElement from "../Navbar/SideElement";
 
 export default function Sidebar() {
   return (<div className="sidebar">

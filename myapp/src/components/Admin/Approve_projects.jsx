@@ -3,14 +3,17 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../Faculty/ongoing/ongoing.css";
 import { AdminMainNav } from '../App';
 import axios from 'axios';
+import project from "../../images/check.svg"
 import React, { useEffect, useState } from 'react';
+
+/*projects that are sent by the faculty to get approval from the admin*/
 
 const Approve_project = () => {
   const [cardinfo, setCardInfo] = useState([])
 
   console.log("Submitted")
 
-  useEffect(() => {
+  useEffect(() => {                /* get data from pending approvals */
     axios.post('http://localhost:3001/pendingApprovals')
       .then(res => {
         console.log('Data: ', res.data.data)
@@ -23,9 +26,13 @@ const Approve_project = () => {
   }, [])
   return (
     <div className="wrapper hover_collapse">
-      <AdminMainNav></AdminMainNav>
+      <AdminMainNav></AdminMainNav>  
       <div className="main_container">
         <div className="container" style={{ textAlign: "center" }}>
+            <div className='head_wrap'>
+            <span><img src={project} style={{ width: "30px", height: "30px" }} alt="projects"/></span>
+            <span><h1 id="head_text">Approve Projects</h1></span>
+          </div>
           <div className='grid'>
             {cardinfo.map((card, index) => (
               <Card id={index} 

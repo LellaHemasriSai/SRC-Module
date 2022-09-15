@@ -2,11 +2,10 @@ import React, { useState, useEffect } from "react";
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button'
 import "bootstrap/dist/css/bootstrap.min.css";
-// import QRCode from ''
-// import QRCode from './QRCode';
-//import { QrCode } from 'react-bootstrap-icons';
 import "./Card.css";
 
+
+/*Card for funds extension in Admin Page*/
 const Cards = (props) => {
 
   const [show, setShow] = useState(false);
@@ -20,7 +19,6 @@ const Cards = (props) => {
     {
       return (
         <>
-          {/* <i class="fa fa-qrcode" aria-hidden="true"></i> */}
           <img className="qrcode" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/QR-code-obituary.svg/2277px-QR-code-obituary.svg.png" alt="QRCode"/>
         </>
       )
@@ -51,7 +49,6 @@ const Cards = (props) => {
 
   return (
     <Card key={props.id} className="card">
-      {/* <Card.Img variant="top" src="holder.js/100px160" /> */}
       <Card.Body>
         <div className="header">
           <Card.Title className="leftheader">ProjectCode - &ensp;{props.projectCode} </Card.Title>
@@ -81,12 +78,10 @@ const Cards = (props) => {
               <li class="list-group-item">status -&ensp;{props.status.toString()}</li>
               <li class="list-group-item">announcements -&ensp;{props.announcements}</li>
             </ul>
-            {/* { image()} */}
             <div className="butGRP">
               <Button variant="primary" className="Button1" onClick={() => { postData(props.projectCode, props.facultyID, true, props._id);setStatus(true); }}>Sanction Funds</Button>
               {clickstatus ? image() : null}
               <Button variant="primary" className="Button1" onClick={() => { postData(props.projectCode, props.facultyID, true, props._id) }}>Disapprove</Button>
-              {/* {console.log(clickstatus)} */}
             </div>
           </div>
           : null

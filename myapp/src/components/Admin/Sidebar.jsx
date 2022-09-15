@@ -1,6 +1,6 @@
 import React from "react";
 import { SidebarData } from "./SidebarData";
-import SideElement from "../Navbar/components/SideElement";
+import SideElement from "../Navbar/SideElement";
 function AdminSidebar() {
   return (
     <div className="sidebar">

@@ -22,6 +22,23 @@ export default function Opportunities(props) {
         console.log(err);
       })
   }, [])
+
+  
+  const handleArray=(id)=>{
+      let i;
+      for(i=0;i<opportunity.length;i++){
+        if(opportunity[i].projectID==id){
+          console.log(opportunity[i])
+          break;
+        }
+    }
+    setOpportunity(opportunity.filter(function(item) {
+        return item !== opportunity[i];
+    }))
+    console.log(opportunity);
+  }
+
+
   return <div className="wrapper hover_collapse">
   <StudentMainNav></StudentMainNav>
   <div class="main_container">
@@ -32,7 +49,8 @@ export default function Opportunities(props) {
   <span><h1 id="head_text">Opportunites</h1></span>
   </div>
       		{opportunity.map((h,index)=>{
-				return <StudentCard
+				     return <StudentCard
+              onHandle={handleArray}
               key={index}
               name={h.projectName}
               id={h.projectID}

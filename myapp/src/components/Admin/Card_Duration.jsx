@@ -4,20 +4,22 @@ import Button from 'react-bootstrap/Button'
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Card.css";
 
+/* Card Component in Admin Page */
+
 const Cards = (props) => {
 
   const [show, setShow] = useState(false);
   const [clickstatus, setStatus] = useState(false);
-  function postData(projectCode, facultyID, status, _id) {
+  function postData(projectCode, facultyID, status, _id) {   
+    /*sending data to backend whether the project is approved or not*/
     console.log("Submitted")
-    fetch("/updateProjectApprovalStatus", {
+    fetch("/updateDurationApprovalStatus", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
         projectCode: projectCode,
-        facultyID: facultyID,
         approveStatus: status,
         id: _id,
 
@@ -29,7 +31,6 @@ const Cards = (props) => {
 
   return (
     <Card key={props.id} className="card">
-      {/* <Card.Img variant="top" src="holder.js/100px160" /> */}
       <Card.Body>
         <div className="header">
           <Card.Title className="leftheader">ProjectCode - &ensp;{props.projectCode} </Card.Title>
