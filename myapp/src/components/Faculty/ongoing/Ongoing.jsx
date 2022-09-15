@@ -15,6 +15,7 @@ const Ongoing = () => {
       .then(res => {
         console.log('Data: ', res.data.data)
         setCardInfo(res.data.data)
+        console.log(res.data.data[0].projectName)
 
       })
       .catch(err => {
@@ -64,7 +65,7 @@ const Ongoing = () => {
             {cardinfo.map((card, index) => (
               <Card id={index}
                 projectCode={card.projectCode}
-                projectName={card.agencyName}
+                projectName={card.projectName}
                 projectType={card.projectType}
                 agencyCode={card.agencyCode}
                 agencyName={card.agencyName}
@@ -75,8 +76,9 @@ const Ongoing = () => {
                 facultyID={card.facultyID}
                 organisationType={card.organizationType}
                 staff={card.staff} sanctionFund={card.sanctionFund}
-                startDate={card.startDate}
-                endDate={card.endDate}
+                startDate={new Date(JSON.stringify(card.startDate).substring(1,11)).getDay()+"/" + new Date(JSON.stringify(card.startDate).substring(1,11)).getMonth()+"/"+new Date(JSON.stringify(card.startDate).substring(1,11)).getFullYear()}
+
+                endDate={new Date(JSON.stringify(card.endDate).substring(1,11)).getDay()+"/" + new Date(JSON.stringify(card.endDate).substring(1,11)).getMonth()+"/"+new Date(JSON.stringify(card.endDate).substring(1,11)).getFullYear()}
                 status={card.status}
                 description={card.description} 
                 _id = {card._id}

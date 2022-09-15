@@ -30,7 +30,7 @@ export default function StudentCard(props) {
   function postApplication(id) {
     console.log("Applied")
     props.onHandle(id);
-    fetch("/saveApplications", {
+    fetch("/updateOpportunitiesApplyNow", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

@@ -6,6 +6,29 @@
 	justify-content: center;
 }
 
+.approve_btn , .disapprove_btn{
+	border: #272727;
+    border-style: solid;
+    border-width: 0.9px;
+    outline: none;
+    border-radius: 4px;
+    padding: 5px;
+    box-sizing: border-box;
+    font-size: 1.3rem;
+    margin-right: 15px;
+	width: 90%;
+}
+
+.approve_btn{
+	border-color: #3876D0;
+    background-color: #3876D0;
+    color: white;
+}
+.disapprove_btn{
+	background-color: white;
+    color: #3876D0;
+    border-color: #3876D0;
+}
 .card_ongoing {
     background-color:white;
 	border-radius: 5px;
