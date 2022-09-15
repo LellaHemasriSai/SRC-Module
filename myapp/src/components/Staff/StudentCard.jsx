@@ -46,7 +46,7 @@ export default function StudentCard(props) {
     }).then((res) => {
       console.log("Res:", res);
     })
-    swal("","Applied Successfully");
+    swal("","Applied Successfully","success");
   }
 
   let start = new Date(props.start);
