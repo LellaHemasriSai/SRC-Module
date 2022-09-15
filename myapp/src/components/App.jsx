@@ -12,7 +12,7 @@ import Announcements from "./Faculty/Announcements/Announcements.jsx";
 import Admin from "./Admin/Admin.jsx";
 import Pending from "./Faculty/Pending/Pending.jsx"
 import ApproveProject from "./Admin/Approve_projects.jsx";
-import ApproveRecruitment from "./Admin/Approve_Recruitmnet.jsx";
+import ApproveRecruitment from "./Admin/Approve_Recruitment.jsx";
 import DurationExtension from "./Admin/Duration_Extension.jsx";
 import Completed from "./Faculty/Completed/Completed";
 import View from "./Admin/View.jsx";
