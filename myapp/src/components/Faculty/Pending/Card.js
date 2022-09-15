@@ -159,7 +159,7 @@ const Cards = (props) => {
               </Link>
             </div>
             <div class="form-group col-md-4" >
-              <Link to={"/Faculty/" + username + "/]funds_extension"}>
+              <Link to={"/Faculty/" + username + "/funds_extension"}>
                 <Button variant="primary" className="buttitem">Additional Funds</Button>
               </Link>
             </div>

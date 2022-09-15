@@ -69,7 +69,7 @@ const Cards = (props) => {
                 <div class="fw-bold">Approval: </div>
                 &ensp;{props.approval ? "True" : "False"}
               </div>
-              {/*<div class="list-group-item ">
+              <div class="list-group-item ">
                 <div class="fw-bold">ResourceApproval: </div>
                 &ensp;{props.resourceApproval ? "True" : "False"}
               </div>
@@ -77,16 +77,20 @@ const Cards = (props) => {
                 <div class="fw-bold">FundApproval : </div>
                 &ensp;{props.fundApproval ? "True" : "False"}
               </div>
-              <div class="list-group-item ">
+              {/*<div class="list-group-item ">
                 <div class="fw-bold">Closed : </div>
                 &ensp;{props.closed ? "True" : "False"}
         </div>*/}
             </ul>
             <ul class="list-group list-group-flush rightside">
-              {/*<div class="list-group-item ">
+              <div class="list-group-item ">
                 <div class="fw-bold">Faculty ID: </div>
                 &ensp;{props.facultyID}
-      </div>*/}
+              </div>
+              <div class="list-group-item ">
+                <div class="fw-bold">Faculty ID: </div>
+                &ensp;{props.facultyID}
+              </div>
               <div class="list-group-item ">
                 <div class="fw-bold">Organisation Type: </div>
                 &ensp;{props.organisationType}
@@ -112,7 +116,7 @@ const Cards = (props) => {
                 &ensp;{props.status.toString()}
   </div>*/}
             </ul>
-            <div className="butGRP">
+            <div className="bgrp">
               <Button variant="primary" className="Button1" onClick={() => { postData(props.projectCode, props.facultyID, true, props._id) }}>Approve</Button>
               <Button variant="primary" className="Button1" onClick={() => { postData(props.projectCode, props.facultyID, false, props._id) }}>Disapprove</Button>
               {console.log(clickstatus)}

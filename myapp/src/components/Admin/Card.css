@@ -119,7 +119,14 @@
   position: absolute;
   bottom: 0;
   margin-bottom: 5%;
-  margin-left: 37%;
+  margin-left: 43%;
+}
+
+.bgrp {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 5%;
+  margin-left: 39%;
 }
 
 .qrcode {

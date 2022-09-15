@@ -85,10 +85,10 @@ const Cards = (props) => {
                 <div class="fw-bold">Approval: </div>
                 &ensp;{props.approval ? "True" : "False"}
               </div>
-              {/*<div class="list-group-item ">
+              <div class="list-group-item ">
                 <div class="fw-bold">ResourceApproval: </div>
                 &ensp;{props.resourceApproval ? "True" : "False"}
-        </div>*/}
+              </div>
               <div class="list-group-item ">
                 <div class="fw-bold">FundApproval : </div>
                 &ensp;{props.fundApproval ? "True" : "False"}
@@ -99,10 +99,14 @@ const Cards = (props) => {
         </div>*/}
             </ul>
             <ul class="list-group list-group-flush rightside">
-              {/*<div class="list-group-item ">
+              <div class="list-group-item ">
                 <div class="fw-bold">Faculty ID: </div>
                 &ensp;{props.facultyID}
-      </div>*/}
+              </div>
+              <div class="list-group-item ">
+                <div class="fw-bold">Faculty Name: </div>
+                &ensp;{props.facultyName}
+              </div>
               <div class="list-group-item ">
                 <div class="fw-bold">Organisation Type: </div>
                 &ensp;{props.organisationType}
