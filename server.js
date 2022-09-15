@@ -257,6 +257,8 @@ const recruitmentRequestSchema = new mongoose.Schema({
   description: String,
   approval: Boolean,
   projectName: String,
+  facultyID: String,
+  status: Number,
 });
 
 const RecruitmentRequest = mongoose.model(
@@ -274,6 +276,8 @@ const fundsRequestSchema = new mongoose.Schema({
   description: String,
   approval: Boolean,
   projectName: String,
+  facultyID: String,
+  status: Number,
 });
 
 const FundsRequest = mongoose.model(
@@ -650,6 +654,7 @@ app.post("/announced", (req, res) => {
 app.post("/saveRecruitmentRequest", (req, res) => {
   console.log("saving Recruitment?");
   res.send("request sent");
+  var project = Project.findOne({ projectCode: req.body.projectID })
   var newRequest = new RecruitmentRequest({
     projectID: req.body.projectID,
     //projectName: await Project.findOne({ 'projectCode': req.body.projectID }).projectName,
@@ -662,6 +667,8 @@ app.post("/saveRecruitmentRequest", (req, res) => {
     active: true,
     approval: false,
     description: req.body.descriptionBox,
+    status: project.status,
+    facultyID: project.facultyID,
   });
   newRequest.save();
   // console.log(newRequest.projectName);
@@ -693,6 +700,7 @@ app.post("/saveExtendDurationRequest", (req, res) => {
 app.post("/saveFundRequest", (req, res) => {
   console.log("saving Additional Funds?");
   res.send("request sent");
+  var project = Project.findOne({ projectCode: req.body.projectID })
   var newRequest = new FundsRequest({
     projectID: req.body.projectID,
     projectName: req.body.projectName,
@@ -701,6 +709,8 @@ app.post("/saveFundRequest", (req, res) => {
     active: true,
     approval: false,
     descriptionBox: req.body.descriptionBox,
+    status: project.status,
+    facultyID: project.facultyID,
   });
   //console.log(newRequest);
   newRequest.save();
@@ -898,7 +908,8 @@ app.post("/updateStudentDetails", async (req, res, next) => {
 
 //update student application in student - on pressing apply now
 app.post("updateOpportunitiesApplyNow", async (req, res, next) => {
-  await Staff.find({ username: req.body.staffName })
+  var obj = await Staff.findOneAndUpdate({ username: req.body.staffName }, { "$push": { 'projects': req.body.projectID } })
+  console.log(obj.projects)
 
   try {
     return res.status(200).json({
