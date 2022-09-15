@@ -29,7 +29,9 @@ export default function Applications() {
                 <span><img src={application} style={{ width: "30px", height: "30px" }} alt="applications"/></span>
                 <span><h1 id="head_text">Applications</h1></span>
                 </div>
-                <FacultyApplicationCard></FacultyApplicationCard>
+                {applications.length==0? <h1 style={{ marginLeft:"auto",marginRight:"auto",
+                marginTop:"10%" , color:"GrayText"}}>No Applications Received</h1> :
+                <FacultyApplicationCard></FacultyApplicationCard>}
             </div>
             </div>
         </div>

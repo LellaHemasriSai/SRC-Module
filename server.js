@@ -543,6 +543,21 @@ app.post("/sendDurationExtension", async (req, res, next) => {
   }
 });
 
+//returns additional funds request data to admin
+app.post("/sendFundsRequest", async (req, res, next) => {
+  var fund = await FundsRequest.find({ approval: false, active: true });
+
+  try {
+    return res.status(200).json({
+      success: true,
+      data: fund,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: "server error" });
+  }
+});
+
 //---------------------------------------------------------------------
 //functions to save data to backend database
 //---------------------------------------------------------------------
@@ -661,7 +676,7 @@ app.post("/updateFundApproval", async (req, res, next) => {
     active: false,
   });
 
-  await Project.findOneAndUpdate(req.body.projectCode, { resourceApproval: true })
+  await Project.findOneAndUpdate(req.body.projectCode, { fundApproval: true, sanctionFund: fund.extendSanctionValue })
 
   var updateApproval = await Project.find({
     'projectCode': req.body.projectCode,

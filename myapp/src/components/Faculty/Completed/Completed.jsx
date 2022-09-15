@@ -22,7 +22,7 @@ const Completed = () => {
         console.log(err);
       })
   }, [])
-
+console.log(cardinfo.length)
   return (
     <div div className="wrapper hover_collapse" >
       <MainNav></MainNav>
@@ -34,7 +34,9 @@ const Completed = () => {
           </div>
           <div className='grid'>
           {/* maps all the content retrieved from server to a card */}
-            {cardinfo.map((card, index) => (
+            {cardinfo.length==0? <h1 style={{ marginLeft:"auto",marginRight:"auto",
+            marginTop:"10%" , color:"GrayText"}}>No Completed Projects</h1> :
+              cardinfo.map((card, index) => (
               <Card id={index}
                 projectCode={card.projectCode}
                 projectName={card.agencyName}
