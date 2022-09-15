@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./staff.css"
-
+import swal from "sweetalert";
 
 
 
@@ -46,6 +46,7 @@ export default function StudentCard(props) {
     }).then((res) => {
       console.log("Res:", res);
     })
+    swal("","Applied Successfully");
   }
 
   let start = new Date(props.start);
