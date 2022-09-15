@@ -48,6 +48,7 @@ const projectsSchema = new mongoose.Schema({
   facultyID: String,
   organizationType: String,
   staff: [String],
+  noOfStaff: Number,
   sanctionFund: Number,
   startDate: Date,
   endDate: Date,
@@ -258,6 +259,44 @@ const RecruitmentRequest = mongoose.model(
   "RecruitmentRequest",
   recruitmentRequestSchema
 );
+
+const fundsRequestSchema = new mongoose.Schema({
+  projectID: String,
+  recruitmentType: String,
+  numberOfStaff: Number,
+  salaryDetails: Number,
+  startDate: Date,
+  endDate: Date,
+  active: Boolean,
+  description: String,
+  approval: Boolean,
+  projectName: String,
+});
+
+const FundsRequest = mongoose.model(
+  "FundsRequest",
+  fundsRequestSchema
+);
+
+const durationExtensionSchema = new mongoose.Schema({
+  projectID: String,
+  projectType: String,
+  numberOfStaff: Number,
+  prevDate: Date,
+  newDate: Date,
+  active: Boolean,
+  description: String,
+  approval: Boolean,
+  projectName: String,
+  descriptionBox: String,
+});
+
+const DurationExtension = mongoose.model(
+  "DurationExtension",
+  durationExtensionSchema
+);
+
+
 
 // const scannedSignaturesSchema = new mongoose.Schema({
 //   fileName: String,
@@ -491,6 +530,21 @@ app.post("/sendRecruitment", async (req, res, next) => {
   }
 });
 
+//returns duration extension data to admin
+app.post("/sendDurationExtension", async (req, res, next) => {
+  var rec = await DurationExtension.find({ approval: false, active: true });
+
+  try {
+    return res.status(200).json({
+      success: true,
+      data: rec,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: "server error" });
+  }
+});
+
 //---------------------------------------------------------------------
 //functions to save data to backend database
 //---------------------------------------------------------------------
@@ -516,6 +570,7 @@ app.post("/created", (req, res) => {
     startDate: req.body.startDate,
     endDate: req.body.endDate,
     status: 0,
+    noOfStaff: 0,
     description: req.body.descriptionBox,
   });
   //console.log(newProject);
@@ -562,9 +617,78 @@ app.post("/saveRecruitmentRequest", (req, res) => {
   // console.log(newRequest.projectName);
 });
 
+//save details of Extend Duration request
+app.post("/saveExtendDurationRequest", (req, res) => {
+  console.log("saving Extend Duration?");
+  res.send("request sent");
+  var newRequest = new DurationExtension({
+    projectID: req.body.projectID,
+    projectName: req.body.projectName,
+    prevDate: req.body.previousDate,
+    endDate: req.body.extendDate,
+    active: true,
+    approval: false,
+    descriptionBox: req.body.descriptionBox,
+  });
+  newRequest.save();
+  // console.log(newRequest.projectName);
+});
+
 //----------------------------------------------------------------------------
 //updating values in data base
 //----------------------------------------------------------------------------
+
+//update fund approval status in admin
+app.post("/update", async (req, res, next) => {
+  const recruit = await RecruitmentRequest.findByIdAndUpdate(req.body.id, {
+    approval: true,
+    active: false,
+  });
+
+  await Project.findOneAndUpdate(req.body.projectCode, { resourceApproval: true })
+
+  var updateApproval = await Project.find({
+    'projectCode': req.body.projectCode,
+  });
+
+  try {
+    return res.status(200).json({
+      success: true,
+      count: updateApproval.length,
+      data: updateApproval,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: "server error" });
+  }
+});
+
+//update duration extension approval status in admin
+app.post("/updateDurationApprovalStatus", async (req, res, next) => {
+  await DurationExtension.findByIdAndUpdate(req.body.id, {
+    approval: true,
+    active: false,
+  });
+
+  const approve = await DurationExtension.findOne({ '_id': req.body.id });
+
+  await Project.findOneAndUpdate(req.body.projectID, { endDate: approve.newDate })
+
+  var updateApproval = await Project.find({
+    'projectCode': req.body.projectCode,
+  });
+
+  try {
+    return res.status(200).json({
+      success: true,
+      count: updateApproval.length,
+      data: updateApproval,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: "server error" });
+  }
+});
 
 //update recruitment approval status in admin
 app.post("/updateRecruitmentApprovalStatus", async (req, res, next) => {
