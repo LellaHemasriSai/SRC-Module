@@ -68,7 +68,7 @@ const Cards = (props) => {
           <ul class="list-group list-group-flush leftside">
             <div class="list-group-item ">
               <div class="fw-bold">Project Type: </div>
-              &ensp;{props.projectCode}
+              &ensp;{props.projectType}
             </div>
             <div class="list-group-item ">
               <div class="fw-bold">Agency Code: </div>
