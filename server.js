@@ -569,7 +569,7 @@ app.post("/sendDurationExtension", async (req, res, next) => {
 //returns additional funds request data to admin
 app.post("/sendFundsRequest", async (req, res, next) => {
   var fund = await FundsRequest.find({ approval: false, active: true });
-
+  console.log(fund.length)
   try {
     return res.status(200).json({
       success: true,
@@ -701,7 +701,7 @@ app.post("/saveFundRequest", async (req, res) => {
   console.log("saving Additional Funds?");
   res.send("request sent");
   var project = await Project.findOne({ projectCode: req.body.projectID })
-  console.log(project.status)
+  //console.log(project.status)
   var newRequest = new FundsRequest({
     projectID: req.body.projectID,
     projectName: req.body.projectName,
@@ -713,7 +713,7 @@ app.post("/saveFundRequest", async (req, res) => {
     status: project.status,
     facultyID: project.facultyID,
   });
-  console.log(newRequest);
+  //console.log(newRequest);
   newRequest.save();
   // console.log(newRequest.projectName);
 });
