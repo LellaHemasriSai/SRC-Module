@@ -13,7 +13,7 @@ export default function ProjectCard(props){
       </MDBRow>
       <MDBRow className='box_text'>
         <MDBCol className=' box_content_text main_text' size='6' sm='3'>Project ID</MDBCol>
-       <MDBCol className='box_content_text' size='6' sm='3'>ID1234</MDBCol>
+       <MDBCol className='box_content_text' size='6' sm='3'>{props.id}</MDBCol>
       </MDBRow>
     <MDBRow className='box_text'>
         <MDBCol className=' box_content_text main_text' size='6' sm='3'>Faculty Name</MDBCol>
@@ -24,7 +24,7 @@ export default function ProjectCard(props){
        <MDBCol className='box_content_text' size='6' sm='3'>Role</MDBCol>
       </MDBRow>
     <MDBRow className='box_text'>
-    <MDBCol className='box_content_text'><CircularProgressbar className='status_circle' value={0} text={`${0}%`} /></MDBCol>
+    <MDBCol className='box_content_text'><CircularProgressbar className='status_circle' value={props.status} text={`${props.status}%`} /></MDBCol>
     </MDBRow>
 	</MDBContainer>
 	</div>

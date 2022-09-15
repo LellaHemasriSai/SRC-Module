@@ -62,7 +62,9 @@ const Ongoing = () => {
   </span>
           </div>
           <div className='grid'>
-            {cardinfo.map((card, index) => (
+            {cardinfo.length===0? <h2 style={{ marginLeft:"auto",marginRight:"auto",
+            marginTop:"10%" , color:"GrayText"}}>No Ongoing Projects</h2> :
+            cardinfo.map((card, index) => (
               <Card id={index}
                 projectCode={card.projectCode}
                 projectName={card.projectName}

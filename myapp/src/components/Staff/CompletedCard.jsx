@@ -12,7 +12,7 @@ export default function ProjectCard(props){
       </MDBRow>
       <MDBRow className='box_text'>
         <MDBCol className=' box_content_text main_text' size='6' sm='3'>Project ID</MDBCol>
-       <MDBCol className='box_content_text' size='6' sm='3'>ID1234</MDBCol>
+       <MDBCol className='box_content_text' size='6' sm='3'>{props.id}</MDBCol>
       </MDBRow>
     <MDBRow className='box_text'>
         <MDBCol className=' box_content_text main_text' size='6' sm='3'>Faculty Name</MDBCol>
@@ -24,11 +24,11 @@ export default function ProjectCard(props){
     </MDBRow>
     <MDBRow className='box_text'>
         <MDBCol className=' box_content_text main_text' size='6' sm='3'>Start Date</MDBCol>
-       <MDBCol className='box_content_text' size='6' sm='3'>00/00/0000</MDBCol>
+       <MDBCol className='box_content_text' size='6' sm='3'>{props.start}</MDBCol>
     </MDBRow>
     <MDBRow className='box_text'>
         <MDBCol className=' box_content_text main_text' size='6' sm='3'>End Date</MDBCol>
-       <MDBCol className='box_content_text' size='6' sm='3'>00/00/0000</MDBCol>
+       <MDBCol className='box_content_text' size='6' sm='3'>{props.end}</MDBCol>
     </MDBRow>
 	</MDBContainer>
 	</div>

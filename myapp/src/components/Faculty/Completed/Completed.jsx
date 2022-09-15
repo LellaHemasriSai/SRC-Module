@@ -34,8 +34,8 @@ console.log(cardinfo.length)
           </div>
           <div className='grid'>
           {/* maps all the content retrieved from server to a card */}
-            {cardinfo.length===0? <h1 style={{ marginLeft:"auto",marginRight:"auto",
-            marginTop:"10%" , color:"GrayText"}}>No Completed Projects</h1> :
+            {cardinfo.length===0? <h2 style={{ marginLeft:"auto",marginRight:"auto",
+            marginTop:"10%" , color:"GrayText"}}>No Completed Projects</h2> :
               cardinfo.map((card, index) => (
               <Card id={index}
                 projectCode={card.projectCode}

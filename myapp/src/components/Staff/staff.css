@@ -197,6 +197,7 @@ img {
 
 
 .top_content{
+  margin-right: 4%;
   display: flex;
  /* grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   grid-gap: 45em;*/
@@ -232,9 +233,9 @@ img {
     color: white;
 }
 
-.container{
+/*.container{
   padding-left: 0;
-}
+}*/
 
 .remove_content{
   display: none;

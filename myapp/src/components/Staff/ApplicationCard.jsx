@@ -6,7 +6,7 @@ function ApplicationCard(props) {
           <h2>Project Name</h2>
           <div>
             <span>
-              Code:
+              <span style={{fontWeight:"900"  }}>Project ID:</span>  ID341
             </span>
           </div>
           <div className='application_text'>
