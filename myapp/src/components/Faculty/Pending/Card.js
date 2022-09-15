@@ -64,6 +64,10 @@ const Cards = (props) => {
         </div>
         {show ? <div>
           <Button variant="primary" className="statbutt" onClick={() => { postData(props._id) }}>Update Status</Button>
+          <div class="card_body">
+            <label class="desc">Description of the Project:</label>
+            {props.description}
+          </div>
           <ul class="list-group list-group-flush leftside">
             <div class="list-group-item ">
               <div class="fw-bold">Project Type: </div>

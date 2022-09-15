@@ -1,134 +1,140 @@
 .card {
-    margin: 3rem 3rem 3rem 3rem;
-    padding: 1.5rem;
-    width: 100%;
-    box-shadow: 0 0 28px 4px rgba(0, 0, 0, 0, 1);
-    transition: transform .3s ease;
-    cursor: pointer;
+  margin: 3rem 3rem 3rem 3rem;
+  padding: 1.5rem;
+  width: 100%;
+  box-shadow: 0 0 28px 4px rgba(0, 0, 0, 0, 1);
+  transition: transform .3s ease;
+  cursor: pointer;
 }
 
-.card:hover{
-    transform: scale(1.05);
-    box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
 }
 
 .card_title {
-    font-weight: 800;
-    font-size: 1.5rem;
+  font-weight: 800;
+  font-size: 1.5rem;
 }
 
 .leftheader {
-    float:left;
-    font-family: "Gilmer",sans-serif;
-    text-transform: uppercase;
-    padding: 0 12px;
-    height: max-content;
-    line-height: 28px;
-    letter-spacing: 1px;
-    display: inline-flex;
-    border-radius: 4px;
-    color: black;
-    font-weight: 700;
-    font-size:xx-small;
+  float: left;
+  font-family: "Gilmer", sans-serif;
+  text-transform: uppercase;
+  padding: 0 12px;
+  height: max-content;
+  line-height: 28px;
+  letter-spacing: 1px;
+  display: inline-flex;
+  border-radius: 4px;
+  color: black;
+  font-weight: 700;
+  font-size: xx-small;
 }
 
 .rightheader {
-    float: right;
-    font-family: "Gilmer",sans-serif;
-    color: black;
-    text-transform: uppercase;
-    padding: 0 12px;
-    height: max-content;
-    line-height: 28px;
-    letter-spacing: 1px;
-    display: inline-flex;
-    border-radius: 4px;
-        font-weight: 700;
-    font-size:xx-small;
+  float: right;
+  font-family: "Gilmer", sans-serif;
+  color: black;
+  text-transform: uppercase;
+  padding: 0 12px;
+  height: max-content;
+  line-height: 28px;
+  letter-spacing: 1px;
+  display: inline-flex;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: xx-small;
 }
-.header{
+
+.header {
+  font-size: 2rem;
+  text-align: left;
 }
 
 .subtitle {
-    margin-top: 2rem;
-    text-align: left;
-    color: black;
+  margin-top: 2rem;
+  text-align: left;
+  color: black;
 }
 
 .card_body {
-     margin-top: 7% ;
-    text-align: centre; 
+  margin-top: 7%;
+  text-align: left;
 }
-.option1 { 
-    display: inline-block; 
-    padding-right: 20%; 
-    color: black;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 1.2rem;
-  }
-  .text-muted
-  {
-    color: black;
-    font-weight: 300;
-  }
-  .list-group
-  {
-    padding-top: 8%;
-    text-align: left;
-  }
-  .list-group-item
-  {
+
+.option1 {
+  display: inline-block;
+  padding-right: 20%;
+  color: black;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 1.2rem;
+}
+
+.text-muted {
+  color: black;
+  font-weight: 300;
+}
+
+.list-group {
+  padding-top: 8%;
+  text-align: left;
+}
+
+.list-group-item {
   font-size: 2rem;
   display: inline-flex;
-  }
-  .butt{
-    margin-top: 7%;
-    float: centre;
-    background-color:#438af5;
-    font-size: x-small;
-    
-  }
-  .card_body
-  {
-    text-align: center;
-    font-size: 2rem;
-  }
-  .status
-  {
-    float: right;
-    width: 5%;
-  }
-  .Button1
-  {
-    /* position: absolute;
+}
+
+.butt {
+  margin-top: 7%;
+  float: centre;
+  background-color: #438af5;
+  font-size: x-small;
+
+}
+
+.card_body {
+  text-align: center;
+  font-size: 2rem;
+}
+
+.status {
+  float: right;
+  width: 5%;
+}
+
+.Button1 {
+  /* position: absolute;
     bottom:0;
     margin-bottom: 4%;
     width: 15%; */
-    margin-left: 20px;
-    margin-right: 20px;
-    width: 110px;
-    
-  }
-  .butGRP
-  {
-    position: absolute;
-    bottom: 0;
-    margin-bottom: 5%;
-    margin-left: 37%;
-  }
-  .qrcode
-  {
-    width: 20%;
-    position: absolute;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    margin-left: 500px;
-  }
-  .hideme
-  {
-    opacity: 0;
-  }
-  /* .qrcode {
+  margin-left: 20px;
+  margin-right: 20px;
+  width: 110px;
+
+}
+
+.butGRP {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 5%;
+  margin-left: 37%;
+}
+
+.qrcode {
+  width: 20%;
+  position: absolute;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 500px;
+}
+
+.hideme {
+  opacity: 0;
+}
+
+/* .qrcode {
     -webkit-animation: cssAnimation 5s forwards; 
     animation: cssAnimation 5s forwards;
 }
