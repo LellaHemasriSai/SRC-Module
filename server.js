@@ -262,11 +262,9 @@ const RecruitmentRequest = mongoose.model(
 
 const fundsRequestSchema = new mongoose.Schema({
   projectID: String,
-  recruitmentType: String,
-  numberOfStaff: Number,
-  salaryDetails: Number,
-  startDate: Date,
-  endDate: Date,
+  projectType: String,
+  prevSanctionValue: Number,
+  extendSanctionValue: Number,
   active: Boolean,
   description: String,
   approval: Boolean,
@@ -624,8 +622,26 @@ app.post("/saveExtendDurationRequest", (req, res) => {
   var newRequest = new DurationExtension({
     projectID: req.body.projectID,
     projectName: req.body.projectName,
+    projectType: req.body.projectType,
     prevDate: req.body.previousDate,
     endDate: req.body.extendDate,
+    active: true,
+    approval: false,
+    descriptionBox: req.body.descriptionBox,
+  });
+  newRequest.save();
+  // console.log(newRequest.projectName);
+});
+
+//save details of Additional funds request
+app.post("/saveFundRequest", (req, res) => {
+  console.log("saving Additional Funds?");
+  res.send("request sent");
+  var newRequest = new FundsRequest({
+    projectID: req.body.projectID,
+    projectName: req.body.projectName,
+    prevSanctionValue: req.body.prevsanctionValue,
+    extendSanctionValue: req.body.extendsanctionValue,
     active: true,
     approval: false,
     descriptionBox: req.body.descriptionBox,
@@ -639,8 +655,8 @@ app.post("/saveExtendDurationRequest", (req, res) => {
 //----------------------------------------------------------------------------
 
 //update fund approval status in admin
-app.post("/update", async (req, res, next) => {
-  const recruit = await RecruitmentRequest.findByIdAndUpdate(req.body.id, {
+app.post("/updateFundApproval", async (req, res, next) => {
+  const fund = await FundsRequest.findByIdAndUpdate(req.body.id, {
     approval: true,
     active: false,
   });
@@ -817,49 +833,3 @@ app.listen(port, function () {
 //---------------------------------------------------------------------------------
 //                                      END
 //---------------------------------------------------------------------------------
-
-//testing
-/*var newFac = new Faculty({
-  username: "CS20B020",
-  password: "cs20b020",
-  userCode: "CS12",
-  principalInvestigatorCode: "CS01",
-  details: {
-    Department: "CS",
-    Designation: "Assistant Professor",
-    Email: "cs20b020@iitp.ac.in",
-    ContactNumber: "3276456938",
-    DateOfJoining: new Date("2020-11-16"),
-    Qualifications: "B.Tech",
-    DoB: new Date("2001-04-10"),
-    Address: "Tirupati",
-  },
-  projects: {
-    projectCode: "123",
-    projectName: "SRC",
-    projectType: "Internal",
-    agencyCode: "College123",
-    agencyName: "College",
-    approval: true,
-    resourceApproval: true,
-    fundApproval: true,
-    closed: false,
-    facultyID: "CS01",
-    organizationType: "National",
-    //staff: [mongoose.Types.ObjectId],
-    sanctionFund: 1010010,
-    startDate: new Date("2001-04-10"),
-    endDate: new Date("2007-04-10"),
-    status: 0,
-    description: "String",
-    sanctionLetter: "String",
-  },
-});
-
-newFac.save();
-console.log(newFac);
-var s1 = "CS01";
-var s2 = "123";
-var n1 = 1;
-updateProjectStatus(s1, s2, n1);
-console.log(newFac);*/
