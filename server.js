@@ -273,7 +273,7 @@ const fundsRequestSchema = new mongoose.Schema({
   prevSanctionValue: Number,
   extendSanctionValue: Number,
   active: Boolean,
-  description: String,
+  descriptionBox: String,
   approval: Boolean,
   projectName: String,
   facultyID: String,
