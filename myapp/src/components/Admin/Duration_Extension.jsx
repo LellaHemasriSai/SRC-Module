@@ -37,13 +37,16 @@ const Duration_Extension = () => {
             {cardinfo.length===0? <h2 style={{ marginLeft:"auto",marginRight:"auto",
             marginTop:"30%" , color:"GrayText"}}>No Requests for Duration Extension</h2> :
             cardinfo.map((card, index) => (
-              <Card id={index} code={card.projectID} 
+              <Card key={index} 
+              code={card.projectID} 
               name={card.projectName} 
               type={card.projectType} 
-              facultyID={card.facultyID} 
+             /*facultyID={card.facultyID} */
+              approval={card.approval}
               prevDate={new Date(JSON.stringify(card.prevDate).substring(1,11)).getDay()+"/" + new Date(JSON.stringify(card.prevDate).substring(1,11)).getMonth()+"/"+new Date(JSON.stringify(card.prevDate).substring(1,11)).getFullYear()} 
               newDate={new Date(JSON.stringify(card.newDate).substring(1,11)).getDay()+"/" + new Date(JSON.stringify(card.newDate).substring(1,11)).getMonth()+"/"+new Date(JSON.stringify(card.newDate).substring(1,11)).getFullYear()} 
-              description={card.description} 
+              _id={card._id}
+              description={card.descriptionBox} 
               content="Extend Duration" />
             ))}
             </section>

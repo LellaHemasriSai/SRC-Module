@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button'
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Card.css";
 import { CircularProgressbar } from 'react-circular-progressbar';
 import "./statusbarstyles.css"
-import ExtendDuration from "../Extend_Duration/extend_duration";
 import { useParams, Link } from "react-router-dom";
 import { MDBContainer, MDBRow, MDBCol } from 'mdb-react-ui-kit'
 const Cards = (props) => {

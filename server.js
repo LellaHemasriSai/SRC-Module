@@ -679,6 +679,8 @@ app.post("/saveExtendDurationRequest", (req, res) => {
   console.log("saving Extend Duration?");
   res.send("request sent");
   var project = Project.findOne({ projectCode: req.body.projectID })
+  console.log(project.facultyID);
+  console.log(project.status)
   var newRequest = new DurationExtension({
     projectID: req.body.projectID,
     projectName: req.body.projectName,
@@ -693,7 +695,7 @@ app.post("/saveExtendDurationRequest", (req, res) => {
   });
   console.log(newRequest);
   newRequest.save();
-  // console.log(newRequest.projectName);
+  console.log(newRequest.projectName);
 });
 
 //save details of Additional funds request

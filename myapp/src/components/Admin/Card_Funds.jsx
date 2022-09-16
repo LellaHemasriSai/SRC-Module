@@ -5,13 +5,11 @@ import { MDBContainer, MDBRow, MDBCol } from 'mdb-react-ui-kit'
 /*Card for funds extension in Admin Page*/
 const Cards = (props) => {
 
-  //const [show, setShow] = useState(false);
   const [clickstatus, setStatus] = useState(false);
   const [sh, setsh] = useState(false);
   const handleOnClick = () => {
     setsh(true);
   }
-  // const handleButtonClick = () => { setStatus(true); + setTimeout(() => { + setStatus(false) + }, 3000); } 
   function image() {
     return (
       <>
@@ -21,6 +19,13 @@ const Cards = (props) => {
   }
 
   function postData(projectCode, facultyID, status, _id) {
+    console.log({
+        projectCode: projectCode,
+        facultyID: facultyID,
+        approveStatus: status,
+        id: _id,
+
+      })
     console.log("Submitted", projectCode, facultyID, status, _id)
     fetch("/updateFundApproval", {
       method: "POST",
@@ -58,18 +63,24 @@ const Cards = (props) => {
           <MDBCol className=' box_content_text main_text' size='6' sm='3'>Faculty ID</MDBCol>
           <MDBCol className='box_content_text' size='6' sm='3'>facultyID</MDBCol>
         </MDBRow>
+
+          {/** taking difference of previous and extend  */}
         <MDBRow className='box_text'>
           <MDBCol className=' box_content_text main_text' size='6' sm='3'>Additional Funds</MDBCol>
-          <MDBCol className='box_content_text' size='6' sm='3'>{props.AdditionalFunds}</MDBCol>
+          <MDBCol className='box_content_text' size='6' sm='3'>{props.extend}</MDBCol> 
         </MDBRow>
+
+      {/** No description provided from backend  */}
+
         {/*  <MDBRow className='box_text'>
       <MDBCol className='box_content_text main_text' size='6' sm='3'>Description</MDBCol>
        <MDBCol className='box_content_text' size='6' sm='3'>{props.description}</MDBCol>
     </MDBRow>*/}
+
         <MDBRow style={{}}>
-          <MDBCol className=' box_content_text main_text' size='6' sm='3'><button className='approve_btn' onClick={() => { postData(props.projectCode, props.facultyID, true, props._id); setStatus(true); }}>Approve</button></MDBCol>
+          <MDBCol className=' box_content_text main_text' size='6' sm='3'><button className='approve_btn' onClick={() => { postData(props.code, 'ID', true, props._id); setStatus(true); }}>Approve</button></MDBCol>
           {/*  {clickstatus ? image() : null}*/}
-          <MDBCol className='box_content_text' size='6' sm='3'><button className='disapprove_btn' onClick={() => { postData(props.projectCode, props.facultyID, true, props._id); setStatus(false); }}>Disapprove</button></MDBCol>
+          <MDBCol className='box_content_text' size='6' sm='3'><button className='disapprove_btn' onClick={() => { postData(props.code, 'ID', true, props._id); setStatus(false); }}>Disapprove</button></MDBCol>
         </MDBRow>
       </MDBContainer>
     </div>

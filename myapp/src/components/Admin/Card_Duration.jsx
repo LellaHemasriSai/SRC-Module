@@ -7,6 +7,7 @@ import { MDBContainer, MDBRow, MDBCol } from 'mdb-react-ui-kit';
 const Cards = (props) => {
 
   const [clickstatus, setStatus] = useState(false);
+
   function postData(projectCode, facultyID, status, _id) {   
     /*sending data to backend whether the project is approved or not*/
     console.log("Submitted")
@@ -56,14 +57,15 @@ return (
         <MDBCol className=' box_content_text main_text' size='6' sm='3'>new End Date</MDBCol>
        <MDBCol className='box_content_text' size='6' sm='3'>{props.newDate}</MDBCol>
     </MDBRow>
-  {/*  <MDBRow className='box_text'>
-      <MDBCol className='box_content_text main_text' size='6' sm='3'>Description</MDBCol>
-       <MDBCol className='box_content_text' size='6' sm='3'>{props.description}</MDBCol>
-    </MDBRow>*/}
+      <MDBRow className='box_text' style={{marginBottom:"2px"} }>
+      <MDBCol className='box_content_text main_text' style={{width:"100%"}} size='6' sm='3'>Reason For Extension</MDBCol>
+    </MDBRow>
+    <MDBRow className='box_text'  style={{marginTop:"0px" ,marginBottom:"15px" } }>
+       <MDBCol className='box_content_text' style={{width:"100%",textAlign:"left" } } size='6' sm='3'>{props.description}</MDBCol>
+    </MDBRow>
     <MDBRow style={{}}>
-        <MDBCol className=' box_content_text main_text' size='6' sm='3'><button  className='approve_btn'onClick={() => { postData(props.projectCode, props.facultyID, true, props._id) }} >Approve </button></MDBCol>
-       <MDBCol className='box_content_text' size='6' sm='3'><button className='disapprove_btn'  onClick={() => { postData(props.projectCode, props.facultyID, false, props._id) }}>Disapprove</button></MDBCol>
-        {console.log(clickstatus)}
+        <MDBCol className=' box_content_text main_text' size='6' sm='3'><button  className='approve_btn'onClick={() => { postData(props.code, 'ID', true, props._id) }} >Approve </button></MDBCol>
+       <MDBCol className='box_content_text' size='6' sm='3'><button className='disapprove_btn'  onClick={() => { postData(props.code, 'ID', false, props._id) }}>Disapprove</button></MDBCol>   {/**change 'ID' to props.facultyID after getting it from backend as of now keep it as ID */}
     </MDBRow>
 	</MDBContainer>
 	</div>
