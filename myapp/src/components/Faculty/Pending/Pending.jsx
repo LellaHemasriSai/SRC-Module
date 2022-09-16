@@ -37,7 +37,9 @@ const Pending = () => {
         {cardinfo.length===0? <h2 style={{ marginLeft:"auto",marginRight:"auto",
             marginTop:"10%" , color:"GrayText"}}>No Pending Approvals</h2> :
             cardinfo.map((card, i) => (
-          <Card id={i} projectCode={card.projectCode} projectName={card.projectName} projectType={card.projectType} agencyCode={card.agencyCode} agencyName={card.agencyName} approval={card.approval} resourceApproval={card.resourceApproval} fundApproval={card.fundApproval} closed={card.closed} facultyID={card.facultyID} organisationType={card.organizationType} staff={card.staff} sanctionFund={card.sanctionFund} startDate={card.startDate} endDate={card.endDate} status={card.status} description={card.description} _v={card._v} announcements={card.announcements} />
+          <Card id={i} 
+          projectName={card.projectName} projectType={card.projectType} 
+          agencyCode={card.agencyCode} agencyName={card.agencyName} approval={card.approval} resourceApproval={card.resourceApproval} fundApproval={card.fundApproval} closed={card.closed} facultyID={card.facultyID} organisationType={card.organizationType} staff={card.staff} sanctionFund={card.sanctionFund} startDate={card.startDate} endDate={card.endDate} status={card.status} description={card.description} _v={card._v} announcements={card.announcements} />
         ))}
       </div>
     </div>

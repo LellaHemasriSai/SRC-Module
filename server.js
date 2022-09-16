@@ -744,7 +744,7 @@ app.post("/updateFundApproval", async (req, res, next) => {
     approval: true,
     active: false,
   });
-
+  //console.log(fund);-->null
   await Project.findOneAndUpdate(req.body.projectCode, { fundApproval: true, sanctionFund: fund.extendSanctionValue })
 
   var updateApproval = await Project.find({
@@ -772,6 +772,7 @@ app.post("/updateDurationApprovalStatus", async (req, res, next) => {
 
   const approve = await DurationExtension.findOne({ '_id': req.body.id });
 
+  //console.log(approve);-->null
   await Project.findOneAndUpdate(req.body.projectID, { endDate: approve.newDate })
 
   var updateApproval = await Project.find({

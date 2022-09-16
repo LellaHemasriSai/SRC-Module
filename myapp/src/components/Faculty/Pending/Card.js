@@ -52,10 +52,6 @@ const Cards = (props) => {
         <div class="header">
           <MDBContainer>
             <MDBRow className='box_text'>
-              <MDBCol className='main_text' size='6' sm='3'>Project Code</MDBCol>
-              <MDBCol size='6' sm='3'>&ensp;{props.projectCode}</MDBCol>
-            </MDBRow>
-            <MDBRow className='box_text'>
               <MDBCol className='main_text' size='6' sm='3'>Project Name</MDBCol>
               <MDBCol size='6' sm='3'>&ensp;{props.projectName}</MDBCol>
             </MDBRow>
@@ -70,7 +66,7 @@ const Cards = (props) => {
           <ul class="list-group list-group-flush leftside">
             <div class="list-group-item ">
               <div class="fw-bold">Project Type: </div>
-              &ensp;{props.projectCode}
+              &ensp;{props.projectType}
             </div>
             <div class="list-group-item ">
               <div class="fw-bold">Agency Code: </div>

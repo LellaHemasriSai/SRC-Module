@@ -69,7 +69,7 @@ const Cards = (props) => {
         <MDBRow style={{}}>
           <MDBCol className=' box_content_text main_text' size='6' sm='3'><button className='approve_btn' onClick={() => { postData(props.projectCode, props.facultyID, true, props._id); setStatus(true); }}>Approve</button></MDBCol>
           {/*  {clickstatus ? image() : null}*/}
-          <MDBCol className='box_content_text' size='6' sm='3'><button className='disapprove_btn' onClick={() => { postData(props.projectCode, props.facultyID, true, props._id) }}>Disapprove</button></MDBCol>
+          <MDBCol className='box_content_text' size='6' sm='3'><button className='disapprove_btn' onClick={() => { postData(props.projectCode, props.facultyID, true, props._id); setStatus(false); }}>Disapprove</button></MDBCol>
         </MDBRow>
       </MDBContainer>
     </div>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button'
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -9,7 +10,6 @@ import "./statusbarstyles.css"
 import ExtendDuration from "../Extend_Duration/extend_duration";
 import { useParams, Link } from "react-router-dom";
 import { MDBContainer, MDBRow, MDBCol } from 'mdb-react-ui-kit'
-import List from './List/List';
 const Cards = (props) => {
 
   const [show, setShow] = useState(false);
@@ -150,17 +150,33 @@ const Cards = (props) => {
           </div>
           <div class="form-row">
             <div class="form-group col-md-6" >
-              <Link to={"/Faculty/" + username + "/extend_duration"}>
+              <Link to={"/Faculty/" + username + "/extend_duration"}
+              state={{name: props.projectName,
+              id:props.projectCode,
+              type:props.projectType,
+              start:new Date(props.startDate),
+              end:new Date(props.endDate),}}>
                 <Button variant="primary" className="buttitem">Extend Duration</Button>
               </Link>
             </div>
             <div class="form-group col-md-6" >
-              <Link to={"/Faculty/" + username + "/modify_staff"}>
+              <Link to={"/Faculty/" + username + "/modify_staff"}
+              state={{name: props.projectName,
+              id:props.projectCode,
+              type:props.projectType,
+              start:new Date(props.startDate),
+              end:new Date(props.endDate),}}>
                 <Button variant="primary" className="buttitem">Staff Modification</Button>
               </Link>
             </div>
             <div class="form-group col-md-6" >
-              <Link to={"/Faculty/" + username + "/funds_extension"}>
+              <Link to={"/Faculty/" + username + "/funds_extension"}
+              state={{name: props.projectName,
+              id:props.projectCode,
+              type:props.projectType,
+              start:new Date(props.startDate),
+              end:new Date(props.endDate),
+              sanction:props.sanctionFund}}  >
                 <Button variant="primary" className="buttitem">Additional Funds</Button>
               </Link>
             </div>

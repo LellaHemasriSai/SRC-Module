@@ -1,5 +1,6 @@
 import React from "react";
 import "../login1/login1.css";
+import { useLocation } from 'react-router-dom'
 import logo from "../../images/logo.png"
 import {Link} from "react-router-dom";
 
@@ -17,6 +18,8 @@ import {Link} from "react-router-dom";
 // }
 
 function Login1() {
+    const location = useLocation()
+    console.log(location);
     return (
         <div className="login1_container">
             <img src={logo} alt="IIT Tirupati Logo" />
