@@ -694,7 +694,7 @@ app.post("/saveExtendDurationRequest", async (req, res) => {
   });
   console.log(newRequest);
   newRequest.save();
-  // console.log(newRequest.projectName);
+  console.log(newRequest.projectName);
 });
 
 //save details of Additional funds request

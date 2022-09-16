@@ -6,7 +6,7 @@ import { useLocation } from 'react-router-dom'
 import swal from 'sweetalert';
 
 export default function ExtendDuration() {
-    const location = useLocation()
+ const location = useLocation()
  console.log(location);
   const data=location.state;
     const [projectName, setProjectName] = useState("");

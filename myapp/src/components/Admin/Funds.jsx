@@ -37,13 +37,16 @@ const Funds = () => {
             { cardinfo.length===0? <h2 style={{ marginLeft:"auto",marginRight:"auto",
             marginTop:"30%" , color:"GrayText"}}>No Requests for Additional Funds</h2> :
             cardinfo.map((card, index) => (
-              <Card id={index} 
+              <Card key={index} 
               code={card.projectID} 
               name={card.projectName} 
-              projectType={card.projectType}
-               facultyID={card.facultyID} 
-                facultyName={card.facultyName}
-                AdditionalFunds={card.extendSanctionValue}
+            //  projectType={card.projectType}--> No project Type from backend
+           //    facultyID={card.facultyID} 
+              //  facultyName={card.facultyName} --> No faculty Name from backend
+                extend={card.extendSanctionValue}
+                prev={card.prevSanctionValue}
+                _id={card._id}
+                description={card.descriptionBox}
                 content="Approve Funds" />
             ))}
             </section>
