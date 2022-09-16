@@ -651,10 +651,10 @@ app.post("/announced", (req, res) => {
 });
 
 //save details of Recruitment request
-app.post("/saveRecruitmentRequest", (req, res) => {
+app.post("/saveRecruitmentRequest", async (req, res) => {
   console.log("saving Recruitment?");
   res.send("request sent");
-  var project = Project.findOne({ projectCode: req.body.projectID })
+  var project = await Project.findOne({ projectCode: req.body.projectID })
   var newRequest = new RecruitmentRequest({
     projectID: req.body.projectID,
     //projectName: await Project.findOne({ 'projectCode': req.body.projectID }).projectName,
@@ -670,15 +670,16 @@ app.post("/saveRecruitmentRequest", (req, res) => {
     status: project.status,
     facultyID: project.facultyID,
   });
+  console.log(newRequest);
   newRequest.save();
   // console.log(newRequest.projectName);
 });
 
 //save details of Extend Duration request
-app.post("/saveExtendDurationRequest", (req, res) => {
+app.post("/saveExtendDurationRequest", async (req, res) => {
   console.log("saving Extend Duration?");
   res.send("request sent");
-  var project = Project.findOne({ projectCode: req.body.projectID })
+  var project = await Project.findOne({ projectCode: req.body.projectID })
   var newRequest = new DurationExtension({
     projectID: req.body.projectID,
     projectName: req.body.projectName,
