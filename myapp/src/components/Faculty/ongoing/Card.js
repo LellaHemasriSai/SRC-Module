@@ -61,6 +61,9 @@ const Cards = (props) => {
             </MDBRow>
           </MDBContainer>
         </div>
+        <Link to={"/Faculty/" + username + "/cardapproval"} className="linkapprove">
+        <Button variant="secondary" className="approvalbutt">Check Approval status</Button>
+        </Link>
         {show ? <div>
           <Button variant="primary" className="statbutt" onClick={() => { postData(props._id) }}>Update Status</Button>
           <ul class="list-group list-group-flush leftside">

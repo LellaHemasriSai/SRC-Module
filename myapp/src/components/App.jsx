@@ -36,6 +36,7 @@ import StudentCompleted from "./Staff/StudentCompleted.jsx";
 import List from "./Faculty/ongoing/List/List.jsx";
 import FacultyHome from "./Faculty/Home/FacultyHome.jsx"
 import Tax from "./Faculty/Completed/Tax_Calculator";
+import Approval from './Faculty/ongoing/Approval';
 // should be an json object coming from database
 //export const username = "poojasree";  // no spaces
 //export const admin = "AdminName";
@@ -97,6 +98,8 @@ const App = () => {
           <Route exact path="/Faculty/:username/modify_staff" element={<Modify_Staff />} />
           <Route exact path="/Faculty/:username/list" element={<List />} />
           <Route exact path="/Faculty/:username/tax" element={<Tax />} />
+          <Route exact path="/Faculty/:username/cardapproval" element={<Approval />} />
+          
         </>
         <Route exact path="/Student" element={<LoginStu />} />
         <Route exact path="/Student/:username/studentHome" element={<StudentHome />} />
