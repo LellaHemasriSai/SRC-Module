@@ -14,8 +14,18 @@ const Cards = (props) => {
   const [status, setstatus] = useState(0);
 
   function postData(_id) {
-    const value = prompt("Enter current progress");
-    setstatus(value);
+    let value;
+    while(true){
+        value = prompt("Enter current progress");
+        if(value>=0 && value <=100 ){
+            setstatus(value);
+            break;
+        }
+        else{
+          alert("Enter status in between 0 to 100")
+        }
+    }
+
     fetch("/updateProjectStatus", {
       method: "POST",
       headers: {
@@ -120,7 +130,7 @@ const Cards = (props) => {
             </div>
             <div class="list-group-item ">
               <div class="fw-bold">Status: </div>
-              &ensp;{props.status.toString()}
+              &ensp;{status}
             </div>
           </ul>
           <div>

@@ -41,7 +41,7 @@ const Duration_Extension = () => {
               code={card.projectID} 
               name={card.projectName} 
               type={card.projectType} 
-             /*facultyID={card.facultyID} */
+             facultyID={card.facultyID} 
               approval={card.approval}
               prevDate={new Date(JSON.stringify(card.prevDate).substring(1,11)).getDay()+"/" + new Date(JSON.stringify(card.prevDate).substring(1,11)).getMonth()+"/"+new Date(JSON.stringify(card.prevDate).substring(1,11)).getFullYear()} 
               newDate={new Date(JSON.stringify(card.newDate).substring(1,11)).getDay()+"/" + new Date(JSON.stringify(card.newDate).substring(1,11)).getMonth()+"/"+new Date(JSON.stringify(card.newDate).substring(1,11)).getFullYear()} 

@@ -32,7 +32,6 @@ const Cards = (props) => {
 
   return (
     <Card key={props.id} className="card">
-      {/* <Card.Img variant="top" src="holder.js/100px160" /> */}
       <Card.Body>
         <div class="header">
           <MDBContainer>
@@ -51,7 +50,7 @@ const Cards = (props) => {
             <ul class="list-group list-group-flush leftside">
               <div class="list-group-item ">
                 <div class="fw-bold">Project Type: </div>
-                &ensp;{props.projectCode}
+                &ensp;{props.projectType}
               </div>
               <div class="list-group-item ">
                 <div class="fw-bold">Agency Code: </div>
@@ -73,10 +72,6 @@ const Cards = (props) => {
                 <div class="fw-bold">FundApproval : </div>
                 &ensp;{props.fundApproval ? "True" : "False"}
               </div>
-              {/*<div class="list-group-item ">
-                <div class="fw-bold">Closed : </div>
-                &ensp;{props.closed ? "True" : "False"}
-        </div>*/}
             </ul>
             <ul class="list-group list-group-flush rightside">
               <div class="list-group-item ">
@@ -84,17 +79,13 @@ const Cards = (props) => {
                 &ensp;{props.facultyID}
               </div>
               <div class="list-group-item ">
-                <div class="fw-bold">Faculty ID: </div>
-                &ensp;{props.facultyID}
+                <div class="fw-bold">Faculty Name: </div>
+                &ensp;{props.faculty}
               </div>
               <div class="list-group-item ">
                 <div class="fw-bold">Organisation Type: </div>
                 &ensp;{props.organisationType}
               </div>
-              {/*<div class="list-group-item ">
-                <div class="fw-bold">Staff: </div>
-                &ensp;{props.staff}
-    </div>*/}
               <div class="list-group-item ">
                 <div class="fw-bold">Sanction Fund: </div>
                 &ensp;{props.sanctionFund}
@@ -107,10 +98,6 @@ const Cards = (props) => {
                 <div class="fw-bold">End Date: </div>
                 &ensp;{props.endDate}
               </div>
-              {/*<div class="list-group-item ">
-                <div class="fw-bold">Status: </div>
-                &ensp;{props.status.toString()}
-  </div>*/}
             </ul>
             <div className="bgrp">
               <Button variant="primary" className="Button1" onClick={() => { postData(props.projectCode, props.facultyID, true, props._id) }}>Approve</Button>

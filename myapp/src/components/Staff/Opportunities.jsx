@@ -63,6 +63,7 @@ export default function Opportunities(props) {
               details={h.salaryDetails}
               start={h.startDate}
               end={h.endDate}
+              qual={h.requiredQualifications}
         />
 			})}  
   </div>
