@@ -61,7 +61,7 @@ const Cards = (props) => {
         </MDBRow>
         <MDBRow className='box_text'>
           <MDBCol className=' box_content_text main_text' size='6' sm='3'>Faculty ID</MDBCol>
-          <MDBCol className='box_content_text' size='6' sm='3'>facultyID</MDBCol>
+          <MDBCol className='box_content_text' size='6' sm='3'>{props.facultyID}</MDBCol>
         </MDBRow>
 
           {/** taking difference of previous and extend  */}

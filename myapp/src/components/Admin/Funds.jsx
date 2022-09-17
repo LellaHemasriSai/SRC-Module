@@ -40,9 +40,9 @@ const Funds = () => {
               <Card key={index} 
               code={card.projectID} 
               name={card.projectName} 
-            //  projectType={card.projectType}--> No project Type from backend
-           //    facultyID={card.facultyID} 
-              //  facultyName={card.facultyName} --> No faculty Name from backend
+             //  projectType={card.projectType}--> No project Type from backend
+                 facultyID={card.facultyID} 
+              // facultyName={card.facultyName} 
                 extend={card.extendSanctionValue}
                 prev={card.prevSanctionValue}
                 _id={card._id}
