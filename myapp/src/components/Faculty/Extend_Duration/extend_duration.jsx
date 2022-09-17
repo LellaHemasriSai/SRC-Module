@@ -24,7 +24,7 @@ export default function ExtendDuration() {
         setExtendDate("");
         setDescriptionBox("");
     }
-    function postData() {
+    function postData(projectID, projectName, projectType, previousDate, extendDate, descriptionBox) {
         console.log("Submitted")
         fetch("/saveExtendDurationRequest", {
             method: "POST",
