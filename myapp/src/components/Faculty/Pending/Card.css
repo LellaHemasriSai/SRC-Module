@@ -158,3 +158,8 @@
   float: right;
   margin-right: 22px;
 }
+
+.tax_but {
+  position: relative;
+  display: inline-flex;
+}
