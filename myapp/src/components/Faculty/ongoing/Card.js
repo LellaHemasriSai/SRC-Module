@@ -12,19 +12,36 @@ const Cards = (props) => {
 
   const [show, setShow] = useState(false);
   const [status, setstatus] = useState(0);
+  const handleChange = event => {
+    setstatus(event.target.value);
+  };
+  const handleClick = event => {
+    // event.preventDefault();
 
+    // 👇️ value of input field
+    console.log('old value: ', status);
+
+    // 👇️ set value of input field
+    setstatus(0);
+  };
+  const reset = event => {
+    setstatus(0);
+  }
   function postData(_id) {
     let value;
-    while(true){
-        value = prompt("Enter current progress");
-        if(value>=0 && value <=100 ){
-            setstatus(value);
-            break;
-        }
-        else{
-          alert("Enter status in between 0 to 100")
-        }
-    }
+    // while(true){
+    //     value = prompt("Enter current progress");
+    //     if(value>=0 && value <=100 ){
+    //         setstatus(value);
+    //         break;
+    //     }
+    //     else{
+    //       alert("Enter status in between 0 to 100")
+    //     }
+    // }
+    value=status;
+    handleClick();
+    reset();
 
     fetch("/updateProjectStatus", {
       method: "POST",
@@ -75,7 +92,8 @@ const Cards = (props) => {
         <Button variant="secondary" className="approvalbutt">Check Approval status</Button>
         </Link>
         {show ? <div>
-          <Button variant="primary" className="statbutt" onClick={() => { postData(props._id) }}>Update Status</Button>
+          <input type="text" value = {status} onChange ={handleChange} style={{float: 'right',width: '60px'}}/>
+          <Button variant="primary" className="statbutt" onClick={() => { postData(props._id) }} >Update Status</Button>
           <ul class="list-group list-group-flush leftside">
             <div class="list-group-item ">
               <div class="fw-bold">Project Type: </div>
