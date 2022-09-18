@@ -109,11 +109,21 @@
     bottom:0;
     margin-bottom: 4%;
     width: 15%; */
-  margin-left: 20px;
-  margin-right: 20px;
-  width: 110px;
+    display: grid;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 20px;
+    width: 110px;
 
 }
+.Button2
+{
+  display: grid;
+  margin-left: 0px;
+  margin-right: 100px;
+  width: 100px;
+}
+
 
 .butGRP {
   position: absolute;
@@ -126,7 +136,7 @@
   position: absolute;
   bottom: 0;
   margin-bottom: 5%;
-  margin-left: 39%;
+  margin-left: 36%;
 }
 
 .qrcode {
