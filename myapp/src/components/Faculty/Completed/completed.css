@@ -1,11 +1,5 @@
+.grid {
+    display: flex;
+    flex-wrap: wrap;
 
-.grid
-{
-   display: flex;
-   flex-wrap: wrap;
-
-}
-.Button1
-{
-    margin-left: 55%;
 }

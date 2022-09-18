@@ -3,6 +3,7 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button'
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../Pending/Card.css"
+import "../Completed/completed.css"
 import { Link, useParams } from "react-router-dom";
 import { MDBContainer, MDBRow, MDBCol } from 'mdb-react-ui-kit'
 import axios from "axios";
@@ -98,13 +99,13 @@ const Card_completed = (props) => {
                 <div class="fw-bold">End Date: </div>
                 &ensp;{props.endDate}
               </div>
-              <div className="tax_but">
-                <Link to={"/Faculty/" + username + "/tax"}>
-                  <Button variant="primary" className="Button1">Tax Details</Button>
-                </Link>
-                {console.log(clickstatus)}
-              </div>
             </ul>
+            <div className="butGRP">
+              <Link to={"/Faculty/" + username + "/tax"}>
+                <Button variant="primary" className="Button1">Tax Details</Button>
+              </Link>
+              {console.log(clickstatus)}
+            </div>
           </div>
           : null
         }

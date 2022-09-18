@@ -24,7 +24,7 @@ const Cards = (props) => {
   }
   function postData(_id) {
     let value;
-    value=status;
+    value = status;
     handleClick();
     reset();
 
@@ -72,12 +72,16 @@ const Cards = (props) => {
             </MDBRow>
           </MDBContainer>
         </div>
+        <input type="text" value={status} onChange={handleChange} style={{ float: 'right', width: '60px' }} />
+        <Button variant="primary" className="statbutt" onClick={() => { postData(props._id) }} >Update Status</Button>
         <Link to={"/Faculty/" + username + "/cardapproval"} className="linkapprove">
-        <Button variant="primary" className="approvalbutt">Check Approval status</Button>
+          <Button variant="primary" className="approvalbutt">Check Approval status</Button>
         </Link>
         {show ? <div>
-          <input type="text" value = {status} onChange ={handleChange} style={{float: 'right',width: '60px'}}/>
-          <Button variant="primary" className="statbutt" onClick={() => { postData(props._id) }} >Update Status</Button>
+          <div class="card_body">
+            <label class="desc">Description of the Project:</label>
+            {props.description}
+          </div>
           <ul class="list-group list-group-flush leftside">
             <div class="list-group-item ">
               <div class="fw-bold">Project Type: </div>
@@ -127,11 +131,11 @@ const Cards = (props) => {
             </div>
             <div class="list-group-item ">
               <div class="fw-bold">Start Date: </div>
-              &ensp;{props.startDate.substring(0,10)}
+              &ensp;{props.startDate.substring(0, 10)}
             </div>
             <div class="list-group-item ">
               <div class="fw-bold">End Date: </div>
-              &ensp;{props.endDate.substring(0,10)}
+              &ensp;{props.endDate.substring(0, 10)}
             </div>
             <div class="list-group-item ">
               <div class="fw-bold">Status: </div>
@@ -154,39 +158,41 @@ const Cards = (props) => {
               </div>
             </div>
           </div>
-          <div class="card_body">
-            <label class="desc">Description of the Project:</label>
-            {props.description}
-          </div>
           <div class="form-row">
             <div class="form-group col-md-6" >
               <Link to={"/Faculty/" + username + "/extend_duration"}
-              state={{name: props.projectName,
-              id:props.projectCode,
-              type:props.projectType,
-              start:new Date(props.startDate),
-              end:new Date(props.endDate),}}>
+                state={{
+                  name: props.projectName,
+                  id: props.projectCode,
+                  type: props.projectType,
+                  start: new Date(props.startDate),
+                  end: new Date(props.endDate),
+                }}>
                 <Button variant="primary" className="buttitem">Extend Duration</Button>
               </Link>
             </div>
             <div class="form-group col-md-6" >
               <Link to={"/Faculty/" + username + "/modify_staff"}
-              state={{name: props.projectName,
-              id:props.projectCode,
-              type:props.projectType,
-              start:new Date(props.startDate),
-              end:new Date(props.endDate),}}>
+                state={{
+                  name: props.projectName,
+                  id: props.projectCode,
+                  type: props.projectType,
+                  start: new Date(props.startDate),
+                  end: new Date(props.endDate),
+                }}>
                 <Button variant="primary" className="buttitem">Staff Modification</Button>
               </Link>
             </div>
             <div class="form-group col-md-6" >
               <Link to={"/Faculty/" + username + "/funds_extension"}
-              state={{name: props.projectName,
-              id:props.projectCode,
-              type:props.projectType,
-              start:new Date(props.startDate),
-              end:new Date(props.endDate),
-              sanction:props.sanctionFund}}  >
+                state={{
+                  name: props.projectName,
+                  id: props.projectCode,
+                  type: props.projectType,
+                  start: new Date(props.startDate),
+                  end: new Date(props.endDate),
+                  sanction: props.sanctionFund
+                }}  >
                 <Button variant="primary" className="buttitem">Additional Funds</Button>
               </Link>
             </div>
