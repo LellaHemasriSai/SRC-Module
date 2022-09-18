@@ -88,10 +88,11 @@ function handlechange()
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="inputState">Project Type</label>
-                                    <select id="inputState" class="form-control" onChange={(event) => { setprojectType(event.target.value) }} >
+                                    <select id="inputState" class="form-control" placeholder='ProjectType' onChange={(event) => { setprojectType(event.target.value) }} >
+                                        <option></option>
                                         <option>Sponsered</option>
                                         <option>Consultancy</option>
-                                        <option>Internal</option>
+                                        {/* <option>Internal</option> */}
                                     </select>
                                 </div>
                             </div>

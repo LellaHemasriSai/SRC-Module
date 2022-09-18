@@ -568,7 +568,7 @@ app.post("/sendDurationExtension", async (req, res, next) => {
 //returns additional funds request data to admin
 app.post("/sendFundsRequest", async (req, res, next) => {
   var fund = await FundsRequest.find({ approval: false, active: true });
-  console.log(fund.length);
+  // console.log(fund.length);
   try {
     return res.status(200).json({
       success: true,
@@ -733,14 +733,6 @@ app.post("/saveIndentDetails", (req, res) => {
   // console.log(newRequest.projectName);
 });
 
-app.post("/saveapplication", (req, res) => {
-  console.log("Saving Application!!");
-  res.send("request sent");
-  var newApplication = new Announcement({
-    Applications: [String],
-  });
-  newApplication.save();
-});
 //----------------------------------------------------------------------------
 //updating values in data base
 //----------------------------------------------------------------------------
@@ -752,15 +744,18 @@ app.post("/updateFundApproval", async (req, res, next) => {
     active: false,
   });
   //console.log(fund);-->null
-  await Project.findOneAndUpdate(req.body.projectCode, {
-    fundApproval: true,
-    sanctionFund: fund.extendSanctionValue,
-  });
+  await Project.findOneAndUpdate(
+    { projectCode: req.body.projectCode },
+    {
+      fundApproval: true,
+      sanctionFund: fund.extendSanctionValue,
+    }
+  );
 
   var updateApproval = await Project.find({
     projectCode: req.body.projectCode,
   });
-  //console.log(updateApproval);
+  console.log(updateApproval);
 
   try {
     return res.status(200).json({
@@ -784,9 +779,12 @@ app.post("/updateDurationApprovalStatus", async (req, res, next) => {
   const approve = await DurationExtension.findOne({ _id: req.body.id });
 
   //console.log(approve);-->null
-  await Project.findOneAndUpdate(req.body.projectID, {
-    endDate: approve.newDate,
-  });
+  await Project.findOneAndUpdate(
+    { projectCode: req.body.projectCode },
+    {
+      endDate: approve.newDate,
+    }
+  );
 
   var updateApproval = await Project.find({
     projectCode: req.body.projectCode,
@@ -834,7 +832,7 @@ app.post("/updateRecruitmentApprovalStatus", async (req, res, next) => {
 //update pending approval status in admin
 app.post("/updateProjectApprovalStatus", async (req, res, next) => {
   await Project.findByIdAndUpdate(req.body.id, {
-    approval: true,
+    approval: req.body.status,
     projectCode: projectCode(req.body.facultyID),
   });
 
@@ -924,21 +922,13 @@ app.post("/updateStudentDetails", async (req, res, next) => {
 });
 
 //update student application in student - on pressing apply now
-app.post("updateOpportunitiesApplyNow", async (req, res, next) => {
+app.post("/updateOpportunitiesApplyNow", async (req, res, next) => {
   console.log("announcements");
   var obj = await Staff.findOneAndUpdate(
     { username: req.body.staffName },
     { $push: { projects: req.body.projectID } }
   );
-  // console.log(req.body.id);
-  // console.log(obj.projects);
   console.log(req.body);
-  var obj1 = await Announcement.findOneAndUpdate(
-    { username: req.body.staffName },
-    { $push: { Applications: req.body.staffCode } }
-  );
-  //console.log(obj1.Applications);
-
   try {
     return res.status(200).json({
       success: true,
