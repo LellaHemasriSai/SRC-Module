@@ -101,11 +101,11 @@ const Cards = (props) => {
               </div>
               <div class="list-group-item ">
                 <div class="fw-bold">Start Date: </div>
-                &ensp;{props.startDate}
+                &ensp;{props.startDate.substring(0,10)}
               </div>
               <div class="list-group-item ">
                 <div class="fw-bold">End Date: </div>
-                &ensp;{props.endDate}
+                &ensp;{props.endDate.substring(0,10)}
               </div>
             </ul>
             <div className="bgrp">
