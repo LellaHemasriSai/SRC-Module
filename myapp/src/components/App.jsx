@@ -8,6 +8,7 @@ import LoginFac from "./login2/login2_fac";
 import LoginAdmin from "./login2/login2_Ad";
 import LoginStu from "./login2/login2_stu.js";
 import Create from "../components/Faculty/CreateProject/create"
+import Internal from "../components/Faculty/CreateProject/internal"
 import Announcements from "./Faculty/Announcements/Announcements.jsx";
 import Admin from "./Admin/Admin.jsx";
 import Pending from "./Faculty/Pending/Pending.jsx"
@@ -87,6 +88,7 @@ const App = () => {
           <Route exact path="/Faculty/:username/home" element={<FacultyHome />} />
           <Route exact path="/Faculty/:username/Form" element={<Form name="Faculty" />} />
           <Route exact path="/Faculty/:username/create_project" element={<Create />} />
+          <Route exact path="/Faculty/:username/create_internal_project" element={<Internal />} />
           <Route exact path="/Faculty/:username/ongoing_project" element={<Ongoing />} />
           <Route exact path="/Faculty/:username/recruitment" element={<Recruitment />} />
           <Route exact path="/Faculty/:username/announcements" element={<Announcements />} />

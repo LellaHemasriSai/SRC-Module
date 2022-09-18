@@ -1,9 +1,12 @@
 import React from "react";
 import { data } from "./SidebarData";
 import create from "../../images/create.svg"
+import {Link,useParams} from "react-router-dom";
 import SideElement from "../Navbar/SideElement";
 
+
 export default function Sidebar() {
+	const { username } = useParams();
 	return (<div className="sidebar">
 		<div className="sidebar_inner">
 			<ul className="data">
@@ -21,8 +24,8 @@ export default function Sidebar() {
 									<p class="img_description">Create</p></span>
 								<span className="text">Create Project</span></label>
 							<ul>
-								<li><a href='././create_project'>Sponsored/Consultancy</a></li>
-								<li><a href='././internal'>Internal</a></li>
+								<li><Link to={"/Faculty/" + username + "/create_project"}>Sponsored/Consultancy</Link></li>
+								<li><Link to={"/Faculty/" + username + "/create_internal_project"}>Internal</Link></li>
 							</ul>
 						</div>
 					</a>
