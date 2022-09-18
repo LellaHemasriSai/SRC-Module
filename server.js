@@ -241,6 +241,7 @@ const announcementSchema = new mongoose.Schema({
   endDate: Date,
   active: Boolean,
   description: String,
+  facultyName: String,
 });
 
 const Announcement = mongoose.model("Announcement", announcementSchema);
@@ -521,14 +522,14 @@ app.post("/pending", async (req, res, next) => {
 
 //returns data to faculty ongoing projects
 app.post("/completed", async (req, res, next) => {
-  var ongoingProjects = await Project.find({ approval: true, closed: true });
-  // console.log("Ongoing Projects:\n" + ongoingProjects);
+  var completedProjects = await Project.find({ approval: true, closed: true });
+  console.log("completed Projects:\n" + completedProjects);
 
   try {
     return res.status(200).json({
       success: true,
-      count: ongoingProjects.length,
-      data: ongoingProjects,
+      count: completedProjects.length,
+      data: completedProjects,
     });
   } catch (err) {
     console.log(err);
@@ -670,7 +671,7 @@ app.post("/saveRecruitmentRequest", async (req, res) => {
     status: project.status,
     facultyID: project.facultyID,
   });
-  console.log(newRequest);
+  //console.log(newRequest);
   newRequest.save();
   // console.log(newRequest.projectName);
 });
@@ -692,9 +693,9 @@ app.post("/saveExtendDurationRequest", async (req, res) => {
     status: project.status,
     facultyID: project.facultyID,
   });
-  console.log(newRequest);
+  //console.log(newRequest);
   newRequest.save();
-  console.log(newRequest.projectName);
+  //console.log(newRequest.projectName);
 });
 
 //save details of Additional funds request
@@ -730,7 +731,7 @@ app.post("/saveIndentDetails", (req, res) => {
     retailerName: req.body.name,
     description: req.body.description,
   });
-  console.log(newRequest);
+  //console.log(newRequest);
   newRequest.save();
   // console.log(newRequest.projectName);
 });
@@ -742,7 +743,7 @@ app.post("/saveIndentDetails", (req, res) => {
 //update fund approval status in admin
 app.post("/updateFundApproval", async (req, res, next) => {
   const fund = await FundsRequest.findByIdAndUpdate(req.body.id, {
-    approval: true,
+    approval: req.body.approveStatus,
     active: false,
   });
   //console.log(fund);-->null
@@ -751,6 +752,7 @@ app.post("/updateFundApproval", async (req, res, next) => {
   var updateApproval = await Project.find({
     'projectCode': req.body.projectCode,
   });
+  //console.log(updateApproval);
 
   try {
     return res.status(200).json({
@@ -767,7 +769,7 @@ app.post("/updateFundApproval", async (req, res, next) => {
 //update duration extension approval status in admin
 app.post("/updateDurationApprovalStatus", async (req, res, next) => {
   await DurationExtension.findByIdAndUpdate(req.body.id, {
-    approval: true,
+    approval: req.body.approveStatus,
     active: false,
   });
 
@@ -795,7 +797,7 @@ app.post("/updateDurationApprovalStatus", async (req, res, next) => {
 //update recruitment approval status in admin
 app.post("/updateRecruitmentApprovalStatus", async (req, res, next) => {
   const recruit = await RecruitmentRequest.findByIdAndUpdate(req.body.id, {
-    approval: true,
+    approval: req.body.approveStatus,
     active: false,
   });
 
