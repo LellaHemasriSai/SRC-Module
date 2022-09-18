@@ -26,40 +26,42 @@ const Approve_project = () => {
   }, [])
   return (
     <div className="wrapper hover_collapse">
-      <AdminMainNav></AdminMainNav>  
+      <AdminMainNav></AdminMainNav>
       <div className="main_container">
         <div className="container" style={{ textAlign: "center" }}>
-        <div className="main"> 
+          <div className="main">
             <div className='head_wrap'>
-            <span><img src={project} style={{ width: "30px", height: "30px" }} alt="projects"/></span>
-            <span><h1 id="head_text">Approve Projects</h1></span>
-          </div>
-          <div className='grid'>
-            {cardinfo.length===0? <h2 style={{ marginLeft:"auto",marginRight:"auto",
-            marginTop:"10%" , color:"GrayText"}}>No Requests for Project Approval</h2> :
-            cardinfo.map((card, index) => (
-              <Card id={index} 
-              projectName={card.agencyName} 
-              projectType={card.projectType} 
-              agencyCode={card.agencyCode} 
-              agencyName={card.agencyName} 
-              approval={card.approval} 
-              resourceApproval={card.resourceApproval} 
-              fundApproval={card.fundApproval} 
-              closed={card.closed} 
-              facultyID={card.facultyID} 
-              organisationType={card.organizationType} 
-              staff={card.staff} 
-              sanctionFund={card.sanctionFund} 
-              startDate={card.startDate} 
-              endDate={card.endDate} 
-              status={card.status} 
-              description={card.description} 
-              _id={card._id} content="Approve Project" />
-            ))}
+              <span><img src={project} style={{ width: "30px", height: "30px" }} alt="projects" /></span>
+              <span><h1 id="head_text">Approve Projects</h1></span>
+            </div>
+            <div className='grid'>
+              {cardinfo.length === 0 ? <h2 style={{
+                marginLeft: "auto", marginRight: "auto",
+                marginTop: "10%", color: "GrayText"
+              }}>No Requests for Project Approval</h2> :
+                cardinfo.map((card, index) => (
+                  <Card id={index}
+                    projectName={card.projectName}
+                    projectType={card.projectType}
+                    agencyCode={card.agencyCode}
+                    agencyName={card.agencyName}
+                    approval={card.approval}
+                    resourceApproval={card.resourceApproval}
+                    fundApproval={card.fundApproval}
+                    closed={card.closed}
+                    facultyID={card.facultyID}
+                    organisationType={card.organizationType}
+                    staff={card.staff}
+                    sanctionFund={card.sanctionFund}
+                    startDate={card.startDate}
+                    endDate={card.endDate}
+                    status={card.status}
+                    description={card.description}
+                    _id={card._id} content="Approve Project" />
+                ))}
+            </div>
           </div>
         </div>
-      </div>
       </div>
     </div>
   );

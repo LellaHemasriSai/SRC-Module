@@ -1,33 +1,48 @@
-import React, { useState} from "react";
+import React, { useState, useEffect } from "react";
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button'
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../Pending/Card.css"
-import {Link,useParams} from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import axios from "axios";
 
 const Card_completed = (props) => {
   const val = 13000;
   const [show, setShow] = useState(false);
   const [clickstatus, setStatus] = useState(false);
-//   function postData(projectCode, facultyID, status, _id) {
-//     console.log("Submitted")
-//     fetch("/updateProjectApprovalStatus", {
-//       method: "POST",
-//       headers: {
-//         "Content-Type": "application/json"
-//       },
-//       body: JSON.stringify({
-//         projectCode: projectCode,
-//         facultyID: facultyID,
-//         approveStatus: status,
-//         id: _id,
+  //   function postData(projectCode, facultyID, status, _id) {
+  //     console.log("Submitted")
+  //     fetch("/updateProjectApprovalStatus", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json"
+  //       },
+  //       body: JSON.stringify({
+  //         projectCode: projectCode,
+  //         facultyID: facultyID,
+  //         approveStatus: status,
+  //         id: _id,
 
-//       }),
-//     }).then((res) => {
-//       console.log("Res:", res);
-//     })
-//   }
+  //       }),
+  //     }).then((res) => {
+  //       console.log("Res:", res);
+  //     })
+  //   }
+
   const { username } = useParams();
+  let id = props.id;
+  useEffect(() => {
+    axios.post('http://localhost:3001/ongoing')
+      .then(res => {
+        console.log('Data: ', res.data.data[props.id].status)  // have to take the project array index which we wanted to update
+        console.log(id);
+        // setstatus(res.data.data[props.id].status)
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }, [])
+
 
   return (
     <Card key={props.id} className="card">
@@ -63,7 +78,7 @@ const Card_completed = (props) => {
 
             <div className="butGRP">
               <Link to={"/Faculty/" + username + "/tax"}>
-              <Button variant="primary" className="Button1">Tax Details</Button>
+                <Button variant="primary" className="Button1">Tax Details</Button>
               </Link>
               {console.log(clickstatus)}
             </div>
