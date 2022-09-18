@@ -142,6 +142,7 @@
 .statbutt {
   float: right;
   margin-right: 22px;
+  background-color: #3876D0;
 }
 .approvalbutt
 {
@@ -158,4 +159,8 @@
 .linkapprove:hover
 {
   text-decoration: none;
+}
+.btn-primary
+{
+  background-color: #3876D0;
 }
