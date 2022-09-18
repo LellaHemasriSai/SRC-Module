@@ -12,7 +12,7 @@ const Completed = () => {
   console.log("Submitted")
   // Retrieves necessary data from server
   useEffect(() => {
-    axios.post('http://localhost:3001/pending')
+    axios.post('http://localhost:3001/completed')
       .then(res => {
         console.log('Data: ', res.data.data)
         setCardInfo(res.data.data)
