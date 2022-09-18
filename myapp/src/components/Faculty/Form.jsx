@@ -71,19 +71,11 @@ export default function RegisterForm(props) {
 
     /*function changeNav() {
         console.log("change")
-<<<<<<< HEAD
-        let name=props.name;
-        if(name==="Student"){
-            <StudentMainNav></StudentMainNav>
-             console.log("change stu")
-        }else if(name==="Faculty"){
-=======
         let name = props.name;
         if (name == "Student") {
             <StudentMainNav></StudentMainNav>
             console.log("change stu")
         } else if (name == "Faculty") {
->>>>>>> 21a1638dc85e20a7fe46747dfb6dc84e09db6f64
             <MainNav></MainNav>
             console.log("change fac")
         } else {

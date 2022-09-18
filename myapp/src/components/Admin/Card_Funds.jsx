@@ -43,12 +43,12 @@ const Cards = (props) => {
     }).then((res) => {
       console.log("Res:", res);
     })
-    if(clickstatus){
+    if(status){
       swal("","Approved Funds Extension","success");
     }
     else
     {
-      swal("","Disapproved Funds Extension","danger");
+      swal("","Disapproved Funds Extension","error");
     }
   }
 
