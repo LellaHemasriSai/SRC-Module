@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { MainNav, AdminMainNav, StudentMainNav } from '../App';
+import { AdminMainNav } from '../App';
 import swal from 'sweetalert'
 
 export default function RegisterForm(props) {
@@ -69,24 +69,10 @@ export default function RegisterForm(props) {
         handlechange();
     }
 
-    /*function changeNav() {
-        console.log("change")
-        let name = props.name;
-        if (name == "Student") {
-            <StudentMainNav></StudentMainNav>
-            console.log("change stu")
-        } else if (name == "Faculty") {
-            <MainNav></MainNav>
-            console.log("change fac")
-        } else {
-            <AdminMainNav></AdminMainNav>
-            console.log("change adm")
-        }
-    }*/
 
     return (
         <div className="wrapper hover_collapse" >
-            <MainNav></MainNav>
+            <AdminMainNav></AdminMainNav>
             <div className="main_container">
                 <div className="container" >
                     {/* <div className='grid'> */}
