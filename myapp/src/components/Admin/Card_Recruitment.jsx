@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../Staff/ongoing.css"
 import { MDBContainer, MDBRow, MDBCol } from 'mdb-react-ui-kit';
+import swal from 'sweetalert';
 
 export default function Card(props){
 
@@ -29,6 +30,10 @@ export default function Card(props){
       console.log("Res:", res);
     })
     console.log(projectCode)
+    if(status)
+    {swal("","Approved Recruitment Request","success");}
+    else
+    {swal("","Disapproved Recruitment Request","error");}
   }
 
 

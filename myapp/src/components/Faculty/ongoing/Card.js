@@ -89,7 +89,7 @@ const Cards = (props) => {
           </MDBContainer>
         </div>
         <Link to={"/Faculty/" + username + "/cardapproval"} className="linkapprove">
-        <Button variant="secondary" className="approvalbutt">Check Approval status</Button>
+        <Button variant="primary" className="approvalbutt">Check Approval status</Button>
         </Link>
         {show ? <div>
           <input type="text" value = {status} onChange ={handleChange} style={{float: 'right',width: '60px'}}/>

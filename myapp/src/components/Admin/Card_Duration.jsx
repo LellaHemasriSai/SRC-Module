@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../Staff/ongoing.css"
 import { MDBContainer, MDBRow, MDBCol } from 'mdb-react-ui-kit';
+import swal from 'sweetalert';
 
 /* Card Component in Admin Page */
 
@@ -25,6 +26,14 @@ const Cards = (props) => {
     }).then((res) => {
       console.log("Res:", res);
     })
+    if(status)
+    {
+      swal("","Approved Duration Extension","success");
+    }
+    else
+    {
+      swal("","Disapproved Funds Extension","error");
+    }
   }
 return (
     <div class="card_ongoing">

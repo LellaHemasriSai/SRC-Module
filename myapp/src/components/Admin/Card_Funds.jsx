@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { MDBContainer, MDBRow, MDBCol } from 'mdb-react-ui-kit'
+import swal from 'sweetalert';
 
 
 /*Card for funds extension in Admin Page*/
@@ -42,6 +43,13 @@ const Cards = (props) => {
     }).then((res) => {
       console.log("Res:", res);
     })
+    if(clickstatus){
+      swal("","Approved Funds Extension","success");
+    }
+    else
+    {
+      swal("","Disapproved Funds Extension","danger");
+    }
   }
 
   return (
