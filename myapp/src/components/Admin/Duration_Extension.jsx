@@ -28,27 +28,29 @@ const Duration_Extension = () => {
       <AdminMainNav></AdminMainNav>
       <div className="main_container">
         <div className="container">
-        <div className="main">
+          <div className="main">
             <div className='head_wrap'>
-            <span><img src={timeline} style={{ width: "30px", height: "30px" }} alt="timeline"/></span>
-            <span><h1 id="head_text">Duration Extension</h1></span>
-          </div>
-          <section class="card-container">
-            {cardinfo.length===0? <h2 style={{ marginLeft:"auto",marginRight:"auto",
-            marginTop:"30%" , color:"GrayText"}}>No Requests for Duration Extension</h2> :
-            cardinfo.map((card, index) => (
-              <Card key={index} 
-              code={card.projectID} 
-              name={card.projectName} 
-              type={card.projectType} 
-             facultyID={card.facultyID} 
-              approval={card.approval}
-              prevDate={new Date(JSON.stringify(card.prevDate).substring(1,11)).getDay()+"/" + new Date(JSON.stringify(card.prevDate).substring(1,11)).getMonth()+"/"+new Date(JSON.stringify(card.prevDate).substring(1,11)).getFullYear()} 
-              newDate={new Date(JSON.stringify(card.newDate).substring(1,11)).getDay()+"/" + new Date(JSON.stringify(card.newDate).substring(1,11)).getMonth()+"/"+new Date(JSON.stringify(card.newDate).substring(1,11)).getFullYear()} 
-              _id={card._id}
-              description={card.descriptionBox} 
-              content="Extend Duration" />
-            ))}
+              <span><img src={timeline} style={{ width: "30px", height: "30px" }} alt="timeline" /></span>
+              <span><h1 id="head_text">Duration Extension</h1></span>
+            </div>
+            <section class="card-container">
+              {cardinfo.length === 0 ? <h2 style={{
+                marginLeft: "auto", marginRight: "auto",
+                marginTop: "30%", color: "GrayText"
+              }}>No Requests for Duration Extension</h2> :
+                cardinfo.map((card, index) => (
+                  <Card key={index}
+                    code={card.projectID}
+                    name={card.projectName}
+                    type={card.projectType}
+                    facultyID={card.facultyID}
+                    approval={card.approval}
+                    prevDate={new Date(JSON.stringify(card.prevDate).substring(1, 11)).getDay() + "/" + new Date(JSON.stringify(card.prevDate).substring(1, 11)).getMonth() + "/" + new Date(JSON.stringify(card.prevDate).substring(1, 11)).getFullYear()}
+                    newDate={new Date(JSON.stringify(card.newDate).substring(1, 11)).getDay() + "/" + new Date(JSON.stringify(card.newDate).substring(1, 11)).getMonth() + "/" + new Date(JSON.stringify(card.newDate).substring(1, 11)).getFullYear()}
+                    _id={card._id}
+                    description={card.descriptionBox}
+                    content="Extend Duration" />
+                ))}
             </section>
           </div>
         </div>

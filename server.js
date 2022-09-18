@@ -822,7 +822,7 @@ app.post("/updateRecruitmentApprovalStatus", async (req, res, next) => {
 //update pending approval status in admin
 app.post("/updateProjectApprovalStatus", async (req, res, next) => {
   await Project.findByIdAndUpdate(req.body.id, {
-    approval: true,
+    approval: req.body.status,
     projectCode: projectCode(req.body.facultyID),
   });
 
