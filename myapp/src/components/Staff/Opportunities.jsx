@@ -64,6 +64,7 @@ export default function Opportunities(props) {
               start={h.startDate}
               end={h.endDate}
               qual={h.requiredQualifications}
+              _id={h._id}
         />
 			})}  
   </div>
