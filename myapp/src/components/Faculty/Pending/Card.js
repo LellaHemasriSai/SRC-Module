@@ -46,7 +46,6 @@ const Cards = (props) => {
   const { username } = useParams();
   return (
     <Card key={props.id} className="card">
-      {/* <Card.Img variant="top" src="holder.js/100px160" /> */}
       <Card.Body>
         <CircularProgressbar value={status} text={`${status}%`} className="status" />
         <div class="header">
@@ -58,7 +57,6 @@ const Cards = (props) => {
           </MDBContainer>
         </div>
         {show ? <div>
-          <Button variant="primary" className="statbutt" onClick={() => { postData(props._id) }}>Update Status</Button>
           <div class="card_body">
             <label class="desc">Description of the Project:</label>
             {props.description}
@@ -112,50 +110,17 @@ const Cards = (props) => {
             </div>
             <div class="list-group-item ">
               <div class="fw-bold">Start Date: </div>
-              &ensp;{props.startDate}
+              &ensp;{props.startDate.substring(0,10)}
             </div>
             <div class="list-group-item ">
               <div class="fw-bold">End Date: </div>
-              &ensp;{props.endDate}
+              &ensp;{props.endDate.substring(0,10)}
             </div>
             <div class="list-group-item ">
               <div class="fw-bold">Status: </div>
               &ensp;{props.status.toString()}
             </div>
           </ul>
-          <div>
-            <div class="form-group col-md-6">
-              <label>Comment</label>
-              <textarea id="Comment" class="form-control" placeholder="Comment...." />
-            </div>
-            <div class="form-group col-md-3" style={{ marginTop: '33px' }}>
-              <button type="button" class="btn btn-outline-primary">
-                Cancel
-              </button>
-              <div class="form-group col-md-3">
-                <button type="button" class="btn btn-primary" >
-                  Post Comment
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group col-md-4" >
-              <Link to={"/Faculty/" + username + "/extend_duration"}>
-                <Button variant="primary" className="buttitem">Extend Duration</Button>
-              </Link>
-            </div>
-            <div class="form-group col-md-4" >
-              <Link to={"/Faculty/" + username + "/modify_staff"}>
-                <Button variant="primary" className="buttitem">Staff Modification</Button>
-              </Link>
-            </div>
-            <div class="form-group col-md-4" >
-              <Link to={"/Faculty/" + username + "/funds_extension"}>
-                <Button variant="primary" className="buttitem">Additional Funds</Button>
-              </Link>
-            </div>
-          </div>
         </div>
           : null
         }

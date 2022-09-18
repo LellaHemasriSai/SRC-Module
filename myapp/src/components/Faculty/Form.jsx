@@ -89,7 +89,6 @@ export default function RegisterForm(props) {
             <MainNav></MainNav>
             <div className="main_container">
                 <div className="container" >
-                    {/* <div className='grid'> */}
                     <div class="row">
                         <div class="col-md-6 offset-md-3">
                             <br /><br />
@@ -161,6 +160,5 @@ export default function RegisterForm(props) {
                 </div>
             </div>
         </div>
-        // </div>
     )
 }

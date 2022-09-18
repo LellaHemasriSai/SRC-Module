@@ -16,12 +16,7 @@ const Cards = (props) => {
     setstatus(event.target.value);
   };
   const handleClick = event => {
-    // event.preventDefault();
-
-    // 👇️ value of input field
     console.log('old value: ', status);
-
-    // 👇️ set value of input field
     setstatus(0);
   };
   const reset = event => {
@@ -29,16 +24,6 @@ const Cards = (props) => {
   }
   function postData(_id) {
     let value;
-    // while(true){
-    //     value = prompt("Enter current progress");
-    //     if(value>=0 && value <=100 ){
-    //         setstatus(value);
-    //         break;
-    //     }
-    //     else{
-    //       alert("Enter status in between 0 to 100")
-    //     }
-    // }
     value=status;
     handleClick();
     reset();
@@ -73,7 +58,6 @@ const Cards = (props) => {
   const { username } = useParams();
   return (
     <Card key={props.id} className="card">
-      {/* <Card.Img variant="top" src="holder.js/100px160" /> */}
       <Card.Body>
         <CircularProgressbar value={status} text={`${status}%`} className="status" />
         <div class="header">
@@ -143,11 +127,11 @@ const Cards = (props) => {
             </div>
             <div class="list-group-item ">
               <div class="fw-bold">Start Date: </div>
-              &ensp;{props.startDate}
+              &ensp;{props.startDate.substring(0,10)}
             </div>
             <div class="list-group-item ">
               <div class="fw-bold">End Date: </div>
-              &ensp;{props.endDate}
+              &ensp;{props.endDate.substring(0,10)}
             </div>
             <div class="list-group-item ">
               <div class="fw-bold">Status: </div>
@@ -157,9 +141,6 @@ const Cards = (props) => {
           <div>
             <div class="form-group col-md-6">
               <label>Comment</label>
-              {/*<textarea class="form-control" id="textAreaExample" rows="4"
-                  style={{ background: "white" }}></textarea>
-                    <label class="form-label" for="textAreaExample">Message</label>*/}
               <textarea id="Comment" class="form-control" placeholder="Comment...." />
             </div>
             <div class="form-group col-md-3" style={{ marginTop: '33px' }}>

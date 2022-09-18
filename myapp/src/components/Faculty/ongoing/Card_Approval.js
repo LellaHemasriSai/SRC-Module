@@ -25,7 +25,6 @@ const CardApprove = (props) => {
 
   return (
     <Card key={props.id} className="card_approval">
-      {/* <Card.Img variant="top" src="holder.js/100px160" /> */}
       <Card.Header>
         <div class="list-group-item " style={{float: 'left'}}>
         <div class="fw-bold">Project Name: </div>
