@@ -70,8 +70,8 @@ const Card_completed = (props) => {
               <li class="list-group-item">organisationType -&ensp;{props.organisationType}</li>
               <li class="list-group-item">staff -&ensp;{props.staff}</li>
               <li class="list-group-item">sanctionFund -&ensp;{props.sanctionFund}</li>
-              <li class="list-group-item">startDate -&ensp;{props.startDate}</li>
-              <li class="list-group-item">endDate -&ensp;{props.endDate}</li>
+              <li class="list-group-item">startDate -&ensp;{props.startDate.substring(0,10)}</li>
+              <li class="list-group-item">endDate -&ensp;{props.endDate.substring(0,10)}</li>
               <li class="list-group-item">status -&ensp;{props.status.toString()}</li>
               <li class="list-group-item">announcements -&ensp;{props.announcements}</li>
             </ul>
