@@ -71,7 +71,17 @@ img {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   grid-gap: 1em;
+}
 
+.projectFlex{
+ 
+  /*flex-direction: column;*/
+  display: flex;
+  justify-content: space-between;
+}
+
+.click_collapse .projectFlex {
+    margin-right: 25px;
 }
 .application_text .items_p{
   width: 100% !important;
@@ -187,6 +197,7 @@ img {
 
 
 .top_content{
+  margin-right: 4%;
   display: flex;
  /* grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   grid-gap: 45em;*/
@@ -222,9 +233,9 @@ img {
     color: white;
 }
 
-.container{
+/*.container{
   padding-left: 0;
-}
+}*/
 
 .remove_content{
   display: none;
@@ -236,6 +247,9 @@ img {
 
 .student_box{
   display:none;
+}
+.click_collapse .projectFlex {
+    margin-right: 0;
 }
 }
 

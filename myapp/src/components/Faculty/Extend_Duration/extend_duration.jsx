@@ -2,16 +2,20 @@
 
 import React, { useState } from 'react'
 import { MainNav } from '../../App';
+import { useLocation } from 'react-router-dom'
 import swal from 'sweetalert';
 
 export default function ExtendDuration() {
-    const [projectName, setProjectName] = useState("default");
-    const [projectID, setProjectID] = useState("default");
-    const [projectType, setProjectType] = useState("default")
-    const [previousDate, setPreviousDate] = useState("0/0/0")
-    const [extendDate, setExtendDate] = useState("0/0/0")
-    const [descriptionBox, setDescriptionBox] = useState("default text")
-    function onSubmit() { console.log("Submitted") }
+ const location = useLocation()
+ console.log(location);
+  const data=location.state;
+    const [projectName, setProjectName] = useState("");
+    const [projectID, setProjectID] = useState("");
+    const [projectType, setProjectType] = useState("")
+    const [previousDate, setPreviousDate] = useState("")
+    const [extendDate, setExtendDate] = useState("")
+    const [descriptionBox, setDescriptionBox] = useState("")
+    function onSubmit() { console.log("") }
     function handlechange() {
         setProjectName("");
         setProjectID("");
@@ -20,7 +24,7 @@ export default function ExtendDuration() {
         setExtendDate("");
         setDescriptionBox("");
     }
-    function postData() {
+    function postData(projectID, projectName, projectType, previousDate, extendDate, descriptionBox) {
         console.log("Submitted")
         fetch("/saveExtendDurationRequest", {
             method: "POST",
@@ -28,9 +32,9 @@ export default function ExtendDuration() {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                projectName: projectName,
-                projectID: projectID,
-                projectType: projectType,
+                projectName: data.name,
+                projectID: data.id,
+                projectType: data.type,
                 previousDate: previousDate,
                 extendDate: extendDate,
                 descriptionBox: descriptionBox
@@ -51,15 +55,15 @@ export default function ExtendDuration() {
                         <div class="form-row">
                             <div class="form-group col-md-4">
                                 <label for="projectName">project Name</label>
-                                <input type="text" class="form-control" id="projectName" value={projectName} placeholder="Project Name" onChange={(event) => { setProjectName(event.target.value) }} />
+                                <input type="text" class="form-control" id="projectName" value={data.name} placeholder="Project Name" onChange={(event) => { setProjectName(event.target.value) }} />
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="projectID">Project ID</label>
-                                <input type="text" class="form-control" id="projectID" value={projectID} placeholder="Project ID" onChange={(event) => { setProjectID(event.target.value) }} />
+                                <input type="text" class="form-control" id="projectID" value={data.id} placeholder="Project ID" onChange={(event) => { setProjectID(event.target.value) }} />
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="projectType">Project Type</label>
-                                <input type="text" class="form-control" id="projectType" value={projectType} placeholder="Project Type" onChange={(event) => { setProjectType(event.target.value) }} />
+                                <input type="text" class="form-control" id="projectType" value={data.type} placeholder="Project Type" onChange={(event) => { setProjectType(event.target.value) }} />
                             </div>
                         </div>
                         <div class="form-row">
@@ -78,7 +82,7 @@ export default function ExtendDuration() {
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-4" style={{ marginTop: '50px' }}>
-                                <button type="button" onClick={postData} class="btn btn-primary">Submit</button>
+                                <button type="button" onClick={() => { postData(projectID, projectName, projectType, previousDate, extendDate, descriptionBox) }} class="btn btn-primary">Submit</button>
                             </div>
                         </div>
                     </form>

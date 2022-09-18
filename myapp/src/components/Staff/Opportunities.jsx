@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import {StudentMainNav} from '../App.jsx'
 import "./staff.css"
+import { Link, useParams } from "react-router-dom";
 import StudentCard from './StudentCard';
 import opportunites from "../../images/opportunites.svg"
-
+import sort from "../../images/sort.svg"
 export default function Opportunities(props) {
 
   const [opportunity, setOpportunity] = useState([])
@@ -39,6 +40,7 @@ export default function Opportunities(props) {
   }
 
 
+
   return <div className="wrapper hover_collapse">
   <StudentMainNav></StudentMainNav>
   <div class="main_container">
@@ -48,7 +50,10 @@ export default function Opportunities(props) {
   <span><img src={opportunites} style={{ width: "40px", height: "40px" }} alt="opportunities"/></span>
   <span><h1 id="head_text">Opportunites</h1></span>
   </div>
-      		{opportunity.map((h,index)=>{
+
+      		{opportunity.length===0? <h2 style={{ marginLeft:"auto",marginRight:"auto",
+            marginTop:"10%" , color:"GrayText"}}>No Opportunites</h2> :
+            opportunity.map((h,index)=>{
 				     return <StudentCard
               onHandle={handleArray}
               key={index}
@@ -58,6 +63,7 @@ export default function Opportunities(props) {
               details={h.salaryDetails}
               start={h.startDate}
               end={h.endDate}
+              qual={h.requiredQualifications}
         />
 			})}  
   </div>

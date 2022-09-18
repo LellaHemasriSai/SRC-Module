@@ -6,18 +6,43 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./Card.css";
 import { CircularProgressbar } from 'react-circular-progressbar';
 import "./statusbarstyles.css"
-import ExtendDuration from "../Extend_Duration/extend_duration";
 import { useParams, Link } from "react-router-dom";
 import { MDBContainer, MDBRow, MDBCol } from 'mdb-react-ui-kit'
-import List from './List/List';
 const Cards = (props) => {
 
   const [show, setShow] = useState(false);
   const [status, setstatus] = useState(0);
+  const handleChange = event => {
+    setstatus(event.target.value);
+  };
+  const handleClick = event => {
+    // event.preventDefault();
 
+    // 👇️ value of input field
+    console.log('old value: ', status);
+
+    // 👇️ set value of input field
+    setstatus(0);
+  };
+  const reset = event => {
+    setstatus(0);
+  }
   function postData(_id) {
-    const value = prompt("Enter current progress");
-    setstatus(value);
+    let value;
+    // while(true){
+    //     value = prompt("Enter current progress");
+    //     if(value>=0 && value <=100 ){
+    //         setstatus(value);
+    //         break;
+    //     }
+    //     else{
+    //       alert("Enter status in between 0 to 100")
+    //     }
+    // }
+    value=status;
+    handleClick();
+    reset();
+
     fetch("/updateProjectStatus", {
       method: "POST",
       headers: {
@@ -63,12 +88,16 @@ const Cards = (props) => {
             </MDBRow>
           </MDBContainer>
         </div>
+        <Link to={"/Faculty/" + username + "/cardapproval"} className="linkapprove">
+        <Button variant="primary" className="approvalbutt">Check Approval status</Button>
+        </Link>
         {show ? <div>
-          <Button variant="primary" className="statbutt" onClick={() => { postData(props._id) }}>Update Status</Button>
+          <input type="text" value = {status} onChange ={handleChange} style={{float: 'right',width: '60px'}}/>
+          <Button variant="primary" className="statbutt" onClick={() => { postData(props._id) }} >Update Status</Button>
           <ul class="list-group list-group-flush leftside">
             <div class="list-group-item ">
               <div class="fw-bold">Project Type: </div>
-              &ensp;{props.projectCode}
+              &ensp;{props.projectType}
             </div>
             <div class="list-group-item ">
               <div class="fw-bold">Agency Code: </div>
@@ -122,7 +151,7 @@ const Cards = (props) => {
             </div>
             <div class="list-group-item ">
               <div class="fw-bold">Status: </div>
-              &ensp;{props.status.toString()}
+              &ensp;{status}
             </div>
           </ul>
           <div>
@@ -150,17 +179,33 @@ const Cards = (props) => {
           </div>
           <div class="form-row">
             <div class="form-group col-md-6" >
-              <Link to={"/Faculty/" + username + "/extend_duration"}>
+              <Link to={"/Faculty/" + username + "/extend_duration"}
+              state={{name: props.projectName,
+              id:props.projectCode,
+              type:props.projectType,
+              start:new Date(props.startDate),
+              end:new Date(props.endDate),}}>
                 <Button variant="primary" className="buttitem">Extend Duration</Button>
               </Link>
             </div>
             <div class="form-group col-md-6" >
-              <Link to={"/Faculty/" + username + "/modify_staff"}>
+              <Link to={"/Faculty/" + username + "/modify_staff"}
+              state={{name: props.projectName,
+              id:props.projectCode,
+              type:props.projectType,
+              start:new Date(props.startDate),
+              end:new Date(props.endDate),}}>
                 <Button variant="primary" className="buttitem">Staff Modification</Button>
               </Link>
             </div>
             <div class="form-group col-md-6" >
-              <Link to={"/Faculty/" + username + "/funds_extension"}>
+              <Link to={"/Faculty/" + username + "/funds_extension"}
+              state={{name: props.projectName,
+              id:props.projectCode,
+              type:props.projectType,
+              start:new Date(props.startDate),
+              end:new Date(props.endDate),
+              sanction:props.sanctionFund}}  >
                 <Button variant="primary" className="buttitem">Additional Funds</Button>
               </Link>
             </div>

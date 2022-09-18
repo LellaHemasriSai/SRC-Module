@@ -1,38 +1,19 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useState,useEffect } from "react";
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button'
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Card.css";
-import { CircularProgressbar } from 'react-circular-progressbar';
-import "./statusbarstyles.css"
-import { useParams, Link } from "react-router-dom";
 import { MDBContainer, MDBRow, MDBCol } from 'mdb-react-ui-kit'
+import { CircularProgressbar } from 'react-circular-progressbar';
+import "../Faculty/ongoing/statusbarstyles.css";
+import axios from 'axios';
 const Cards = (props) => {
 
   const [show, setShow] = useState(false);
   const [status, setstatus] = useState(0);
-
-  function postData(_id) {
-    const value = prompt("Enter current progress");
-    setstatus(value);
-    fetch("/updateProjectStatus", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({            //updating status of project in database
-        status: value,
-        _id: _id
-
-      }),
-    }).then((res) => {
-      console.log("Res:", res);
-    })
-  }
   let id = props.id;
   useEffect(() => {
-    axios.post('http://localhost:3001/pending')
+    axios.post('http://localhost:3001/ongoing')
       .then(res => {
         console.log('Data: ', res.data.data[props.id].status)  // have to take the project array index which we wanted to update
         console.log(id);
@@ -43,14 +24,16 @@ const Cards = (props) => {
       })
   }, [])
 
-  const { username } = useParams();
   return (
     <Card key={props.id} className="card">
-      {/* <Card.Img variant="top" src="holder.js/100px160" /> */}
       <Card.Body>
-        <CircularProgressbar value={status} text={`${status}%`} className="status" />
+      <CircularProgressbar value={status} text={`${status}%`} className="status" />
         <div class="header">
           <MDBContainer>
+            <MDBRow className='box_text'>
+              <MDBCol className='main_text' size='6' sm='3'>Project Code</MDBCol>
+              <MDBCol size='6' sm='3'>&ensp;{props.projectCode}</MDBCol>
+            </MDBRow>
             <MDBRow className='box_text'>
               <MDBCol className='main_text' size='6' sm='3'>Project Name</MDBCol>
               <MDBCol size='6' sm='3'>&ensp;{props.projectName}</MDBCol>
@@ -58,15 +41,10 @@ const Cards = (props) => {
           </MDBContainer>
         </div>
         {show ? <div>
-          <Button variant="primary" className="statbutt" onClick={() => { postData(props._id) }}>Update Status</Button>
-          <div class="card_body">
-            <label class="desc">Description of the Project:</label>
-            {props.description}
-          </div>
           <ul class="list-group list-group-flush leftside">
             <div class="list-group-item ">
               <div class="fw-bold">Project Type: </div>
-              &ensp;{props.projectType}
+              &ensp;{props.projectCode}
             </div>
             <div class="list-group-item ">
               <div class="fw-bold">Agency Code: </div>
@@ -123,38 +101,9 @@ const Cards = (props) => {
               &ensp;{props.status.toString()}
             </div>
           </ul>
-          <div>
-            <div class="form-group col-md-6">
-              <label>Comment</label>
-              <textarea id="Comment" class="form-control" placeholder="Comment...." />
-            </div>
-            <div class="form-group col-md-3" style={{ marginTop: '33px' }}>
-              <button type="button" class="btn btn-outline-primary">
-                Cancel
-              </button>
-              <div class="form-group col-md-3">
-                <button type="button" class="btn btn-primary" >
-                  Post Comment
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group col-md-4" >
-              <Link to={"/Faculty/" + username + "/extend_duration"}>
-                <Button variant="primary" className="buttitem">Extend Duration</Button>
-              </Link>
-            </div>
-            <div class="form-group col-md-4" >
-              <Link to={"/Faculty/" + username + "/modify_staff"}>
-                <Button variant="primary" className="buttitem">Staff Modification</Button>
-              </Link>
-            </div>
-            <div class="form-group col-md-4" >
-              <Link to={"/Faculty/" + username + "/funds_extension"}>
-                <Button variant="primary" className="buttitem">Additional Funds</Button>
-              </Link>
-            </div>
+          <div class="card_body">
+            <label class="desc">Description of the Project:</label>
+            {props.description}
           </div>
         </div>
           : null

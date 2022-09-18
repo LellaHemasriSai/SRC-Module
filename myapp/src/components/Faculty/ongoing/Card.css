@@ -159,3 +159,17 @@
   float: right;
   margin-right: 22px;
 }
+.approvalbutt
+{
+  display: grid;
+  top: 0;
+  text-decoration: none;
+}
+.linkapprove
+{
+  text-decoration: none;
+}
+.linkapprove:hover
+{
+  text-decoration: none;
+}

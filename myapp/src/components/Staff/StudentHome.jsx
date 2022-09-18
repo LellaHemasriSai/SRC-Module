@@ -4,6 +4,7 @@ import { StudentMainNav } from '../App.jsx'
 import HomeCard from "./HomeCard.jsx"
 import "./Details.jsx"
 import Details from './Details.jsx';
+import  announce from "../../images/announcements.svg"
 export default function StudentHome(props) {
 
   const [homedata, setHomeData] = useState([])
@@ -27,9 +28,13 @@ export default function StudentHome(props) {
     <div class="main_container">
       <div class="container">
       <Details/> 
-      <h1>-----New Announcements------</h1>
+      <div style={{ marginTop:"3%"}}className='head_wrap'>
+            <span><img src={announce} style={{ width: "30px", height: "30px" }} alt="applications"/></span>
+            <span><h1 id="head_text">New Announcements</h1></span>
+          </div>
         <section class="card-container">
-          {
+          {homedata.length===0? <h2 style={{ marginLeft:"auto",marginRight:"auto",
+            marginTop:"10%" , color:"GrayText"}}>No Announcements</h2> :
             homedata.map((h, index) => (
               <HomeCard key={index}
               name={h.projectName}

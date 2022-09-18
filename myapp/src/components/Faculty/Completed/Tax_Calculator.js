@@ -1,16 +1,41 @@
-import React,{useState} from "react";
+import React,{useState,useEffect} from "react";
 import "./tax.css";
 import { MainNav } from '../../App';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
+import axios from 'axios';
 
 export default function Tax_Calculator(props)
 { 
-    var cost = 10000;
-    var taxval = cost;
-    taxval=taxval*(12/100);
-    var finalval = cost + taxval;
     const [click,setClick] = useState(false);
+    const [cardinfo, setCardInfo] = useState([])
+
+  console.log("Submitted")
+  // Retrieves necessary data from server
+  useEffect(() => {
+    axios.post('http://localhost:3001/pending')
+      .then(res => {
+        console.log('Data: ', res.data.data)
+        setCardInfo(res.data.data)
+
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }, [])
+  //  console.log(cardinfo);
+  function extractValue(arr, prop) {
+
+    let extractedValue = arr.map(item => item[prop]);
+
+    return extractedValue;
+
+   }
+   const result = extractValue(cardinfo, 'sanctionFund');
+   var cost = result[0];
+    var taxval = result[0];
+    taxval=taxval*(12/100);
+    var finalval = result[0] + taxval;
    
 return (
 <>
@@ -24,7 +49,7 @@ return (
     <div class="tax-input-container">
       <div class="tax-input tax-input--income">
         <label class="lab">Amount</label>
-        <input id="income" type="number" placeholder="125000" value={cost}/>
+        <input id="income" type="number" placeholder="Sanction Fund" value={cost}/>
       </div>
       <div class="tax-input tax-input--ser">
         <label class="lab">Tax </label>
@@ -32,11 +57,11 @@ return (
       </div>
       <div class="tax-input tax-input--ser">
         <label class="lab">Tax Amount</label>
-        <input type="number" id="service-tax-amount"  placeholder="100" value={click? taxval: "0"}/>
+        <input type="number" id="service-tax-amount"  placeholder="Tax Amount" value={click? taxval: "0"}/>
       </div>
       <div class="tax-input tax-input--ser">
         <label class="lab">Gross Amount</label>
-        <input type="number" id="service-tax-amount"  placeholder="1000" value={click? finalval: "0"}/>
+        <input type="number" id="service-tax-amount"  placeholder="Gross value" value={click? finalval: "0"}/>
       </div>
     </div>
 

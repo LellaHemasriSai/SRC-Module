@@ -32,7 +32,7 @@ function Offers(props) {
         <span><h3 className='li_text'>Opportunites</h3></span>
         <span className='arrow'><img src={arrow} style={{ width: "20px", height: "25px" }} alt="opportunities"/></span>
         </div></li></Link>
-        <Link  className='student_link' to={"/Student/"+username+"/applications"}>
+        <Link  className='student_link' to={"/Student/"+username+"/staff_applications"}>
         <li className='student_li'><div className='head_wrap'>
         <span><img src={applications} style={{ width: "25px", height: "25px" }} alt="applications"/></span>
         <span><h3 className='li_text'>Applications</h3></span>

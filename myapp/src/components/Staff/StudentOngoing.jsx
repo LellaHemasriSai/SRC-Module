@@ -16,10 +16,18 @@ function StudentOngoing(props) {
     </div>
 	<section class="card-container">
 		{/*{length===0? <h1>No Ongoing Projects</h1>: <ProjectCard></ProjectCard>}*/}
-		<ProjectCard></ProjectCard>
-		<ProjectCard></ProjectCard>
-		<ProjectCard></ProjectCard>
-		<ProjectCard></ProjectCard>
+		<ProjectCard status="70" 
+		id="ID123"
+		></ProjectCard>
+		<ProjectCard status="20" 
+		id="ID325"
+		></ProjectCard>
+		<ProjectCard status="40" 
+		id="ID143"
+		></ProjectCard>
+	  <ProjectCard status="10" 
+		id="ID236"
+		></ProjectCard>
 	</section>
 	</div>
 	</div>

@@ -5,6 +5,7 @@ import "./nav.css"
 import { Link, useParams } from "react-router-dom";
 
 function Nav(props) {
+	
 	var menu_icon = document.querySelector(".menu_icon");
 
 	const [sidebar, setSidebar] = useState(false);
@@ -34,8 +35,9 @@ function Nav(props) {
 							</span>
 						</div>
 					</button>
+					
 					<div className="dropdown-content">
-						<Link to={"/Faculty/" + username + "/Form"}>Details</Link>
+						<Link to={"/"+ props.name +"/" + username + "/Form"}>Details</Link>
 						<Link to="/">Log out</Link>
 					</div>
 				</div>

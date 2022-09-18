@@ -36,7 +36,7 @@ import StudentCompleted from "./Staff/StudentCompleted.jsx";
 import List from "./Faculty/ongoing/List/List.jsx";
 import FacultyHome from "./Faculty/Home/FacultyHome.jsx"
 import Tax from "./Faculty/Completed/Tax_Calculator";
-import Internal from "../components/Faculty/CreateProject/internal"
+import Approval from './Faculty/ongoing/Approval';
 // should be an json object coming from database
 //export const username = "poojasree";  // no spaces
 //export const admin = "AdminName";
@@ -46,14 +46,14 @@ import Internal from "../components/Faculty/CreateProject/internal"
 /*Faculty Page TopBar + SideBar component*/
 export const MainNav = () => {
   return <div>
-    <Nav></Nav>
+    <Nav name="Faculty"></Nav>
     <Sidebar></Sidebar>
   </div>
 }
 /*Admin Page TopBar + SideBar component*/
 export const AdminMainNav = () => {
   return <div>
-    <Nav></Nav>
+    <Nav name="Admin"></Nav>
     <AdminSidebar></AdminSidebar>
   </div>
 }
@@ -62,7 +62,7 @@ export const AdminMainNav = () => {
 export const StudentMainNav = () => {
   return <div>
     {/**studentsidebar */}
-    <Nav></Nav>
+    <Nav name="Student"></Nav>
     <StudentSidebar></StudentSidebar>
   </div>
 }
@@ -75,6 +75,7 @@ const App = () => {
         <>
           <Route exact path="/Admin" element={<LoginAdmin />} />
           <Route exact path="/Admin/:username/home" element={<Admin />} />
+          <Route exact path="/Admin/:username/Form" element={<Form name="Admin" />} />
           <Route exact path="/Admin/:username/Approve_project" element={<ApproveProject />} />
           <Route exact path="/Admin/:username/Approve_funds" element={<Funds />} />
           <Route exact path="/Admin/:username/approve_recruitment" element={<ApproveRecruitment />} />
@@ -84,7 +85,7 @@ const App = () => {
         <>
           <Route exact path="/Faculty" element={<LoginFac />} />
           <Route exact path="/Faculty/:username/home" element={<FacultyHome />} />
-          <Route exact path="/Faculty/:username/Form" element={<Form />} />
+          <Route exact path="/Faculty/:username/Form" element={<Form name="Faculty" />} />
           <Route exact path="/Faculty/:username/create_project" element={<Create />} />
           <Route exact path="/Faculty/:username/internal" element={<Internal />} />
           <Route exact path="/Faculty/:username/ongoing_project" element={<Ongoing />} />
@@ -98,9 +99,12 @@ const App = () => {
           <Route exact path="/Faculty/:username/modify_staff" element={<Modify_Staff />} />
           <Route exact path="/Faculty/:username/list" element={<List />} />
           <Route exact path="/Faculty/:username/tax" element={<Tax />} />
+          <Route exact path="/Faculty/:username/cardapproval" element={<Approval />} />
+
         </>
         <Route exact path="/Student" element={<LoginStu />} />
         <Route exact path="/Student/:username/studentHome" element={<StudentHome />} />
+        <Route exact path="/Student/:username/Form" element={<Form name="Student" />} />
         <Route exact path="/Student/:username/opportunites" element={<Opportunites />} />
         <Route exact path="/Student/:username/staff_applications" element={<StudentApplications />} />
         <Route exact path="/Student/:username/staff_ongoing" element={<StudentOngoing />} />

@@ -57,6 +57,7 @@ const projectsSchema = new mongoose.Schema({
   sanctionLetter: String, //shld be file
   announcements: [String],
   staffRecruitment: [{}],
+  items: [],
 });
 
 const Project = mongoose.model("Project", projectsSchema);
@@ -177,7 +178,6 @@ let newAdmin = new Admin({
   },
 });
 newAdmin.save();
-//console.log(Admin.findOne({ 'username': "admin" }))
 
 //staffSchema
 const staffSchema = new mongoose.Schema({
@@ -210,6 +210,7 @@ const staffSchema = new mongoose.Schema({
 
 const Staff = mongoose.model("Staff", staffSchema);
 
+//dummy staff object
 let newStaff = new Staff({
   username: "student",
   password: "student",
@@ -228,6 +229,7 @@ let newStaff = new Staff({
 });
 newStaff.save();
 
+//announcement Schema
 const announcementSchema = new mongoose.Schema({
   projectName: String,
   projectID: String,
@@ -238,10 +240,13 @@ const announcementSchema = new mongoose.Schema({
   startDate: Date,
   endDate: Date,
   active: Boolean,
+  description: String,
+  facultyName: String,
 });
 
 const Announcement = mongoose.model("Announcement", announcementSchema);
 
+//Recruitment details schema
 const recruitmentRequestSchema = new mongoose.Schema({
   projectID: String,
   recruitmentType: String,
@@ -253,6 +258,8 @@ const recruitmentRequestSchema = new mongoose.Schema({
   description: String,
   approval: Boolean,
   projectName: String,
+  facultyID: String,
+  status: Number,
 });
 
 const RecruitmentRequest = mongoose.model(
@@ -260,15 +267,18 @@ const RecruitmentRequest = mongoose.model(
   recruitmentRequestSchema
 );
 
+//fund extension data schema
 const fundsRequestSchema = new mongoose.Schema({
   projectID: String,
   projectType: String,
   prevSanctionValue: Number,
   extendSanctionValue: Number,
   active: Boolean,
-  description: String,
+  descriptionBox: String,
   approval: Boolean,
   projectName: String,
+  facultyID: String,
+  status: Number,
 });
 
 const FundsRequest = mongoose.model(
@@ -276,6 +286,7 @@ const FundsRequest = mongoose.model(
   fundsRequestSchema
 );
 
+//duration extension schema
 const durationExtensionSchema = new mongoose.Schema({
   projectID: String,
   projectType: String,
@@ -287,6 +298,8 @@ const durationExtensionSchema = new mongoose.Schema({
   approval: Boolean,
   projectName: String,
   descriptionBox: String,
+  facultyID: String,
+  status: Number,
 });
 
 const DurationExtension = mongoose.model(
@@ -294,7 +307,18 @@ const DurationExtension = mongoose.model(
   durationExtensionSchema
 );
 
+//ident details schema
+const indentSchema = new mongoose.Schema({
+  projectCode: String,
+  itemName: String,
+  cost: Number,
+  retailerName: String,
+  description: String,
+})
 
+const Indent = mongoose.model("Indent", indentSchema);
+
+//Test code for saving files 
 
 // const scannedSignaturesSchema = new mongoose.Schema({
 //   fileName: String,
@@ -498,14 +522,14 @@ app.post("/pending", async (req, res, next) => {
 
 //returns data to faculty ongoing projects
 app.post("/completed", async (req, res, next) => {
-  var ongoingProjects = await Project.find({ approval: true, closed: true });
-  // console.log("Ongoing Projects:\n" + ongoingProjects);
+  var completedProjects = await Project.find({ approval: true, closed: true });
+  console.log("completed Projects:\n" + completedProjects);
 
   try {
     return res.status(200).json({
       success: true,
-      count: ongoingProjects.length,
-      data: ongoingProjects,
+      count: completedProjects.length,
+      data: completedProjects,
     });
   } catch (err) {
     console.log(err);
@@ -546,7 +570,7 @@ app.post("/sendDurationExtension", async (req, res, next) => {
 //returns additional funds request data to admin
 app.post("/sendFundsRequest", async (req, res, next) => {
   var fund = await FundsRequest.find({ approval: false, active: true });
-
+  console.log(fund.length)
   try {
     return res.status(200).json({
       success: true,
@@ -557,6 +581,22 @@ app.post("/sendFundsRequest", async (req, res, next) => {
     res.status(500).json({ error: "server error" });
   }
 });
+
+//returns indent data to faculty items page
+app.post("/sendIndentDetails", async (req, res, next) => {
+  var indent = await Indent.find({ projectCode: req.body.projectCode });
+
+  try {
+    return res.status(200).json({
+      success: true,
+      data: indent,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: "server error" });
+  }
+});
+
 
 //---------------------------------------------------------------------
 //functions to save data to backend database
@@ -594,6 +634,7 @@ app.post("/created", (req, res) => {
 app.post("/announced", (req, res) => {
   console.log("Received?");
   res.send("request sent");
+  var project = Project.findOne({ projectCode: req.body.projectCode })
   var newAnnouncement = new Announcement({
     projectName: req.body.projectName,
     projectID: req.body.projectID,
@@ -603,6 +644,7 @@ app.post("/announced", (req, res) => {
     requiredQualifications: req.body.requiredQualifications,
     startDate: req.body.startDate,
     endDate: req.body.endDate,
+    description: project.description,
     active: true,
   });
   //console.log(newAnnouncement)
@@ -610,9 +652,10 @@ app.post("/announced", (req, res) => {
 });
 
 //save details of Recruitment request
-app.post("/saveRecruitmentRequest", (req, res) => {
+app.post("/saveRecruitmentRequest", async (req, res) => {
   console.log("saving Recruitment?");
   res.send("request sent");
+  var project = await Project.findOne({ projectCode: req.body.projectID })
   var newRequest = new RecruitmentRequest({
     projectID: req.body.projectID,
     //projectName: await Project.findOne({ 'projectCode': req.body.projectID }).projectName,
@@ -625,33 +668,42 @@ app.post("/saveRecruitmentRequest", (req, res) => {
     active: true,
     approval: false,
     description: req.body.descriptionBox,
+    status: project.status,
+    facultyID: project.facultyID,
   });
+  //console.log(newRequest);
   newRequest.save();
   // console.log(newRequest.projectName);
 });
 
 //save details of Extend Duration request
-app.post("/saveExtendDurationRequest", (req, res) => {
+app.post("/saveExtendDurationRequest", async (req, res) => {
   console.log("saving Extend Duration?");
   res.send("request sent");
+  var project = await Project.findOne({ projectCode: req.body.projectID })
   var newRequest = new DurationExtension({
     projectID: req.body.projectID,
     projectName: req.body.projectName,
     projectType: req.body.projectType,
     prevDate: req.body.previousDate,
-    endDate: req.body.extendDate,
+    newDate: req.body.extendDate,
     active: true,
     approval: false,
     descriptionBox: req.body.descriptionBox,
+    status: project.status,
+    facultyID: project.facultyID,
   });
+  //console.log(newRequest);
   newRequest.save();
-  // console.log(newRequest.projectName);
+  //console.log(newRequest.projectName);
 });
 
 //save details of Additional funds request
-app.post("/saveFundRequest", (req, res) => {
+app.post("/saveFundRequest", async (req, res) => {
   console.log("saving Additional Funds?");
   res.send("request sent");
+  var project = await Project.findOne({ projectCode: req.body.projectID })
+  //console.log(project.status)
   var newRequest = new FundsRequest({
     projectID: req.body.projectID,
     projectName: req.body.projectName,
@@ -660,7 +712,26 @@ app.post("/saveFundRequest", (req, res) => {
     active: true,
     approval: false,
     descriptionBox: req.body.descriptionBox,
+    status: project.status,
+    facultyID: project.facultyID,
   });
+  //console.log(newRequest);
+  newRequest.save();
+  // console.log(newRequest.projectName);
+});
+
+//save Indent details of a project
+app.post("/saveIndentDetails", (req, res) => {
+  console.log("saving Indent Details!");
+  res.send("request sent");
+  var newRequest = new Indent({
+    projectCode: req.body.projectCode,
+    itemName: req.body.item,
+    cost: req.body.cost,
+    retailerName: req.body.name,
+    description: req.body.description,
+  });
+  //console.log(newRequest);
   newRequest.save();
   // console.log(newRequest.projectName);
 });
@@ -672,15 +743,16 @@ app.post("/saveFundRequest", (req, res) => {
 //update fund approval status in admin
 app.post("/updateFundApproval", async (req, res, next) => {
   const fund = await FundsRequest.findByIdAndUpdate(req.body.id, {
-    approval: true,
+    approval: req.body.approveStatus,
     active: false,
   });
-
+  //console.log(fund);-->null
   await Project.findOneAndUpdate(req.body.projectCode, { fundApproval: true, sanctionFund: fund.extendSanctionValue })
 
   var updateApproval = await Project.find({
     'projectCode': req.body.projectCode,
   });
+  //console.log(updateApproval);
 
   try {
     return res.status(200).json({
@@ -697,12 +769,13 @@ app.post("/updateFundApproval", async (req, res, next) => {
 //update duration extension approval status in admin
 app.post("/updateDurationApprovalStatus", async (req, res, next) => {
   await DurationExtension.findByIdAndUpdate(req.body.id, {
-    approval: true,
+    approval: req.body.approveStatus,
     active: false,
   });
 
   const approve = await DurationExtension.findOne({ '_id': req.body.id });
 
+  //console.log(approve);-->null
   await Project.findOneAndUpdate(req.body.projectID, { endDate: approve.newDate })
 
   var updateApproval = await Project.find({
@@ -724,7 +797,7 @@ app.post("/updateDurationApprovalStatus", async (req, res, next) => {
 //update recruitment approval status in admin
 app.post("/updateRecruitmentApprovalStatus", async (req, res, next) => {
   const recruit = await RecruitmentRequest.findByIdAndUpdate(req.body.id, {
-    approval: true,
+    approval: req.body.approveStatus,
     active: false,
   });
 
@@ -774,7 +847,9 @@ app.post("/updateProjectApprovalStatus", async (req, res, next) => {
 //update project status in faculty projects
 app.post("/updateProjectStatus", async (req, res, next) => {
   await Project.findByIdAndUpdate(req.body._id, { status: req.body.status });
-
+  if (req.body.status == 100) {
+    await Project.findByIdAndUpdate(req.body._id, { closed: true });
+  }
   try {
     return res.status(200).json({
       success: true,
@@ -821,14 +896,31 @@ app.post("/updateAdminDetails", async (req, res, next) => {
 
 //update Student details from Details form
 app.post("/updateStudentDetails", async (req, res, next) => {
-  const student = await Faculty.findOne({ username: user });
+  const student = await Staff.findOne({ username: user });
   const id = student.id;
-  await Faculty.findByIdAndUpdate(id, { details: req.body.details });
+  await Staff.findByIdAndUpdate(id, { details: req.body.details });
   //console.log(Faculty.findOne({ 'username': 'faculty' }))
 
   try {
     return res.status(200).json({
       success: true,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: "server error" });
+  }
+});
+
+//update student application in student - on pressing apply now
+app.post("updateOpportunitiesApplyNow", async (req, res, next) => {
+  var obj = await Staff.findOneAndUpdate({ username: req.body.staffName }, { "$push": { 'projects': req.body.projectID } })
+  console.log(obj.projects)
+
+  try {
+    return res.status(200).json({
+      success: true,
+      count: updateApproval.length,
+      data: updateApproval,
     });
   } catch (err) {
     console.log(err);
