@@ -2,10 +2,8 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import {StudentMainNav} from '../App.jsx'
 import "./staff.css"
-import { Link, useParams } from "react-router-dom";
 import StudentCard from './StudentCard';
 import opportunites from "../../images/opportunites.svg"
-import sort from "../../images/sort.svg"
 export default function Opportunities(props) {
 
   const [opportunity, setOpportunity] = useState([])
@@ -28,7 +26,7 @@ export default function Opportunities(props) {
   const handleArray=(id)=>{
       let i;
       for(i=0;i<opportunity.length;i++){
-        if(opportunity[i].projectID==id){
+        if(opportunity[i].projectID===id){
           console.log(opportunity[i])
           break;
         }
@@ -64,6 +62,7 @@ export default function Opportunities(props) {
               start={h.startDate}
               end={h.endDate}
               qual={h.requiredQualifications}
+              _id={h._id}
         />
 			})}  
   </div>

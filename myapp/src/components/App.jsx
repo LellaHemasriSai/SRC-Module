@@ -8,6 +8,7 @@ import LoginFac from "./login2/login2_fac";
 import LoginAdmin from "./login2/login2_Ad";
 import LoginStu from "./login2/login2_stu.js";
 import Create from "../components/Faculty/CreateProject/create"
+import Internal from "../components/Faculty/CreateProject/internal"
 import Announcements from "./Faculty/Announcements/Announcements.jsx";
 import Admin from "./Admin/Admin.jsx";
 import Pending from "./Faculty/Pending/Pending.jsx"
@@ -23,9 +24,9 @@ import AdminSidebar from "./Admin/Sidebar.jsx";
 import StudentHome from "./Staff/StudentHome.jsx"
 import Form from "./Faculty/Form.jsx"
 import Funds from "./Admin/Funds.jsx"
-import Extend_Duration from "./Faculty/Extend_Duration/extend_duration.jsx"
-import Funds_Extension from "./Faculty/Funds_Extension/funds_extension.jsx"
-import Modify_Staff from "./Faculty/Modify_Staff/modify_staff.jsx";
+import ExtendDuration from "./Faculty/Extend_Duration/extend_duration.jsx"
+import FundsExtension from "./Faculty/Funds_Extension/funds_extension.jsx"
+import ModifyStaff from "./Faculty/Modify_Staff/modify_staff.jsx";
 import StudentSidebar from "./Staff/studentSideBar.jsx";
 import Applications from "./Faculty/Applications/Applications.jsx"
 import Opportunites from "./Staff/Opportunities.jsx";
@@ -87,16 +88,16 @@ const App = () => {
           <Route exact path="/Faculty/:username/home" element={<FacultyHome />} />
           <Route exact path="/Faculty/:username/Form" element={<Form name="Faculty" />} />
           <Route exact path="/Faculty/:username/create_project" element={<Create />} />
-          {/* <Route exact path="/Faculty/:username/internal" element={<Internal />} /> */}
+          <Route exact path="/Faculty/:username/create_internal_project" element={<Internal />} />
           <Route exact path="/Faculty/:username/ongoing_project" element={<Ongoing />} />
           <Route exact path="/Faculty/:username/recruitment" element={<Recruitment />} />
           <Route exact path="/Faculty/:username/announcements" element={<Announcements />} />
           <Route exact path="/Faculty/:username/pending_approvals" element={<Pending />} />
           <Route exact path="/Faculty/:username/completed_projects" element={<Completed />} />
           <Route exact path="/Faculty/:username/applications" element={<Applications />} />
-          <Route exact path="/Faculty/:username/extend_duration" element={<Extend_Duration />} />
-          <Route exact path="/Faculty/:username/funds_extension" element={<Funds_Extension />} />
-          <Route exact path="/Faculty/:username/modify_staff" element={<Modify_Staff />} />
+          <Route exact path="/Faculty/:username/extend_duration" element={<ExtendDuration />} />
+          <Route exact path="/Faculty/:username/funds_extension" element={<FundsExtension />} />
+          <Route exact path="/Faculty/:username/modify_staff" element={<ModifyStaff />} />
           <Route exact path="/Faculty/:username/list" element={<List />} />
           <Route exact path="/Faculty/:username/tax" element={<Tax />} />
           <Route exact path="/Faculty/:username/cardapproval" element={<Approval />} />

@@ -1,6 +1,5 @@
 import { MainNav } from "../../App";
 import Content from "./Content";
-//import "./nav.css"
 const NavBar = (props) => {
   return <div className="wrapper hover_collapse">
   <MainNav></MainNav>

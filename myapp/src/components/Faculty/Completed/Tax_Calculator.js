@@ -23,7 +23,7 @@ export default function Tax_Calculator(props)
         console.log(err);
       })
   }, [])
-  //  console.log(cardinfo);
+  
   function extractValue(arr, prop) {
 
     let extractedValue = arr.map(item => item[prop]);
