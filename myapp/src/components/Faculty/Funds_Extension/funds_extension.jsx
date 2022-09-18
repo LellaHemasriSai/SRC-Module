@@ -4,7 +4,6 @@ import { MainNav } from '../../App';
 import swal from 'sweetalert';
 
 export default function Funds_Extension(props) {
-    //console.log(props.location.state)
  const location = useLocation()
  console.log(location);
   const data=location.state;

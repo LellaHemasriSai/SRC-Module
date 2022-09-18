@@ -69,10 +69,10 @@ export default function RegisterForm(props) {
     function changeNav(){
         console.log("change")
         let name=props.name;
-        if(name=="Student"){
+        if(name==="Student"){
             <StudentMainNav></StudentMainNav>
              console.log("change stu")
-        }else if(name=="Faculty"){
+        }else if(name==="Faculty"){
             <MainNav></MainNav>
              console.log("change fac")
         }else{
@@ -83,10 +83,9 @@ export default function RegisterForm(props) {
 
     return (
         <div className="wrapper hover_collapse" >
-            { props.name=="Admin"? <AdminMainNav></AdminMainNav>: props.name=="Faculty"? <MainNav></MainNav>: <StudentMainNav></StudentMainNav>}
+            { props.name==="Admin"? <AdminMainNav></AdminMainNav>: props.name==="Faculty"? <MainNav></MainNav>: <StudentMainNav></StudentMainNav>}
             <div className="main_container">
                 <div className="container" >
-                    {/* <div className='grid'> */}
                     <div class="row">
                         <div class="col-md-6 offset-md-3">
                             <br /><br />
@@ -158,6 +157,5 @@ export default function RegisterForm(props) {
                 </div>
             </div>
         </div>
-        // </div>
     )
 }

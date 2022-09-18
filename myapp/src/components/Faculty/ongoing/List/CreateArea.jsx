@@ -63,7 +63,6 @@ function CreateArea(props) {
     }).then((res) => {
       console.log("Res:", res);
     })
-    // reset();
   }
 
   return (

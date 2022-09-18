@@ -47,27 +47,3 @@ function Nav(props) {
 }
 
 export default Nav;
-/*<div class="top_navbar">
-	<div class="menu_icon"><i class="fas fa-bars"></i></div>
-		<div class="logo"><img src="images\logo.png" width="20px" height="20px" alt="logo_pic" style="height: 40px; width: 60px;">
-	<span id="year">Acad year</span>
-	</div>
-		<div class="menu">
-			<div class="dropdown" style="float:right;">
-				<button class="dropbtn">
-				<div class="profile">
-					<img  src="images\user.png" width="20px" height="20px" alt="profile_pic">
-					<span class="name">User Name</span>
-					<span class="icon">
-						<i class="fas fa-angle-down"></i>
-					</span>
-				</div>
-				</button>
-				<div class="dropdown-content">
-					<a href="#">Settings</a>
-					<a href="#">Log out</a>
-				</div>
-			</div>
-		</div>
-	</div>
- */

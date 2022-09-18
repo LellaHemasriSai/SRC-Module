@@ -89,7 +89,7 @@
 .butt {
   margin-top: 7%;
   float: centre;
-  background-color: #438af5;
+  background-color: #3876D0;
   font-size: x-small;
 
 }
@@ -151,17 +151,3 @@
   opacity: 0;
 }
 
-/* .qrcode {
-    -webkit-animation: cssAnimation 5s forwards; 
-    animation: cssAnimation 5s forwards;
-}
-@keyframes cssAnimation {
-    0%   {opacity: 1;}
-    90%  {opacity: 1;}
-    100% {opacity: 0;}
-}
-@-webkit-keyframes cssAnimation {
-    0%   {opacity: 1;}
-    90%  {opacity: 1;}
-    100% {opacity: 0;}
-} */

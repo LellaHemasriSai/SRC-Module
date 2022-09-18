@@ -95,7 +95,7 @@ body{
 }
 
 .top_navbar .menu_icon:hover{
-	color: #007dc3;
+	color: #3876D0;
 }
 
 .top_navbar .menu .profile_wrap{
@@ -212,7 +212,7 @@ body{
 .sidebar ul li a{
 	display: block;
 	padding: 12px 25px;
-	border-bottom: 1px solid #0e94d4;
+	border-bottom: 1px solid #3876D0;
 	color: #ecf6fb;
 	text-decoration: none;
 	transition: all 0.2s ease;
@@ -345,11 +345,6 @@ body{
   transition: opacity .2s, visibility .2s;
 }
 
-/*.image_wrap:hover .img_description {
-  visibility: visible;
-  opacity: 1;
-}
-*/
 
 .box_text{
 	margin-bottom: 15px;

@@ -15,7 +15,6 @@ function StudentOngoing(props) {
             <span><h1 id="head_text">Ongoing Projects</h1></span>
     </div>
 	<section class="card-container">
-		{/*{length===0? <h1>No Ongoing Projects</h1>: <ProjectCard></ProjectCard>}*/}
 		<ProjectCard status="70" 
 		id="ID123"
 		></ProjectCard>

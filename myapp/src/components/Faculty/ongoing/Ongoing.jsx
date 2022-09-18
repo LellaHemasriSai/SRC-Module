@@ -78,8 +78,8 @@ const Ongoing = () => {
                 facultyID={card.facultyID}
                 organisationType={card.organizationType}
                 staff={card.staff} sanctionFund={card.sanctionFund}
-                startDate={new Date(JSON.stringify(card.startDate).substring(1,11)).getDay()+"/" + new Date(JSON.stringify(card.startDate).substring(1,11)).getMonth()+"/"+new Date(JSON.stringify(card.startDate).substring(1,11)).getFullYear()}
-                endDate={new Date(JSON.stringify(card.endDate).substring(1,11)).getDay()+"/" + new Date(JSON.stringify(card.endDate).substring(1,11)).getMonth()+"/"+new Date(JSON.stringify(card.endDate).substring(1,11)).getFullYear()}
+                startDate={card.startDate}
+                endDate={card.endDate}
                 status={card.status}
                 description={card.description} 
                 _id = {card._id}
