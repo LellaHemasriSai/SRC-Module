@@ -86,11 +86,6 @@
 }
 
 .butt {
-  /* margin-top: 100%;
-    float: centre;
-    position: relative;
-    background-color:#438af5;
-    width: 8%; */
   width: 9%;
   position: absolute;
   bottom: 0;
@@ -98,11 +93,6 @@
   align-content: center;
 }
 
-/* .card_body
-  {
-    text-align: center;
-    font-size: 2rem;
-  } */
 .status {
   float: right;
   width: 15%;
@@ -110,14 +100,8 @@
 }
 
 .buttitem {
-  /* margin-top: 5%; */
-  /* margin-left: 5%;
-    margin-right: 5%;  */
-
-  /* margin-top: 5%; */
   margin-left: 20px;
   margin-right: 20px;
-  /* font-size: 18px; */
 }
 
 .buttgrp {
@@ -164,6 +148,8 @@
   display: grid;
   top: 0;
   text-decoration: none;
+  margin-left: 1.3%;
+  background-color: #3876D0;
 }
 .linkapprove
 {

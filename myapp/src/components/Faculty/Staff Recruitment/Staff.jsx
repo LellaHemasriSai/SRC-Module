@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState } from 'react'
 import "./staff.css"
 import { MainNav } from '../../App';
 import recruit from "../../../images/recruit.svg"
@@ -51,7 +51,7 @@ export default function CreateAnnouncement() {
     swal("","Submitted Staff recruitment Request","success");
     handlechange();
   }
-  //console.alert("SubmittedValues: ", projectID, " ", projectName, " ", projectType, organizationType, agencyCode, agencyName, sanctionValue, startDate, endDate, descriptionBox)
+  
 
   return (
     <div className="wrapper hover_collapse">

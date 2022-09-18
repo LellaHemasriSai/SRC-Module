@@ -78,7 +78,7 @@ export default function StudentCard(props) {
         <div className='application_text'>
           <span className='application_items'>
             <p className='items_p'>Faculty Name</p>
-            <span>faculty</span>  {/**faculty name from backend??? */}
+            <span>faculty</span>  
           </span>
           <span className='application_items'>
             <p className='items_p'>Salary Details</p>

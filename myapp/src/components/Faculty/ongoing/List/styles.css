@@ -1,26 +1,6 @@
-/* * {
-  padding: 0;
-  margin: 0;
-} */
-/* html {
-  font-family: "Montserrat", sans-serif;
-  padding: 0;
-  margin: 0;
-}
-*/
-/* .body {
-  background: #eee;
-  overflow-x: hidden;
-  /* position: absolute; */
-  /* padding: 0;
-  top: 0;
-  font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-  margin: 0;
-}   */
-
 .headList {
   top: 0;
-  background-color: #438af5;
+  background-color: #3876D0;
   margin: auto -16px;
   padding: 16px 32px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
@@ -68,7 +48,7 @@ footer p {
   position: relative;
   float: right;
   margin-right: 10px;
-  color: #438af5;
+  color: #3876D0;
   border: none;
   width: 36px;
   height: 36px;
@@ -99,7 +79,7 @@ footer p {
   position: absolute;
   right: 18px;
   bottom: -18px;
-  background: #438af5;
+  background: #3876D0;
   color: #fff;
   border: none;
   border-radius: 50%;
@@ -150,7 +130,7 @@ td {
 th {
   position: sticky;
   top: 0;
-  background: #438af5;
+  background: #3876D0;
   text-align: center;
   font-weight: normal;
   font-size: 1.1rem;
@@ -170,10 +150,4 @@ td {
 tr:nth-child(even) td {
   background: #f8f6ff;
 }
-/* .Lab
-{
-  text-align: right;
-  clear: both;
-  float:left;
-  margin-right:15px;
-} */
+

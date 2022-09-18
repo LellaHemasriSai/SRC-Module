@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button'
 import "bootstrap/dist/css/bootstrap.min.css";
 import { MDBContainer, MDBRow, MDBCol } from 'mdb-react-ui-kit'
 import "./Card.css";
+import swal from 'sweetalert';
 /*Card Component used in Approve_pojects.jsx*/
 
 /*Used to Approve Projects by Admin*/
@@ -28,6 +29,14 @@ const Cards = (props) => {
     }).then((res) => {
       console.log("Res:", res);
     })
+    if(status)
+    {
+      swal("","Project Approved","success");
+    }
+    else
+    {
+      swal("","Project Disapproved","error");
+    }
   }
 
   return (
@@ -92,11 +101,11 @@ const Cards = (props) => {
               </div>
               <div class="list-group-item ">
                 <div class="fw-bold">Start Date: </div>
-                &ensp;{props.startDate}
+                &ensp;{props.startDate.substring(0,10)}
               </div>
               <div class="list-group-item ">
                 <div class="fw-bold">End Date: </div>
-                &ensp;{props.endDate}
+                &ensp;{props.endDate.substring(0,10)}
               </div>
             </ul>
             <div className="bgrp">

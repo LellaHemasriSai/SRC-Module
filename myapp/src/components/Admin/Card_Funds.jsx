@@ -43,12 +43,12 @@ const Cards = (props) => {
     }).then((res) => {
       console.log("Res:", res);
     })
-    if(clickstatus){
+    if(status){
       swal("","Approved Funds Extension","success");
     }
     else
     {
-      swal("","Disapproved Funds Extension","danger");
+      swal("","Disapproved Funds Extension","error");
     }
   }
 
@@ -80,14 +80,9 @@ const Cards = (props) => {
 
       {/** No description provided from backend  */}
 
-        {/*  <MDBRow className='box_text'>
-      <MDBCol className='box_content_text main_text' size='6' sm='3'>Description</MDBCol>
-       <MDBCol className='box_content_text' size='6' sm='3'>{props.description}</MDBCol>
-    </MDBRow>*/}
 
         <MDBRow style={{}}>
           <MDBCol className=' box_content_text main_text' size='6' sm='3'><button className='approve_btn' onClick={() => { postData(props.code, 'ID', true, props._id); setStatus(true); }}>Approve</button></MDBCol>
-          {/*  {clickstatus ? image() : null}*/}
           <MDBCol className='box_content_text' size='6' sm='3'><button className='disapprove_btn' onClick={() => { postData(props.code, 'ID', true, props._id); setStatus(false); }}>Disapprove</button></MDBCol>
         </MDBRow>
       </MDBContainer>
