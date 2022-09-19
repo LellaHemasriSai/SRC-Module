@@ -37,7 +37,7 @@ function Nav(props) {
 					</button>
 					
 					<div className="dropdown-content">
-						<Link to={"/"+ props.name +"/" + username + "/Form"}>Details</Link>
+						<Link to={"/"+ props.name +"/" + username + "/"+props.details}>Details</Link>
 						<Link to="/">Log out</Link>
 					</div>
 				</div>

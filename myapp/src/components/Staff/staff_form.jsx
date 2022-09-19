@@ -1,10 +1,41 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import { StudentMainNav } from '../App';
 import swal from 'sweetalert'
 
 export default function RegisterForm(props) {
+
+    const [dob,setDob]=useState([])
+    const [gmail,setGmail]=useState([])
+    const [addr,setAddr]=useState([])
+    const [qual,setQual]=useState([])
+    const [dep,setDep]=useState([])
+    const [contact,setContact]=useState([])
+    const [dof,setDof]=useState([])
+
+    useEffect(() => {
+    axios.post('http://localhost:3001/sendStaffDetails')
+      .then(res => {
+        console.log('Data: ', res.data.data)
+        let birth=JSON.stringify(res.data.data.details.DoB).substring(1,11);
+        var date=new Date(birth);
+        setDob(date.getDay()+"/"+date.getMonth()+"/"+date.getFullYear())
+        //console.log(dob);
+        setAddr(res.data.data.details.Address)
+        setContact(res.data.data.details.ContactNumber)
+        setDep(res.data.data.details.Department)
+        let joining=JSON.stringify(res.data.data.details.DateOfJoining).substring(1,11);
+        var date2=new Date(joining);
+        setDof(date2.getDay()+"/"+date2.getMonth()+"/"+date2.getFullYear())
+        setGmail(res.data.data.details.Email)
+        setQual(res.data.data.details.Qualifications)
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }, [])
+
     const [Department, setDepartment] = useState("");
-    const [Designation, setDesignation] = useState("");
     const [Email, setEmail] = useState("");
     const [ContactNumber, setContactNumber] = useState("");
     const [Qualifications, setQualifications] = useState("")
@@ -18,7 +49,6 @@ export default function RegisterForm(props) {
     //function onSubmit() { console.log('submitted RegisterForm') }
     function handlechange() {
         setDepartment("");
-        setDesignation("");
         setEmail("");
         setContactNumber("");
         setQualifications("");
@@ -38,7 +68,6 @@ export default function RegisterForm(props) {
             },
             body: JSON.stringify({
                 Department: Department,
-                Designation: Designation,
                 Email: Email,
                 ContactNumber: ContactNumber,
                 Qualifications: Qualifications,
@@ -50,7 +79,6 @@ export default function RegisterForm(props) {
                 Resume: Resume,
                 details: {
                     Department: Department,
-                    Designation: Designation,
                     Email: Email,
                     ContactNumber: ContactNumber,
                     DateOfJoining: DateofJoining,
@@ -69,21 +97,11 @@ export default function RegisterForm(props) {
         handlechange();
     }
 
-    /*function changeNav() {
-        console.log("change")
-        let name = props.name;
-        if (name == "Student") {
-            <StudentMainNav></StudentMainNav>
-            console.log("change stu")
-        }
-    }*/
-
     return (
         <div className="wrapper hover_collapse" >
             <StudentMainNav></StudentMainNav>
             <div className="main_container">
                 <div className="container" >
-                    {/* <div className='grid'> */}
                     <div class="row">
                         <div class="col-md-6 offset-md-3">
                             <br /><br />

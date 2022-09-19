@@ -22,7 +22,7 @@ const Cards = (props) => {
       body: JSON.stringify({
         projectCode: projectCode,
         facultyID: facultyID,
-        approveStatus: status,
+        status: status,
         id: _id,
 
       }),
