@@ -23,12 +23,27 @@ function List(props) {
     console.log(newNote)
 }
 
-  function deleteNote(id) {
+  function deleteNote(id,_id) {
     setNotes(prevNotes => {
       return prevNotes.filter((noteItem, index) => {
         return index !== id;
       });
     });
+    fetch("/deleteIndentDetails", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        id: _id,
+      }),
+    }).then((res) => {
+      console.log("Res:", res);
+    })
+    axios
+    .delete('http://localhost:3001/'+_id +'/deleteIndentDetails')
+    .then(console.log("Deleted"))
+    .catch(err => console.log(err));
   }
   
 

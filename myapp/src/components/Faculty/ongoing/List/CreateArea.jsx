@@ -42,7 +42,7 @@ function CreateArea(props) {
     reset();
   }
 
-  function postData(projectCode) {
+  function postData(projectCode,_id) {
     console.log("Submitted")
     // console.log(projectCode)
     console.log(note)
@@ -60,7 +60,7 @@ function CreateArea(props) {
         cost: note.cost,
         name: note.name,
         description: note.description,
-        // id: _id,
+        id: _id,
 
       }),
     }).then((res) => {
