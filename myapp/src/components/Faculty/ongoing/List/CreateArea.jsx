@@ -56,9 +56,9 @@ function CreateArea(props) {
       body: JSON.stringify({
         projectCode: projectCode,
         // facultyID: facultyID,
-        itemName: note.item,
+        item: note.item,
         cost: note.cost,
-        retailerName: note.name,
+        name: note.name,
         description: note.description,
         // id: _id,
 

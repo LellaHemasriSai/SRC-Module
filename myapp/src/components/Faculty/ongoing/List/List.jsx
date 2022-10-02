@@ -34,8 +34,7 @@ function List(props) {
 
   useEffect(() => {
     console.log("hello")
-    var id="ID970"
-    axios.post('http://localhost:3001/'+ id + '/sendIndentDetails')
+    axios.post('http://localhost:3001/'+ from + '/sendIndentDetails')
       .then(res => {
         console.log('Data: ', res.data)
         setNotes(res.data.data)
@@ -72,9 +71,9 @@ function List(props) {
           <Note
             key={index}
             id={index}
-            item={noteItem.item}
+            item={noteItem.itemName}
             cost={noteItem.cost}
-            name={noteItem.name}
+            name={noteItem.retailerName}                    // noteItem.(this name should the name used in schema)
             description={noteItem.description}
             onDelete={deleteNote}
           />
