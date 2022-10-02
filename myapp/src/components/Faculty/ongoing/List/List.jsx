@@ -4,10 +4,14 @@ import CreateArea from "./CreateArea";
 import "./styles.css";
 import { MainNav } from '../../../App';
 import axios from "axios";
+import { useLocation } from "react-router-dom";
 
-function List() {
+function List(props) {
   const [notes, setNotes] = useState([]);
   var [l,setl] = useState(notes.length);
+  const location = useLocation();
+  const {from} = location.state;
+  console.log(from)
 
   function addNote(newNote) {
     console.log(newNote)
@@ -17,7 +21,7 @@ function List() {
     setl(notes.length)
     console.log(l)
     console.log(newNote)
-  }
+}
 
   function deleteNote(id) {
     setNotes(prevNotes => {
@@ -26,18 +30,20 @@ function List() {
       });
     });
   }
+  
 
   useEffect(() => {
-    axios.post('http://localhost:3001/sendIndentDetails')
+    console.log("hello")
+    var id="ID970"
+    axios.post('http://localhost:3001/'+ id + '/sendIndentDetails')
       .then(res => {
-        console.log('Data: ', res.data.data)
+        console.log('Data: ', res.data)
         setNotes(res.data.data)
         console.log(notes)
       })
       .catch(err => {
         console.log(err);
       })
-      // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
  
@@ -49,7 +55,7 @@ function List() {
     <div className="container" style={{ textAlign: "center" }}>
     <div className='grid'>
     <div>
-      <CreateArea onAdd={addNote} projectCode facultyID note={notes} _id />
+      <CreateArea onAdd={addNote} projectCode={from} />
   <table>
   <thead>
     <tr>

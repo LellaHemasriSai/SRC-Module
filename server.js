@@ -396,8 +396,9 @@ app.post("/sendFundsRequest", async (req, res, next) => {
 });
 
 //returns indent data to faculty items page
-app.post("/sendIndentDetails", async (req, res, next) => {
-  var indent = await Indent.find({ projectCode: req.body.projectCode });
+app.post("/:id/sendIndentDetails", async (req, res, next) => {
+  console.log(req.params.id)
+  var indent = await Indent.find({ projectCode: req.params.id });
 
   try {
     return res.status(200).json({

@@ -30,7 +30,7 @@ function CreateArea(props) {
 
   function submitNote(event) {
     props.onAdd(note);
-    postData(props.projectCode, props.facultyID, props._id);
+    postData(props.projectCode);
     setNote({
       item: "",
       cost: "",
@@ -42,8 +42,9 @@ function CreateArea(props) {
     reset();
   }
 
-  function postData(projectCode, facultyID, _id) {
+  function postData(projectCode) {
     console.log("Submitted")
+    // console.log(projectCode)
     console.log(note)
     var l=note.length
     if(l>=1){l=l-1;}
@@ -54,12 +55,12 @@ function CreateArea(props) {
       },
       body: JSON.stringify({
         projectCode: projectCode,
-        facultyID: facultyID,
-        item: note.item,
+        // facultyID: facultyID,
+        itemName: note.item,
         cost: note.cost,
-        name: note.name,
+        retailerName: note.name,
         description: note.description,
-        id: _id,
+        // id: _id,
 
       }),
     }).then((res) => {

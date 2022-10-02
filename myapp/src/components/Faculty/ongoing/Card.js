@@ -56,6 +56,7 @@ const Cards = (props) => {
   }, [])
 
   const { username } = useParams();
+
   return (
     <Card key={props.id} className="card">
       <Card.Body>
@@ -63,7 +64,7 @@ const Cards = (props) => {
         <div class="header">
           <MDBContainer>
             <MDBRow className='box_text'>
-              <MDBCol className='main_text' size='6' sm='3'>Project Code</MDBCol>
+              <MDBCol className='main_text' size='6' sm='3'>Project ID</MDBCol>
               <MDBCol size='6' sm='3'>&ensp;{props.projectCode}</MDBCol>
             </MDBRow>
             <MDBRow className='box_text'>
@@ -197,7 +198,7 @@ const Cards = (props) => {
               </Link>
             </div>
             <div class="form-group col-md-6">
-              <Link to={"/Faculty/" + username + "/list"}>
+              <Link to={"/Faculty/" + username + "/list"} state={{from : props.projectCode}}>
                 <Button variant="primary" className="buttitem">View Details</Button>
               </Link>
             </div>
