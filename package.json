@@ -19,10 +19,16 @@
     "express-handlebars": "^6.0.6",
     "express-session": "^1.17.3",
     "express-validator": "^6.14.2",
+    "gridfs-stream": "^1.1.1",
     "mdb-react-ui-kit": "^4.2.0",
+    "method-override": "^3.0.0",
     "mongoose": "^6.5.3",
-    "multer": "^1.4.5-lts.1",
+    "multer": "^1.4.4",
+    "multer-gridfs-storage": "^5.0.2",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
   }
 }
