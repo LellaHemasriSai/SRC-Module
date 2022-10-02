@@ -54,10 +54,6 @@ export default function Create() {
                                         <label for="projectName">project Name</label>
                                         <input type="text" class="form-control" id="projectName" value={projectName} placeholder="Project Name" onChange={(event) => { setProjectName(event.target.value) }} />
                                     </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="projectID">Project ID</label>
-                                        <input type="text" class="form-control" id="projectID" value={projectID} placeholder="Project ID" onChange={(event) => { setProjectID(event.target.value) }} />
-                                    </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
