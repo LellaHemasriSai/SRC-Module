@@ -768,6 +768,27 @@ app.post("/updateOpportunitiesApplyNow", async (req, res, next) => {
 // });
 
 //----------------------------------------------------------------------------
+//delete values in data base
+//----------------------------------------------------------------------------
+
+//update student application in student - on pressing apply now
+app.post("/deleteIndentDetails", async (req, res, next) => {
+  console.log("deleting indent details");
+  await Indent.deleteOne(
+    { _id: req.body.id }
+  );
+  try {
+    return res.status(200).json({
+      success: true,
+      //data: updateApproval,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: "server error" });
+  }
+});
+
+//----------------------------------------------------------------------------
 //setting up the port
 //----------------------------------------------------------------------------
 
