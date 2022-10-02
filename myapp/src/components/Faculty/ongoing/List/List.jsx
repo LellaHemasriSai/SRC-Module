@@ -29,6 +29,7 @@ function List(props) {
         return index !== id;
       });
     });
+    console.log(_id);
     fetch("/deleteIndentDetails", {
       method: "POST",
       headers: {
@@ -40,15 +41,15 @@ function List(props) {
     }).then((res) => {
       console.log("Res:", res);
     })
-    axios
-    .delete('http://localhost:3001/'+_id +'/deleteIndentDetails')
-    .then(console.log("Deleted"))
-    .catch(err => console.log(err));
+    // axios
+    // .delete('http://localhost:3001/'+ id +'/deleteIndentDetails')
+    // .then(console.log("Deleted"))
+    // .catch(err => console.log(err));
   }
   
 
   useEffect(() => {
-    console.log("hello")
+    console.log("hello h")
     axios.post('http://localhost:3001/'+ from + '/sendIndentDetails')
       .then(res => {
         console.log('Data: ', res.data)
@@ -90,7 +91,7 @@ function List(props) {
             cost={noteItem.cost}
             name={noteItem.retailerName}                    // noteItem.(this name should the name used in schema)
             description={noteItem.description}
-            onDelete={deleteNote}
+            onDelete={() => {deleteNote(index,noteItem._id)}}
           />
         );
       })}
