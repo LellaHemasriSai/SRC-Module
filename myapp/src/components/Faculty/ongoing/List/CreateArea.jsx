@@ -8,10 +8,8 @@ function CreateArea(props) {
     name: "",
     description: "",
   });
-
   function handleChange(event) {
     const { name, value } = event.target;
-
     setNote(prevNote => {
       return {
         ...prevNote,
@@ -32,6 +30,7 @@ function CreateArea(props) {
 
   function submitNote(event) {
     props.onAdd(note);
+    postData(props.projectCode, props.facultyID, props._id);
     setNote({
       item: "",
       cost: "",
@@ -39,12 +38,15 @@ function CreateArea(props) {
       description: "",
     });
     event.preventDefault();
-    postData(props.projectCode, props.facultyID, props.note, props._id);
+    // postData(props.projectCode, props.facultyID, props._id);
     reset();
   }
 
-  function postData(projectCode, facultyID, note, _id) {
+  function postData(projectCode, facultyID, _id) {
     console.log("Submitted")
+    console.log(note)
+    var l=note.length
+    if(l>=1){l=l-1;}
     fetch("/saveIndentDetails", {
       method: "POST",
       headers: {
