@@ -226,8 +226,7 @@ app.post("/sendAdminDetails", async (req, res, next) => {
 
 //returns data to Student Home Page
 app.post("/sendStaffDetails", async (req, res, next) => {
-  var details = await Staff.findOne({ username: user });
-
+  var details = await Staff.findOne({ username: "student" });
   try {
     return res.status(200).json({
       success: true,
@@ -694,17 +693,18 @@ app.post("/updateStudentDetails", async (req, res, next) => {
 
 //update student application in student - on pressing apply now
 app.post("/updateOpportunitiesApplyNow", async (req, res, next) => {
-  console.log("announcements");
+  console.log("announcements - apply now");
+  console.log(req.body)
   var obj = await Staff.findOneAndUpdate(
     { username: req.body.staffName },
     { $push: { projects: req.body.projectID } }
   );
-  console.log(req.body);
+  console.log(obj);
+  console.log(obj.projects);
   try {
     return res.status(200).json({
       success: true,
-      count: updateApproval.length,
-      data: updateApproval,
+      //data: updateApproval,
     });
   } catch (err) {
     console.log(err);
