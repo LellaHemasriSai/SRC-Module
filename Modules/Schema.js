@@ -123,14 +123,7 @@ const projectsSchema = new mongoose.Schema({
       DoB: Date,
       Address: String,
     },
-    projects: [
-      {
-        projectID: String,
-        Salary: Number,
-        StartDate: Date,
-        EndDate: Date,
-      },
-    ],
+    projects: [],
   });
   
   export const Staff = mongoose.model("Staff", staffSchema);

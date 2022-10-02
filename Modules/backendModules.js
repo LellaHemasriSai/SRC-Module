@@ -11,7 +11,7 @@ export function generateAgencyCode(agencyName) {
 }
 
 //function to modify agency code in data base, fetch agency form mongodb, search and update it.
-export function modifyAgencyCode(agencyCode) {}
+export function modifyAgencyCode(agencyCode) { }
 
 export function projectCode(facultyID) {
   return (
@@ -21,7 +21,7 @@ export function projectCode(facultyID) {
 }
 
 export function updateProjectStatus(facultyID, projectID, status) {
-  //search fauculty data base for faculty id
+  //search faculty data base for faculty id
   //search for project with project id
   //set status in the respective project
   //var mongo = require("mongodb");

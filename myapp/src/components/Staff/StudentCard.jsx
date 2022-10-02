@@ -29,7 +29,7 @@ export default function StudentCard(props) {
   }, [])
 
 
-  function postApplication(id,_id) {
+  function postApplication(id, _id) {
     console.log("Applied")
     props.onHandle(id);
     fetch("/updateOpportunitiesApplyNow", {
@@ -44,13 +44,13 @@ export default function StudentCard(props) {
         email: email,
         qualifications: qual,
         contact: contact,
-        announceid:_id,
+        announceid: _id,
 
       }),
     }).then((res) => {
       console.log("Res:", res);
     })
-    swal("","Applied Successfully","success");
+    swal("", "Applied Successfully", "success");
   }
 
   let start = new Date(props.start);
@@ -78,7 +78,7 @@ export default function StudentCard(props) {
         <div className='application_text'>
           <span className='application_items'>
             <p className='items_p'>Faculty Name</p>
-            <span>faculty</span>  
+            <span>faculty</span>
           </span>
           <span className='application_items'>
             <p className='items_p'>Salary Details</p>
@@ -96,13 +96,13 @@ export default function StudentCard(props) {
         <div className='application_text'>
           <span className='application_items'>
             <p className='items_p'>Required Qualifications:</p>
-            <span>{props.qual}</span> 
+            <span>{props.qual}</span>
           </span>
         </div>
         <div className='home_text'>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         </div>
-        <button onClick={() => { postApplication(props.id,props._id) }} className='apply_btn'>Apply Now</button>
+        <button onClick={() => { postApplication(props.id, props._id) }} className='apply_btn'>Apply Now</button>
       </div>
     </div>
   )
