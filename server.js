@@ -1,10 +1,26 @@
 import { generateAgencyCode, projectCode } from "./Modules/backendModules.js";
+import {
+  Project,
+  Faculty,
+  Staff,
+  Admin,
+  Announcement,
+  RecruitmentRequest,
+  FundsRequest,
+  Indent,
+  DurationExtension,
+} from "./Modules/Schema.js";
 import express from "express";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import lodash from "lodash";
 import cors from "cors";
-
+import path from "path";
+import crypto from "crypto";
+import multer from "multer";
+import { GridFsStorage } from "multer-gridfs-storage";
+import Grid from "gridfs-stream";
+import methodOverride from "method-override";
 const _ = { lodash };
 const app = express();
 
@@ -31,70 +47,39 @@ conn.on("connected", function () {
   console.log("database is connected successfully!");
 });
 
-//-----------------------------------------------------------------------------
-//SCHEMAS
-//-----------------------------------------------------------------------------
-
-const projectsSchema = new mongoose.Schema({
-  projectCode: String,
-  projectName: String,
-  projectType: String,
-  agencyCode: String,
-  agencyName: String,
-  approval: Boolean,
-  resourceApproval: Boolean,
-  fundApproval: Boolean,
-  closed: Boolean,
-  facultyID: String,
-  organizationType: String,
-  staff: [String],
-  noOfStaff: Number,
-  sanctionFund: Number,
-  startDate: Date,
-  endDate: Date,
-  status: Number,
-  description: String,
-  sanctionLetter: String, //shld be file
-  announcements: [String],
-  staffRecruitment: [{}],
-  items: [],
+let gfs;
+conn.once("open", () => {
+  gfs = Grid(conn.db, mongoose.mongo);
+  gfs.collection("uploads");
 });
 
-const Project = mongoose.model("Project", projectsSchema);
-
-//facultySchema
-const facultySchema = new mongoose.Schema({
-  username: {
-    type: String,
-    trim: true,
-    required: true,
+const storage = new GridFsStorage({
+  url: "mongodb://localhost:27017/SRC",
+  file: (req, file) => {
+    return new Promise((resolve, reject) => {
+      crypto.randomBytes(16, (err, buf) => {
+        if (err) {
+          return reject(err);
+        }
+        const filename = buf.toString("hex") + path.extname(file.originalname);
+        const fileInfo = {
+          filename: filename,
+          bucketName: "uploads",
+        };
+        resolve(fileInfo);
+      });
+    });
   },
-  password: String,
-  userCode: String,
-  principalInvestigatorCode: String,
-  details: {
-    Department: String,
-    Designation: String,
-    Email: String,
-    ContactNumber: String,
-    DateOfJoining: Date,
-    Qualifications: String,
-    DoB: Date,
-    Address: String,
-    Gender: String,
-    Signature: [
-      {
-        fileName: String,
-        filePath: String,
-        fileType: String,
-        fileSize: String,
-      },
-    ],
-  },
-  projects: [String],
-  sanctionLetter: String, //shld be file
 });
-const Faculty = mongoose.model("Faculty", facultySchema);
+const upload = multer({ storage });
+
+app.post("/upload", upload.single("file"), (req, res) => {
+  res.json({ file: req.file });
+});
+
+//--------------------------------------------------------------------------------------------
+//Dummy users
+//--------------------------------------------------------------------------------------------
 
 //dummy faculty
 
@@ -119,43 +104,6 @@ var newFac = new Faculty({
 newFac.save();
 //console.log(Faculty.findOne({ 'username': 'faculty' }))
 
-//admin Schema
-const adminSchema = new mongoose.Schema({
-  username: {
-    type: String,
-    trim: true,
-    required: true,
-  },
-  password: String,
-  projects: {
-    approve: [String],
-  },
-  faculty: [String],
-  staff: [String],
-  recruitment: {
-    project: String,
-    numberOfStaff: Number,
-    salary: Number,
-    startDate: Date,
-    endDate: Date,
-    reasonForRecruitment: String,
-    approve: Boolean,
-  },
-  details: {
-    Department: String,
-    Designation: String,
-    Email: String,
-    ContactNumber: String,
-    DateOfJoining: Date,
-    Qualifications: String,
-    DoB: Date,
-    Address: String,
-    Gender: String,
-  },
-});
-
-const Admin = mongoose.model("Admin", adminSchema);
-
 //dummy Admin
 let newAdmin = new Admin({
   username: "admin",
@@ -179,37 +127,6 @@ let newAdmin = new Admin({
 });
 newAdmin.save();
 
-//staffSchema
-const staffSchema = new mongoose.Schema({
-  username: {
-    type: String,
-    trim: true,
-    required: true,
-  },
-  password: String,
-  staffCode: String,
-  details: {
-    Department: String,
-    Designation: String,
-    Email: String,
-    ContactNumber: String,
-    DateOfJoining: Date,
-    Qualifications: String,
-    DoB: Date,
-    Address: String,
-  },
-  projects: [
-    {
-      projectID: String,
-      Salary: Number,
-      StartDate: Date,
-      EndDate: Date,
-    },
-  ],
-});
-
-const Staff = mongoose.model("Staff", staffSchema);
-
 //dummy staff object
 let newStaff = new Staff({
   username: "student",
@@ -228,107 +145,6 @@ let newStaff = new Staff({
   projects: [],
 });
 newStaff.save();
-
-//announcement Schema
-const announcementSchema = new mongoose.Schema({
-  projectName: String,
-  projectID: String,
-  projectType: String,
-  salaryDetails: Number,
-  openPositions: String,
-  requiredQualifications: String,
-  startDate: Date,
-  endDate: Date,
-  active: Boolean,
-  description: String,
-  facultyName: String,
-  Applications: [String],
-});
-
-const Announcement = mongoose.model("Announcement", announcementSchema);
-
-//Recruitment details schema
-const recruitmentRequestSchema = new mongoose.Schema({
-  projectID: String,
-  recruitmentType: String,
-  numberOfStaff: Number,
-  salaryDetails: Number,
-  startDate: Date,
-  endDate: Date,
-  active: Boolean,
-  description: String,
-  approval: Boolean,
-  projectName: String,
-  facultyID: String,
-  status: Number,
-});
-
-const RecruitmentRequest = mongoose.model(
-  "RecruitmentRequest",
-  recruitmentRequestSchema
-);
-
-//fund extension data schema
-const fundsRequestSchema = new mongoose.Schema({
-  projectID: String,
-  projectType: String,
-  prevSanctionValue: Number,
-  extendSanctionValue: Number,
-  active: Boolean,
-  descriptionBox: String,
-  approval: Boolean,
-  projectName: String,
-  facultyID: String,
-  status: Number,
-});
-
-const FundsRequest = mongoose.model("FundsRequest", fundsRequestSchema);
-
-//duration extension schema
-const durationExtensionSchema = new mongoose.Schema({
-  projectID: String,
-  projectType: String,
-  numberOfStaff: Number,
-  prevDate: Date,
-  newDate: Date,
-  active: Boolean,
-  description: String,
-  approval: Boolean,
-  projectName: String,
-  descriptionBox: String,
-  facultyID: String,
-  status: Number,
-});
-
-const DurationExtension = mongoose.model(
-  "DurationExtension",
-  durationExtensionSchema
-);
-
-//ident details schema
-const indentSchema = new mongoose.Schema({
-  projectCode: String,
-  itemName: String,
-  cost: Number,
-  retailerName: String,
-  description: String,
-});
-
-const Indent = mongoose.model("Indent", indentSchema);
-
-//Test code for saving files
-
-// const scannedSignaturesSchema = new mongoose.Schema({
-//   fileName: String,
-//   filePath: String,
-//   fileType: String,
-//   fileSize: String,
-// });
-
-// const ScannedSignatures = mongoose.model(
-//   "ScannedSignatures",
-//   scannedSignaturesSchema
-// );
 
 //--------------------------------------------------------------------------------------------
 //Login Authentication
@@ -455,8 +271,7 @@ app.post("/sendAdminDetails", async (req, res, next) => {
 
 //returns data to Student Home Page
 app.post("/sendStaffDetails", async (req, res, next) => {
-  var details = await Staff.findOne({ username: user });
-
+  var details = await Staff.findOne({ username: "student" });
   try {
     return res.status(200).json({
       success: true,
@@ -923,17 +738,18 @@ app.post("/updateStudentDetails", async (req, res, next) => {
 
 //update student application in student - on pressing apply now
 app.post("/updateOpportunitiesApplyNow", async (req, res, next) => {
-  console.log("announcements");
+  console.log("announcements - apply now");
+  console.log(req.body);
   var obj = await Staff.findOneAndUpdate(
     { username: req.body.staffName },
     { $push: { projects: req.body.projectID } }
   );
-  console.log(req.body);
+  console.log(obj);
+  console.log(obj.projects);
   try {
     return res.status(200).json({
       success: true,
-      count: updateApproval.length,
-      data: updateApproval,
+      //data: updateApproval,
     });
   } catch (err) {
     console.log(err);

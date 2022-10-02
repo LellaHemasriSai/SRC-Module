@@ -141,8 +141,8 @@ export default function RegisterForm(props) {
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label>Signature</label>
-                                        <input type="file" class="form-control-file" id="Signature" onChange={(event) => { setSignature(event.target.value) }} />
+                                        <label for="file">Signature</label>
+                                        <input type="file" name="file" class="form-control-file" id="Signature" onChange={(event) => { setSignature(event.target.value) }} />
                                     </div>
                                 </div>
                                 <div class="form-row">
