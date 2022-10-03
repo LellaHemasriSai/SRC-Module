@@ -188,6 +188,8 @@ Documentation: Google Docs
         * Fetching data using API 
         * Connected front-end react components to backend and rendering data in front-end
         * Added extra functionalities/ features in react components
+
+
 * CS20B011 Guddeti Namitha Reddy:
     * **Frontend:**
         * Front end framework using React and Linking pages using React Routes.
@@ -195,6 +197,8 @@ Documentation: Google Docs
         * Created and implemented Dynamic functionality of all React components.
         * Wrote functions to link front end and back end.
         * Added css styling to a few pages.
+
+
 * CS20B019 Kurra Manasa:
     * **Frontend:**
         * Designed and developed the login pages
@@ -203,17 +207,20 @@ Documentation: Google Docs
         * Added css for the forms
         * Linked pages using routes
         * Created responsive designs for cards
+
+
 * CS20B020 Hemasri Sai Lella:
     * **Frontend:**
         * Created forms in react
         * Styled forms that are created in react using bootstrap and react styling components
         * Added css for different pages in the web application
-
-                Created and styled login page for the application
+        * Created and styled login page for the application
 
     * **Backend:**
         * Written function to store scanned signatures in mongodb
         * Written functions and schema to implement pipeline for announcements and their retrieval
+
+
 * CS20B030 Preethi Varsha Marivina:
     * **Backend:**
         * Set up express server and other server side requirements like local mongodb
