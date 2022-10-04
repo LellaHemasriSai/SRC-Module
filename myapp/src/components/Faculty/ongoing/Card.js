@@ -8,6 +8,10 @@ import { CircularProgressbar } from 'react-circular-progressbar';
 import "./statusbarstyles.css"
 import { useParams, Link } from "react-router-dom";
 import { MDBContainer, MDBRow, MDBCol } from 'mdb-react-ui-kit'
+import {FcApproval} from 'react-icons/fc'
+import {FcDisapprove} from 'react-icons/fc'
+
+
 const Cards = (props) => {
 
   const [show, setShow] = useState(false);
@@ -71,13 +75,41 @@ const Cards = (props) => {
               <MDBCol className='main_text' size='6' sm='3'>Project Name</MDBCol>
               <MDBCol size='6' sm='3'>&ensp;{props.projectName}</MDBCol>
             </MDBRow>
+            <MDBRow className='box_text listofitems'>
+            <div class="list-group-item ">
+              <div class="fw-bold">Project Approval: </div>
+              &ensp;{props.approval ? <FcApproval /> : <FcDisapprove />}
+            </div>
+            <div class="list-group-item ">
+              <div class="fw-bold">ResourceApproval: </div>
+              &ensp;{props.resourceApproval ? <FcApproval /> : <FcDisapprove />}
+            </div>
+            <div class="list-group-item ">
+              <div class="fw-bold">FundApproval : </div>
+              &ensp;{props.fundApproval ? <FcApproval />: <FcDisapprove/>}
+           </div>
+          </MDBRow>
           </MDBContainer>
         </div>
         <input type="text" value={status} onChange={handleChange} style={{ float: 'right', width: '60px' }} />
         <Button variant="primary" className="statbutt" onClick={() => { postData(props._id) }} >Update Status</Button>
-        <Link to={"/Faculty/" + username + "/cardapproval"} className="linkapprove">
+        {/* <Link to={"/Faculty/" + username + "/cardapproval"} className="linkapprove">
           <Button variant="primary" className="approvalbutt">Check Approval status</Button>
-        </Link>
+        </Link> */}
+        {/* <div class="listofitems">
+        <div class="list-group-item ">
+              <div class="fw-bold">Project Approval: </div>
+              &ensp;{props.approval ? <FcApproval /> : <FcDisapprove />}
+            </div>
+            <div class="list-group-item ">
+              <div class="fw-bold">ResourceApproval: </div>
+              &ensp;{props.resourceApproval ? <FcApproval /> : <FcDisapprove />}
+            </div>
+            <div class="list-group-item ">
+              <div class="fw-bold">FundApproval : </div>
+              &ensp;{props.fundApproval ? <FcApproval />: <FcDisapprove/>}
+        </div>
+        </div> */}
         {show ? <div>
           <div class="card_body">
             <label class="desc">Description of the Project:</label>
@@ -198,7 +230,7 @@ const Cards = (props) => {
               </Link>
             </div>
             <div class="form-group col-md-6">
-              <Link to={"/Faculty/" + username + "/list"} state={{from : props.projectCode}}>
+              <Link to={"/Faculty/" + username + "/list"} state={{from: props.projectCode,fund: props.sanctionFund}}>
                 <Button variant="primary" className="buttitem">View Details</Button>
               </Link>
             </div>

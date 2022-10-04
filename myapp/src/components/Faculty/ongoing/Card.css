@@ -165,3 +165,8 @@
 .btn-primary {
   background-color: #3876D0;
 }
+.listofitems
+{ 
+  margin-left: 60%;
+  display: grid;
+}
