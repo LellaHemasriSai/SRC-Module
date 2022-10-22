@@ -80,69 +80,146 @@ const Cards = (props) => {
         {show ? <div>
           <div class="card_body">
             <label class="desc">Description of the Project:</label>
-            {props.description}
+            <div class="desc">{props.description}</div>
           </div>
-          <ul class="list-group list-group-flush leftside">
-            <div class="list-group-item ">
-              <div class="fw-bold">Project Type: </div>
-              &ensp;{props.projectType}
+          <div class="contain">
+            <div class="row ">
+              <div class="col-sm">
+                <div class="fw-bold">Project Type: </div>
+                <div class="value">&ensp;{props.projectType}</div>
+              </div>
+              <div class="col-sm">
+                <div class="fw-bold">Faculty ID: </div>
+                <div class="value">&ensp;{props.facultyID}</div>
+              </div>
             </div>
-            <div class="list-group-item ">
-              <div class="fw-bold">Agency Code: </div>
-              &ensp;{props.agencyCode}
+            <div class="row">
+              <div class="col-sm">
+                <div class="fw-bold">Agency Code: </div>
+                <div class="value">&ensp;{props.agencyCode}</div>
+              </div>
+              <div class="col-sm">
+                <div class="fw-bold">Organisation Type: </div>
+                <div class="value">&ensp;{props.organisationType}</div>
+              </div>
             </div>
-            <div class="list-group-item ">
-              <div class="fw-bold">Agency Name: </div>
-              &ensp;{props.agencyName}
+            <div class="row">
+              <div class="col-sm">
+                <div class="fw-bold">Agency Name: </div>
+                <div class="value">&ensp;{props.agencyName}</div>
+              </div>
+              <div class="col-sm">
+                <div class="fw-bold">Staff: </div>
+                <div class="value">&ensp;{props.staff}</div>
+              </div>
             </div>
-            <div class="list-group-item ">
-              <div class="fw-bold">Approval: </div>
-              &ensp;{props.approval ? "True" : "False"}
+            <div class="row ">
+              <div class="col-sm">
+                <div class="fw-bold">Approval: </div>
+                <div class="value">&ensp;{props.approval ? "True" : "False"}</div>
+              </div>
+              <div class="col-sm">
+                <div class="fw-bold">Sanction Fund: </div>
+                <div class="value">&ensp;{props.sanctionFund}</div>
+              </div>
             </div>
-            <div class="list-group-item ">
-              <div class="fw-bold">ResourceApproval: </div>
-              &ensp;{props.resourceApproval ? "True" : "False"}
+            <div class="row">
+              <div class="col-sm">
+                <div class="fw-bold">ResourceApproval: </div>
+                <div class="value">&ensp;{props.resourceApproval ? "True" : "False"}</div>
+              </div>
+              <div class="col-sm">
+                <div class="fw-bold">Start Date: </div>
+                <div class="value">&ensp;{props.startDate.substring(0, 10)}</div>
+              </div>
             </div>
-            <div class="list-group-item ">
-              <div class="fw-bold">FundApproval : </div>
-              &ensp;{props.fundApproval ? "True" : "False"}
+            <div class="row">
+              <div class="col-sm">
+                <div class="fw-bold">FundApproval : </div>
+                <div class="value">&ensp;{props.fundApproval ? "True" : "False"}</div>
+              </div>
+              <div class="col-sm">
+                <div class="fw-bold">End Date: </div>
+                <div class="value">&ensp;{props.endDate.substring(0, 10)}</div>
+              </div>
             </div>
-            <div class="list-group-item ">
-              <div class="fw-bold">Closed : </div>
-              &ensp;{props.closed ? "True" : "False"}
+            <div class="row">
+              <div class="col-sm">
+                <div class="fw-bold">Closed : </div>
+                <div class="value">&ensp;{props.closed ? "True" : "False"}</div>
+              </div>
+              <div class="col-sm">
+                <div class="fw-bold">Status: </div>
+                <div class="value">&ensp;{status}</div>
+              </div>
             </div>
-          </ul>
-          <ul class="list-group list-group-flush rightside">
-            <div class="list-group-item ">
-              <div class="fw-bold">Faculty ID: </div>
-              &ensp;{props.facultyID}
+            <div class="row">
+              <div class="col-sm">
+                <div class="fw-bold">Comment : </div>
+              </div>
             </div>
-            <div class="list-group-item ">
-              <div class="fw-bold">Organisation Type: </div>
-              &ensp;{props.organisationType}
+            <div class="row">
+              <div class="col-sm-7">
+                <textarea id="Comment" class="form-control" placeholder="Comment...." />
+              </div>
+              <div class="col-sm">
+                <button type="button" class="btn btn-primary" >
+                  Post Comment
+                </button>
+              </div>
+              <div class="col-sm">
+                <button type="button" class="btn btn-outline-primary">
+                  Cancel
+                </button>
+              </div>
             </div>
-            <div class="list-group-item ">
-              <div class="fw-bold">Staff: </div>
-              &ensp;{props.staff}
+            <div class="row">
+              <div class="form-group col-md-6">
+                <Link to={"/Faculty/" + username + "/extend_duration"}
+                  state={{
+                    name: props.projectName,
+                    id: props.projectCode,
+                    type: props.projectType,
+                    start: new Date(props.startDate),
+                    end: new Date(props.endDate),
+                  }}>
+                  <Button variant="primary" className="buttitem">Extend Duration</Button>
+                </Link>
+              </div>
+              <div class="form-group col-md-6" >
+                <Link to={"/Faculty/" + username + "/modify_staff"}
+                  state={{
+                    name: props.projectName,
+                    id: props.projectCode,
+                    type: props.projectType,
+                    start: new Date(props.startDate),
+                    end: new Date(props.endDate),
+                  }}>
+                  <Button variant="primary" className="buttitem">Staff Modification</Button>
+                </Link>
+              </div>
+              <div class="form-group col-md-6" >
+                <Link to={"/Faculty/" + username + "/funds_extension"}
+                  state={{
+                    name: props.projectName,
+                    id: props.projectCode,
+                    type: props.projectType,
+                    start: new Date(props.startDate),
+                    end: new Date(props.endDate),
+                    sanction: props.sanctionFund
+                  }}  >
+                  <Button variant="primary" className="buttitem">Additional Funds</Button>
+                </Link>
+              </div>
+              <div class="form-group col-md-6">
+                <Link to={"/Faculty/" + username + "/list"}>
+                  <Button variant="primary" className="buttitem">View Details</Button>
+                </Link>
+              </div>
             </div>
-            <div class="list-group-item ">
-              <div class="fw-bold">Sanction Fund: </div>
-              &ensp;{props.sanctionFund}
-            </div>
-            <div class="list-group-item ">
-              <div class="fw-bold">Start Date: </div>
-              &ensp;{props.startDate.substring(0, 10)}
-            </div>
-            <div class="list-group-item ">
-              <div class="fw-bold">End Date: </div>
-              &ensp;{props.endDate.substring(0, 10)}
-            </div>
-            <div class="list-group-item ">
-              <div class="fw-bold">Status: </div>
-              &ensp;{status}
-            </div>
-          </ul>
-          <div>
+          </div>
+
+          {/*<div class="Container">
             <div class="form-group col-md-6">
               <label>Comment</label>
               <textarea id="Comment" class="form-control" placeholder="Comment...." />
@@ -157,8 +234,8 @@ const Cards = (props) => {
                 </button>
               </div>
             </div>
-          </div>
-          <div class="form-row">
+        </div>*/}
+          {/*<div class="form-row">
             <div class="form-group col-md-6" >
               <Link to={"/Faculty/" + username + "/extend_duration"}
                 state={{
@@ -201,7 +278,7 @@ const Cards = (props) => {
                 <Button variant="primary" className="buttitem">View Details</Button>
               </Link>
             </div>
-          </div>
+              </div>*/}
         </div>
           : null
         }
