@@ -100,9 +100,9 @@ const App = () => {
           <Route exact path="/Faculty/:username/extend_duration" element={<ExtendDuration />} />
           <Route exact path="/Faculty/:username/funds_extension" element={<FundsExtension />} />
           <Route exact path="/Faculty/:username/modify_staff" element={<ModifyStaff />} />
-          <Route exact path="/Faculty/:username/list" element={<List />} />
           <Route exact path="/Faculty/:username/tax" element={<Tax />} />
           <Route exact path="/Faculty/:username/cardapproval" element={<Approval />} />
+          <Route exact path="/Faculty/:username/list" element={<List />} />
 
         </>
         <Route exact path="/Student" element={<LoginStu />} />

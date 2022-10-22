@@ -1,11 +1,26 @@
 import { generateAgencyCode, projectCode } from "./Modules/backendModules.js";
-import { Project, Faculty, Staff, Admin, Announcement, RecruitmentRequest, FundsRequest, Indent, DurationExtension } from "./Modules/Schema.js";
+import {
+  Project,
+  Faculty,
+  Staff,
+  Admin,
+  Announcement,
+  RecruitmentRequest,
+  FundsRequest,
+  Indent,
+  DurationExtension,
+} from "./Modules/Schema.js";
 import express from "express";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import lodash from "lodash";
 import cors from "cors";
-
+import path from "path";
+import crypto from "crypto";
+import multer from "multer";
+import { GridFsStorage } from "multer-gridfs-storage";
+import Grid from "gridfs-stream";
+import methodOverride from "method-override";
 const _ = { lodash };
 const app = express();
 
@@ -30,6 +45,36 @@ mongoose.connect(
 var conn = mongoose.connection;
 conn.on("connected", function () {
   console.log("database is connected successfully!");
+});
+
+let gfs;
+conn.once("open", () => {
+  gfs = Grid(conn.db, mongoose.mongo);
+  gfs.collection("uploads");
+});
+
+const storage = new GridFsStorage({
+  url: "mongodb://localhost:27017/SRC",
+  file: (req, file) => {
+    return new Promise((resolve, reject) => {
+      crypto.randomBytes(16, (err, buf) => {
+        if (err) {
+          return reject(err);
+        }
+        const filename = buf.toString("hex") + path.extname(file.originalname);
+        const fileInfo = {
+          filename: filename,
+          bucketName: "uploads",
+        };
+        resolve(fileInfo);
+      });
+    });
+  },
+});
+const upload = multer({ storage });
+
+app.post("/upload", upload.single("file"), (req, res) => {
+  res.json({ file: req.file });
 });
 
 //--------------------------------------------------------------------------------------------
@@ -226,8 +271,7 @@ app.post("/sendAdminDetails", async (req, res, next) => {
 
 //returns data to Student Home Page
 app.post("/sendStaffDetails", async (req, res, next) => {
-  var details = await Staff.findOne({ username: user });
-
+  var details = await Staff.findOne({ username: "student" });
   try {
     return res.status(200).json({
       success: true,
@@ -352,8 +396,9 @@ app.post("/sendFundsRequest", async (req, res, next) => {
 });
 
 //returns indent data to faculty items page
-app.post("/sendIndentDetails", async (req, res, next) => {
-  var indent = await Indent.find({ projectCode: req.body.projectCode });
+app.post("/:id/sendIndentDetails", async (req, res, next) => {
+  console.log(req.params.id)
+  var indent = await Indent.find({ projectCode: req.params.id });
 
   try {
     return res.status(200).json({
@@ -694,17 +739,18 @@ app.post("/updateStudentDetails", async (req, res, next) => {
 
 //update student application in student - on pressing apply now
 app.post("/updateOpportunitiesApplyNow", async (req, res, next) => {
-  console.log("announcements");
+  console.log("announcements - apply now");
+  console.log(req.body);
   var obj = await Staff.findOneAndUpdate(
     { username: req.body.staffName },
     { $push: { projects: req.body.projectID } }
   );
-  console.log(req.body);
+  console.log(obj);
+  console.log(obj.projects);
   try {
     return res.status(200).json({
       success: true,
-      count: updateApproval.length,
-      data: updateApproval,
+      //data: updateApproval,
     });
   } catch (err) {
     console.log(err);
@@ -720,6 +766,27 @@ app.post("/updateOpportunitiesApplyNow", async (req, res, next) => {
 //   );
 //   console.log(obj.Applications);
 // });
+
+//----------------------------------------------------------------------------
+//delete values in data base
+//----------------------------------------------------------------------------
+
+//update student application in student - on pressing apply now
+app.post("/deleteIndentDetails", async (req, res, next) => {
+  console.log("deleting indent details");
+  await Indent.deleteOne(
+    { _id: req.body.id }
+  );
+  try {
+    return res.status(200).json({
+      success: true,
+      //data: updateApproval,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: "server error" });
+  }
+});
 
 //----------------------------------------------------------------------------
 //setting up the port

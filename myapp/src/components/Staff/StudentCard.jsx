@@ -11,17 +11,23 @@ export default function StudentCard(props) {
   const [qual, setQual] = useState([])
   const [dep, setDep] = useState([])
   const [contact, setContact] = useState([])
-  const [_id, set_id] = useState([])
+  const [stud_id, setStud_id] = useState([])
+  const [code,setCode]=useState([])
 
   useEffect(() => {
-    axios.post('http://localhost:3001/sendStaffDetails')
+    axios.post('http://localhost:3001/:code/sendStaffDetails') // as of now not working
+          // sending student code as params
       .then(res => {
         console.log('Data: ', res.data.data);
-        setUserName(res.data.data.username)
+        console.log(res.data.data)
+        setUserName(res.data.data.username);
+        console.log(res.data.data.username)
         setContact(res.data.data.details.ContactNumber)
         setDep(res.data.data.details.Department)
         setEmail(res.data.data.details.Email)
         setQual(res.data.data.details.Qualifications)
+        setStud_id(res.data.data._id)
+        setCode(res.data.data.staffCode)
       })
       .catch(err => {
         console.log(err);
@@ -29,9 +35,19 @@ export default function StudentCard(props) {
   }, [])
 
 
-  function postApplication(id,_id) {
+  function postApplication(id, _id) {
     console.log("Applied")
-    props.onHandle(id);
+   // props.onHandle(id);
+   console.log("application" ,{
+        staffName: username,
+        staffcode:code,
+        projectID: id,
+        department: dep,
+        email: email,
+        qualifications: qual,
+        contact: contact,
+        announceid: _id,
+   })
     fetch("/updateOpportunitiesApplyNow", {
       method: "POST",
       headers: {
@@ -39,18 +55,21 @@ export default function StudentCard(props) {
       },
       body: JSON.stringify({
         staffName: username,
+        staffcode:code,
         projectID: id,
         department: dep,
         email: email,
         qualifications: qual,
         contact: contact,
-        announceid:_id,
+        announceid: _id,
 
       }),
-    }).then((res) => {
+    },
+    swal("", "Applied Successfully", "success"),
+    ).then((res) => {
       console.log("Res:", res);
     })
-    swal("","Applied Successfully","success");
+    //swal("", "Applied Successfully", "success");
   }
 
   let start = new Date(props.start);
@@ -78,7 +97,7 @@ export default function StudentCard(props) {
         <div className='application_text'>
           <span className='application_items'>
             <p className='items_p'>Faculty Name</p>
-            <span>faculty</span>  
+            <span>faculty</span>
           </span>
           <span className='application_items'>
             <p className='items_p'>Salary Details</p>
@@ -96,13 +115,13 @@ export default function StudentCard(props) {
         <div className='application_text'>
           <span className='application_items'>
             <p className='items_p'>Required Qualifications:</p>
-            <span>{props.qual}</span> 
+            <span>{props.qual}</span>
           </span>
         </div>
         <div className='home_text'>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         </div>
-        <button onClick={() => { postApplication(props.id,props._id) }} className='apply_btn'>Apply Now</button>
+        <button onClick={() => { postApplication(props.id, props._id) }} className='apply_btn'>Apply Now</button>
       </div>
     </div>
   )

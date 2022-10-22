@@ -13,7 +13,7 @@ export default function Opportunities(props) {
   useEffect(() => {
     axios.post('http://localhost:3001/sendAnnouncements')
       .then(res => {
-        console.log('Data: ', res.data.data)
+        console.log('Announcements Data: ', res.data.data)
         setOpportunity(res.data.data)
 
       })
@@ -23,19 +23,7 @@ export default function Opportunities(props) {
   }, [])
 
   
-  const handleArray=(id)=>{
-      let i;
-      for(i=0;i<opportunity.length;i++){
-        if(opportunity[i].projectID===id){
-          console.log(opportunity[i])
-          break;
-        }
-    }
-    setOpportunity(opportunity.filter(function(item) {
-        return item !== opportunity[i];
-    }))
-    console.log(opportunity);
-  }
+  
 
 
 
@@ -53,7 +41,6 @@ export default function Opportunities(props) {
             marginTop:"10%" , color:"GrayText"}}>No Opportunites</h2> :
             opportunity.map((h,index)=>{
 				     return <StudentCard
-              onHandle={handleArray}
               key={index}
               name={h.projectName}
               id={h.projectID}
