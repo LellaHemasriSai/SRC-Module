@@ -15,7 +15,7 @@ const location = useLocation()
     const [endDate, setEndDate] = useState("")
     const [descriptionBox, setDescriptionBox] = useState("")
     function onSubmit() { console.log("") }
-    function handlchange(projectName,projectID,projectType,withdrawnStaff,extendStaff,startDate,endDate,descriptionBox)
+    function handlchange()
     {
         setProjectName("");
         setProjectID("");
@@ -26,7 +26,7 @@ const location = useLocation()
         setEndDate("");
         setDescriptionBox("");
     }
-    function postData() {
+    function postData(projectName,projectID,projectType,withdrawnStaff,extendStaff,startDate,endDate,descriptionBox) {
         console.log("Submitted")
         fetch("/created", {
             method: "POST",
@@ -46,7 +46,7 @@ const location = useLocation()
         }).then((res) => {
             console.log("Res:", res);
         })
-        handlchange();
+      //  handlchange();
     }
    
 
