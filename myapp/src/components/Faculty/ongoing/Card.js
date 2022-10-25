@@ -8,8 +8,8 @@ import { CircularProgressbar } from 'react-circular-progressbar';
 import "./statusbarstyles.css"
 import { useParams, Link } from "react-router-dom";
 import { MDBContainer, MDBRow, MDBCol } from 'mdb-react-ui-kit'
-import {FcApproval} from 'react-icons/fc'
-import {FcDisapprove} from 'react-icons/fc'
+import { FcApproval } from 'react-icons/fc'
+import { FcDisapprove } from 'react-icons/fc'
 
 
 const Cards = (props) => {
@@ -76,19 +76,19 @@ const Cards = (props) => {
               <MDBCol size='6' sm='3'>&ensp;{props.projectName}</MDBCol>
             </MDBRow>
             <MDBRow className='box_text listofitems'>
-            <div class="list-group-item ">
-              <div class="fw-bold">Project Approval: </div>
-              &ensp;{props.approval ? <FcApproval /> : <FcDisapprove />}
-            </div>
-            <div class="list-group-item ">
-              <div class="fw-bold">ResourceApproval: </div>
-              &ensp;{props.resourceApproval ? <FcApproval /> : <FcDisapprove />}
-            </div>
-            <div class="list-group-item ">
-              <div class="fw-bold">FundApproval : </div>
-              &ensp;{props.fundApproval ? <FcApproval />: <FcDisapprove/>}
-           </div>
-          </MDBRow>
+              <div class="list-group-item ">
+                <div class="fw-bold">Project Approval: </div>
+                &ensp;{props.approval ? <FcApproval /> : <FcDisapprove />}
+              </div>
+              <div class="list-group-item ">
+                <div class="fw-bold">ResourceApproval: </div>
+                &ensp;{props.resourceApproval ? <FcApproval /> : <FcDisapprove />}
+              </div>
+              <div class="list-group-item ">
+                <div class="fw-bold">FundApproval : </div>
+                &ensp;{props.fundApproval ? <FcApproval /> : <FcDisapprove />}
+              </div>
+            </MDBRow>
           </MDBContainer>
         </div>
         <input type="text" value={status} onChange={handleChange} style={{ float: 'right', width: '60px' }} />
@@ -245,7 +245,7 @@ const Cards = (props) => {
                 </Link>
               </div>
               <div class="form-group col-md-6">
-                <Link to={"/Faculty/" + username + "/list"}>
+                <Link to={"/Faculty/" + username + "/list"} state={{ from: props.projectCode, fund: props.sanctionFund }}>
                   <Button variant="primary" className="buttitem">View Details</Button>
                 </Link>
               </div>
@@ -267,8 +267,8 @@ const Cards = (props) => {
                 </button>
               </div>
             </div>
-        </div>*/}
-          {/*<div class="form-row">
+          </div>
+          <div class="form-row">
             <div class="form-group col-md-6" >
               <Link to={"/Faculty/" + username + "/extend_duration"}
                 state={{
@@ -307,7 +307,7 @@ const Cards = (props) => {
               </Link>
             </div>
             <div class="form-group col-md-6">
-              <Link to={"/Faculty/" + username + "/list"} state={{from: props.projectCode,fund: props.sanctionFund}}>
+              <Link to={"/Faculty/" + username + "/list"} state={{ from: props.projectCode, fund: props.sanctionFund }}>
                 <Button variant="primary" className="buttitem">View Details</Button>
               </Link>
             </div>
