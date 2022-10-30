@@ -270,7 +270,7 @@ app.post("/sendAdminDetails", async (req, res, next) => {
 });
 
 //returns data to Student Home Page
-app.post("/sendStaffDetails", async (req, res, next) => {
+app.post("/:code/sendStaffDetails", async (req, res, next) => {
   var details = await Staff.findOne({ username: "student" });
   try {
     return res.status(200).json({
@@ -771,7 +771,7 @@ app.post("/updateOpportunitiesApplyNow", async (req, res, next) => {
 //delete values in data base
 //----------------------------------------------------------------------------
 
-//update student application in student - on pressing apply now
+//delete Indent details in data base when delete button is pressed
 app.post("/deleteIndentDetails", async (req, res, next) => {
   console.log("deleting indent details");
   await Indent.deleteOne(
