@@ -10,7 +10,7 @@ function Login1() {
     console.log(location);
     return (
         <div className="login1_container">
-            <img src={logo} alt="IIT Tirupati Logo" />
+            <img src="https://t4.ftcdn.net/jpg/05/18/90/73/360_F_518907339_S1lBUD5UesFvxXGpY1W695x0k0WO6YLh.jpg" alt="SRC Logo" />
             <hr />
             <h3>Welcome to IIT Tirupati E-Governance</h3>
             <hr />

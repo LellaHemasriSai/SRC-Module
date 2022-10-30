@@ -21,7 +21,7 @@ function Nav(props) {
 	return (
 		<div className="top_navbar fixed-top" >
 			<div className="menu_icon" onClick={menu}><i class="fas fa-bars"></i></div>
-			<div className="logo"><img src={logo} style={{ width: "60px", height: "40px" }} alt="logo_pic" />
+			<div className="logo"><img src="https://t4.ftcdn.net/jpg/05/18/90/73/360_F_518907339_S1lBUD5UesFvxXGpY1W695x0k0WO6YLh.jpg" style={{ width: "60px", height: "40px" }} alt="logo_pic" />
 				<span id="year">2022 - 23</span>
 			</div>
 			<div className="menu">

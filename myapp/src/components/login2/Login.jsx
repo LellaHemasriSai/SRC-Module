@@ -22,7 +22,7 @@ const LoginFac = () => {
     return (
         <div>
             <div className="container_login2">
-                <img src={logo} alt="IIT Tirupati Logo" />
+                <img src="https://t4.ftcdn.net/jpg/05/18/90/73/360_F_518907339_S1lBUD5UesFvxXGpY1W695x0k0WO6YLh.jpg" alt="SRC Logo" />
                 <h3 className="text-center" >Faculty Login</h3>
                 <form action="#" class="login2-form" >
                     <div className="form-group_login2" >
