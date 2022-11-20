@@ -29,13 +29,27 @@ M. Preethi Varsha   - CS20B030
 * Split the terminal into two (one for running the server and the other for starting the react app). 
 * **Starting the Server:**
     * In one of the terminal,
-    * In the SRC Module directory, type **npm i **
+    * In the SRC Module directory, type **npm i**
     * Start the node server using **node server.js**
     * The server is deployed on localhost:3001
 * **Deploying the react app** in the second terminal:
     * If the current directory is SRC module, use **cd myapp**
     * Then to start the app use **npm start** and press enter
     * The react app is now automatically deployed on localhost:3000
+    
+* **Dummy users**
+* for faculty login type: 
+  * username : faculty 
+  * password : faculty
+  
+* for admin login type:
+   * username : admin
+   * password : admin
+  
+* for student login type:
+   * username : student
+   * password : student
+  
 * To terminate the app/server, type **ctrl+c**
 
 
