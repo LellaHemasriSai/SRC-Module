@@ -247,3 +247,9 @@ Documentation: Google Docs
         * Fixed fetch and axios functions in react 
         * Helped in Integration of few modules to back end
         * Took part in Design of UI
+
+# UML DIAGRAMS
+   <img src="https://user-images.githubusercontent.com/89120803/207625474-e837a873-2ac6-4a0b-8dbf-4531952e06d6.png" width=50% height=50%>    
+   <img src="https://user-images.githubusercontent.com/89120803/207625704-d5f4d8f8-a285-407b-a585-b1ef7cd193dc.png" width=50% height=50%>
+   <img src="https://user-images.githubusercontent.com/89120803/207625813-c240c6a6-80c4-458b-b678-c5819d66201d.png" width=50% height=50%>
+
